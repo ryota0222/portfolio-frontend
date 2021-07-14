@@ -6,28 +6,30 @@ import {
   useColorMode,
   useColorModeValue,
   Box,
-} from "@chakra-ui/react"
-import { StoryContext } from "@storybook/react"
-import { addDecorator } from '@storybook/react';
-import { IoMoonOutline } from "react-icons/io5";
-import { FiSun } from "react-icons/fi";
-import { withPerformance } from 'storybook-addon-performance';
+} from '@chakra-ui/react'
+import { StoryContext } from '@storybook/react'
+import { addDecorator } from '@storybook/react'
+import { IoMoonOutline } from 'react-icons/io5'
+import { FiSun } from 'react-icons/fi'
+import { withPerformance } from 'storybook-addon-performance'
 
-const addParameters = require('@storybook/react').addParameters;
+const addParameters = require('@storybook/react').addParameters
 
-addDecorator(withPerformance);
+addDecorator(withPerformance)
 addParameters({
   options: {
     storySort: (a, b) =>
-      a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+      a[1].kind === b[1].kind
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
   },
-});
+})
 
 //ダークモードとライトモードの切替
 const ColorModeToggleBar = () => {
   const { toggleColorMode } = useColorMode()
   const SwitchIcon = useColorModeValue(IoMoonOutline, FiSun)
-  const nextMode = useColorModeValue("dark", "light")
+  const nextMode = useColorModeValue('dark', 'light')
 
   return (
     <Flex justify="flex-end" mb={4}>
@@ -48,7 +50,7 @@ const ColorModeToggleBar = () => {
 /**
  * Add global context for RTL-LTR switching
  */
- export const globalTypes = {
+export const globalTypes = {
   direction: {
     name: 'Direction',
     description: 'Direction for layout',
@@ -58,7 +60,7 @@ const ColorModeToggleBar = () => {
       items: ['LTR', 'RTL'],
     },
   },
-};
+}
 
 const withChakra = (StoryFn: Function, context: StoryContext) => {
   console.log(context)
@@ -66,13 +68,12 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
   const dir = direction.toLowerCase()
   return (
     <ChakraProvider theme={extendTheme({ direction: dir })}>
-        <Box dir={dir} id="story-wrapper">
-          <ColorModeToggleBar />
-          <StoryFn />
-        </Box>
+      <Box dir={dir} id="story-wrapper">
+        <ColorModeToggleBar />
+        <StoryFn />
+      </Box>
     </ChakraProvider>
   )
 }
-
 
 export const decorators = [withChakra, withPerformance]

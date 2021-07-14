@@ -1,0 +1,4 @@
+.github/
+.next/
+.husky/
+package-lock.json
