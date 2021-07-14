@@ -28,10 +28,15 @@ Blue.parameters = {
 
 export const Red = Template.bind({});
 Red.args = {
-  schema: "red"
+  schema: "#FF7373"
 };
 
 export const Green = Template.bind({});
 Green.args = {
   schema: "green"
+};
+
+export const Purple = Template.bind({});
+Purple.args = {
+  schema: "purple"
 };

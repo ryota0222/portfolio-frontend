@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook -o build/storybook"
+    "build:storybook": "build-storybook -o build/storybook",
+    "chromatic": "npx chromatic --project-token=PROJECT_TOKEN --exit-once-uploaded"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.5",
@@ -37,6 +38,7 @@
     "@storybook/react": "^6.3.4",
     "@types/node": "^16.3.1",
     "@types/react": "^17.0.14",
+    "chromatic": "^5.9.2",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
     "storybook-addon-designs": "^6.0.1",
