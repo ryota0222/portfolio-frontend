@@ -3,3 +3,4 @@
 
 # yarn lint-stagedを実行
 yarn lint-staged
+yarn test:types
