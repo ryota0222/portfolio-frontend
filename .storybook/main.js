@@ -16,7 +16,8 @@ module.exports = {
         'storybook-addon-pseudo-states',
         'storybook-dark-mode',
         'storybook-addon-performance/register',
-        '@storybook/addon-controls'
+        '@storybook/addon-controls',
+        'storybook-addon-designs'
     ],
     typescript: {
         reactDocgen: false,
