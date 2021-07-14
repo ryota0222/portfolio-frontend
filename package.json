@@ -6,10 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -o build/storybook",
-    "chromatic": "npx chromatic --project-token=PROJECT_TOKEN --exit-once-uploaded"
+    "chromatic": "npx chromatic --project-token=PROJECT_TOKEN --exit-once-uploaded",
+    "test:format": "prettier --write .",
+    "test:types": "tsc --noEmit",
+    "test:lint": "run-s lint lint:fix",
+    "test-all": "run-s test:*",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.5",
@@ -18,6 +24,7 @@
     "@emotion/styled": "^11",
     "framer-motion": "^4",
     "next": "11.0.1",
+    "npm-run-all": "^4.1.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
@@ -41,10 +48,21 @@
     "chromatic": "^5.9.2",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
+    "eslint-config-prettier": "8.3.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.1",
+    "prettier": "2.3.2",
     "storybook-addon-designs": "^6.0.1",
     "storybook-addon-performance": "^0.16.0",
     "storybook-addon-pseudo-states": "^1.0.0",
     "storybook-dark-mode": "^1.0.8",
     "typescript": "^4.3.5"
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn test:format",
+      "yarn lint:fix"
+    ]
   }
 }

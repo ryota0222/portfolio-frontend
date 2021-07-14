@@ -1,0 +1,6 @@
+#!/bin/sh
+"$(dirname "$0")/_/husky.sh"
+
+# yarn lint-stagedを実行
+yarn lint-staged
+yarn test:types
