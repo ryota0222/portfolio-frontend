@@ -1,10 +1,10 @@
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { MyButton, Props } from '../Button'
+import { Btn, Props } from '../Button'
 
 export default {
   title: 'Design System/Atoms/Button',
-  component: MyButton,
+  component: Btn,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
@@ -76,7 +76,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<Props> = (args) => <MyButton {...args}>sample</MyButton>
+const Template: Story<Props> = (args) => <Btn {...args}>sample</Btn>
 
 export const Primary = Template.bind({})
 Primary.args = {

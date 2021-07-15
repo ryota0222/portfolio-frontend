@@ -1,28 +1,29 @@
-import { ReactNode, useMemo, memo } from 'react'
+import { memo } from 'react'
 import { Avatar, useColorModeValue } from '@chakra-ui/react'
-import {Size} from "@/types/interface"
+import { Size } from '@/types/interface'
 
 export interface Props {
-    /**
+  /**
    * 画像データ
    */
-  imageData: unknown
-    /**
+  imageData: string | null
+  /**
    *サイズ
    */
-     size: Size
+  size: Size
 }
 
-export const UserIcon = memo(({imageData, size}: Props) => {
-    const bg = useColorModeValue('gray.400', 'gray.600')
-    console.log(imageData)
-    return (
-        <Avatar
-        size={size}
-        src={imageData}
-        showBorder={true}
-        borderWidth="6px"
-        bg={imageData ? 'transparent' : bg}
-        />
-    )
+export const UserIcon = memo(({ imageData, size }: Props) => {
+  const bg = useColorModeValue('gray.400', 'gray.600')
+  return (
+    <Avatar
+      size={size}
+      src={imageData}
+      showBorder={true}
+      borderWidth="6px"
+      bg={imageData ? 'transparent' : bg}
+    />
+  )
 })
+
+UserIcon.displayName = 'UserIcon'

@@ -29,7 +29,7 @@ export interface Props extends ButtonProps {
   neumorphic?: boolean
 }
 
-export const MyButton = memo((props: Props) => {
+export const Btn = memo((props: Props) => {
   const { scheme } = props
   const n_bg = useColorModeValue('#FBFBFB', '#404040')
   const n_boxShadow = useColorModeValue(
