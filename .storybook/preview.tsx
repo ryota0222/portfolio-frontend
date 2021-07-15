@@ -12,6 +12,7 @@ import { addDecorator } from '@storybook/react'
 import { IoMoonOutline } from 'react-icons/io5'
 import { FiSun } from 'react-icons/fi'
 import { withPerformance } from 'storybook-addon-performance'
+import { mode } from '@chakra-ui/theme-tools'
 
 const addParameters = require('@storybook/react').addParameters
 
@@ -63,11 +64,17 @@ export const globalTypes = {
 }
 
 const withChakra = (StoryFn: Function, context: StoryContext) => {
-  console.log(context)
   const { direction } = context.globals
   const dir = direction.toLowerCase()
+  const styles = {
+    global: (props) => ({
+      body: {
+        bg: mode('#FBFBFB', '#404040')(props),
+      },
+    }),
+  }
   return (
-    <ChakraProvider theme={extendTheme({ direction: dir })}>
+    <ChakraProvider theme={extendTheme({ direction: dir, styles })}>
       <Box dir={dir} id="story-wrapper">
         <ColorModeToggleBar />
         <StoryFn />
