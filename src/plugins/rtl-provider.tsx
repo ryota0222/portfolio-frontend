@@ -1,17 +1,17 @@
+import createCache, { StylisPlugin } from '@emotion/cache'
+import { CacheProvider } from '@emotion/react'
 import { useRouter } from 'next/router'
-import { CacheProvider } from "@emotion/react"
-import createCache, {StylisPlugin} from "@emotion/cache"
-import rtl from "stylis-plugin-rtl"
+import rtl from 'stylis-plugin-rtl'
 
 // NB: A unique `key` is important for it to work!
 const options = {
-  rtl: { key: "css-ar", stylisPlugins: [rtl] as Array<StylisPlugin>},
-  ltr: { key: "css-en" },
+  rtl: { key: 'css-ar', stylisPlugins: [rtl] as Array<StylisPlugin> },
+  ltr: { key: 'css-en' },
 }
 
 export function RtlProvider({ children }) {
   const { locale } = useRouter()
-  const dir = locale == "ar" ? "rtl" : "ltr"
+  const dir = locale == 'ar' ? 'rtl' : 'ltr'
   const cache = createCache(options[dir])
   return <CacheProvider value={cache}>{children}</CacheProvider>
 }
