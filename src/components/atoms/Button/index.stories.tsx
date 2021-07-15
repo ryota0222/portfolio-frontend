@@ -1,4 +1,3 @@
-import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { MyButton, Props } from '../Button'
@@ -11,35 +10,144 @@ export default {
     withDesign,
   ],
   argTypes: {
-    schema: {
-      options: ['blue', 'red', 'green', 'purple'],
+    scheme: {
+      type: { name: 'ButtonScheme', required: true },
+      defaultValue: 'primary',
+      description: 'カラースキーマ',
+      table: {
+        type: { summary: 'ButtonScheme' },
+        defaultValue: { summary: 'primary' },
+      },
+      options: ['primary', 'secondary', 'danger', 'info'],
       control: { type: 'radio' },
+    },
+    onClick: {
+      type: { name: 'Function', required: true },
+      description: 'クリックイベントが発生した際の処理',
+      table: {
+        type: { summary: 'Function' },
+      },
+      action: 'clicked',
+    },
+    variant: {
+      type: { name: 'ButtonVariant', required: false },
+      defaultValue: 'solid',
+      description: 'ボタンのタイプ',
+      table: {
+        type: { summary: 'ButtonVariant' },
+        defaultValue: { summary: 'solid' },
+      },
+      options: ['solid', 'outline'],
+      control: { type: 'radio' },
+    },
+    round: {
+      type: { name: 'boolean', required: false },
+      defaultValue: false,
+      description: 'ボタンの両サイドの丸くするかのフラグ',
+      table: {
+        type: { summary: 'boolean', detail: 'trueの時、角丸のボタンにする' },
+        defaultValue: { summary: false },
+      },
+      controls: { expanded: true },
+    },
+    floating: {
+      type: { name: 'boolean', required: false },
+      defaultValue: false,
+      description: 'ボタンに影をつける',
+      table: {
+        type: { summary: 'boolean', detail: 'trueの時、影をつける' },
+        defaultValue: { summary: false },
+      },
+      controls: { expanded: true },
+    },
+    neumorphic: {
+      type: { name: 'boolean', required: false },
+      defaultValue: false,
+      description: 'ニューモーフィズムにする',
+      table: {
+        type: {
+          summary: 'boolean',
+          detail: 'trueの時、ニューモーフィズムにする',
+        },
+        defaultValue: { summary: false },
+      },
+      controls: { expanded: true },
     },
   },
 } as Meta
 
 const Template: Story<Props> = (args) => <MyButton {...args}>sample</MyButton>
 
-export const Blue = Template.bind({})
-Blue.args = {}
-Blue.parameters = {
+export const Primary = Template.bind({})
+Primary.args = {
+  scheme: 'primary',
+}
+Primary.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=2%3A16',
   },
 }
 
-export const Red = Template.bind({})
-Red.args = {
-  schema: '#FF7373',
+export const Secondary = Template.bind({})
+Secondary.args = {
+  ...Primary.args,
+  scheme: 'secondary',
+}
+Secondary.parameters = {
+  ...Primary.parameters,
 }
 
-export const Green = Template.bind({})
-Green.args = {
-  schema: 'green',
+export const Danger = Template.bind({})
+Danger.args = {
+  ...Primary.args,
+  scheme: 'danger',
+}
+Danger.parameters = {
+  ...Primary.parameters,
 }
 
-export const Purple = Template.bind({})
-Purple.args = {
-  schema: 'purple',
+export const Info = Template.bind({})
+Info.args = {
+  ...Primary.args,
+  scheme: 'info',
+}
+Info.parameters = {
+  ...Primary.parameters,
+}
+
+export const Outline = Template.bind({})
+Outline.args = {
+  ...Primary.args,
+  variant: 'outline',
+}
+Outline.parameters = {
+  ...Primary.parameters,
+}
+
+export const Round = Template.bind({})
+Round.args = {
+  ...Primary.args,
+  round: true,
+}
+Round.parameters = {
+  ...Primary.parameters,
+}
+
+export const Floating = Template.bind({})
+Floating.args = {
+  ...Primary.args,
+  floating: true,
+}
+Floating.parameters = {
+  ...Primary.parameters,
+}
+
+export const Neumorphic = Template.bind({})
+Neumorphic.args = {
+  ...Primary.args,
+  neumorphic: true,
+}
+Neumorphic.parameters = {
+  ...Primary.parameters,
 }
