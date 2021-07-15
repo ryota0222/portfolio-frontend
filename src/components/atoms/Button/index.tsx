@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, memo } from 'react'
+import { ReactNode, useMemo, memo } from 'react'
 import { Button, ButtonProps, useColorModeValue } from '@chakra-ui/react'
 import { ButtonVariant, ButtonScheme } from '@/types/interface'
 
