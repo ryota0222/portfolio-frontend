@@ -13,8 +13,14 @@ import { IoMoonOutline } from 'react-icons/io5'
 import { FiSun } from 'react-icons/fi'
 import { withPerformance } from 'storybook-addon-performance'
 import { mode } from '@chakra-ui/theme-tools'
+import * as nextImage from 'next/image'
 
 const addParameters = require('@storybook/react').addParameters
+
+Object.defineProperty(nextImage, 'default', {
+  configurable: true,
+  value: (props) => <img {...props} />,
+})
 
 addDecorator(withPerformance)
 addParameters({
