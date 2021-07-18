@@ -1,6 +1,6 @@
-import { COUNTER_TYPE } from '@/consts/config'
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
+import { COUNTER_TYPE } from '@/consts/config'
 import { Counter, Props } from '.'
 
 export default {

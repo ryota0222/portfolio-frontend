@@ -1,9 +1,9 @@
 import { memo, useMemo } from 'react'
-import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
-import Good from '@/assets/blogs/good.svg'
-import Bad from '@/assets/blogs/bad.svg'
-import { CounterType, Size } from '@/types/interface'
+import { Flex, Text } from '@chakra-ui/react'
 import Image from 'next/image'
+import Bad from '@/assets/blogs/bad.svg'
+import Good from '@/assets/blogs/good.svg'
+import { CounterType, Size } from '@/types/interface'
 
 export interface Props {
   /**
