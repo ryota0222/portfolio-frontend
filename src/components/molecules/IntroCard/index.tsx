@@ -1,15 +1,8 @@
 import { memo } from 'react'
-import {
-  Box,
-  Text,
-  useColorModeValue,
-  Skeleton,
-  Link,
-  Flex,
-} from '@chakra-ui/react'
+import { Box, Text, useColorModeValue, Link, Flex } from '@chakra-ui/react'
+import { FaTwitter, FaGithub } from 'react-icons/fa'
 import { Panel } from '@/components/atoms/Panel'
 import { UserIcon } from '@/components/atoms/UserIcon'
-import { FaTwitter, FaGithub } from 'react-icons/fa'
 
 export interface Props {
   /**
@@ -58,11 +51,11 @@ export const IntroCard = memo(
             </Flex>
           </Box>
           <Box>
-            <Text fontWeight="bold" fontSize="2rem">
+            <Text fontWeight="bold" fontSize="2rem" color={textColor}>
               {name}
             </Text>
             {intro && intro.length > 0 && (
-              <Text noOfLines={4} fontSize="sm">
+              <Text noOfLines={4} fontSize="sm" color={textColor}>
                 {intro}
               </Text>
             )}
@@ -72,3 +65,5 @@ export const IntroCard = memo(
     )
   },
 )
+
+IntroCard.displayName = 'IntroCard'
