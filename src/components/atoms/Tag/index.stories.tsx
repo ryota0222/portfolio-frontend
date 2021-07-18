@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-import { Tag, Props } from '.'
 import { withDesign } from 'storybook-addon-designs'
+import { Tag, Props } from '.'
 
 export default {
   title: 'Design System/Atoms/Tag',

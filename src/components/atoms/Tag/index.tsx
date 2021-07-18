@@ -23,3 +23,5 @@ export const Tag = memo(({ children, bg }: Props) => {
     </Box>
   )
 })
+
+Tag.displayName = 'Tag'

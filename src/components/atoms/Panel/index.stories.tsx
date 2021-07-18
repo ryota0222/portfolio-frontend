@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-import { Panel, Props } from '.'
 import { withDesign } from 'storybook-addon-designs'
+import { Panel, Props } from '.'
 
 export default {
   title: 'Design System/Atoms/Panel',
