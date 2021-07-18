@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Lottie from 'react-lottie'
-import defaultAnimationData from '../../../assets/animation/light/portfolio.json'
+import defaultAnimationData from '../../../assets/animations/light/portfolio.json'
 
 export interface Props {
   /**
