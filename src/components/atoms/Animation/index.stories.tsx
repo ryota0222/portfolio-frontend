@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { LottieControl, Props } from '../Animation'
+import { LottieControl, Props } from '.'
 
 export default {
   title: 'Design System/Atoms/Animation',

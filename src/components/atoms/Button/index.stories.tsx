@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Btn, Props } from '../Button'
+import { Btn, Props } from '.'
 
 export default {
   title: 'Design System/Atoms/Button',
