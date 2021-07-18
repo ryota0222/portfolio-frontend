@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
 import { Panel, Props } from '.'
 
 export default {
@@ -6,6 +7,7 @@ export default {
   component: Panel,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
+    withDesign,
   ],
   argTypes: {
     width: {
@@ -42,4 +44,11 @@ export const Default = Template.bind({})
 Default.args = {
   width: '240px',
   height: '120px',
+}
+
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A725',
+  },
 }
