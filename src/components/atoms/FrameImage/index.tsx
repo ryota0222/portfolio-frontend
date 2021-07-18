@@ -1,4 +1,4 @@
-import { ReactNode, memo } from 'react'
+import { memo } from 'react'
 import { Box, BoxProps, useColorModeValue, Skeleton } from '@chakra-ui/react'
 import Image from 'next/image'
 
