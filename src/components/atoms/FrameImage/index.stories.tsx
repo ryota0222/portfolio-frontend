@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
 import { FrameImage, Props } from '.'
 
 export default {
@@ -6,6 +7,7 @@ export default {
   component: FrameImage,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
+    withDesign,
   ],
   argTypes: {
     imageData: {
@@ -69,4 +71,11 @@ Default.args = {
   imageWidth: '120px',
   imageHeight: '120px',
   alt: '画像',
+}
+
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A841',
+  },
 }
