@@ -51,7 +51,13 @@ export const IntroCard = memo(
             </Flex>
           </Box>
           <Box>
-            <Text fontWeight="bold" fontSize="2rem" color={textColor}>
+            <Text
+              fontWeight="700"
+              fontSize="2rem"
+              color={textColor}
+              fontFamily="'Josefin Sans'"
+              lineHeight="2.2rem"
+            >
               {name}
             </Text>
             {intro && intro.length > 0 && (

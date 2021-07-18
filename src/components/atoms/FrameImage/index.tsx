@@ -21,6 +21,10 @@ export interface Props extends BoxProps {
   imageHeight?: string
 }
 
+// font-family: 'Josefin Sans', sans-serif;
+// font-family: 'Noto Sans JP', sans-serif;
+// font-family: 'Roboto', sans-serif;
+
 export const FrameImage = memo((props: Props) => {
   const bg = useColorModeValue('#FBFBFB', '#404040')
   const shadow = useColorModeValue(
