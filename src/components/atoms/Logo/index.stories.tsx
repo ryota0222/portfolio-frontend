@@ -1,10 +1,10 @@
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Panel, Props } from '.'
+import { Logo, Props } from '.'
 
 export default {
-  title: 'Design System/Atoms/Panel',
-  component: Panel,
+  title: 'Design System/Atoms/Logo',
+  component: Logo,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
@@ -12,11 +12,11 @@ export default {
   argTypes: {
     width: {
       type: { name: 'string', required: false },
-      defaultValue: '100%',
+      defaultValue: '50px',
       description: '幅',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '100%' },
+        defaultValue: { summary: '50px' },
       },
       control: {
         type: 'text',
@@ -24,11 +24,11 @@ export default {
     },
     height: {
       type: { name: 'string', required: false },
-      defaultValue: '40px',
+      defaultValue: '50px',
       description: '高さ',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '40px' },
+        defaultValue: { summary: '50px' },
       },
       control: {
         type: 'text',
@@ -37,18 +37,15 @@ export default {
   },
 } as Meta
 
-const Template: Story<Props> = (args) => <Panel {...args}>sample</Panel>
+const Template: Story<Props> = (args) => <Logo {...args}></Logo>
 
 export const Default = Template.bind({})
 
-Default.args = {
-  width: '240px',
-  height: '120px',
-}
+Default.args = {}
 
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A725',
+    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A993',
   },
 }
