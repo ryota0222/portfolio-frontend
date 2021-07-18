@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { UserIcon, Props } from '../UserIcon/index'
+import { UserIcon, Props } from '.'
 
 export default {
   title: 'Design System/Atoms/UserIcon',
