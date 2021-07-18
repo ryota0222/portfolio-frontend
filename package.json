@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "build:storybook": "build-storybook -o build/storybook",
     "chromatic": "npx chromatic --project-token=PROJECT_TOKEN --exit-once-uploaded",
     "test:format": "prettier --write .",

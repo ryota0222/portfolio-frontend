@@ -23,7 +23,6 @@ export const Panel = memo((props: Props) => {
   )
   const _props = Object.assign({}, props)
   delete _props.children
-  console.log(_props)
   return (
     <Box
       bg={bg}
