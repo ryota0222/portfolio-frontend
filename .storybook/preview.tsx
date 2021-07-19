@@ -19,7 +19,22 @@ const addParameters = require('@storybook/react').addParameters
 
 Object.defineProperty(nextImage, 'default', {
   configurable: true,
-  value: (props) => <img {...props} />,
+  value: (props) => {
+    const _props = Object.assign({}, props)
+    const style = {}
+    console.log(props)
+    if (props.objectFit) {
+      style['objectFit'] = props.objectFit
+    }
+    if (props.width) {
+      style['width'] = props.width
+    }
+    if (props.height) {
+      style['height'] = props.height
+    }
+    _props.style = { style }
+    return <img style={style} {...props} />
+  },
 })
 
 addDecorator(withPerformance)
