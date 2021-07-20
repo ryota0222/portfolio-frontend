@@ -11,3 +11,12 @@ export type CounterType = 'good' | 'bad'
 
 // roadmap
 export type RoadmapType = 'schedule' | 'develop' | 'merge'
+
+// blog
+export interface BlogIndexItem {
+  label: string
+  index: number
+  type: BlogTitle
+}
+
+export type BlogTitle = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
