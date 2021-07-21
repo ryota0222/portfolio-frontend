@@ -56,7 +56,7 @@ export const RoadmapMenu = memo(({ roadmapType }: Props) => {
     (type: RoadmapType) => {
       setRType(type)
     },
-    2000,
+    500,
     { trailing: false },
   )
 
