@@ -11,7 +11,7 @@ export default {
   ],
   argTypes: {
     scheme: {
-      type: { name: 'ButtonScheme', required: true },
+      type: { name: 'ButtonScheme', required: false },
       defaultValue: 'primary',
       description: 'カラースキーマ',
       table: {

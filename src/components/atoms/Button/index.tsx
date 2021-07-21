@@ -1,7 +1,7 @@
 import { ReactNode, useMemo, memo } from 'react'
 import { Button, ButtonProps, useColorModeValue } from '@chakra-ui/react'
+import throttle from 'just-throttle'
 import { ButtonVariant, ButtonScheme } from '@/types/interface'
-
 export interface Props extends ButtonProps {
   /**
    * ラベル
@@ -10,7 +10,7 @@ export interface Props extends ButtonProps {
   /**
    * スキーマ
    */
-  scheme: ButtonScheme
+  scheme?: ButtonScheme
   /**
    * タイプ
    */
@@ -42,12 +42,13 @@ export const Btn = memo((props: Props) => {
   delete _props.round
   delete _props.floating
   delete _props.neumorphic
+  _props.onClick = throttle(props.onClick, 500, { trailing: false })
   // schemeの値取得
   const [color, bg] = useMemo(() => {
     switch (scheme) {
       case 'primary':
       default:
-        return ['white', 'blue.900']
+        return ['white', 'black']
       case 'secondary':
         return ['#666', 'white']
       case 'danger':

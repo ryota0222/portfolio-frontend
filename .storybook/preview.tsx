@@ -19,7 +19,22 @@ const addParameters = require('@storybook/react').addParameters
 
 Object.defineProperty(nextImage, 'default', {
   configurable: true,
-  value: (props) => <img {...props} />,
+  value: (props) => {
+    const _props = Object.assign({}, props)
+    const style = {}
+    console.log(props)
+    if (props.objectFit) {
+      style['objectFit'] = props.objectFit
+    }
+    if (props.width) {
+      style['width'] = props.width
+    }
+    if (props.height) {
+      style['height'] = props.height
+    }
+    _props.style = { style }
+    return <img style={style} {...props} />
+  },
 })
 
 addDecorator(withPerformance)
@@ -80,7 +95,13 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
     }),
   }
   return (
-    <ChakraProvider theme={extendTheme({ direction: dir, styles })}>
+    <ChakraProvider
+      theme={extendTheme({
+        direction: dir,
+        styles,
+        colors: { black: '#404040', white: '#FBFBFB' },
+      })}
+    >
       <Box dir={dir} id="story-wrapper">
         <ColorModeToggleBar />
         <StoryFn />
