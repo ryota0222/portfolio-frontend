@@ -95,7 +95,13 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
     }),
   }
   return (
-    <ChakraProvider theme={extendTheme({ direction: dir, styles })}>
+    <ChakraProvider
+      theme={extendTheme({
+        direction: dir,
+        styles,
+        colors: { black: '#404040', white: '#FBFBFB' },
+      })}
+    >
       <Box dir={dir} id="story-wrapper">
         <ColorModeToggleBar />
         <StoryFn />
