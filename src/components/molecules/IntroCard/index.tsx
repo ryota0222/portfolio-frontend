@@ -24,7 +24,7 @@ export interface Props {
   /**
    * 画像データ
    */
-  imageData: StaticImageData | null
+  imageData: string | null
 }
 
 export const IntroCard = memo(

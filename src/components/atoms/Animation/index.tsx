@@ -37,7 +37,7 @@ export const LottieControl = ({
   // option
   const defaultOptions = {
     loop: loop ?? false,
-    autoplay: true,
+    autoplay: false,
     animationData: animationData ?? defaultAnimationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
@@ -46,8 +46,8 @@ export const LottieControl = ({
   return (
     <Lottie
       options={defaultOptions}
-      width={'80px'}
-      height={'80px'}
+      width={width ?? '80px'}
+      height={height ?? '80px'}
       isStopped={isStopped}
       isPaused={isPaused}
       direction={isReverse ? -1 : 1}

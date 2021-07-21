@@ -70,19 +70,24 @@ export default {
         defaultValue: { summary: '' },
       },
       control: {
-        type: 'text',
+        type: null,
       },
     },
   },
 } as Meta
 
 const Template: Story<Props> = (args) => (
-  <LottieControl width="80px" height="80px" />
+  <LottieControl
+    width={args.width}
+    height={args.height}
+    loop={args.loop}
+    isReverse={args.isReverse}
+  />
 )
 
 export const Default = Template.bind({})
 
 Default.args = {
-  loop: true,
+  loop: false,
   isReverse: false,
 }
