@@ -52,6 +52,7 @@ export const LottieControl = ({
       isPaused={isPaused}
       direction={isReverse ? -1 : 1}
       ariaLabel="animation"
+      style={{ display: 'inline', margin: 0 }}
     />
   )
 }

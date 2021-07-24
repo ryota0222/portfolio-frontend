@@ -3,6 +3,7 @@ import { mode } from '@chakra-ui/theme-tools'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { HeaderComponent } from '@/components/organisms/Header'
+import { SpHeaderComponent } from '@/components/organisms/SpHeader'
 import { RtlProvider } from '@/plugins/rtl-provider'
 import '../../styles/globals.css'
 
@@ -19,7 +20,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={extendTheme({ direction, styles })}>
       <RtlProvider>
-        <HeaderComponent />
+        {/* <HeaderComponent /> */}
+        <SpHeaderComponent />
         <Component {...pageProps} />
       </RtlProvider>
     </ChakraProvider>
