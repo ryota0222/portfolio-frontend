@@ -26,7 +26,7 @@ import { PageName } from '@/types/interface'
 export const HeaderComponent = memo(() => {
   const gear = useColorModeValue(l_gear, d_gear)
   const dividerColor = useColorModeValue('black', 'white')
-  const btnScheme = useColorModeValue('white', 'dark')
+  const btnScheme = useColorModeValue('white', 'black')
   const route = useRouter()
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
