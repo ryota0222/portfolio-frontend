@@ -65,6 +65,7 @@ export const HeaderComponent = memo(() => {
       px="48px"
       boxSizing="border-box"
       alignItems="center"
+      w="full"
     >
       <Tooltip
         label={
