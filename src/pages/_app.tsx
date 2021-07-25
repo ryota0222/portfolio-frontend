@@ -1,4 +1,5 @@
 import {
+  Box,
   ChakraProvider,
   extendTheme,
   useBreakpointValue,
@@ -38,9 +39,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <RtlProvider>
         <Container>
           <Header />
-          <main>
+          <Box w="full" as="main" h="100%">
             <Component {...pageProps} />
-          </main>
+          </Box>
           <FooterComponent />
         </Container>
       </RtlProvider>
