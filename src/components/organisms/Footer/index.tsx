@@ -4,9 +4,9 @@ import { useColorModeValue, Text, Center } from '@chakra-ui/react'
 export const FooterComponent = memo(() => {
   const color = useColorModeValue('dark', 'white')
   return (
-    <Center as="footer">
+    <Center as="footer" w="full">
       <Text fontFamily="'Josefin Sans'" colorScheme={color}>
-        RyoTa.
+        &copy;RyoTa.
       </Text>
     </Center>
   )

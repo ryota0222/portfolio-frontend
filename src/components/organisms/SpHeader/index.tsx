@@ -75,7 +75,7 @@ const ArrowButton = ({ onClick }) => {
 
 export const SpHeaderComponent = memo(() => {
   const gear = useColorModeValue(l_gear, d_gear)
-  const btnScheme = useColorModeValue('white', 'black')
+  const btnScheme = useColorModeValue('#FBFBFB', '#404040')
   const route = useRouter()
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -134,6 +134,7 @@ export const SpHeaderComponent = memo(() => {
       px="16px"
       boxSizing="border-box"
       alignItems="center"
+      w="full"
     >
       <Btn
         onClick={handlePageMenuOpen}
