@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { PAGE_NAME, SHOP_TYPE } from '@/consts/config'
 import { ShopMenu, Props } from '.'
 
 export default {

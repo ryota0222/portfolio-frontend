@@ -21,7 +21,7 @@ export interface Props {
   isActive: boolean
 }
 
-const Icon = ({ type, isActive }) => {
+const Icon = ({ type, isActive }: Props) => {
   const iconNonActiveColor = useColorModeValue('#BABABA', '#BABABA')
   const iconColor = useMemo(() => {
     if (isActive) {
@@ -96,7 +96,7 @@ const Icon = ({ type, isActive }) => {
   )
 }
 
-export const ShopMenu = () => {
+export const ShopMenu = memo(() => {
   const bgScheme = useColorModeValue('white', 'black')
   const shadow = useColorModeValue(
     '4px 4px 12px rgba(0, 0, 0, 0.04), -4px -4px 10px 4px #FFFFFF',
@@ -131,6 +131,6 @@ export const ShopMenu = () => {
       </Flex>
     </Box>
   )
-}
+})
 
 ShopMenu.displayName = 'ShopMenu'
