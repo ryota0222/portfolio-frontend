@@ -18,9 +18,9 @@ import l_gear from '@/assets/animations/light/gear.json'
 import { LottieControl } from '@/components/atoms/Animation'
 import { Btn } from '@/components/atoms/Button'
 import { Logo } from '@/components/atoms/Logo'
-import { Panel } from '@/components/atoms/Panel'
 import { IntroCard } from '@/components/molecules/IntroCard'
 import { PageSelectBtn } from '@/components/organisms/PageSelectBtn'
+import { SettingPanel } from '@/components/organisms/SettingPanel'
 import { PageName } from '@/types/interface'
 
 export const HeaderComponent = memo(() => {
@@ -133,14 +133,13 @@ export const HeaderComponent = memo(() => {
             boxShadow="none"
             bg="transparent"
             width="auto"
+            maxW="300px"
             position="absolute"
             right="50px"
             top="50px"
             m={0}
           >
-            <Panel width="100%" maxWidth="300px">
-              panel
-            </Panel>
+            <SettingPanel />
           </ModalContent>
         </Modal>
       </Flex>

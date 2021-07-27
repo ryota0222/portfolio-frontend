@@ -1,5 +1,4 @@
-import { memo, useState } from 'react'
-import { useEffect } from 'react'
+import { memo, useState, useEffect } from 'react'
 import {
   useColorModeValue,
   Box,
@@ -19,8 +18,8 @@ import l_gear from '@/assets/animations/light/gear.json'
 import { LottieControl } from '@/components/atoms/Animation'
 import { Btn } from '@/components/atoms/Button'
 import { Logo } from '@/components/atoms/Logo'
-import { Panel } from '@/components/atoms/Panel'
 import { PageSelectBtn } from '@/components/organisms/PageSelectBtn'
+import { SettingPanel } from '@/components/organisms/SettingPanel'
 import { PageName } from '@/types/interface'
 
 const ArrowButton = ({ onClick }) => {
@@ -51,7 +50,7 @@ const ArrowButton = ({ onClick }) => {
     />,
   )
   return (
-    <Box position="relative" onClick={onClick}>
+    <Box position="relative" onClick={onClick} h="144px">
       <picture>
         {SourceWebP}
         {SourcePng}
@@ -176,13 +175,13 @@ export const SpHeaderComponent = memo(() => {
         />
       </Btn>
       {/* ページメニューモーダル */}
-      <Modal isOpen={isMenuOpen} onClose={handlePageMenuClose}>
+      <Modal isOpen={isMenuOpen} onClose={handlePageMenuClose} size="full">
         <ModalOverlay top="48px" />
-        <ModalContent mt="48px" boxShadow="none" bg="transparent">
+        <ModalContent mt="48px" boxShadow="none" bg="transparent" minH="auto">
           <Box
             width="100vw"
             bg={btnScheme}
-            pb={8}
+            pb="32px"
             borderRadius="0px 0px 16px 16px / 00px 00px 16px 16px"
           >
             {['portfolio', 'blog', 'roadmap'].map((page: PageName, idx) => {
@@ -204,7 +203,7 @@ export const SpHeaderComponent = memo(() => {
             })}
             <Box
               position="absolute"
-              bottom="-146px"
+              bottom="-144px"
               w="full"
               d="flex"
               justifyContent="center"
@@ -225,14 +224,13 @@ export const SpHeaderComponent = memo(() => {
           boxShadow="none"
           bg="transparent"
           width="auto"
+          maxW="300px"
           position="absolute"
-          right="50px"
+          right="20px"
           top="50px"
           m={0}
         >
-          <Panel width="100%" maxWidth="300px">
-            panel
-          </Panel>
+          <SettingPanel />
         </ModalContent>
       </Modal>
     </Flex>

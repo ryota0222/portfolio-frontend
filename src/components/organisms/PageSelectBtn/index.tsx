@@ -26,14 +26,14 @@ export interface Props extends ButtonProps {
   handlePageTransition: () => void
 }
 
-export const PageSelectBtn = memo((props: Props) => {
+export const PageSelectBtn = (props: Props) => {
   const route = useRouter()
   const [isReverse, setIsReverse] = useState(true)
   const btnScheme = useColorModeValue('white', 'dark')
   const color = useColorModeValue('dark', 'white')
-  const portfolio = useColorModeValue(l_portfolio, d_portfolio)
+  const portfolio = useColorModeValue(d_portfolio, l_portfolio)
   const roadmap = useColorModeValue(l_roadmap, d_roadmap)
-  const blog = useColorModeValue(l_blog, d_blog)
+  const blog = useColorModeValue(d_blog, l_blog)
   useEffect(() => {
     if (!~route?.pathname?.indexOf(props.name)) {
       setIsReverse(true)
@@ -42,7 +42,7 @@ export const PageSelectBtn = memo((props: Props) => {
     }
   }, [props.currentPage])
   // アニメーションデータ
-  const animationData = useMemo(() => {
+  const animationData = () => {
     switch (props.name) {
       case 'portfolio':
         return portfolio
@@ -53,7 +53,7 @@ export const PageSelectBtn = memo((props: Props) => {
       default:
         return null
     }
-  }, [props.name])
+  }
   // 文字
   const text = useMemo(() => {
     switch (props.name) {
@@ -93,14 +93,14 @@ export const PageSelectBtn = memo((props: Props) => {
       <LottieControl
         width="25px"
         height="25px"
-        animationData={animationData}
+        animationData={animationData()}
         isReverse={isReverse}
       />
-      <Text color={color} fontSize="14px" fontWeight="bold" ml={2}>
+      <Text color={color} fontSize="0.875rem" fontWeight="bold" ml={2}>
         {text}
       </Text>
     </Btn>
   )
-})
+}
 
 PageSelectBtn.displayName = 'PageSelectBtn'

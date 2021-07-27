@@ -33,3 +33,5 @@ export type PageName = 'portfolio' | 'blog' | 'roadmap'
 export type ShopType = 'stamp' | 'product' | 'wallpaper'
 
 export type OgType = 'website' | 'blog' | 'article'
+
+export type Theme = 'light' | 'dark'

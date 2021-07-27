@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import {
   Box,
   ChakraProvider,
   extendTheme,
+  useColorMode,
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
@@ -13,6 +15,8 @@ import { HeaderComponent } from '@/components/organisms/Header'
 import { SpHeaderComponent } from '@/components/organisms/SpHeader'
 import { RtlProvider } from '@/plugins/rtl-provider'
 import '../../styles/globals.css'
+import c from '@/utils/colorMode'
+import f from '@/utils/fontSize'
 
 const Header = () => {
   const bp = useBreakpointValue({ base: 'base', sm: 'sm' })
@@ -26,6 +30,7 @@ const Header = () => {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale } = useRouter()
+  const { colorMode, toggleColorMode } = useColorMode()
   const direction = locale === 'ar' ? 'rtl' : 'ltr'
   const styles = {
     global: (props) => ({
@@ -34,8 +39,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       },
     }),
   }
+  useEffect(() => {
+    // 文字サイズの取得
+    const fontSize = f.getFontSize()
+    // 文字サイズの保存
+    f.setFontSize(fontSize)
+    // カラーモードの取得
+    const mode = c.getColorMode()
+    if (mode) {
+      if (mode !== colorMode) toggleColorMode()
+    }
+  }, [])
+  const colors = { black: '#404040', white: '#FBFBFB' }
   return (
-    <ChakraProvider theme={extendTheme({ direction, styles })}>
+    <ChakraProvider theme={extendTheme({ direction, styles, colors })}>
       <RtlProvider>
         <Container>
           <Header />
