@@ -30,7 +30,7 @@ export const Panel = memo((props: Props) => {
       boxSizing="border-box"
       backdropFilter="blur(24px)"
       p={2}
-      borderRadius="24px"
+      borderRadius="1.5rem"
       {..._props}
     >
       {props.children}

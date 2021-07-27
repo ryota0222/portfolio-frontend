@@ -49,7 +49,6 @@ export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
           objectFit={'cover'}
           loading={'lazy'}
           quality={70}
-          className="hoge"
         />
         <Box position="absolute" left="0" top="0" display="flex" height="18px">
           <Tag bg={tagBg}>{tagName}</Tag>

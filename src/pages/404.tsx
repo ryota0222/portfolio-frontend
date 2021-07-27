@@ -1,6 +1,6 @@
 import { Box, Text, useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
-import { HeadComponent } from '@/utils/header'
+import { HeadComponent } from '@/utils/head'
 
 const Error = () => {
   const color = useColorModeValue('dark', 'white')
