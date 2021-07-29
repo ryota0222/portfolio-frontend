@@ -7,6 +7,8 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
+import * as Sentry from '@sentry/react'
+import { Integrations } from '@sentry/tracing'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
@@ -17,6 +19,16 @@ import { RtlProvider } from '@/plugins/rtl-provider'
 import '../../styles/globals.css'
 import c from '@/utils/colorMode'
 import f from '@/utils/fontSize'
+
+Sentry.init({
+  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  integrations: [new Integrations.BrowserTracing()],
+  allowUrls: [process.env.NEXT_PUBLIC_SITE_URL],
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+})
 
 const Header = () => {
   const bp = useBreakpointValue({ base: 'base', sm: 'sm' })

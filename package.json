@@ -22,6 +22,8 @@
     "@emotion/cache": "^11.4.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@sentry/react": "^6.10.0",
+    "@sentry/tracing": "^6.10.0",
     "babel-plugin-styled-components": "^1.13.2",
     "framer-motion": "^4",
     "just-throttle": "^2.3.1",
