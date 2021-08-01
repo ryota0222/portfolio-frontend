@@ -11,8 +11,8 @@ export const Container = styled.div`
 `
 
 export const PageWrapper = styled.div`
-    width: 100%;
-    min-height: calc(100vh - 72px);
+  width: 100%;
+  min-height: calc(100vh - 72px);
 `
 
 export const TitleLabel = styled.span`

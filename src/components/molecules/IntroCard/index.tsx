@@ -7,23 +7,23 @@ export interface Props {
   /**
    * 名前
    */
-   name?: string
-   /**
-    * 説明文
-    */
-    description?: string
-   /**
-    * twitterのURL
-    */
-   twitter?: string
-   /**
-    * githubのURL
-    */
-   github?: string
-   /**
-    * 画像データ
-    */
-   imageData?: string | null
+  name?: string
+  /**
+   * 説明文
+   */
+  description?: string
+  /**
+   * twitterのURL
+   */
+  twitter?: string
+  /**
+   * githubのURL
+   */
+  github?: string
+  /**
+   * 画像データ
+   */
+  imageData?: string | null
 }
 
 export const IntroCard = memo(
@@ -60,8 +60,13 @@ export const IntroCard = memo(
             >
               {name}
             </Text>
-              <Text noOfLines={4} fontSize="xs" color={textColor} dangerouslySetInnerHTML={{__html: description}} lineHeight="1.2rem">
-              </Text>
+            <Text
+              noOfLines={4}
+              fontSize="xs"
+              color={textColor}
+              dangerouslySetInnerHTML={{ __html: description }}
+              lineHeight="1.2rem"
+            ></Text>
           </Box>
         </Flex>
       </Panel>
