@@ -12,7 +12,6 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
 import d_gear from '@/assets/animations/dark/gear.json'
 import l_gear from '@/assets/animations/light/gear.json'
 import { LottieControl } from '@/components/atoms/Animation'
@@ -22,6 +21,7 @@ import { IntroCard } from '@/components/molecules/IntroCard'
 import { PageSelectBtn } from '@/components/organisms/PageSelectBtn'
 import { SettingPanel } from '@/components/organisms/SettingPanel'
 import { PageName } from '@/types/interface'
+import {SHORT_INTRODUCTION} from '@/consts/config'
 
 export const HeaderComponent = memo(() => {
   const gear = useColorModeValue(l_gear, d_gear)
@@ -69,11 +69,7 @@ export const HeaderComponent = memo(() => {
     >
       <Tooltip
         label={
-          <IntroCard
-            name="RyoTa."
-            intro="aaaaaaaaaaaa"
-            imageData="https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png"
-          />
+          <IntroCard {...SHORT_INTRODUCTION} />
         }
         placement="bottom-start"
         openDelay={1000}
@@ -87,7 +83,7 @@ export const HeaderComponent = memo(() => {
           _focus={{}}
           p={0}
         >
-          <Logo height="32px" width="32px" />
+          <Logo height="24px" width="24px" />
         </Button>
       </Tooltip>
       <Flex alignItems="center">
@@ -148,10 +144,3 @@ export const HeaderComponent = memo(() => {
 })
 
 HeaderComponent.displayName = 'HeaderComponent'
-
-const LongHover = styled.span`
-  transition: 0.2s;
-  &:hover {
-    transition-delay: 2s;
-  }
-`

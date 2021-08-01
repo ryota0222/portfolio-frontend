@@ -1,3 +1,4 @@
+import {Box} from '@chakra-ui/react'
 import Document, {
   Html,
   Head,

@@ -11,12 +11,12 @@ import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
 import { FooterComponent } from '@/components/organisms/Footer'
 import { HeaderComponent } from '@/components/organisms/Header'
 import { SpHeaderComponent } from '@/components/organisms/SpHeader'
 import { RtlProvider } from '@/plugins/rtl-provider'
-import '../../styles/globals.css'
+import { Container } from '@/styles/globals'
+import '@/styles/globals.css'
 import c from '@/utils/colorMode'
 import f from '@/utils/fontSize'
 
@@ -79,13 +79,3 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp
-
-const Container = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  align-items: center;
-`

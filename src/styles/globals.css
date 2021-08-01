@@ -32,3 +32,8 @@ a {
 .chakra-switch__track:focus {
   box-shadow: none;
 }
+.introduction p a {
+  color: #3eb9ff;
+  font-weight: bold;
+  text-decoration: underline;
+}

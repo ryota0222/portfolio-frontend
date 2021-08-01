@@ -38,7 +38,7 @@ const Error = ({ statusCode, message }) => {
 Error.getInitialProps = ({ res, err }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404
   const message =
-    err.response.message ?? `An error ${statusCode} occurred on server`
+    err?.response?.message ?? `An error ${statusCode} occurred on server`
   return { statusCode, message }
 }
 

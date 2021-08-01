@@ -28,7 +28,7 @@ export const Panel = memo((props: Props) => {
       bg={bg}
       border="1px solid #DDDDDD"
       boxSizing="border-box"
-      backdropFilter="blur(24px)"
+      backdropFilter="blur(4px)"
       p={2}
       borderRadius="1.5rem"
       {..._props}
