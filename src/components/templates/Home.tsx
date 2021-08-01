@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
   useColorModeValue,
   Box,
@@ -6,18 +5,23 @@ import {
   useBreakpointValue,
   Text,
   Center,
-  Link
+  Link,
 } from '@chakra-ui/react'
-import {PageWrapper} from "@/styles/globals"
 import { FaTwitter, FaGithub } from 'react-icons/fa'
+import { PageWrapper } from '@/styles/globals'
 
-
-const HomeTemplate = ({introduction}) => {
+const HomeTemplate = ({ introduction }) => {
   const textColor = useColorModeValue('#002E48', '#FFFFFF')
   const githubColor = useColorModeValue('rgb(24,43,77)', '#FFFFFF')
   const width = useBreakpointValue({ base: '100%', sm: '50%' })
-  const flexDirection: 'column' | 'row' = useBreakpointValue({ base: 'column', sm: 'row' })
-  const minHeight = useBreakpointValue({ base: 'auto', sm: 'calc(100vh - 72px)' })
+  const flexDirection: 'column' | 'row' = useBreakpointValue({
+    base: 'column',
+    sm: 'row',
+  })
+  const minHeight = useBreakpointValue({
+    base: 'auto',
+    sm: 'calc(100vh - 72px)',
+  })
   return (
     <PageWrapper>
       <Flex w="full" minHeight={minHeight} flexDirection={flexDirection}>
@@ -35,13 +39,21 @@ const HomeTemplate = ({introduction}) => {
               background="-webkit-linear-gradient(0deg, #00A3FF, #0075FF)"
               backgroundClip="text"
               d="inline-block"
-              style={{WebkitTextFillColor: 'transparent'}}
+              style={{ WebkitTextFillColor: 'transparent' }}
               mb="8"
             >
               {introduction.name}
             </Text>
             {/* 自己紹介 */}
-            {introduction?.description && <Text fontSize="sm" color={textColor} dangerouslySetInnerHTML={{__html: introduction.description}} maxW="480px" className="introduction"></Text>}
+            {introduction?.description && (
+              <Text
+                fontSize="sm"
+                color={textColor}
+                dangerouslySetInnerHTML={{ __html: introduction.description }}
+                maxW="480px"
+                className="introduction"
+              ></Text>
+            )}
             <Flex mt="8">
               {/* github */}
               {introduction?.github && (
@@ -61,6 +73,6 @@ const HomeTemplate = ({introduction}) => {
       </Flex>
     </PageWrapper>
   )
-  }
+}
 
 export default HomeTemplate

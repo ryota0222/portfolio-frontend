@@ -20,8 +20,8 @@ import { Logo } from '@/components/atoms/Logo'
 import { IntroCard } from '@/components/molecules/IntroCard'
 import { PageSelectBtn } from '@/components/organisms/PageSelectBtn'
 import { SettingPanel } from '@/components/organisms/SettingPanel'
+import { SHORT_INTRODUCTION } from '@/consts/config'
 import { PageName } from '@/types/interface'
-import {SHORT_INTRODUCTION} from '@/consts/config'
 
 export const HeaderComponent = memo(() => {
   const gear = useColorModeValue(l_gear, d_gear)
@@ -68,9 +68,7 @@ export const HeaderComponent = memo(() => {
       w="full"
     >
       <Tooltip
-        label={
-          <IntroCard {...SHORT_INTRODUCTION} />
-        }
+        label={<IntroCard {...SHORT_INTRODUCTION} />}
         placement="bottom-start"
         openDelay={1000}
         bg="transparent"

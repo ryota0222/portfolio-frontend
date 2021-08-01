@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import HomeTemplate from '@/components/templates/Home'
+import { INTRODUCTION } from '@/consts/config'
 import { HeadComponent } from '@/utils/head'
-import {INTRODUCTION} from '@/consts/config'
 import markdownToHtml from '@/utils/markdownToHtml'
 
-export default function Home({introduction}) {
+export default function Home({ introduction }) {
   return (
     <>
       <HeadComponent />
@@ -15,6 +14,6 @@ export default function Home({introduction}) {
 
 export const getStaticProps = async () => {
   const description = await markdownToHtml(INTRODUCTION.description)
-  const introduction = {...INTRODUCTION, description }
-  return {props: {introduction}}
+  const introduction = { ...INTRODUCTION, description }
+  return { props: { introduction } }
 }

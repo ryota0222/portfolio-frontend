@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import { Tag } from '@/components/atoms/Tag'
-import {BlogCardWrapper} from '@/styles/globals'
+import { BlogCardWrapper } from '@/styles/globals'
 
 export interface Props {
   /**
@@ -28,7 +28,7 @@ export interface Props {
   tagName: string
 }
 
-const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
+export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
   const textColor = useColorModeValue('#002E48', '#FFFFFF')
   const fontSize = useBreakpointValue({ base: 'xs', sm: 'md' })
   return (
