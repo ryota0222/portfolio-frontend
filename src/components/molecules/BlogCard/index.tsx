@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react'
+import { memo } from 'react'
 import {
   Box,
   Text,
@@ -6,8 +6,8 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import Image from 'next/image'
-import styled from 'styled-components'
 import { Tag } from '@/components/atoms/Tag'
+import { BlogCardWrapper } from '@/styles/globals'
 
 export interface Props {
   /**
@@ -66,20 +66,5 @@ export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
     </BlogCardWrapper>
   )
 })
-
-const BlogCardWrapper = styled.div`
-  display: inline-block;
-  width: 40vw;
-  max-width: 280px;
-  img {
-    transition: transform 0.4s;
-  }
-  &:hover {
-    cursor: pointer;
-    img {
-      transform: scale(1.2);
-    }
-  }
-`
 
 BlogCard.displayName = 'BlogCard'

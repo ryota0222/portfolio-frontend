@@ -1,14 +1,19 @@
-import { useState } from 'react'
-import { Button } from '@chakra-ui/react'
-import Image from 'next/image'
+import HomeTemplate from '@/components/templates/Home'
+import { INTRODUCTION } from '@/consts/config'
 import { HeadComponent } from '@/utils/head'
+import markdownToHtml from '@/utils/markdownToHtml'
 
-export default function Home() {
-  const [isReverse, setIsReverse] = useState(false)
+export default function Home({ introduction }) {
   return (
     <>
       <HeadComponent />
-      <div></div>
+      <HomeTemplate introduction={introduction} />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const description = await markdownToHtml(INTRODUCTION.description)
+  const introduction = { ...INTRODUCTION, description }
+  return { props: { introduction } }
 }
