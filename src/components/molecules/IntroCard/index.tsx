@@ -3,16 +3,15 @@ import { Box, Text, useColorModeValue, Link, Flex } from '@chakra-ui/react'
 import { FaTwitter, FaGithub } from 'react-icons/fa'
 import { Panel } from '@/components/atoms/Panel'
 import { UserIcon } from '@/components/atoms/UserIcon'
-
 export interface Props {
   /**
    * 名前
    */
-  name: string
+  name?: string
   /**
    * 説明文
    */
-  intro?: string
+  description?: string
   /**
    * twitterのURL
    */
@@ -24,11 +23,11 @@ export interface Props {
   /**
    * 画像データ
    */
-  imageData: string | null
+  imageData?: string | null
 }
 
 export const IntroCard = memo(
-  ({ name, intro, twitter, github, imageData }: Props) => {
+  ({ name, description, twitter, github, imageData }: Props) => {
     const textColor = useColorModeValue('#002E48', '#FFFFFF')
     const githubColor = useColorModeValue('rgb(24,43,77)', '#FFFFFF')
     return (
@@ -50,21 +49,24 @@ export const IntroCard = memo(
               )}
             </Flex>
           </Box>
-          <Box>
+          <Box py="2">
             <Text
               fontWeight="700"
               fontSize="2rem"
-              color={textColor}
               fontFamily="'Josefin Sans'"
               lineHeight="2.2rem"
+              color={textColor}
+              d="inline"
             >
               {name}
             </Text>
-            {intro && intro.length > 0 && (
-              <Text noOfLines={4} fontSize="sm" color={textColor}>
-                {intro}
-              </Text>
-            )}
+            <Text
+              noOfLines={4}
+              fontSize="xs"
+              color={textColor}
+              dangerouslySetInnerHTML={{ __html: description }}
+              lineHeight="1.2rem"
+            ></Text>
           </Box>
         </Flex>
       </Panel>

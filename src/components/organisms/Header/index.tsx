@@ -1,10 +1,8 @@
-import { memo, useState, useMemo } from 'react'
-import { useEffect } from 'react'
+import { memo, useState, useMemo, useEffect } from 'react'
 import {
   useColorModeValue,
   Box,
   Flex,
-  Text,
   Divider,
   Modal,
   ModalOverlay,
@@ -14,114 +12,21 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
-import d_blog from '@/assets/animations/dark/blog.json'
 import d_gear from '@/assets/animations/dark/gear.json'
-import d_portfolio from '@/assets/animations/dark/portfolio.json'
-import d_roadmap from '@/assets/animations/dark/roadmap.json'
-import l_blog from '@/assets/animations/light/blog.json'
 import l_gear from '@/assets/animations/light/gear.json'
-import l_portfolio from '@/assets/animations/light/portfolio.json'
-import l_roadmap from '@/assets/animations/light/roadmap.json'
 import { LottieControl } from '@/components/atoms/Animation'
 import { Btn } from '@/components/atoms/Button'
 import { Logo } from '@/components/atoms/Logo'
-import { Panel } from '@/components/atoms/Panel'
 import { IntroCard } from '@/components/molecules/IntroCard'
-
-type PageName = 'portfolio' | 'blog' | 'roadmap'
-
-interface Props {
-  /**
-   * ページ名
-   */
-  name: PageName
-  /**
-   * 現在のパス
-   */
-  currentPage: string
-  /**
-   * 関数
-   */
-  handlePageTransition: Function
-}
-
-const PageSelectBtn = ({ name, handlePageTransition, currentPage }: Props) => {
-  const route = useRouter()
-  const [isReverse, setIsReverse] = useState(true)
-  const btnScheme = useColorModeValue('white', 'dark')
-  const color = useColorModeValue('dark', 'white')
-  const portfolio = useColorModeValue(l_portfolio, d_portfolio)
-  const roadmap = useColorModeValue(l_roadmap, d_roadmap)
-  const blog = useColorModeValue(l_blog, d_blog)
-  useEffect(() => {
-    if (!~route?.pathname?.indexOf(name)) {
-      setIsReverse(true)
-    } else {
-      setIsReverse(false)
-    }
-  }, [currentPage])
-  // アニメーションデータ
-  const animationData = useMemo(() => {
-    switch (name) {
-      case 'portfolio':
-        return portfolio
-      case 'blog':
-        return blog
-      case 'roadmap':
-        return roadmap
-      default:
-        return null
-    }
-  }, [name])
-  // 文字
-  const text = useMemo(() => {
-    switch (name) {
-      case 'portfolio':
-        return 'ポートフォリオ'
-      case 'blog':
-        return 'ブログ'
-      case 'roadmap':
-        return 'ロードマップ'
-      default:
-        return null
-    }
-  }, [name])
-  const handleClick = () => {
-    if (!~route?.pathname?.indexOf(name)) {
-      handlePageTransition()
-      setIsReverse(!isReverse)
-    }
-  }
-  // ニューモーフィズム かどうか
-  const buttonStyle = ~route?.pathname?.indexOf(name) ? true : false
-  return (
-    <Btn
-      neumorphic={buttonStyle}
-      round={true}
-      onClick={handleClick}
-      colorScheme={btnScheme}
-      color="black"
-      _active={{}}
-      _focus={{}}
-    >
-      <LottieControl
-        width="25px"
-        height="25px"
-        animationData={animationData}
-        isReverse={isReverse}
-      />
-      <Text colorScheme={color} fontSize="14px" fontWeight="bold" ml={2}>
-        {text}
-      </Text>
-    </Btn>
-  )
-}
+import { PageSelectBtn } from '@/components/organisms/PageSelectBtn'
+import { SettingPanel } from '@/components/organisms/SettingPanel'
+import { SHORT_INTRODUCTION } from '@/consts/config'
+import { PageName } from '@/types/interface'
 
 export const HeaderComponent = memo(() => {
   const gear = useColorModeValue(l_gear, d_gear)
   const dividerColor = useColorModeValue('black', 'white')
-  const btnScheme = useColorModeValue('white', 'dark')
+  const btnScheme = useColorModeValue('white', 'black')
   const route = useRouter()
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -160,15 +65,10 @@ export const HeaderComponent = memo(() => {
       px="48px"
       boxSizing="border-box"
       alignItems="center"
+      w="full"
     >
       <Tooltip
-        label={
-          <IntroCard
-            name="RyoTa."
-            intro="aaaaaaaaaaaa"
-            imageData="https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png"
-          />
-        }
+        label={<IntroCard {...SHORT_INTRODUCTION} />}
         placement="bottom-start"
         openDelay={1000}
         bg="transparent"
@@ -181,7 +81,7 @@ export const HeaderComponent = memo(() => {
           _focus={{}}
           p={0}
         >
-          <Logo height="32px" width="32px" />
+          <Logo height="24px" width="24px" />
         </Button>
       </Tooltip>
       <Flex alignItems="center">
@@ -202,6 +102,7 @@ export const HeaderComponent = memo(() => {
           colorScheme={dividerColor}
           ml={2}
         />
+        {/* 設定ボタン */}
         <Btn
           onClick={handleMenuOpen}
           colorScheme={btnScheme}
@@ -215,6 +116,7 @@ export const HeaderComponent = memo(() => {
             isReverse={isReverse}
           />
         </Btn>
+        {/* 設定モーダル */}
         <Modal
           isOpen={isOpen}
           onClose={handleMenuClose}
@@ -225,14 +127,13 @@ export const HeaderComponent = memo(() => {
             boxShadow="none"
             bg="transparent"
             width="auto"
+            maxW="300px"
             position="absolute"
             right="50px"
             top="50px"
             m={0}
           >
-            <Panel width="100%" maxWidth="300px">
-              panel
-            </Panel>
+            <SettingPanel />
           </ModalContent>
         </Modal>
       </Flex>
@@ -241,10 +142,3 @@ export const HeaderComponent = memo(() => {
 })
 
 HeaderComponent.displayName = 'HeaderComponent'
-
-const LongHover = styled.span`
-  transition: 0.2s;
-  &:hover {
-    transition-delay: 2s;
-  }
-`

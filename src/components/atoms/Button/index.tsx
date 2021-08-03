@@ -27,6 +27,10 @@ export interface Props extends ButtonProps {
    * trueならニューモーフィズムにする
    */
   neumorphic?: boolean
+  /**
+   * クリックイベントの処理
+   */
+  onClick: any
 }
 
 export const Btn = memo((props: Props) => {

@@ -8,8 +8,8 @@ import {
   Flex,
   Center,
 } from '@chakra-ui/react'
-import styled from 'styled-components'
 import { UserIcon } from '@/components/atoms/UserIcon'
+import { GradationText } from '@/styles/globals'
 
 export interface Props {
   /**
@@ -53,16 +53,5 @@ export const Intro = memo(({ name, intro, imageData }: Props) => {
     </Box>
   )
 })
-
-const GradationText = styled.p`
-  font-weight: 700;
-  font-size: 2rem;
-  color: white;
-  font-family: 'Josefin Sans';
-  line-height: 2.4rem;
-  background: linear-gradient(60deg, #00a3ff, #0075ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`
 
 Intro.displayName = 'Intro'

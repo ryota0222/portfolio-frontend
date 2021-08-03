@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-import { SvgIcon, Props } from '.'
 import { SVG_ICON_NAME_LIST } from '@/consts/config'
+import { SvgIcon, Props } from '.'
 
 export default {
   title: 'Design System/Atoms/SvgIcon',

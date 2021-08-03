@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Box, Flex, Text, useColorModeValue, Center } from '@chakra-ui/react'
-import styled from 'styled-components'
+import { TitleLabel, Rod } from '@/styles/globals'
 import { BlogIndexItem } from '@/types/interface'
 
 export interface Props {
@@ -82,48 +82,5 @@ export const BlogIndex = memo(({ list, currentIndex }: Props) => {
     </Flex>
   )
 })
-
-const TitleLabel = styled.span`
-  display: block;
-  margin-left: ${(props) => {
-    switch (props.type) {
-      case 'h1':
-        return 1.5
-      case 'h2':
-        return 2.5
-      case 'h3':
-        return 3.5
-      case 'h4':
-        return 4.5
-      case 'h5':
-        return 5.5
-      case 'h6':
-        return 6.5
-      default:
-        return 0
-    }
-  }}rem;
-`
-
-const Rod = styled.span`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  &::before {
-    content: '';
-    display: inline-block;
-    height: ${(props) => (props.last ? '0px' : '100%')};
-    width: 2px;
-    background: #a1a1a1;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  }
-`
 
 BlogIndex.displayName = 'BlogIndex'

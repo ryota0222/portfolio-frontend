@@ -1,0 +1,39 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.chakra-slider__filled-track::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(20px, -50%);
+  width: 40px;
+  height: 100%;
+  border-radius: 0 20px 20px 0 / 0 20px 20px 0;
+  background: #3eb9ff;
+}
+.chakra-switch__track[data-checked] {
+  background: #3eb9ff !important;
+}
+.chakra-switch__track:focus {
+  box-shadow: none;
+}
+.introduction p a {
+  color: #3eb9ff;
+  font-weight: bold;
+  text-decoration: underline;
+}

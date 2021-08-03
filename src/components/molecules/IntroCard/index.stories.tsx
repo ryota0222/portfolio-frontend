@@ -34,7 +34,7 @@ export default {
         type: 'text',
       },
     },
-    intro: {
+    description: {
       type: { name: 'string', required: false },
       defaultValue: '',
       description: '説明文',
@@ -81,7 +81,7 @@ Default.args = {
   imageData:
     'https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
   name: 'RyoTa.',
-  intro:
+  description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a metus phasellus duis sed purus sollicitudin. Phasellus',
   twitter: 'https://twitter.com/RyoTa___0222',
   github: 'https://github.com/RyoTa0222',
