@@ -38,7 +38,8 @@
     "remark-html": "^13.0.1",
     "styled-components": "^5.3.0",
     "stylis": "^4.0.10",
-    "stylis-plugin-rtl": "^2.1.0"
+    "stylis-plugin-rtl": "^2.1.0",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^6.3.4",
