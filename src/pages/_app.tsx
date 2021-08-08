@@ -31,11 +31,11 @@ Sentry.init({
 })
 
 const Header = () => {
-  const bp = useBreakpointValue({ base: 'base', sm: 'sm' })
+  const bp = useBreakpointValue({ base: 'base', md: 'md' })
   return (
     <>
       {bp === 'base' && <SpHeaderComponent />}
-      {bp === 'sm' && <HeaderComponent />}
+      {bp === 'md' && <HeaderComponent />}
     </>
   )
 }
@@ -56,10 +56,20 @@ function MyApp({ Component, pageProps }: AppProps) {
     const fontSize = f.getFontSize()
     // 文字サイズの保存
     f.setFontSize(fontSize)
+    // vhの値の保存
+    setFillHeight()
     // カラーモードの取得
     const mode = c.getColorMode()
     if (mode) {
       if (mode !== colorMode) toggleColorMode()
+    }
+    // イベントの生成
+    if (window) {
+      window.addEventListener('resize', setFillHeight)
+    }
+    ;() => {
+      // イベントの削除
+      window.removeEventListener('resize', setFillHeight)
     }
   }, [])
   const colors = { black: '#404040', white: '#FBFBFB' }
@@ -76,6 +86,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       </RtlProvider>
     </ChakraProvider>
   )
+}
+
+const setFillHeight = () => {
+  if (window) {
+    // 最初に、ビューポートの高さを取得し、0.01を掛けて1%の値を算出して、vh単位の値を取得
+    let vh = window.innerHeight * 0.01
+    // カスタム変数--vhの値をドキュメントのルートに設定
+    document.documentElement.style.setProperty('--vh', vh + 'px')
+  }
 }
 
 export default MyApp
