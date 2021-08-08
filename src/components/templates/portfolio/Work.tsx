@@ -52,7 +52,7 @@ const PortfolioWorkTemplate: React.FC<Props> = ({ data }) => {
   })
   const minHeight = useBreakpointValue({
     base: 'auto',
-    sm: 'calc(100vh - 72px)',
+    sm: 'calc(var(--vh, 1vh) * 100 - 72px)',
   })
   useEffect(() => {
     document.addEventListener('scroll', trackScroll)

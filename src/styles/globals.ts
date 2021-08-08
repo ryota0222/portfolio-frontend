@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100vw;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const PageWrapper = styled.div`
   width: 100%;
-  min-height: calc(100vh - 72px);
+  min-height: calc(var(--vh, 1vh) * 100 - 72px);
 `
 
 export const TitleLabel = styled.span`
