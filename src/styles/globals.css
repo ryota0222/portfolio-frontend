@@ -37,3 +37,24 @@ a {
   font-weight: bold;
   text-decoration: underline;
 }
+
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 500ms linear;
+  animation-delay: 500ms;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+}
+
+.line-appear {
+  width: 0px;
+  transition: width 500ms linear;
+  animation-delay: 1000ms;
+}
+
+.line-appear.line-appear-active {
+  width: 300px;
+}
