@@ -38,7 +38,7 @@ const BlogsTemplate: React.FC<Props> = ({ settings, contents }) => {
         <Flex flexFlow={flexFlow}>
           {/* メニュー */}
           <Box maxW="360px" w="20%" minH={minHeight}>
-            <BlogsSideMenu />
+            <BlogsSideMenu data={(settings as InlineResponse2002).data} />
           </Box>
           {/* コンテンツ */}
           <Box maxW="720px" w="50%" minH={minHeight}>
