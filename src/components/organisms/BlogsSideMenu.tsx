@@ -36,11 +36,16 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
   console.log(data)
   const bg = useColorModeValue('#F0F0F0', '#252829')
   const textColor = useColorModeValue('dark', 'white')
+  const borderBottomColor = useColorModeValue('#D7D7D7', '#58688F')
   return (
     <Box w="full" bgColor={bg} h="full" boxSizing="border-box" p={3} pt={5}>
       {/* 月別アーカイブ */}
       {data.monthly_archives?.length > 0 && (
-        <Box borderBottomWidth="1px" borderBottomColor="#D7D7D7" pb={2}>
+        <Box
+          borderBottomWidth="1px"
+          borderBottomColor={borderBottomColor}
+          pb={2}
+        >
           <Title>月別アーカイブ</Title>
           <Box>
             {data.monthly_archives.map((item, idx) => {
@@ -72,7 +77,12 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
       )}
       {/* タグ別アーカイブ */}
       {data.tag_archives?.length > 0 && data.tags?.length > 0 && (
-        <Box borderBottomWidth="1px" borderBottomColor="#D7D7D7" pb={4} mt={6}>
+        <Box
+          borderBottomWidth="1px"
+          borderBottomColor={borderBottomColor}
+          pb={4}
+          mt={6}
+        >
           <Title>タグ別アーカイブ</Title>
           <Box>
             {data.tag_archives.map((item, index) => {
