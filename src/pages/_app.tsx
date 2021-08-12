@@ -1,23 +1,14 @@
 import { useEffect } from 'react'
-import {
-  Box,
-  ChakraProvider,
-  extendTheme,
-  useColorMode,
-  useBreakpointValue,
-} from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
+import { Box, useBreakpointValue } from '@chakra-ui/react'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
 import { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
 import { FooterComponent } from '@/components/organisms/Footer'
 import { HeaderComponent } from '@/components/organisms/Header'
 import { SpHeaderComponent } from '@/components/organisms/SpHeader'
-import { RtlProvider } from '@/plugins/rtl-provider'
+import Provider from '@/components/templates/Provider'
 import { Container } from '@/styles/globals'
 import '@/styles/globals.css'
-import c from '@/utils/colorMode'
 import f from '@/utils/fontSize'
 
 Sentry.init({
@@ -41,16 +32,6 @@ const Header = () => {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { locale } = useRouter()
-  const { colorMode, toggleColorMode } = useColorMode()
-  const direction = locale === 'ar' ? 'rtl' : 'ltr'
-  const styles = {
-    global: (props) => ({
-      body: {
-        bg: mode('#FBFBFB', '#404040')(props),
-      },
-    }),
-  }
   useEffect(() => {
     // 文字サイズの取得
     const fontSize = f.getFontSize()
@@ -58,11 +39,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     f.setFontSize(fontSize)
     // vhの値の保存
     setFillHeight()
-    // カラーモードの取得
-    const mode = c.getColorMode()
-    if (mode) {
-      if (mode !== colorMode) toggleColorMode()
-    }
     // イベントの生成
     if (window) {
       window.addEventListener('resize', setFillHeight)
@@ -72,19 +48,16 @@ function MyApp({ Component, pageProps }: AppProps) {
       window.removeEventListener('resize', setFillHeight)
     }
   }, [])
-  const colors = { black: '#404040', white: '#FBFBFB' }
   return (
-    <ChakraProvider theme={extendTheme({ direction, styles, colors })}>
-      <RtlProvider>
-        <Container>
-          <Header />
-          <Box w="full" as="main" h="100%">
-            <Component {...pageProps} />
-          </Box>
-          <FooterComponent />
-        </Container>
-      </RtlProvider>
-    </ChakraProvider>
+    <Provider>
+      <Container>
+        <Header />
+        <Box w="full" as="main" h="100%">
+          <Component {...pageProps} />
+        </Box>
+        <FooterComponent />
+      </Container>
+    </Provider>
   )
 }
 
