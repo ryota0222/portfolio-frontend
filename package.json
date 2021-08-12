@@ -27,6 +27,7 @@
     "@types/react-transition-group": "^4.4.2",
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.13.2",
+    "dayjs": "^1.10.6",
     "framer-motion": "^4",
     "just-throttle": "^2.3.1",
     "next": "11.0.1",
