@@ -12,7 +12,7 @@ const setColorMode = (mode: Theme) => {
  * カラーモードの取得
  */
 const getColorMode = () => {
-  if (localStorage) {
+  if ((process as unknown as { client: boolean }).client) {
     // localStorageに保存
     const mode = localStorage.getItem('ryoTaPortfolioColorMode')
     if (mode) return mode
