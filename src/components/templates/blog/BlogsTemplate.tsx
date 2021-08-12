@@ -28,6 +28,18 @@ const BlogsTemplate: React.FC<Props> = ({ settings, contents }) => {
     base: 'column-reverse',
     md: 'row',
   })
+  const sideMenuW = useBreakpointValue({
+    base: '100%',
+    md: '30%',
+  })
+  const sideMenuMaxW = useBreakpointValue({
+    base: '100%',
+    md: '360px',
+  })
+  const contentW = useBreakpointValue({
+    base: '100%',
+    md: '50%',
+  })
   if (!settings.success || !contents.success) {
     return (
       <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
@@ -37,11 +49,11 @@ const BlogsTemplate: React.FC<Props> = ({ settings, contents }) => {
       <PageWrapper id="blog-container">
         <Flex flexFlow={flexFlow}>
           {/* メニュー */}
-          <Box maxW="360px" w="20%" minH={minHeight}>
+          <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight}>
             <BlogsSideMenu data={(settings as InlineResponse2002).data} />
           </Box>
           {/* コンテンツ */}
-          <Box maxW="720px" w="50%" minH={minHeight}>
+          <Box w={contentW} minH={minHeight}>
             <BlogsContents />
           </Box>
           {/* サイドメニュー */}

@@ -1,11 +1,5 @@
 import { memo } from 'react'
-import {
-  Box,
-  Flex,
-  useBreakpointValue,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 
 interface Props {
@@ -33,7 +27,6 @@ interface Props {
 }
 
 const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
-  console.log(data)
   const bg = useColorModeValue('#F0F0F0', '#252829')
   const textColor = useColorModeValue('dark', 'white')
   const borderBottomColor = useColorModeValue('#D7D7D7', '#58688F')
