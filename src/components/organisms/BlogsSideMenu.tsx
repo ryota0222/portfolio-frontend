@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import dayjs from 'dayjs'
+import { useBlogContext } from '@/middleware/blog'
 
 interface Props {
   data: {
@@ -30,6 +31,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
   const bg = useColorModeValue('#F0F0F0', '#252829')
   const textColor = useColorModeValue('dark', 'white')
   const borderBottomColor = useColorModeValue('#D7D7D7', '#58688F')
+  const { setTag } = useBlogContext()
   return (
     <Box w="full" bgColor={bg} h="full" boxSizing="border-box" p={3} pt={5}>
       {/* 月別アーカイブ */}
@@ -92,7 +94,12 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                   alignItems="center"
                   cursor="pointer"
                 >
-                  <Box borderRadius="4px" mr={1} bgColor={`${tagColor}50`}>
+                  <Box
+                    borderRadius="4px"
+                    mr={1}
+                    bgColor={`${tagColor}50`}
+                    onClick={() => setTag(label)}
+                  >
                     <Text
                       fontSize="xx-small"
                       p={1}
@@ -129,6 +136,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                   ml={2}
                   alignItems="center"
                   cursor="pointer"
+                  onClick={() => setTag(label)}
                 >
                   <Box
                     w="20px"
