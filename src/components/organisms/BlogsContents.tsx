@@ -9,9 +9,32 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 import { FiSearch } from 'react-icons/fi'
+import { PageNation } from '@/components/organisms/PageNation/index'
 import { useBlogContext } from '@/middleware/blog'
 
-const BlogsContents = () => {
+interface Props {
+  data: {
+    contents: {
+      created_at: string
+      id: string
+      image: string
+      tag: {
+        color: string
+        id: string
+        label: string
+        tag_id: string
+      }
+      title: string
+    }[]
+    page: {
+      current: number
+      total_count: number
+    }
+  }
+}
+
+const BlogsContents: React.FC<Props> = ({ data }) => {
+  const { contents, page } = data
   const textColor = useColorModeValue('dark', 'white')
   const noDataColor = useColorModeValue('#999', '#ccc')
   const { tag, searchWord } = useBlogContext()
@@ -51,11 +74,15 @@ const BlogsContents = () => {
           {tag}
         </Text>
       </Box>
-      {/* 記事 */}
-      {/* ない時 */}
-      <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>
-        記事がありません
-      </Text>
+      {contents && contents.length > 0 ? (
+        // 記事がある時
+        <PageNation total={page.total_count} currentPage={page.current} />
+      ) : (
+        // ない時
+        <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>
+          記事がありません
+        </Text>
+      )}
     </Box>
   )
 }

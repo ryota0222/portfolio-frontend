@@ -54,7 +54,7 @@ const BlogsTemplate: React.FC<Props> = ({ settings, contents }) => {
           </Box>
           {/* コンテンツ */}
           <Box w={contentW} minH={minHeight}>
-            <BlogsContents />
+            <BlogsContents data={(contents as InlineResponse2003).data} />
           </Box>
           {/* サイドメニュー */}
           <Box as="aside" flex={1} minH={minHeight} display={sideMenuDisplay}>
