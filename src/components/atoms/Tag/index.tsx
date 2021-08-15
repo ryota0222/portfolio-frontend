@@ -16,7 +16,7 @@ export const Tag = memo(({ children, bg }: Props) => {
   // 16進数のカラーコードの不透明度を50％にする
   const _bg = `${bg}50`
   return (
-    <Box bg={_bg} px={2} display="inline-block">
+    <Box bg={_bg} px={2} display="inline-block" data-type="tag">
       <Text fontSize="xs" color="white">
         {children}
       </Text>

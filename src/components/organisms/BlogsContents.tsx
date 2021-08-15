@@ -9,6 +9,7 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 import { FiSearch } from 'react-icons/fi'
+import { BlogCard } from '@/components/molecules/BlogCard/index'
 import { PageNation } from '@/components/organisms/PageNation/index'
 import { useBlogContext } from '@/middleware/blog'
 
@@ -76,9 +77,24 @@ const BlogsContents: React.FC<Props> = ({ data }) => {
       </Box>
       {contents && contents.length > 0 ? (
         // 記事がある時
-        <PageNation total={page.total_count} currentPage={page.current} />
+        <>
+          {/* コンテンツ */}
+          {contents.map((content) => {
+            return (
+              <BlogCard
+                key={content.id}
+                imageData={`https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png`}
+                title={content.title}
+                tagName={content.tag.label}
+                tagBg={content.tag.color}
+              />
+            )
+          })}
+          {/* ページネーション */}
+          <PageNation total={page.total_count} currentPage={page.current} />
+        </>
       ) : (
-        // ない時
+        // 記事がない時
         <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>
           記事がありません
         </Text>

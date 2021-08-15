@@ -22,11 +22,13 @@ const Error = ({ statusCode, message }) => {
         {statusCode}
       </Text>
       <Box w="full">
-        <Image
-          src={require(`../assets/commons/error/image_${random}.png`)}
-          alt={'画像'}
-          layout="responsive"
-        />
+        <Box maxW="320px" mx="auto" w="90%">
+          <Image
+            src={require(`../assets/commons/error/image_${random}.png`)}
+            alt={'画像'}
+            layout="responsive"
+          />
+        </Box>
       </Box>
       <Text colorScheme={color} textAlign="center" mt="4">
         {message}
