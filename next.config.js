@@ -1,6 +1,8 @@
 const withVideos = require('next-videos')
-module.exports = {
-  reactStrictMode: true,
-}
 
-module.exports = withVideos()
+module.exports = withVideos({
+  reactStrictMode: true,
+  images: {
+    domains: ['images.ctfassets.net'],
+  },
+})

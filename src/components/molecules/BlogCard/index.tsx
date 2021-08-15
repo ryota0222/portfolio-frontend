@@ -6,6 +6,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import Image from 'next/image'
+import styled from 'styled-components'
 import { Tag } from '@/components/atoms/Tag'
 import { BlogCardWrapper } from '@/styles/globals'
 
@@ -37,22 +38,31 @@ export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
         position="relative"
         width={'40vw'}
         height={'30vw'}
-        maxWidth={'280px'}
-        maxHeight={'210px'}
+        maxWidth={'200px'}
+        maxHeight={'150px'}
         overflow="hidden"
       >
-        <Image
-          src={imageData}
-          alt={title}
-          width={'100%'}
-          height={'100%'}
-          objectFit={'cover'}
-          loading={'lazy'}
-          quality={70}
-        />
-        <Box position="absolute" left="0" top="0" display="flex" height="18px">
-          <Tag bg={tagBg}>{tagName}</Tag>
-        </Box>
+        <Wrapper>
+          <Image
+            src={imageData}
+            alt={title}
+            width={'100%'}
+            height={'100%'}
+            objectFit={'cover'}
+            loading={'lazy'}
+            quality={70}
+          />
+          <Box
+            position="absolute"
+            left="0"
+            top="0"
+            display="flex"
+            height="18px"
+            data-type="tag"
+          >
+            <Tag bg={tagBg}>{tagName}</Tag>
+          </Box>
+        </Wrapper>
       </Box>
       <Text
         color={textColor}
@@ -68,3 +78,12 @@ export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
 })
 
 BlogCard.displayName = 'BlogCard'
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  div:not([data-type='tag']) {
+    width: 100%;
+    height: 100%;
+  }
+`
