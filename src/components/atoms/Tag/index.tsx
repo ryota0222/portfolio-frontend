@@ -17,7 +17,7 @@ export const Tag = memo(({ children, bg }: Props) => {
   const _bg = `${bg}50`
   return (
     <Box bg={_bg} px={2} display="inline-block" data-type="tag">
-      <Text fontSize="xs" color="white">
+      <Text fontSize="x-small" color="white" lineHeight="18px">
         {children}
       </Text>
     </Box>

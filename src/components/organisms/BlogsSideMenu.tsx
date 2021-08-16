@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import dayjs from 'dayjs'
+import throttle from 'just-throttle'
 import { useBlogContext } from '@/middleware/blog'
 
 interface Props {
@@ -53,6 +54,14 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                   ml={2}
                   alignItems="center"
                   cursor="pointer"
+                  onClick={throttle(
+                    () => {
+                      setTag(dayjs(date).format('YYYY/M'))
+                      console.log('aaa')
+                    },
+                    1000,
+                    { trailing: false },
+                  )}
                 >
                   <Text mr={2} fontSize="xs" colorScheme={textColor}>
                     {dayjs(date).format('YYYY/M')}
@@ -98,7 +107,9 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                     borderRadius="4px"
                     mr={1}
                     bgColor={`${tagColor}50`}
-                    onClick={() => setTag(label)}
+                    onClick={throttle(() => setTag(label), 1000, {
+                      trailing: false,
+                    })}
                   >
                     <Text
                       fontSize="xx-small"
@@ -136,7 +147,9 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                   ml={2}
                   alignItems="center"
                   cursor="pointer"
-                  onClick={() => setTag(label)}
+                  onClick={throttle(() => setTag(label), 1000, {
+                    trailing: false,
+                  })}
                 >
                   <Box
                     w="20px"

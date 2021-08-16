@@ -44,6 +44,13 @@ const BlogsContents: React.FC<Props> = ({ data }) => {
   const handleSearchChange = (event) => {
     setSearch(event.target.value)
   }
+  /**
+   * 詳細ページに遷移
+   * @param {string} コンテンツID
+   */
+  const detail = (id: string) => {
+    console.log(id)
+  }
   return (
     <Box w="full" h="full" boxSizing="border-box" p={4} maxW="500px" m="auto">
       {/* 検索フォーム */}
@@ -77,22 +84,27 @@ const BlogsContents: React.FC<Props> = ({ data }) => {
       </Box>
       {contents && contents.length > 0 ? (
         // 記事がある時
-        <>
+        <Flex flexWrap="wrap" justifyContent="space-between">
           {/* コンテンツ */}
           {contents.map((content) => {
             return (
-              <BlogCard
+              <Box
                 key={content.id}
-                imageData={`https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png`}
-                title={content.title}
-                tagName={content.tag.label}
-                tagBg={content.tag.color}
-              />
+                m="0 8px 16px"
+                onClick={() => detail(content.id)}
+              >
+                <BlogCard
+                  imageData={`https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png`}
+                  title={content.title}
+                  tagName={content.tag.label}
+                  tagBg={content.tag.color}
+                />
+              </Box>
             )
           })}
           {/* ページネーション */}
           <PageNation total={page.total_count} currentPage={page.current} />
-        </>
+        </Flex>
       ) : (
         // 記事がない時
         <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>

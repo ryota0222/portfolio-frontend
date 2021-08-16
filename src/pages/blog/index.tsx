@@ -1,10 +1,16 @@
+import { useEffect } from 'react'
 import * as apis from '@/apis/api'
 import { InlineResponse400 } from '@/apis/models'
 import BlogsTemplate from '@/components/templates/blog/BlogsTemplate'
 import { blogs as DAMMY_BLOGS } from '@/consts/dammy/blog'
+import { useBlogContext } from '@/middleware/blog'
 import { HeadComponent } from '@/utils/head'
 
 const Blog = ({ settings, contents }) => {
+  const { tag, searchWord } = useBlogContext()
+  useEffect(() => {
+    // ここでaxios
+  }, [tag, searchWord])
   return (
     <>
       <HeadComponent
