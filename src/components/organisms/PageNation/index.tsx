@@ -44,11 +44,9 @@ export const PageNation = memo(({ total, currentPage }: Props) => {
       return activeTextColor
     }
   }
-  console.log(dispNumber)
   const number = useMemo(() => {
     const _dispNumber = dispNumber ?? 4
     const halfSize = _dispNumber / 2
-    console.log(`_dispNumber: ${_dispNumber}`)
     const arr = []
     // ページ数を省略する場合
     if (total > _dispNumber) {

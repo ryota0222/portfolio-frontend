@@ -40,7 +40,6 @@ export const ModalComponent = memo(
     const size = useBreakpointValue({ base: 'full', sm: 'md' })
     const bg = useColorModeValue('white', 'black')
     const overlay = useColorModeValue('#82828232', '#FFFFFF32')
-    console.log(header)
     return (
       <Modal
         isOpen={isOpen}

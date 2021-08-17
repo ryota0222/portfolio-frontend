@@ -13,9 +13,16 @@ import { PageWrapper } from '@/styles/globals'
 interface Props {
   settings?: InlineResponse400 | InlineResponse2002
   contents?: InlineResponse400 | InlineResponse2003
+  title: string
+  searchWord?: string
 }
 
-const BlogsTemplate: React.FC<Props> = ({ settings, contents }) => {
+const BlogsTemplate: React.FC<Props> = ({
+  settings,
+  contents,
+  title,
+  searchWord,
+}) => {
   const minHeight = useBreakpointValue({
     base: 'auto',
     md: 'calc(var(--vh, 1vh) * 100 - 48px)',
@@ -54,7 +61,11 @@ const BlogsTemplate: React.FC<Props> = ({ settings, contents }) => {
           </Box>
           {/* コンテンツ */}
           <Box w={contentW} minH={minHeight}>
-            <BlogsContents data={(contents as InlineResponse2003).data} />
+            <BlogsContents
+              data={(contents as InlineResponse2003).data}
+              title={title}
+              searchWord={searchWord}
+            />
           </Box>
           {/* サイドメニュー */}
           <Box as="aside" flex={1} minH={minHeight} display={sideMenuDisplay}>

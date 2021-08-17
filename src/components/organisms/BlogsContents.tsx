@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import {
   Box,
   Flex,
@@ -8,10 +9,10 @@ import {
   Input,
   IconButton,
 } from '@chakra-ui/react'
+import router from 'next/router'
 import { FiSearch } from 'react-icons/fi'
 import { BlogCard } from '@/components/molecules/BlogCard/index'
 import { PageNation } from '@/components/organisms/PageNation/index'
-import { useBlogContext } from '@/middleware/blog'
 
 interface Props {
   data: {
@@ -32,18 +33,28 @@ interface Props {
       total_count: number
     }
   }
+  title: string
+  searchWord?: string
 }
 
-const BlogsContents: React.FC<Props> = ({ data }) => {
+const BlogsContents: React.FC<Props> = ({ data, title, searchWord }) => {
   const { contents, page } = data
   const textColor = useColorModeValue('dark', 'white')
   const noDataColor = useColorModeValue('#999', '#ccc')
-  const { tag, searchWord } = useBlogContext()
   // 検索フォーム
-  const [search, setSearch] = useState(searchWord)
+  const [search, setSearch] = useState(searchWord ?? '')
+  // 検索文字を入力
   const handleSearchChange = (event) => {
     setSearch(event.target.value)
   }
+  // 検索
+  const handleSearch = () => {
+    const e_data = encodeURI(search)
+    router.push(`/blog?searchWord=${e_data}`)
+  }
+  useEffect(() => {
+    if (searchWord) setSearch(searchWord)
+  }, [searchWord])
   /**
    * 詳細ページに遷移
    * @param {string} コンテンツID
@@ -61,6 +72,12 @@ const BlogsContents: React.FC<Props> = ({ data }) => {
           color="black"
           value={search}
           onChange={handleSearchChange}
+          onKeyPress={(e) => {
+            if (e.key == 'Enter') {
+              e.preventDefault()
+              handleSearch()
+            }
+          }}
         />
         <IconButton
           aria-label="検索"
@@ -68,6 +85,7 @@ const BlogsContents: React.FC<Props> = ({ data }) => {
           bgColor="#252829"
           size="sm"
           ml={2}
+          onClick={handleSearch}
         />
       </Flex>
       {/* タイトル */}
@@ -79,7 +97,7 @@ const BlogsContents: React.FC<Props> = ({ data }) => {
           isTruncated
           color={textColor}
         >
-          {tag}
+          {title}
         </Text>
       </Box>
       {contents && contents.length > 0 ? (
@@ -87,6 +105,7 @@ const BlogsContents: React.FC<Props> = ({ data }) => {
         <Flex flexWrap="wrap" justifyContent="space-between">
           {/* コンテンツ */}
           {contents.map((content) => {
+            console.log(content)
             return (
               <Box
                 key={content.id}

@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import throttle from 'just-throttle'
-import { useBlogContext } from '@/middleware/blog'
+import router from 'next/router'
 
 interface Props {
   data: {
@@ -32,7 +32,6 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
   const bg = useColorModeValue('#F0F0F0', '#252829')
   const textColor = useColorModeValue('dark', 'white')
   const borderBottomColor = useColorModeValue('#D7D7D7', '#58688F')
-  const { setTag } = useBlogContext()
   return (
     <Box w="full" bgColor={bg} h="full" boxSizing="border-box" p={3} pt={5}>
       {/* 月別アーカイブ */}
@@ -55,10 +54,10 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                   alignItems="center"
                   cursor="pointer"
                   onClick={throttle(
-                    () => {
-                      setTag(dayjs(date).format('YYYY/M'))
-                      console.log('aaa')
-                    },
+                    () =>
+                      router.push(
+                        `/blog?time=${dayjs(date).format('YYYY-MM')}`,
+                      ),
                     1000,
                     { trailing: false },
                   )}
@@ -107,9 +106,13 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                     borderRadius="4px"
                     mr={1}
                     bgColor={`${tagColor}50`}
-                    onClick={throttle(() => setTag(label), 1000, {
-                      trailing: false,
-                    })}
+                    onClick={throttle(
+                      () => router.push(`/blog?tag=${tagData.id}`),
+                      1000,
+                      {
+                        trailing: false,
+                      },
+                    )}
                   >
                     <Text
                       fontSize="xx-small"
@@ -147,9 +150,13 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                   ml={2}
                   alignItems="center"
                   cursor="pointer"
-                  onClick={throttle(() => setTag(label), 1000, {
-                    trailing: false,
-                  })}
+                  onClick={throttle(
+                    () => router.push(`/blog?tag=${item.id}`),
+                    1000,
+                    {
+                      trailing: false,
+                    },
+                  )}
                 >
                   <Box
                     w="20px"

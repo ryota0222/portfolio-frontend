@@ -22,7 +22,6 @@ Object.defineProperty(nextImage, 'default', {
   value: (props) => {
     const _props = Object.assign({}, props)
     const style = {}
-    console.log(props)
     if (props.objectFit) {
       style['objectFit'] = props.objectFit
     }
