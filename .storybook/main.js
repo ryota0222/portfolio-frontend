@@ -18,6 +18,7 @@ module.exports = {
     'storybook-addon-performance/register',
     '@storybook/addon-controls',
     'storybook-addon-designs',
+    'storybook-addon-next-router',
   ],
   typescript: {
     reactDocgen: false,

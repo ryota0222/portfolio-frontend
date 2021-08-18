@@ -1,10 +1,61 @@
+import { useEffect, useState, useMemo } from 'react'
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
 import * as apis from '@/apis/api'
 import { InlineResponse400 } from '@/apis/models'
 import BlogsTemplate from '@/components/templates/blog/BlogsTemplate'
+import { BLOG_NUMBER_PER_PAGE } from '@/consts/config'
 import { blogs as DAMMY_BLOGS } from '@/consts/dammy/blog'
 import { HeadComponent } from '@/utils/head'
 
 const Blog = ({ settings, contents }) => {
+  const [_contents, setContents] = useState(contents)
+  const router = useRouter()
+  const { query } = router
+  const { time, searchWord, tag, offset } = query
+  useEffect(() => {
+    const f = async () => {
+      let func
+      const _offset = Number(offset as string) ?? 0
+      const limit = BLOG_NUMBER_PER_PAGE
+      if (searchWord && searchWord.length > 0) {
+        func = await apis
+          .BlogApiFp()
+          .getBlogContents(_offset, limit, searchWord as string)
+      } else if (time && time.length > 0) {
+        func = await apis
+          .BlogApiFp()
+          .getBlogContents(
+            _offset,
+            limit,
+            searchWord as string,
+            undefined,
+            time as string,
+          )
+      } else if (tag && tag.length > 0) {
+        func = await apis
+          .BlogApiFp()
+          .getBlogContents(_offset, limit, searchWord as string, tag as string)
+      }
+      if (func) {
+        const data = await func()
+        // データがあればコンテンツを保存
+        if (data.data && data.data.success) {
+          setContents(data.data)
+        }
+      }
+    }
+    f()
+  }, [query])
+  const title = useMemo(() => {
+    if (time) {
+      return dayjs(time as string).format('YYYY/M')
+    } else if (tag) {
+      const tagData = settings.data.tags.find((_tag) => _tag.id === tag)
+      return tagData.label
+    }
+    return ''
+  }, [time, tag])
   return (
     <>
       <HeadComponent
@@ -12,7 +63,12 @@ const Blog = ({ settings, contents }) => {
         url={`${process.env.SITE_URL}/blog`}
         ogType="blog"
       />
-      <BlogsTemplate settings={settings} contents={contents} />
+      <BlogsTemplate
+        settings={settings}
+        contents={_contents}
+        title={title}
+        searchWord={searchWord as string}
+      />
     </>
   )
 }
@@ -22,7 +78,7 @@ export const getStaticProps = async () => {
     return { props: DAMMY_BLOGS }
   }
   const offset = 0
-  const limit = 500
+  const limit = BLOG_NUMBER_PER_PAGE
   const promise1 = await apis.BlogApiFp().getBlog()
   const promise2 = await apis.BlogApiFp().getBlogContents(offset, limit)
   const response = await Promise.all([promise1(), promise2()]).then(

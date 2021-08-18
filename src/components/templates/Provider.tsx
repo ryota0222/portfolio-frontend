@@ -1,7 +1,6 @@
 import { ChakraProvider, useColorMode, extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 import { useRouter } from 'next/router'
-import { BlogProvider } from '@/middleware/blog'
 import { RtlProvider } from '@/plugins/rtl-provider'
 import c from '@/utils/colorMode'
 
@@ -23,11 +22,9 @@ const Provider = ({ children }) => {
   }
   const colors = { black: '#404040', white: '#FBFBFB' }
   return (
-    <BlogProvider>
-      <ChakraProvider theme={extendTheme({ direction, styles, colors })}>
-        <RtlProvider>{children}</RtlProvider>
-      </ChakraProvider>
-    </BlogProvider>
+    <ChakraProvider theme={extendTheme({ direction, styles, colors })}>
+      <RtlProvider>{children}</RtlProvider>
+    </ChakraProvider>
   )
 }
 

@@ -23,4 +23,7 @@ Default.parameters = {
     type: 'figma',
     url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A1350',
   },
+  nextRouter: {
+    route: '/',
+  },
 }

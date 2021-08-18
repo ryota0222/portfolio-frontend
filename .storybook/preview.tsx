@@ -14,6 +14,7 @@ import { FiSun } from 'react-icons/fi'
 import { withPerformance } from 'storybook-addon-performance'
 import { mode } from '@chakra-ui/theme-tools'
 import * as nextImage from 'next/image'
+import { RouterContext } from 'next/dist/next-server/lib/router-context'
 
 const addParameters = require('@storybook/react').addParameters
 
@@ -22,7 +23,6 @@ Object.defineProperty(nextImage, 'default', {
   value: (props) => {
     const _props = Object.assign({}, props)
     const style = {}
-    console.log(props)
     if (props.objectFit) {
       style['objectFit'] = props.objectFit
     }
@@ -81,6 +81,12 @@ export const globalTypes = {
       icon: 'globe',
       items: ['LTR', 'RTL'],
     },
+  },
+}
+
+export const parameters = {
+  nextRouter: {
+    Provider: RouterContext.Provider,
   },
 }
 

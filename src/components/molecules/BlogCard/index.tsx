@@ -31,7 +31,6 @@ export interface Props {
 
 export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
   const textColor = useColorModeValue('#002E48', '#FFFFFF')
-  const fontSize = useBreakpointValue({ base: 'xs', sm: 'md' })
   return (
     <BlogCardWrapper>
       <Box
@@ -68,8 +67,8 @@ export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
         color={textColor}
         noOfLines={2}
         mt={2}
-        fontWeight="bold"
-        fontSize={fontSize}
+        fontWeight="normal"
+        fontSize="xs"
       >
         {title}
       </Text>

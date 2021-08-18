@@ -21,6 +21,8 @@ export const PAGE_NAME: PageName[] = ['portfolio', 'blog', 'roadmap']
 
 export const SHOP_TYPE: ShopType[] = ['stamp', 'product', 'wallpaper']
 
+export const BLOG_NUMBER_PER_PAGE = 3
+
 export const INTRODUCTION = {
   name: 'RyoTa.',
   description: `神戸大学卒業後、2020年4月よりフロントエンドエンジニアとしてSI企業に新卒入社。Webアプリケーションや、ネイティブアプリの開発をメインで行う一方で、デザインの分野にも興味があり、Webデザインやグラフィックデザイン、アニメーションなどにも取り組んでいます。Adobe XDやFigmaを用いたデザインモックの作成や、ツールを用いた素材やアニメーションの作成もしています。 神戸で[「つながる勉強会」](https://tsunagaru-kobe.connpass.com/)という勉強会を2021年1月より行っています。`,
