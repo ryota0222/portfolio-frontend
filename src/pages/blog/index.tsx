@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import * as apis from '@/apis/api'
 import { InlineResponse400 } from '@/apis/models'
 import BlogsTemplate from '@/components/templates/blog/BlogsTemplate'
+import { BLOG_NUMBER_PER_PAGE } from '@/consts/config'
 import { blogs as DAMMY_BLOGS } from '@/consts/dammy/blog'
 import { HeadComponent } from '@/utils/head'
 
@@ -16,7 +17,7 @@ const Blog = ({ settings, contents }) => {
     const f = async () => {
       let func
       const offset = 0
-      const limit = 500
+      const limit = BLOG_NUMBER_PER_PAGE
       if (searchWord && searchWord.length > 0) {
         func = await apis
           .BlogApiFp()
@@ -77,7 +78,7 @@ export const getStaticProps = async () => {
     return { props: DAMMY_BLOGS }
   }
   const offset = 0
-  const limit = 500
+  const limit = BLOG_NUMBER_PER_PAGE
   const promise1 = await apis.BlogApiFp().getBlog()
   const promise2 = await apis.BlogApiFp().getBlogContents(offset, limit)
   const response = await Promise.all([promise1(), promise2()]).then(
