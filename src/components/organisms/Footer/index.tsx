@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react'
+import { memo } from 'react'
 import {
   useColorModeValue,
   Text,
@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
-export const FooterComponent = () => {
+export const FooterComponent = memo(() => {
   const router = useRouter()
   const isBlog = router.route === '/blog'
   const color = useColorModeValue('dark', 'white')
@@ -22,6 +22,6 @@ export const FooterComponent = () => {
       </Text>
     </Center>
   )
-}
+})
 
 FooterComponent.displayName = 'FooterComponent'

@@ -12,21 +12,21 @@ const Blog = ({ settings, contents }) => {
   const [_contents, setContents] = useState(contents)
   const router = useRouter()
   const { query } = router
-  const { time, searchWord, tag } = query
+  const { time, searchWord, tag, offset } = query
   useEffect(() => {
     const f = async () => {
       let func
-      const offset = 0
+      const _offset = Number(offset as string) ?? 0
       const limit = BLOG_NUMBER_PER_PAGE
       if (searchWord && searchWord.length > 0) {
         func = await apis
           .BlogApiFp()
-          .getBlogContents(offset, limit, searchWord as string)
+          .getBlogContents(_offset, limit, searchWord as string)
       } else if (time && time.length > 0) {
         func = await apis
           .BlogApiFp()
           .getBlogContents(
-            offset,
+            _offset,
             limit,
             searchWord as string,
             undefined,
@@ -35,7 +35,7 @@ const Blog = ({ settings, contents }) => {
       } else if (tag && tag.length > 0) {
         func = await apis
           .BlogApiFp()
-          .getBlogContents(offset, limit, searchWord as string, tag as string)
+          .getBlogContents(_offset, limit, searchWord as string, tag as string)
       }
       if (func) {
         const data = await func()

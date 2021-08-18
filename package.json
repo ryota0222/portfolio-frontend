@@ -41,6 +41,7 @@
     "react-transition-group": "^4.4.2",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
+    "storybook-addon-next-router": "^3.0.7",
     "styled-components": "^5.3.0",
     "stylis": "^4.0.10",
     "stylis-plugin-rtl": "^2.1.0"
