@@ -12,7 +12,6 @@ export const FooterComponent = memo(() => {
   const isBlog = router.route === '/blog'
   const color = useColorModeValue('dark', 'white')
   const blogBg = useColorModeValue('#F0F0F0', '#252829')
-  console.log(blogBg)
   const bgColor = isBlog ? blogBg : 'transparent'
   const footerBg = useBreakpointValue({ base: bgColor, sm: 'transparent' })
   return (
