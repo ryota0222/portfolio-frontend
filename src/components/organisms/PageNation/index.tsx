@@ -1,14 +1,13 @@
-import { memo, useState, useMemo, useEffect } from 'react'
+import { memo, useMemo } from 'react'
 import {
   useColorModeValue,
   Text,
-  Flex,
   useBreakpointValue,
   Circle,
   HStack,
 } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import usePageNation from '@/middleware/blog'
 
 export interface Props {
   /**
@@ -35,6 +34,8 @@ export interface Props {
 
 export const PageNation = memo(
   ({ total, currentPage, increment, decrement, set }: Props) => {
+    const router = useRouter()
+    const { query } = router
     const iconActiveColor = useColorModeValue('#404040', '#FBFBFB')
     const iconNonActiveColor = useColorModeValue('#E9E9E9', '#838383')
     const activeTextColor = useColorModeValue('white', 'black')
@@ -45,17 +46,49 @@ export const PageNation = memo(
     const prevColor = currentPage <= 1 ? iconNonActiveColor : iconActiveColor
     const nextColor =
       currentPage === total ? iconNonActiveColor : iconActiveColor
+    // 現在のパス
+    const path = useMemo(() => {
+      let tmp = '/blog'
+      for (const property in query) {
+        if (property === 'page') continue
+        if (tmp === '/blog') {
+          tmp += `?${property}=${query[property]}`
+        } else {
+          tmp += `&${property}=${query[property]}`
+        }
+      }
+      return tmp
+    }, [query])
     // 戻る処理
     const prev = () => {
-      if (currentPage > 1) decrement()
+      if (currentPage > 1) {
+        decrement()
+        const _path =
+          path === '/blog'
+            ? `${path}?page=${currentPage - 1}`
+            : `${path}&page=${currentPage - 1}`
+        router.push(_path)
+      }
     }
     // すすむ処理
     const next = () => {
-      if (currentPage < total) increment()
+      if (currentPage < total) {
+        increment()
+        const _path =
+          path === '/blog'
+            ? `${path}?page=${currentPage + 1}`
+            : `${path}&page=${currentPage + 1}`
+        router.push(_path)
+      }
     }
     // ページを選択した際の処理
     const select = (page: number) => {
-      if (currentPage !== page) set(page)
+      if (currentPage !== page) {
+        set(page)
+        const _path =
+          path === '/blog' ? `${path}?page=${page}` : `${path}&page=${page}`
+        router.push(_path)
+      }
     }
     const currentTextColor = (page: number) => {
       if (currentPage === page) {
