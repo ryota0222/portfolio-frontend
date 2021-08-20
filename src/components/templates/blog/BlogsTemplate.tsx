@@ -15,6 +15,8 @@ interface Props {
   contents?: InlineResponse400 | InlineResponse2003
   title: string
   searchWord?: string
+  isLoading: boolean
+  isError: any
 }
 
 const BlogsTemplate: React.FC<Props> = ({
@@ -22,6 +24,8 @@ const BlogsTemplate: React.FC<Props> = ({
   contents,
   title,
   searchWord,
+  isLoading,
+  isError,
 }) => {
   const minHeight = useBreakpointValue({
     base: 'auto',
@@ -47,9 +51,19 @@ const BlogsTemplate: React.FC<Props> = ({
     base: '100%',
     md: '50%',
   })
-  if (!settings.success || !contents.success) {
+  console.log({
+    settings,
+    contents,
+    title,
+    searchWord,
+    isLoading,
+    isError,
+  })
+  // return <></>
+  if (!settings.success || !contents?.success || isError) {
     return (
-      <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
+      // <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
+      <></>
     )
   } else {
     return (
