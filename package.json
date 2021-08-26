@@ -15,13 +15,15 @@
     "test:types": "tsc --noEmit",
     "test:lint": "run-s lint lint:fix",
     "test-all": "run-s test:*",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "bundle-analyzer": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.5",
     "@emotion/cache": "^11.4.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@next/bundle-analyzer": "^11.1.0",
     "@sentry/react": "^6.10.0",
     "@sentry/tracing": "^6.10.0",
     "@types/react-transition-group": "^4.4.2",
