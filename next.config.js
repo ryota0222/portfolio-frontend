@@ -1,3 +1,6 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 const withVideos = require('next-videos')
 
 module.exports = withVideos({
@@ -6,3 +9,5 @@ module.exports = withVideos({
     domains: ['images.ctfassets.net'],
   },
 })
+
+module.exports = withBundleAnalyzer({})
