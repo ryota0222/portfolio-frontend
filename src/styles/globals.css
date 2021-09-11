@@ -58,3 +58,14 @@ a {
 .line-appear.line-appear-active {
   width: 300px;
 }
+
+/* =====================
+    blog
+  ====================== */
+
+#blog-content a {
+  color: rgb(72, 136, 255);
+}
+#blog-content.dark a {
+  color: rgb(158, 192, 255);
+}

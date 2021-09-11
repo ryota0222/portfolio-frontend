@@ -29,50 +29,6 @@ const Blog = ({ settings, contents }) => {
     fetcher,
     { initialData: contents },
   )
-  console.log('data')
-  console.log(data)
-  // useEffect(() => {
-  //   if (data && data.success) {
-  //     setContents(data.data)
-  //   }
-  // }, [data])
-  // useEffect(() => {
-  //   // データ取得
-  //   const f = async () => {
-  //     let func
-  //     const offset = page
-  //       ? (Number(page as string) - 1) * BLOG_NUMBER_PER_PAGE
-  //       : 0
-  //     const limit = BLOG_NUMBER_PER_PAGE
-  //     if (searchWord && searchWord.length > 0) {
-  //       func = await apis
-  //         .BlogApiFp()
-  //         .getBlogContents(offset, limit, searchWord as string)
-  //     } else if (time && time.length > 0) {
-  //       func = await apis
-  //         .BlogApiFp()
-  //         .getBlogContents(
-  //           offset,
-  //           limit,
-  //           searchWord as string,
-  //           undefined,
-  //           time as string,
-  //         )
-  //     } else if (tag && tag.length > 0) {
-  //       func = await apis
-  //         .BlogApiFp()
-  //         .getBlogContents(offset, limit, searchWord as string, tag as string)
-  //     }
-  //     if (func) {
-  //       const data = await func()
-  //       // データがあればコンテンツを保存
-  //       if (data.data && data.data.success) {
-  //         setContents(data.data)
-  //       }
-  //     }
-  //   }
-  //   // f()
-  // }, [query])
   const title = useMemo(() => {
     if (time) {
       return dayjs(time as string).format('YYYY/M')

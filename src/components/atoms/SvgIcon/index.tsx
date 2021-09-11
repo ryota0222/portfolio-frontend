@@ -154,6 +154,103 @@ export const SvgIcon = memo(({ name, width, height, color }: Props) => {
           />
         </svg>
       )
+    case 'link':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width={width ?? '27px'}
+          height={height ?? '27px'}
+        >
+          <path
+            d="M208,352H144a96,96,0,0,1,0-192h64"
+            style={{
+              fill: 'none',
+              stroke: color,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              strokeWidth: '36px',
+            }}
+          />
+          <path
+            d="M304,160h64a96,96,0,0,1,0,192H304"
+            style={{
+              fill: 'none',
+              stroke: color,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              strokeWidth: '36px',
+            }}
+          />
+          <line
+            x1="163.29"
+            y1="256"
+            x2="350.71"
+            y2="256"
+            style={{
+              fill: 'none',
+              stroke: color,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              strokeWidth: '36px',
+            }}
+          />
+        </svg>
+      )
+    case 'update':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2048 2048"
+          width={width ?? '27px'}
+          height={height ?? '27px'}
+        >
+          <path
+            d="M1024 512v549l365 366-90 90-403-402V512h128zm512 128h297q-56-117-140.5-211.5t-190-161.5T1275 164t-251-36q-123 0-237.5 32t-214 90.5T391 391 250.5 572.5t-90.5 214-32 237.5 32 237.5 90.5 214T391 1657t181.5 140.5T786 1888t238 32q150 0 289-48.5t253-135.5 197.5-207.5T1887 1263l123 34q-45 166-140.5 304t-226 237.5-289 154.5-330.5 55q-141 0-272-36.5t-245-103-207.5-160-160-207.5-103-244.5T0 1024q0-141 36.5-272t103-245 160-207.5 207.5-160 244.5-103T1024 0q140 0 272 37t248.5 105.5 212 166.5T1920 530V256h128v512h-512V640z"
+            style={{ fill: color }}
+          />
+        </svg>
+      )
+    case 'create':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={width ?? '27px'}
+          height={height ?? '27px'}
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M384,224V408a40,40,0,0,1-40,40H104a40,40,0,0,1-40-40V168a40,40,0,0,1,40-40H271.48"
+            style={{
+              fill: 'none',
+              stroke: color,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              strokeWidth: '32px',
+            }}
+          />
+          <path
+            d="M459.94,53.25a16.06,16.06,0,0,0-23.22-.56L424.35,65a8,8,0,0,0,0,11.31l11.34,11.32a8,8,0,0,0,11.34,0l12.06-12C465.19,69.54,465.76,59.62,459.94,53.25Z"
+            style={{
+              fill: 'none',
+              stroke: color,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              strokeWidth: '32px',
+            }}
+          />
+          <path
+            d="M399.34,90,218.82,270.2a9,9,0,0,0-2.31,3.93L208.16,299a3.91,3.91,0,0,0,4.86,4.86l24.85-8.35a9,9,0,0,0,3.93-2.31L422,112.66A9,9,0,0,0,422,100L412.05,90A9,9,0,0,0,399.34,90Z"
+            style={{
+              fill: 'none',
+              stroke: color,
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              strokeWidth: '32px',
+            }}
+          />
+        </svg>
+      )
     default:
       return <></>
   }
