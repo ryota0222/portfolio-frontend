@@ -9,6 +9,7 @@ import {
   Input,
   IconButton,
 } from '@chakra-ui/react'
+import Link from 'next/link'
 import router from 'next/router'
 import { FiSearch } from 'react-icons/fi'
 import { BlogCard } from '@/components/molecules/BlogCard/index'
@@ -58,13 +59,6 @@ const BlogsContents: React.FC<Props> = ({ data, title, searchWord }) => {
   useEffect(() => {
     if (searchWord) setSearch(searchWord)
   }, [searchWord])
-  /**
-   * 詳細ページに遷移
-   * @param {string} コンテンツID
-   */
-  const detail = (id: string) => {
-    console.log(id)
-  }
   return (
     <Box w="full" h="full" boxSizing="border-box" p={4} maxW="500px" m="auto">
       {/* 検索フォーム */}
@@ -110,18 +104,16 @@ const BlogsContents: React.FC<Props> = ({ data, title, searchWord }) => {
             {/* コンテンツ */}
             {contents.map((content) => {
               return (
-                <Box
-                  key={content.id}
-                  m="0 8px 16px"
-                  onClick={() => detail(content.id)}
-                >
-                  <BlogCard
-                    imageData={`https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png`}
-                    title={content.title}
-                    tagName={content.tag.label}
-                    tagBg={content.tag.color}
-                  />
-                </Box>
+                <Link href={`/blog/${content.id}`} key={content.id} passHref>
+                  <Box m="0 8px 16px">
+                    <BlogCard
+                      imageData={`https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png`}
+                      title={content.title}
+                      tagName={content.tag.label}
+                      tagBg={content.tag.color}
+                    />
+                  </Box>
+                </Link>
               )
             })}
           </Flex>

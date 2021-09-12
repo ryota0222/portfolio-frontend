@@ -20,17 +20,17 @@ export const TitleLabel = styled.span`
   margin-left: ${(props) => {
     switch (props.type) {
       case 'h1':
-        return 1.5
+        return 1
       case 'h2':
-        return 2.5
+        return 2
       case 'h3':
-        return 3.5
+        return 3
       case 'h4':
-        return 4.5
+        return 4
       case 'h5':
-        return 5.5
+        return 5
       case 'h6':
-        return 6.5
+        return 6
       default:
         return 0
     }
@@ -44,6 +44,7 @@ export const Rod = styled.span`
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: 0;
   &::before {
     content: '';
     display: inline-block;

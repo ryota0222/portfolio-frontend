@@ -1,5 +1,4 @@
 import { Box, Flex, useBreakpointValue } from '@chakra-ui/react'
-import Error from 'next/error'
 import {
   InlineResponse400,
   InlineResponse2002,
@@ -50,14 +49,6 @@ const BlogsTemplate: React.FC<Props> = ({
   const contentW = useBreakpointValue({
     base: '100%',
     md: '50%',
-  })
-  console.log({
-    settings,
-    contents,
-    title,
-    searchWord,
-    isLoading,
-    isError,
   })
   // return <></>
   if (!settings.success || !contents?.success || isError) {
