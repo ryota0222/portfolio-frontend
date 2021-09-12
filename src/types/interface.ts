@@ -17,6 +17,7 @@ export type SvgIconName =
   | 'link'
   | 'create'
   | 'update'
+  | 'home'
 
 // counter
 export type CounterType = 'good' | 'bad'
@@ -66,10 +67,7 @@ export interface Blog {
   asset: Record<string, Field>[]
   author: Author
   lgtm: Lgtm
-  index: {
-    label: string
-    type: string
-  }[]
+  index: BlogIndexItem[]
   tag: Tag
 }
 

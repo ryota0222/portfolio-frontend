@@ -7,10 +7,12 @@ import {
   useColorModeValue,
   Center,
 } from '@chakra-ui/react'
+import dayjs from 'dayjs'
 import NextImage from 'next/image'
 import ImageComponent from '@/components/atoms/Image'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import Ads from '@/components/organisms/Ads'
+import BlogSideMenu from '@/components/organisms/BlogSideMenu'
 import { BLOG_IMAGE_MAX_WIDTH } from '@/consts/config'
 import useBlogContentWidth from '@/hooks/useBlogContentWidth'
 import { PageWrapper } from '@/styles/globals'
@@ -64,7 +66,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
       <Flex flexFlow={flexFlow}>
         {/* メニュー */}
         <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight}>
-          {/* <BlogsSideMenu data={(settings as InlineResponse2002).data} /> */}
+          <BlogSideMenu tag={data.tag} index={data.index} />
         </Box>
         {/* コンテンツ */}
         <Box
@@ -85,6 +87,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
             zIndex={9999}
             pl={2}
             backdropFilter="blur(4px)"
+            as="h1"
           >
             {data.title}
           </Text>
@@ -111,17 +114,20 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
           </Box>
           <Box mb={8}>
             {/* 作成日 */}
-            <Flex alignItems="center" justifyContent="flex-end">
-              <SvgIcon
-                name="create"
-                color={iconColor}
-                width="16px"
-                height="16px"
-              />
-              <Text ml={2} fontSize="14px" letterSpacing="1px">
-                {data.created_at.replaceAll('-', '/')}
-              </Text>
-            </Flex>
+            {data?.created_at && (
+              <Flex alignItems="center" justifyContent="flex-end">
+                <SvgIcon
+                  name="create"
+                  color={iconColor}
+                  width="16px"
+                  height="16px"
+                />
+                <Text ml={2} fontSize="14px" letterSpacing="1px">
+                  {/* {data.created_at} */}
+                  {dayjs(data.created_at).format('YYYY/MM/DD')}
+                </Text>
+              </Flex>
+            )}
             {/* 更新日 */}
             {data.updated_at && (
               <Flex alignItems="center" mt={2} justifyContent="flex-end">
@@ -132,13 +138,16 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                   height="16px"
                 />
                 <Text ml={2} fontSize="14px" letterSpacing="1px">
-                  {data.created_at.replaceAll('-', '/')}
+                  {dayjs(data.updated_at).format('YYYY/MM/DD')}
+                  {/* {data.updated_at.replaceAll('-', '/')} */}
                 </Text>
               </Flex>
             )}
           </Box>
           {/* 本文 */}
-          {getRichTextRenderer(data.content)}
+          <div className="contents-wrapper">
+            {getRichTextRenderer(data.content)}
+          </div>
         </Box>
         {/* サイドメニュー */}
         <Box as="aside" flex={1} minH={minHeight} display={sideMenuDisplay}>

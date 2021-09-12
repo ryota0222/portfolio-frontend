@@ -251,6 +251,26 @@ export const SvgIcon = memo(({ name, width, height, color }: Props) => {
           />
         </svg>
       )
+    case 'home':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          width={width ?? '27px'}
+          height={height ?? '27px'}
+        >
+          <path
+            d="M8 20H3V10H0L10 0l10 10h-3v10h-5v-6H8v6z"
+            style={{
+              fill: color,
+              stroke: 'none',
+              strokeLinecap: 'round',
+              strokeLinejoin: 'round',
+              strokeWidth: '32px',
+            }}
+          />
+        </svg>
+      )
     default:
       return <></>
   }

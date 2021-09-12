@@ -2941,42 +2941,52 @@ export const blog = {
       {
         label: '開発環境',
         type: 'h2',
+        index: 0,
       },
       {
         label: 'フレームワーク',
         type: 'h3',
+        index: 1,
       },
       {
         label: 'Github',
         type: 'h3',
+        index: 2,
       },
       {
         label: 'h３だよ',
         type: 'h3',
+        index: 3,
       },
       {
         label: 'h4です',
         type: 'h4',
+        index: 4,
       },
       {
         label: 'h5てばよ',
         type: 'h5',
+        index: 5,
       },
       {
         label: 'h6でございます',
         type: 'h6',
+        index: 6,
       },
       {
         label: 'Netlify',
         type: 'h3',
+        index: 7,
       },
       {
         label: 'contentful',
         type: 'h2',
+        index: 8,
       },
       {
         label: '最後に',
         type: 'h2',
+        index: 9,
       },
     ],
     tag: {

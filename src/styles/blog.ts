@@ -4,35 +4,35 @@ const H1 = styled.h1``
 
 const H2 = styled.h2`
   font-size: 1.6rem;
-  margin-top: 72px;
+  padding-top: 72px;
   margin-bottom: 24px;
   font-weight: bold;
 `
 
 const H3 = styled.h3`
   font-size: 1.4rem;
-  margin-top: 64px;
+  padding-top: 64px;
   margin-bottom: 16px;
   font-weight: bold;
 `
 
 const H4 = styled.h4`
   font-size: 1.3rem;
-  margin-top: 48px;
+  padding-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
 `
 
 const H5 = styled.h5`
   font-size: 1.2rem;
-  margin-top: 32px;
+  padding-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
 `
 
 const H6 = styled.h6`
   font-size: 1.1rem;
-  margin-top: 24px;
+  padding-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
 `

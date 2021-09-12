@@ -12,6 +12,7 @@ export const SVG_ICON_NAME_LIST: SvgIconName[] = [
   'link',
   'create',
   'update',
+  'home',
 ]
 
 export const ROOT_FONT_SIZE = 16

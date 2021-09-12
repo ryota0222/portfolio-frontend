@@ -58,7 +58,6 @@ const getRichTextRenderer = (data: Document) => {
         )
       },
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        console.log(node)
         const target = node.data.target
         const { fields } = target
         const {
@@ -88,22 +87,34 @@ const getRichTextRenderer = (data: Document) => {
         return <BlogStyle.Paragraph>{children}</BlogStyle.Paragraph>
       },
       [BLOCKS.HEADING_1]: (node, children) => (
-        <BlogStyle.H1>{children}</BlogStyle.H1>
+        <BlogStyle.H1 id={children} className="content">
+          {children}
+        </BlogStyle.H1>
       ),
       [BLOCKS.HEADING_2]: (node, children) => (
-        <BlogStyle.H2>{children}</BlogStyle.H2>
+        <BlogStyle.H2 id={children} className="content">
+          {children}
+        </BlogStyle.H2>
       ),
       [BLOCKS.HEADING_3]: (node, children) => (
-        <BlogStyle.H3>{children}</BlogStyle.H3>
+        <BlogStyle.H3 id={children} className="content">
+          {children}
+        </BlogStyle.H3>
       ),
       [BLOCKS.HEADING_4]: (node, children) => (
-        <BlogStyle.H4>{children}</BlogStyle.H4>
+        <BlogStyle.H4 id={children} className="content">
+          {children}
+        </BlogStyle.H4>
       ),
       [BLOCKS.HEADING_5]: (node, children) => (
-        <BlogStyle.H5>{children}</BlogStyle.H5>
+        <BlogStyle.H5 id={children} className="content">
+          {children}
+        </BlogStyle.H5>
       ),
       [BLOCKS.HEADING_6]: (node, children) => (
-        <BlogStyle.H6>{children}</BlogStyle.H6>
+        <BlogStyle.H6 id={children} className="content">
+          {children}
+        </BlogStyle.H6>
       ),
       [BLOCKS.OL_LIST]: (node, children) => (
         <BlogStyle.OrderList>{children}</BlogStyle.OrderList>
