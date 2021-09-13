@@ -9,6 +9,6 @@ const withVideos = require('next-videos')
 module.exports = withPlugins([withBundleAnalyzer, withVideos], {
   /* オプション設定 */
   images: {
-    domains: ['images.ctfassets.net'],
+    domains: ['images.ctfassets.net', 'cdn.buymeacoffee.com'],
   },
 })
