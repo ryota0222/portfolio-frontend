@@ -66,7 +66,13 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
       <Flex flexFlow={flexFlow}>
         {/* メニュー */}
         <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight}>
-          <BlogSideMenu tag={data.tag} index={data.index} />
+          <BlogSideMenu
+            tag={data.tag}
+            index={data.index}
+            lgtm={data.lgtm}
+            title={data.title}
+            author={data.author}
+          />
         </Box>
         {/* コンテンツ */}
         <Box

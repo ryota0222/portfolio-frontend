@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Script from 'next/script'
 import * as apis from '@/apis/api'
 import BlogDetailTemplate from '@/components/templates/blog/BlogTemplate'
 import { blog as BLOG_CONTENT } from '@/consts/dammy/blog'
@@ -15,6 +16,19 @@ const BlogDetail = ({ data }) => {
   if (!data) return <></>
   return (
     <>
+      <Script
+        type="text/javascript"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+        data-name="bmc-button"
+        data-slug="RyoTa"
+        data-color="#3d3d3d"
+        data-emoji=""
+        data-font="Cookie"
+        data-text="Buy me a coffee"
+        data-outline-color="#ffffff"
+        data-font-color="#ffffff"
+        data-coffee-color="#FFDD00"
+      ></Script>
       <HeadComponent
         title={data.data.title}
         url={`${process.env.SITE_URL}/blog/${id}`}

@@ -18,6 +18,8 @@ export type SvgIconName =
   | 'create'
   | 'update'
   | 'home'
+  | 'twitter'
+  | 'facebook'
 
 // counter
 export type CounterType = 'good' | 'bad'
