@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 
 export const FooterComponent = memo(() => {
   const router = useRouter()
-  const isBlog = router.route === '/blog'
+  const isBlog = router.route === '/blog' || router.pathname === '/blog/[id]'
   const color = useColorModeValue('dark', 'white')
   const blogBg = useColorModeValue('#F0F0F0', '#252829')
   const bgColor = isBlog ? blogBg : 'transparent'

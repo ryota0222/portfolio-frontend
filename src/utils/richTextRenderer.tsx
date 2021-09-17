@@ -1,13 +1,12 @@
-import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
-  Block,
-  Document,
-  Inline,
-  BLOCKS,
-  MARKS,
-  INLINES,
-} from '@contentful/rich-text-types'
+  Box,
+  Flex,
+  Text,
+  useColorModeValue,
+  useBreakpointValue,
+} from '@chakra-ui/react'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { Document, BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import Image from 'next/image'
 import Link from 'next/link'
 import ImageComponent from '@/components/atoms/Image'
@@ -160,6 +159,7 @@ const EmbeddedEntry: React.FC<EmbeddedEntryProps> = ({
   id,
 }) => {
   const bg = useColorModeValue('#f6f6f6', '#313131')
+  const titleFontSize = useBreakpointValue({ base: '0.9rem', md: '1.2rem' })
   return (
     <Box my={8} cursor="pointer">
       <Link href={`/blog/${id}`} passHref>
@@ -189,7 +189,9 @@ const EmbeddedEntry: React.FC<EmbeddedEntryProps> = ({
             <></>
           )}
           <Box ml={4} w={`calc(100% - 80px)`}>
-            <Text fontWeight="bold">{title}</Text>
+            <Text fontWeight="bold" fontSize={titleFontSize}>
+              {title}
+            </Text>
             <Text noOfLines={2} fontSize={12} mt={2}>
               {description}
             </Text>

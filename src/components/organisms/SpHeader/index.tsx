@@ -1,6 +1,7 @@
 import { memo, useState, useEffect } from 'react'
 import {
   useColorModeValue,
+  Portal,
   Box,
   Flex,
   Fade,
@@ -177,8 +178,15 @@ export const SpHeaderComponent = memo(() => {
       {/* ページメニューモーダル */}
       <Modal isOpen={isMenuOpen} onClose={handlePageMenuClose} size="full">
         <ModalOverlay top="48px" />
-        <ModalContent mt="48px" boxShadow="none" bg="transparent" minH="auto">
+        <ModalContent
+          mt="48px"
+          boxShadow="none"
+          bg="transparent"
+          minH="auto"
+          zIndex={999999999999}
+        >
           <Box
+            zIndex={999999999999}
             width="100vw"
             bg={btnScheme}
             pb="32px"
