@@ -37,3 +37,98 @@ a {
   font-weight: bold;
   text-decoration: underline;
 }
+
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 500ms linear;
+  animation-delay: 500ms;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+}
+
+.line-appear {
+  width: 0px;
+  transition: width 500ms linear;
+  animation-delay: 1000ms;
+}
+
+.line-appear.line-appear-active {
+  width: 300px;
+}
+
+/* =====================
+    blog
+  ====================== */
+
+#blog-content a {
+  color: rgb(72, 136, 255);
+}
+#blog-content.dark a {
+  color: rgb(158, 192, 255);
+}
+
+/* =====================
+    目次
+  ====================== */
+.toc {
+  /* 目次のスタイル */
+  margin: 16px 0;
+}
+.toc ol {
+  /* 目次のスタイル */
+  list-style-type: none;
+}
+.toc li {
+  /* 目次のリストのスタイル */
+}
+.toc a {
+  /* 目次のリンクのスタイル */
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: block;
+  padding: 2px 0;
+  margin-left: 16px;
+  position: relative;
+}
+.toc a::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #00cbcf, #699dff);
+  border-radius: 50%;
+  box-shadow: 0 0 2px #7bdaff, 0 0 5px #7bdaff, 0 0 10px #7bdaff,
+    0 0 15px #a0dcff, 0 0 20px #a0dcff, 0 0 25px #a0dcff;
+  filter: grayscale(0);
+  transition: all 0.5s;
+}
+.toc a.node-name--H2 {
+}
+.toc a.node-name--H3 {
+  padding-left: 8px;
+}
+.toc a.node-name--H4 {
+  padding-left: 16px;
+}
+.toc a.node-name--H5 {
+  padding-left: 24px;
+}
+.toc a.node-name--H6 {
+  padding-left: 32px;
+}
+.toc a:not(.is-active-link) {
+  /* 現在アクティブになっている目次のスタイル */
+  color: #aaa;
+}
+.toc a:not(.is-active-link)::before {
+  /* 現在アクティブになっている目次のスタイル */
+  box-shadow: none;
+  filter: grayscale(1);
+}

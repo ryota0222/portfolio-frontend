@@ -1,3 +1,5 @@
+import { Document } from '@contentful/rich-text-types'
+
 // button
 export type ButtonVariant = 'solid' | 'outline'
 export type ButtonScheme = 'primary' | 'secondary' | 'danger' | 'info'
@@ -12,6 +14,12 @@ export type SvgIconName =
   | 'shirt'
   | 'balloon'
   | 'phone'
+  | 'link'
+  | 'create'
+  | 'update'
+  | 'home'
+  | 'twitter'
+  | 'facebook'
 
 // counter
 export type CounterType = 'good' | 'bad'
@@ -24,6 +32,45 @@ export interface BlogIndexItem {
   label: string
   index: number
   type: BlogTitle
+}
+
+export interface Author {
+  name: string
+  description: string
+  image: string
+  id: string
+}
+
+export interface Lgtm {
+  good: number
+  bad: number
+}
+
+export interface Tag {
+  label: string
+  color: string
+  tag_id: string
+  id: string
+}
+
+export interface Field {
+  metadata: Record<string, unknown>
+  sys: Record<string, unknown>
+  fields: Record<string, unknown>
+}
+
+export interface Blog {
+  title: string
+  image: string
+  created_at: string
+  updated_at: string
+  content: Document
+  entry: Record<string, Field>[]
+  asset: Record<string, Field>[]
+  author: Author
+  lgtm: Lgtm
+  index: BlogIndexItem[]
+  tag: Tag
 }
 
 export type BlogTitle = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'

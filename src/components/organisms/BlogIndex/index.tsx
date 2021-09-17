@@ -42,39 +42,40 @@ export const BlogIndex = memo(({ list, currentIndex }: Props) => {
       <Box position="relative">
         {list.map((item) => {
           return (
-            <TitleLabel key={`label_${item.index}`} type={item.type}>
-              <Text
-                isTruncated
-                color={toggleColor(item.index)}
-                fontWeight="bold"
-                fontSize="md"
-                py={1}
-              >
-                {item.label}
-              </Text>
-            </TitleLabel>
+            <a key={`label_${item.index}`} href={`#${encodeURI(item.label)}`}>
+              <TitleLabel type={item.type}>
+                <Text
+                  isTruncated
+                  color={toggleColor(item.index)}
+                  fontWeight="bold"
+                  fontSize={10}
+                  py={1}
+                >
+                  {item.label}
+                </Text>
+              </TitleLabel>
+            </a>
           )
         })}
         {/* マップ */}
         <Box height="100%" width="16px" position="absolute" left="0" top="0">
           {list.map((item) => {
             return (
-              <Center
-                key={`map_${item.index}`}
-                height={`calc(100% / ${list.length})`}
-              >
-                <Rod last={item.index === list.length - 1}>
-                  <Box
-                    borderRadius="50%"
-                    borderWidth="2px"
-                    borderColor={borderColor}
-                    transition={'all 0.5s'}
-                    bg={toggleBgColor(item.index)}
-                    width={toggleCircleWidth(item.index)}
-                    height={toggleCircleWidth(item.index)}
-                  ></Box>
-                </Rod>
-              </Center>
+              <a href={`#${encodeURI(item.label)}`} key={`map_${item.index}`}>
+                <Center height={`calc(100% / ${list.length})`} className="toc">
+                  <Rod last={item.index === list.length - 1}>
+                    <Box
+                      borderRadius="50%"
+                      borderWidth="2px"
+                      borderColor={borderColor}
+                      transition={'all 0.5s'}
+                      bg={toggleBgColor(item.index)}
+                      width={toggleCircleWidth(item.index)}
+                      height={toggleCircleWidth(item.index)}
+                    ></Box>
+                  </Rod>
+                </Center>
+              </a>
             )
           })}
         </Box>

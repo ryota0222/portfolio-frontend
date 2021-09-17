@@ -9,6 +9,12 @@ export const SVG_ICON_NAME_LIST: SvgIconName[] = [
   'shirt',
   'balloon',
   'phone',
+  'link',
+  'create',
+  'update',
+  'home',
+  'twitter',
+  'facebook',
 ]
 
 export const ROOT_FONT_SIZE = 16
@@ -20,6 +26,10 @@ export const ROADMAP_TYPE: RoadmapType[] = ['schedule', 'develop', 'merge']
 export const PAGE_NAME: PageName[] = ['portfolio', 'blog', 'roadmap']
 
 export const SHOP_TYPE: ShopType[] = ['stamp', 'product', 'wallpaper']
+
+export const BLOG_NUMBER_PER_PAGE = 3
+
+export const BLOG_IMAGE_MAX_WIDTH = 600
 
 export const INTRODUCTION = {
   name: 'RyoTa.',
