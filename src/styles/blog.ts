@@ -7,6 +7,10 @@ const H2 = styled.h2`
   padding-top: 72px;
   margin-bottom: 24px;
   font-weight: bold;
+  display: inline-block;
+  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const H3 = styled.h3`
@@ -14,6 +18,10 @@ const H3 = styled.h3`
   padding-top: 64px;
   margin-bottom: 16px;
   font-weight: bold;
+  display: inline-block;
+  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const H4 = styled.h4`
@@ -21,6 +29,10 @@ const H4 = styled.h4`
   padding-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
+  display: inline-block;
+  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const H5 = styled.h5`
@@ -28,6 +40,10 @@ const H5 = styled.h5`
   padding-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
+  display: inline-block;
+  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const H6 = styled.h6`
@@ -35,11 +51,19 @@ const H6 = styled.h6`
   padding-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
+  display: inline-block;
+  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `
 
 const Paragraph = styled.p`
   font-size: 1rem;
   line-height: 2rem;
+  @media (max-width: 30em) {
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+  }
 `
 
 const ExternalLink = styled.a`
@@ -55,7 +79,7 @@ const Bold = styled.b`
     height: 0.6rem;
     left: 0;
     bottom: 0;
-    background: #ff535360;
+    background: #fddd0060;
     z-index: -1;
   }
 `
@@ -92,6 +116,11 @@ const CodeWrapper = styled.div`
     &::-webkit-scrollbar-track {
       background: #272822;
     }
+    &[class*='language-'].line-numbers {
+      @media (max-width: 30em) {
+        padding-left: 2.6rem;
+      }
+    }
     .token.operator {
       background: transparent;
     }
@@ -99,6 +128,11 @@ const CodeWrapper = styled.div`
     code {
       background: transparent;
       height: inherit;
+      font-size: 1rem;
+      @media (max-width: 30em) {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+      }
     }
   }
   .code-toolbar {

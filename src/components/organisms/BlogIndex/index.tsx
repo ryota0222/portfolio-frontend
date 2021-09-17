@@ -48,7 +48,7 @@ export const BlogIndex = memo(({ list, currentIndex }: Props) => {
                   isTruncated
                   color={toggleColor(item.index)}
                   fontWeight="bold"
-                  fontSize="small"
+                  fontSize={10}
                   py={1}
                 >
                   {item.label}
