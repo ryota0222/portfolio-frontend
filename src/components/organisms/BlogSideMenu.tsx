@@ -41,11 +41,6 @@ const BlogSideMenu: React.FC<Props> = memo(
     // const [bad, setBad] = useState()
     const router = useRouter()
     const id = router.query.id
-    // useEffect(() => {
-    //   const f = async () => {
-    //     const
-    //   }
-    // }, [])
     // 評価する
     const setReview = throttle(
       (type: CounterType) => {
@@ -110,7 +105,9 @@ const BlogSideMenu: React.FC<Props> = memo(
             borderBottomColor={borderBottomColor}
             pb={2}
           >
-            <BlogIndex list={index} currentIndex={idx} />
+            <Box pl={4}>
+              <nav className="toc" />
+            </Box>
           </Box>
           {/* カウンター一覧 */}
           {/* <Box

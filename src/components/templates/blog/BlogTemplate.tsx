@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import NextImage from 'next/image'
+import tocbot from 'tocbot'
 import ImageComponent from '@/components/atoms/Image'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import Ads from '@/components/organisms/Ads'
@@ -35,6 +36,14 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
       setImageH(element.naturalHeight)
     }
     element.src = url
+  }, [])
+  useEffect(() => {
+    tocbot.init({
+      tocSelector: '.toc',
+      contentSelector: '.body',
+      headingSelector: 'h2, h3, h4, h5, h6',
+    })
+    return () => tocbot.destroy()
   }, [])
   const cssName = useColorModeValue('light', 'dark')
   const minHeight = useBreakpointValue({
@@ -82,78 +91,89 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
           className={cssName}
           pb={16}
         >
-          {/* タイトル */}
-          <Text
-            fontSize="3xl"
-            fontWeight="bold"
-            mt={4}
-            mb={4}
-            position="sticky"
-            top={0}
-            zIndex={9999}
-            pl={2}
-            backdropFilter="blur(4px)"
-            as="h1"
-          >
-            {data.title}
-          </Text>
-          {/* 画像 */}
-          <Box position="relative" my={8} mb={4} overflow="hidden">
-            <Box
-              width="100%"
-              height={`calc(${ratio} * ${
-                clientW > BLOG_IMAGE_MAX_WIDTH ? BLOG_IMAGE_MAX_WIDTH : clientW
-              }px)`}
-              filter="brightness(0.8) blur(6px)"
-              transform="scale(1.03)"
+          <Box maxW="500px" m="auto">
+            {/* タイトル */}
+            <Text
+              fontSize="3xl"
+              fontWeight="bold"
+              mt={4}
+              mb={4}
+              position="sticky"
+              top={0}
+              zIndex={9999}
+              pl={2}
+              backdropFilter="blur(4px)"
+              as="h1"
             >
-              <NextImage
-                src={`https:${data.image}`}
-                alt={data.title}
-                layout="fill"
-                objectFit="cover"
-              />
+              {data.title}
+            </Text>
+            {/* 画像 */}
+            <Box position="relative" my={8} mb={4} overflow="hidden">
+              <Box
+                width="100%"
+                height={`calc(${ratio} * ${
+                  clientW > BLOG_IMAGE_MAX_WIDTH
+                    ? BLOG_IMAGE_MAX_WIDTH
+                    : clientW
+                }px)`}
+                filter="brightness(0.8) blur(6px)"
+                transform="scale(1.03)"
+              >
+                <NextImage
+                  src={`https:${data.image}`}
+                  alt={data.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </Box>
+              <Center
+                position="absolute"
+                top={'50%'}
+                left={'50%'}
+                w="100%"
+                transform="translate(-50%, -50%)"
+              >
+                <ImageComponent
+                  url={`https:${data.image}`}
+                  title={data.title}
+                />
+              </Center>
             </Box>
-            <Center position="absolute" top={0} left={0} w="100%">
-              <ImageComponent url={`https:${data.image}`} title={data.title} />
-            </Center>
+            <Box mb={8}>
+              {/* 作成日 */}
+              {data?.created_at && (
+                <Flex alignItems="center" justifyContent="flex-end">
+                  <SvgIcon
+                    name="create"
+                    color={iconColor}
+                    width="16px"
+                    height="16px"
+                  />
+                  <Text ml={2} fontSize="14px" letterSpacing="1px">
+                    {dayjs(data.created_at).format('YYYY/MM/DD')}
+                  </Text>
+                </Flex>
+              )}
+              {/* 更新日 */}
+              {data.updated_at && (
+                <Flex alignItems="center" mt={2} justifyContent="flex-end">
+                  <SvgIcon
+                    name="update"
+                    color={iconColor}
+                    width="16px"
+                    height="16px"
+                  />
+                  <Text ml={2} fontSize="14px" letterSpacing="1px">
+                    {dayjs(data.updated_at).format('YYYY/MM/DD')}
+                  </Text>
+                </Flex>
+              )}
+            </Box>
+            {/* 本文 */}
+            <div className="contents-wrapper body">
+              {getRichTextRenderer(data.content)}
+            </div>
           </Box>
-          <Box mb={8}>
-            {/* 作成日 */}
-            {data?.created_at && (
-              <Flex alignItems="center" justifyContent="flex-end">
-                <SvgIcon
-                  name="create"
-                  color={iconColor}
-                  width="16px"
-                  height="16px"
-                />
-                <Text ml={2} fontSize="14px" letterSpacing="1px">
-                  {/* {data.created_at} */}
-                  {dayjs(data.created_at).format('YYYY/MM/DD')}
-                </Text>
-              </Flex>
-            )}
-            {/* 更新日 */}
-            {data.updated_at && (
-              <Flex alignItems="center" mt={2} justifyContent="flex-end">
-                <SvgIcon
-                  name="update"
-                  color={iconColor}
-                  width="16px"
-                  height="16px"
-                />
-                <Text ml={2} fontSize="14px" letterSpacing="1px">
-                  {dayjs(data.updated_at).format('YYYY/MM/DD')}
-                  {/* {data.updated_at.replaceAll('-', '/')} */}
-                </Text>
-              </Flex>
-            )}
-          </Box>
-          {/* 本文 */}
-          <div className="contents-wrapper">
-            {getRichTextRenderer(data.content)}
-          </div>
         </Box>
         {/* サイドメニュー */}
         <Box as="aside" flex={1} minH={minHeight} display={sideMenuDisplay}>
