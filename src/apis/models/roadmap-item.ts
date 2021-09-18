@@ -22,11 +22,11 @@ export interface RoadmapItem {
    * @type {string}
    * @memberof RoadmapItem
    */
-  label: any
+  label: string
   /**
    * trueなら完了
    * @type {boolean}
    * @memberof RoadmapItem
    */
-  completed: any
+  completed: boolean
 }

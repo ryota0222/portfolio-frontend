@@ -7,6 +7,7 @@ import {
 import Ads from '@/components/organisms/Ads'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
+import useSp from '@/hooks/useSp'
 import { PageWrapper } from '@/styles/globals'
 
 interface Props {
@@ -26,9 +27,10 @@ const BlogsTemplate: React.FC<Props> = ({
   isLoading,
   isError,
 }) => {
+  const [isSp] = useSp()
   const minHeight = useBreakpointValue({
     base: 'auto',
-    md: 'calc(var(--vh, 1vh) * 100 - 48px)',
+    md: 'calc(var(--vh, 1vh) * 100 - 72px)',
   })
   const sideMenuDisplay = useBreakpointValue({
     base: 'none',
@@ -61,9 +63,19 @@ const BlogsTemplate: React.FC<Props> = ({
       <PageWrapper id="blog-container">
         <Flex flexFlow={flexFlow}>
           {/* メニュー */}
-          <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight}>
-            <BlogsSideMenu data={(settings as InlineResponse2002).data} />
-          </Box>
+          {/* スマホサイズじゃない場合 */}
+          {!isSp && (
+            <Box
+              maxW={sideMenuMaxW}
+              w={sideMenuW}
+              minH={minHeight}
+              position="relative"
+            >
+              <Box h="100vh" position="absolute" top="-48px" left={0} w="100%">
+                <BlogsSideMenu data={(settings as InlineResponse2002).data} />
+              </Box>
+            </Box>
+          )}
           {/* コンテンツ */}
           <Box w={contentW} minH={minHeight}>
             <BlogsContents

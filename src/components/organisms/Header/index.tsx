@@ -62,10 +62,11 @@ export const HeaderComponent = memo(() => {
       as="header"
       height="48px"
       justifyContent="space-between"
-      px="48px"
+      px="24px"
       boxSizing="border-box"
       alignItems="center"
       w="full"
+      zIndex={1}
     >
       <Tooltip
         label={<IntroCard {...SHORT_INTRODUCTION} />}
@@ -81,7 +82,7 @@ export const HeaderComponent = memo(() => {
           _focus={{}}
           p={0}
         >
-          <Logo height="24px" width="24px" />
+          <Logo />
         </Button>
       </Tooltip>
       <Flex alignItems="center">
