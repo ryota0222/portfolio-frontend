@@ -14,8 +14,8 @@ import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { Counter } from '@/components/molecules/Counter'
 import { Intro } from '@/components/molecules/Intro'
+import useSp from '@/hooks/useSp'
 import { Tag, Lgtm, Author, CounterType } from '@/types/interface'
-
 interface Props {
   /**
    * タグデータ
@@ -36,7 +36,7 @@ interface Props {
 }
 
 const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
-  const isSp = useBreakpointValue({ base: true, md: false })
+  const [isSp] = useSp()
   // const [good, setGood] = useState()
   // const [bad, setBad] = useState()
   const router = useRouter()

@@ -17,10 +17,10 @@ import Ads from '@/components/organisms/Ads'
 import BlogSideMenu from '@/components/organisms/BlogSideMenu'
 import { BLOG_IMAGE_MAX_WIDTH } from '@/consts/config'
 import useBlogContentWidth from '@/hooks/useBlogContentWidth'
+import useSp from '@/hooks/useSp'
 import { PageWrapper } from '@/styles/globals'
 import { Blog } from '@/types/interface'
 import getRichTextRenderer from '@/utils/richTextRenderer'
-
 interface Props {
   data: Blog
 }
@@ -28,7 +28,7 @@ interface Props {
 const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const [w, h, setImageW, setImageH, clientW, ratio] = useBlogContentWidth()
   const iconColor = useColorModeValue('#919AC2', '#FFFFFF')
-  const isSp = useBreakpointValue({ base: true, md: false })
+  const [isSp] = useSp()
   // 画像の幅と高さを取得
   useEffect(() => {
     const url = `https:${data.image}`
