@@ -158,7 +158,7 @@ export const SpHeaderComponent = memo(() => {
         _focus={{}}
         p={0}
       >
-        <Logo height="20px" width="20px" />
+        <Logo height="32px" width="50px" />
       </Button>
       {/* 設定ボタン */}
       <Btn
