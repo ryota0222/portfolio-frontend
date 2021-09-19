@@ -4,7 +4,7 @@ import { Props } from '.'
 import ArchiveItem from '.'
 
 export default {
-  title: 'Design System/Atoms/ArchiveItem',
+  title: 'Design System/Molecules/ArchiveItem',
   component: ArchiveItem,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
@@ -50,7 +50,9 @@ export default {
   },
 } as Meta
 
-const Template: Story<Props> = (args) => <ArchiveItem {...args}></ArchiveItem>
+const Template: Story<Props> = (args) => (
+  <ArchiveItem {...args}>テスト</ArchiveItem>
+)
 
 export const Default = Template.bind({})
 
@@ -63,5 +65,5 @@ export const Active = Template.bind({})
 
 Active.args = {
   ...Default.args,
-  isActive: false,
+  isActive: true,
 }
