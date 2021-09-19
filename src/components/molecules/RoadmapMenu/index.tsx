@@ -1,6 +1,7 @@
 import { memo, useMemo, useState } from 'react'
 import { Box, useColorModeValue, Text, Flex, Collapse } from '@chakra-ui/react'
 import throttle from 'just-throttle'
+import { useRouter } from 'next/router'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { RoadmapType } from '@/types/interface'
 
@@ -46,15 +47,17 @@ const RoadmapItem = ({ type, selected }: RoadmapItemProps) => {
 }
 
 export const RoadmapMenu = memo(({ roadmapType }: Props) => {
-  const [rType, setRType] = useState(roadmapType)
   const bg = useColorModeValue('#FBFBFB', '#404040')
+  const router = useRouter()
   const shadow = useColorModeValue(
     '4px 4px 12px rgba(0, 0, 0, 0.04), -4px -4px 10px 4px #FFFFFF',
     '4px 4px 12px #171717, -4px -4px 10px 4px #494949',
   )
   const handleClick = throttle(
     (type: RoadmapType) => {
-      setRType(type)
+      if (router) {
+        router.push(`/roadmap?type=${type}`)
+      }
     },
     500,
     { trailing: false },

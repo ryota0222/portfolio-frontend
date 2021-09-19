@@ -3,13 +3,15 @@ import {
   Box,
   Text,
   useColorModeValue,
+  Flex,
   useBreakpointValue,
 } from '@chakra-ui/react'
 import Image from 'next/image'
+import { IoMdCreate } from 'react-icons/io'
+import { MdUpdate } from 'react-icons/md'
 import styled from 'styled-components'
-import { Tag } from '@/components/atoms/Tag'
+import useSp from '@/hooks/useSp'
 import { BlogCardWrapper } from '@/styles/globals'
-
 export interface Props {
   /**
    * ブログのタイトル
@@ -27,54 +29,161 @@ export interface Props {
    * タグの名前
    */
   tagName: string
+  /**
+   * 作成日
+   */
+  createdAt: string
+  /**
+   * 更新日
+   */
+  updatedAt: string | null
 }
 
-export const BlogCard = memo(({ title, imageData, tagBg, tagName }: Props) => {
-  const textColor = useColorModeValue('#002E48', '#FFFFFF')
-  return (
-    <BlogCardWrapper>
-      <Box
-        position="relative"
-        width={'40vw'}
-        height={'30vw'}
-        maxWidth={'200px'}
-        maxHeight={'150px'}
-        overflow="hidden"
-      >
-        <Wrapper>
+export const BlogCard = memo(
+  ({ title, imageData, tagBg, tagName, createdAt, updatedAt }: Props) => {
+    const [isSp] = useSp()
+    const textColor = useColorModeValue('dark', '#FFFFFF')
+    const bgColor = useColorModeValue('#F1F4F4', '#303334')
+    const secondColor = useColorModeValue('#9A9A9A', '#9A9A9A')
+    if (isSp) {
+      return (
+        <Flex borderRadius={8} p={2} backgroundColor={bgColor} width={'100%'}>
+          {/* 画像 */}
           <Image
             src={imageData}
             alt={title}
-            width={'100%'}
-            height={'100%'}
+            width={'120px'}
+            height={'90px'}
             objectFit={'cover'}
             loading={'lazy'}
             quality={70}
           />
-          <Box
-            position="absolute"
-            left="0"
-            top="0"
-            display="flex"
-            height="18px"
-            data-type="tag"
-          >
-            <Tag bg={tagBg}>{tagName}</Tag>
+          <Box ml="8px" width="calc(100% - 120px - 8px)">
+            {/* タイトル */}
+            <Text
+              color={textColor}
+              noOfLines={2}
+              mt={1}
+              fontWeight="bold"
+              fontSize="x-small"
+              wordBreak="break-all"
+            >
+              {title}
+            </Text>
+            {/* タグ */}
+            <Flex
+              display="flex"
+              height="18px"
+              data-type="tag"
+              alignItems="center"
+              pl={1}
+              mt={3}
+              pb={4}
+            >
+              <Text color={tagBg} fontSize="small" mr={1}>
+                #
+              </Text>
+              <Text fontSize="x-small">{tagName}</Text>
+            </Flex>
+            {/* 作成日 */}
+            <Flex alignItems="center">
+              <IoMdCreate color={secondColor} size={12} />
+              <Text ml={1} fontSize="x-small" color={secondColor}>
+                {createdAt}
+              </Text>
+            </Flex>
+            {/* 更新日 */}
+            {updatedAt && (
+              <Flex alignItems="center" ml={2}>
+                <MdUpdate color={secondColor} size={14} />
+                <Text ml={1} fontSize="x-small" color={secondColor}>
+                  {updatedAt}
+                </Text>
+              </Flex>
+            )}
           </Box>
-        </Wrapper>
-      </Box>
-      <Text
-        color={textColor}
-        noOfLines={2}
-        mt={2}
-        fontWeight="normal"
-        fontSize="xs"
-      >
-        {title}
-      </Text>
-    </BlogCardWrapper>
-  )
-})
+        </Flex>
+      )
+    } else {
+      return (
+        <BlogCardWrapper>
+          <Box
+            borderRadius={8}
+            p={2}
+            backgroundColor={bgColor}
+            width={'40vw'}
+            maxWidth={'180px'}
+            h="100%"
+          >
+            <Box
+              position="relative"
+              width={'100%'}
+              height={'100%'}
+              overflow="hidden"
+            >
+              {/* 画像 */}
+              <Wrapper>
+                <Image
+                  src={imageData}
+                  alt={title}
+                  width={'100%'}
+                  height={'100%'}
+                  objectFit={'cover'}
+                  loading={'lazy'}
+                  quality={70}
+                />
+              </Wrapper>
+            </Box>
+            {/* タイトル */}
+            <Text
+              color={textColor}
+              noOfLines={2}
+              mt={1}
+              fontWeight="bold"
+              fontSize="x-small"
+            >
+              {title}
+            </Text>
+            {/* タグ */}
+            <Flex
+              display="flex"
+              height="18px"
+              data-type="tag"
+              alignItems="center"
+              pl={1}
+              mt={3}
+              pb={7}
+            >
+              <Text color={tagBg} fontSize="small" mr={1}>
+                #
+              </Text>
+              <Text fontSize="x-small">{tagName}</Text>
+            </Flex>
+            {/* 作成日 / 更新日 */}
+            <Flex mt={2} position="absolute" left={2} bottom={2}>
+              {/* 作成日 */}
+              <Flex alignItems="center">
+                <IoMdCreate color={secondColor} size={12} />
+                <Text ml={1} fontSize="x-small" color={secondColor}>
+                  {createdAt}
+                </Text>
+              </Flex>
+              {/* 更新日 */}
+              {updatedAt && (
+                <Flex alignItems="center" ml={2}>
+                  <MdUpdate color={secondColor} size={14} />
+                  <Text ml={1} fontSize="x-small" color={secondColor}>
+                    {updatedAt}
+                  </Text>
+                </Flex>
+              )}
+            </Flex>
+          </Box>
+        </BlogCardWrapper>
+      )
+    }
+  },
+)
 
 BlogCard.displayName = 'BlogCard'
 

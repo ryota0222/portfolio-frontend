@@ -80,6 +80,7 @@ const BlogsTemplate: React.FC<Props> = ({
           <Box w={contentW} minH={minHeight}>
             <BlogsContents
               data={(contents as InlineResponse2003).data}
+              settings={(settings as InlineResponse2002).data}
               title={title}
               searchWord={searchWord}
             />

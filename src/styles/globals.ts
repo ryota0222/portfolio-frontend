@@ -72,8 +72,8 @@ export const GradationText = styled.p`
 
 export const BlogCardWrapper = styled.div`
   display: inline-block;
-  width: 40vw;
-  max-width: 200px;
+  width: ${(props) => (props.width ? props.width : '100%')};
+  max-width: ${(props) => (props.maxWidth ? props.maxWidth : '100%')};
   img {
     transition: transform 0.4s;
   }

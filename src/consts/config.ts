@@ -27,7 +27,7 @@ export const PAGE_NAME: PageName[] = ['portfolio', 'blog', 'roadmap']
 
 export const SHOP_TYPE: ShopType[] = ['stamp', 'product', 'wallpaper']
 
-export const BLOG_NUMBER_PER_PAGE = 3
+export const BLOG_NUMBER_PER_PAGE = 6
 
 export const BLOG_IMAGE_MAX_WIDTH = 600
 

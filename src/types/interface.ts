@@ -82,3 +82,45 @@ export type ShopType = 'stamp' | 'product' | 'wallpaper'
 export type OgType = 'website' | 'blog' | 'article'
 
 export type Theme = 'light' | 'dark'
+
+export interface BlogSetting {
+  monthly_archives?: Record<
+    string,
+    {
+      count: number
+    }
+  >[]
+  tag_archives?: Record<
+    string,
+    {
+      count: number
+      percent: number
+    }
+  >[]
+  tags?: {
+    color: string
+    id: string
+    label: string
+    tag_id: string
+  }[]
+}
+
+export interface BlogContents {
+  contents: {
+    created_at: string
+    updated_at: string | null
+    id: string
+    image: string
+    tag: {
+      color: string
+      id: string
+      label: string
+      tag_id: string
+    }
+    title: string
+  }[]
+  page: {
+    current: number
+    total_count: number
+  }
+}
