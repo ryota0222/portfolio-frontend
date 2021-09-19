@@ -1,78 +1,77 @@
-import { memo } from 'react'
-import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
+import { memo, useCallback, useMemo } from 'react'
+import { Box, Flex, Text, Center, useColorModeValue } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import throttle from 'just-throttle'
-import router from 'next/router'
-
+import router, { useRouter } from 'next/router'
+import { Counter } from '@/components/atoms/Counter'
+import SvgArchiveGradient from '@/components/atoms/svg/ArchiveGradient'
+import SvgTagGradient from '@/components/atoms/svg/TagGradient'
+import ArchiveItem from '@/components/molecules/ArchiveItem'
+import { BlogSetting } from '@/types/interface'
 interface Props {
-  data: {
-    monthly_archives?: Record<
-      string,
-      {
-        count: number
-      }
-    >[]
-    tag_archives?: Record<
-      string,
-      {
-        count: number
-        percent: number
-      }
-    >[]
-    tags?: {
-      color: string
-      id: string
-      label: string
-      tag_id: string
-    }[]
-  }
+  data: BlogSetting
 }
 
 const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
   const bg = useColorModeValue('#F0F0F0', '#252829')
+  const hoverBgColor = useColorModeValue('#e5e5e5', '#353839')
   const textColor = useColorModeValue('dark', 'white')
-  const borderBottomColor = useColorModeValue('#D7D7D7', '#58688F')
+  const { query } = useRouter()
+  // 月別アーカイブがアクティブかどうか
+  const isArchiveActive = useCallback(
+    (date) => {
+      return date === query?.time
+    },
+    [query],
+  )
+  // タグがアクティブかどうか
+  const isTagActive = useCallback(
+    (tagId) => {
+      return tagId === query?.tag
+    },
+    [query],
+  )
+  console.log(data.tag_archives)
   return (
-    <Box w="full" bgColor={bg} h="full" boxSizing="border-box" p={3} pt={5}>
+    <Box
+      w="full"
+      bgColor={bg}
+      h="full"
+      boxSizing="border-box"
+      p={8}
+      pt="80px"
+      maxW="320px"
+    >
       {/* 月別アーカイブ */}
       {data.monthly_archives?.length > 0 && (
-        <Box
-          borderBottomWidth="1px"
-          borderBottomColor={borderBottomColor}
-          pb={2}
-        >
-          <Title>月別アーカイブ</Title>
+        <Box pb={2}>
+          <Flex alignItems="center" mb={4}>
+            <Box as="span" mr={2}>
+              <SvgArchiveGradient width={18} height={18} />
+            </Box>
+            <Title>月別アーカイブ</Title>
+          </Flex>
           <Box>
             {data.monthly_archives.map((item, idx) => {
               const date = Object.keys(item)[0]
               const count = Object.values(item)[0]?.count ?? 0
               return (
-                <Flex
-                  key={idx}
-                  my={2}
-                  ml={2}
-                  alignItems="center"
-                  cursor="pointer"
-                  onClick={throttle(
-                    () =>
-                      router.push(
-                        `/blog?time=${dayjs(date).format('YYYY-MM')}`,
-                      ),
-                    1000,
-                    { trailing: false },
-                  )}
-                >
-                  <Text mr={2} fontSize="xs" colorScheme={textColor}>
-                    {dayjs(date).format('YYYY/M')}
-                  </Text>
-                  <Text
-                    fontFamily="monospace"
-                    fontSize="xs"
-                    colorScheme={textColor}
+                <Box key={idx} my={2}>
+                  <ArchiveItem
+                    isActive={isArchiveActive(date)}
+                    count={count}
+                    onClick={throttle(
+                      () =>
+                        router.push(
+                          `/blog?time=${dayjs(date).format('YYYY-MM')}`,
+                        ),
+                      1000,
+                      { trailing: false },
+                    )}
                   >
-                    ({count})
-                  </Text>
-                </Flex>
+                    {dayjs(date).format('YYYY/M')}
+                  </ArchiveItem>
+                </Box>
               )
             })}
           </Box>
@@ -80,13 +79,13 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
       )}
       {/* タグ別アーカイブ */}
       {data.tag_archives?.length > 0 && data.tags?.length > 0 && (
-        <Box
-          borderBottomWidth="1px"
-          borderBottomColor={borderBottomColor}
-          pb={4}
-          mt={6}
-        >
-          <Title>タグ別アーカイブ</Title>
+        <Box pb={4} mt={12}>
+          <Flex alignItems="center" mb={4}>
+            <Box as="span" mr={2}>
+              <SvgTagGradient width={16} height={16} />
+            </Box>
+            <Title>タグ別アーカイブ</Title>
+          </Flex>
           <Box>
             {data.tag_archives.map((item, index) => {
               const tagName = Object.keys(item)[0]
@@ -95,17 +94,10 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
               const label = tagData.label
               const tagColor = tagData.color
               return (
-                <Flex
-                  key={index}
-                  my={3}
-                  ml={2}
-                  alignItems="center"
-                  cursor="pointer"
-                >
-                  <Box
-                    borderRadius="4px"
-                    mr={1}
-                    bgColor={`${tagColor}50`}
+                <Box key={index} my={2}>
+                  <ArchiveItem
+                    isActive={isTagActive(tagData.id)}
+                    count={tagValue.count}
                     onClick={throttle(
                       () => router.push(`/blog?tag=${tagData.id}`),
                       1000,
@@ -114,61 +106,21 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                       },
                     )}
                   >
-                    <Text
-                      fontSize="xx-small"
-                      p={1}
-                      colorScheme="dark"
-                      fontWeight="bold"
-                    >
-                      {label}
-                    </Text>
-                  </Box>
-                  <Text fontSize="xs" colorScheme={textColor}>
-                    の記事 ...{' '}
-                  </Text>
-                  <Text fontSize="xs" colorScheme={textColor} ml={1}>
-                    {tagValue.percent}% ({tagValue.count})
-                  </Text>
-                </Flex>
-              )
-            })}
-          </Box>
-        </Box>
-      )}
-      {/* タグ */}
-      {data.tags?.length > 0 && (
-        <Box pb={4} mt={6}>
-          <Title>タグ</Title>
-          <Box>
-            {data.tags.map((item) => {
-              const tagColor = item.color ?? '#FFFFFF'
-              const label = item.label ?? ''
-              return (
-                <Flex
-                  key={item.id}
-                  my={3}
-                  ml={2}
-                  alignItems="center"
-                  cursor="pointer"
-                  onClick={throttle(
-                    () => router.push(`/blog?tag=${item.id}`),
-                    1000,
-                    {
-                      trailing: false,
-                    },
-                  )}
-                >
-                  <Box
-                    w="20px"
-                    h="20px"
-                    borderRadius="4px"
-                    mr={2}
-                    bgColor={tagColor}
-                  ></Box>
-                  <Text fontSize="xs" colorScheme={textColor}>
-                    {label}
-                  </Text>
-                </Flex>
+                    <Flex alignItems="center">
+                      <Text fontSize="sm" color={tagColor} fontWeight="bold">
+                        #
+                      </Text>
+                      <Text
+                        fontSize="small"
+                        p={1}
+                        colorScheme="dark"
+                        fontWeight="bold"
+                      >
+                        {label}
+                      </Text>
+                    </Flex>
+                  </ArchiveItem>
+                </Box>
               )
             })}
           </Box>
@@ -179,9 +131,9 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
 })
 
 const Title = memo(({ children }) => {
-  const textColor = useColorModeValue('dark', 'white')
+  const textColor = useColorModeValue('dark', '#AFAFAF')
   return (
-    <Text as="h2" colorScheme={textColor} fontWeight="bold" fontSize="sm">
+    <Text as="h2" color={textColor} fontWeight="bold" fontSize="sm">
       {children}
     </Text>
   )

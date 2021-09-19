@@ -48,6 +48,7 @@ export const blogs = {
           title: '3aaaaaa',
           id: '3aaaaaa',
           created_at: '2021-07-11',
+          updated_at: '2021-09-11',
           tag: {
             label: 'ポートフォリオ裏話',
             color: '#adff2f',
@@ -61,6 +62,7 @@ export const blogs = {
             '2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test2test',
           id: '2test',
           created_at: '2021-07-11',
+          updated_at: '2021-09-11',
           tag: {
             label: 'ポートフォリオ裏話',
             color: '#adff2f',
@@ -73,6 +75,7 @@ export const blogs = {
           title: 'test-1',
           id: '1',
           created_at: '2021-07-11',
+          updated_at: '2021-09-11',
           tag: {
             label: 'ポートフォリオ裏話',
             color: '#adff2f',
@@ -85,6 +88,7 @@ export const blogs = {
           title: 'test-21',
           id: '21',
           created_at: '2021-07-11',
+          updated_at: '2021-09-11',
           tag: {
             label: 'ポートフォリオ裏話',
             color: '#adff2f',
@@ -97,6 +101,7 @@ export const blogs = {
           title: 'ポートフォリオ公開に至るまで（アーキテクチャ編）',
           id: 'until_release_pofolio_architecture',
           created_at: '2021-02-02',
+          updated_at: '2021-09-11',
           tag: {
             label: 'ポートフォリオ裏話',
             color: '#adff2f',

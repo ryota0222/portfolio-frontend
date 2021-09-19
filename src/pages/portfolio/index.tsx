@@ -24,7 +24,7 @@ export const getStaticProps = async () => {
   const limit = 100
   const func = await apis.PortfolioApiFp().getPortfolioWorks(offset, limit)
   const data = await func()
-  return { props: { data } }
+  return { props: { data: data.data } }
 }
 
 export default Portfolio

@@ -15,7 +15,7 @@ export const FooterComponent = memo(() => {
   const bgColor = isBlog ? blogBg : 'transparent'
   const footerBg = useBreakpointValue({ base: bgColor, sm: 'transparent' })
   return (
-    <Center as="footer" w="full" bgColor={footerBg}>
+    <Center as="footer" w="full" bgColor={'transparent'} zIndex={1}>
       <Text fontFamily="'Josefin Sans'" colorScheme={color}>
         &copy;RyoTa.
       </Text>

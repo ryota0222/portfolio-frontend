@@ -7,27 +7,52 @@ import {
   Center,
   Link,
 } from '@chakra-ui/react'
+import Image from 'next/image'
 import { FaTwitter, FaGithub } from 'react-icons/fa'
+import TopImage from '@/assets/top/image.png'
+import { Logo } from '@/components/atoms/Logo'
+import { GRADIENT } from '@/consts/config'
 import { PageWrapper } from '@/styles/globals'
 
 const HomeTemplate = ({ introduction }) => {
   const textColor = useColorModeValue('#002E48', '#FFFFFF')
   const githubColor = useColorModeValue('rgb(24,43,77)', '#FFFFFF')
-  const width = useBreakpointValue({ base: '100%', sm: '50%' })
+  const width = useBreakpointValue({ base: '100%', md: '50%' })
   const flexDirection: 'column' | 'row' = useBreakpointValue({
     base: 'column',
-    sm: 'row',
+    md: 'row',
   })
   const minHeight = useBreakpointValue({
     base: 'auto',
-    sm: 'calc(var(--vh, 1vh) * 100 - 72px)',
+    md: 'calc(var(--vh, 1vh) * 100 - 72px)',
+  })
+  const imageSize = useBreakpointValue({
+    base: 600,
+    lg: 500,
+    md: 400,
+    sm: 300,
+    xs: 200,
   })
   return (
     <PageWrapper>
-      <Flex w="full" minHeight={minHeight} flexDirection={flexDirection}>
+      <Flex
+        w="100vw"
+        height={minHeight}
+        flexDirection={flexDirection}
+        maxW="1000px"
+        m="auto"
+      >
         {/* 画像 */}
-        <Box w={width} h="full"></Box>
-        <Center w={width} minHeight={minHeight}>
+        <Center w={width} height="100%">
+          <Image
+            src={TopImage}
+            alt="画像"
+            width={imageSize}
+            height={imageSize}
+            objectFit="contain"
+          />
+        </Center>
+        <Center w={width} height={minHeight}>
           <Box boxSizing="border-box" px="4">
             {/* 名前 */}
             <Text
@@ -36,7 +61,7 @@ const HomeTemplate = ({ introduction }) => {
               fontFamily="'Josefin Sans'"
               lineHeight="4.2rem"
               color={textColor}
-              background="-webkit-linear-gradient(0deg, #00A3FF, #0075FF)"
+              background={GRADIENT}
               backgroundClip="text"
               d="inline-block"
               style={{ WebkitTextFillColor: 'transparent' }}
