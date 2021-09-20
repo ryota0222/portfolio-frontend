@@ -4,7 +4,6 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  overflow: scroll;
   -ms-overflow-style: none; /* これを追加 */
 }
 
@@ -108,11 +107,23 @@ a {
   height: 10px;
   top: 50%;
   left: -20px;
-  transform: translateY(-50%);
-  background: linear-gradient(135deg, #00cbcf, #699dff);
+  transform: translateY(-50%) scale(1.4);
+  background: -webkit-linear-gradient(
+      38.45deg,
+      #9e00ff -1.95%,
+      rgba(255, 102, 212, 0.984375) 16.64%,
+      rgba(233, 172, 255, 0) 49.6%
+    ),
+    -webkit-linear-gradient(249.25deg, rgba(0, 255, 224, 0.79) -23.07%, rgba(
+            162,
+            255,
+            89,
+            0.79
+          )
+          13.65%, rgba(255, 214, 0, 0.11) 46.38%),
+    -webkit-linear-gradient(158.28deg, #ff0000 -8.44%, #ff9a2b 44.44%, #faff00
+          96.23%);
   border-radius: 50%;
-  box-shadow: 0 0 2px #7bdaff, 0 0 5px #7bdaff, 0 0 10px #7bdaff,
-    0 0 15px #a0dcff, 0 0 20px #a0dcff, 0 0 25px #a0dcff;
   filter: grayscale(0);
   transition: all 0.5s;
 }
@@ -138,4 +149,5 @@ a {
   /* 現在アクティブになっている目次のスタイル */
   box-shadow: none;
   filter: grayscale(1);
+  transform: translateY(-50%);
 }

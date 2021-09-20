@@ -14,8 +14,6 @@ interface Props {
 
 const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
   const bg = useColorModeValue('#F0F0F0', '#252829')
-  const hoverBgColor = useColorModeValue('#e5e5e5', '#353839')
-  const textColor = useColorModeValue('dark', 'white')
   const { query } = useRouter()
   // 月別アーカイブがアクティブかどうか
   const isArchiveActive = useCallback(
@@ -31,11 +29,10 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
     },
     [query],
   )
-  console.log(data.tag_archives)
   return (
     <Box
       w="full"
-      bgColor={bg}
+      backgroundColor={bg}
       h="full"
       boxSizing="border-box"
       p={8}

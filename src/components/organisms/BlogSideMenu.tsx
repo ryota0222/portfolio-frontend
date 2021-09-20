@@ -6,6 +6,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   HStack,
+  Flex,
 } from '@chakra-ui/react'
 import throttle from 'just-throttle'
 import Image from 'next/image'
@@ -15,6 +16,7 @@ import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { Counter } from '@/components/molecules/Counter'
 import { Intro } from '@/components/molecules/Intro'
 import useSp from '@/hooks/useSp'
+import { BlogSideMenuTitle } from '@/styles/globals'
 import { Tag, Lgtm, Author, CounterType } from '@/types/interface'
 interface Props {
   /**
@@ -52,6 +54,7 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
   const bg = useColorModeValue('#F0F0F0', '#252829')
   const iconColor = useColorModeValue('#919AC2', '#CCCCCC')
   const borderBottomColor = useColorModeValue('#D7D7D7', '#666')
+  const sidemenuContentsWrapper = useColorModeValue('#FFFFFF', '#353839')
   const width = useBreakpointValue({
     base: '100%',
     md: 'calc(100% - 32px)',
@@ -68,6 +71,9 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
     base: 0,
     md: 'auto',
   })
+  const tocMb = useBreakpointValue({ base: 0, md: 10 })
+  const tocPb = useBreakpointValue({ base: 0, md: 1 })
+  const containerPt = useBreakpointValue({ base: 0, md: '80px' })
   return (
     <Box
       w={width}
@@ -75,28 +81,31 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
       h="full"
       boxSizing="border-box"
       p={3}
-      pt={0}
+      pt={containerPt}
       mr={mr}
     >
       <Box pt={5} position="sticky" top="0px">
         {/* パンくずリスト */}
         {!isSp && (
           <Box
-            borderBottomWidth="1px"
-            borderBottomColor={borderBottomColor}
             pb={2}
+            mb={8}
+            backgroundColor={sidemenuContentsWrapper}
+            borderRadius={8}
+            p={2}
+            pl={4}
           >
             <BreadcrumbComponent tag={tag} />
           </Box>
         )}
         {/* 目次 */}
         <Box
-          mt={2}
-          borderBottomWidth="1px"
-          borderBottomColor={borderBottomColor}
-          pb={2}
+          mb={tocMb}
+          py={tocPb}
           visibility={tocVisibility as 'visible' | 'hidden'}
           height={tocHeight}
+          backgroundColor={sidemenuContentsWrapper}
+          borderRadius={8}
         >
           <Box pl={4}>
             <nav className="toc" />
@@ -123,23 +132,17 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
           </Center>
         </Box> */}
         {/* シェア */}
-        <Box
-          mt={2}
-          borderBottomWidth="1px"
-          borderBottomColor={borderBottomColor}
-          pb={2}
-        >
+        <Box mt={2} pb={2}>
           {/* タイトル */}
-          <Text
-            fontSize="small"
-            fontWeight="bold"
-            mt={6}
-            mb={4}
-            textAlign="center"
-          >
-            シェアしましょう！
+          <Text fontSize="small" fontWeight="bold" mb={4} textAlign="center">
+            <BlogSideMenuTitle>シェアしよう！</BlogSideMenuTitle>
           </Text>
-          <Center mb={4}>
+          <Center
+            mb={4}
+            backgroundColor={sidemenuContentsWrapper}
+            py={4}
+            borderRadius={8}
+          >
             <HStack spacing="32px">
               <Box
                 as="a"
@@ -164,36 +167,43 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
             </HStack>
           </Center>
         </Box>
-        {/* 著者 */}
-        {author && (
-          <Box
-            mt={2}
-            borderBottomWidth="1px"
-            borderBottomColor={borderBottomColor}
-            pb={2}
+        {/* buy me a coffee */}
+        <Box my={4} mb={12}>
+          <Text fontSize="small" fontWeight="bold" mb={4} textAlign="center">
+            <BlogSideMenuTitle>コーヒー飲みたい！</BlogSideMenuTitle>
+          </Text>
+          <Flex
+            mt={6}
+            backgroundColor={sidemenuContentsWrapper}
+            pt={4}
+            px={8}
+            borderRadius={8}
+            flexDirection="column"
+            justifyContent="space-between"
+            alignItems="center"
           >
-            <Intro
-              imageData={author.image as unknown as StaticImageData}
-              name={author.name}
-              intro={author.description}
-            />
-          </Box>
-        )}
-        <Center mt={6}>
-          <a
-            href="https://www.buymeacoffee.com/RyoTa"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-              alt="Buy Me A Coffee"
-              height="60px"
-              width="140px"
-              objectFit="contain"
-            />
-          </a>
-        </Center>
+            <a
+              href="https://www.buymeacoffee.com/RyoTa"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me A Coffee"
+                height="40px"
+                width="180px"
+                objectFit="contain"
+              />
+            </a>
+            <Flex w="70%">
+              <Image
+                src={require('../../assets/blogs/coffee.png')}
+                alt="画像"
+              />
+            </Flex>
+          </Flex>
+          {/* buy */}
+        </Box>
       </Box>
     </Box>
   )

@@ -9,13 +9,22 @@ import { useRouter } from 'next/router'
 
 export const FooterComponent = memo(() => {
   const router = useRouter()
-  const isBlog = router.route === '/blog' || router.pathname === '/blog/[id]'
+  const isBlogs = router.route === '/blog'
+  const isBlog = router.pathname === '/blog/[id]'
   const color = useColorModeValue('dark', 'white')
   const blogBg = useColorModeValue('#F0F0F0', '#252829')
-  const bgColor = isBlog ? blogBg : 'transparent'
+  const bgColor = isBlog || isBlogs ? blogBg : 'transparent'
+  const position = isBlog ? 'absolute' : 'initial'
   const footerBg = useBreakpointValue({ base: bgColor, sm: 'transparent' })
   return (
-    <Center as="footer" w="full" bgColor={'transparent'} zIndex={1}>
+    <Center
+      as="footer"
+      w="full"
+      bgColor={footerBg}
+      zIndex={1}
+      bottom={0}
+      position={position}
+    >
       <Text fontFamily="'Josefin Sans'" colorScheme={color}>
         &copy;RyoTa.
       </Text>
