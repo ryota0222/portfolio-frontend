@@ -85,7 +85,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
     <PageWrapper id="blog-container">
       <Flex flexFlow={flexFlow}>
         {/* メニュー */}
-        <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight}>
+        <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight} mt={'-48px'}>
           <BlogSideMenu
             tag={data.tag}
             lgtm={data.lgtm}
@@ -101,7 +101,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
           className={cssName}
           pb={16}
         >
-          <Box maxW="500px" m="auto">
+          <Box maxW="500px" m="auto" h="100%">
             {/* タイトル */}
             <Text
               fontSize={titleFontSize}

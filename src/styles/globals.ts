@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const PageWrapper = styled.div`
   width: 100%;
-  min-height: calc(var(--vh, 1vh) * 100 - 72px);
+  min-height: calc(var(--vh, 1vh) * 400 - 72px);
 `
 
 export const TitleLabel = styled.span`
@@ -82,5 +82,23 @@ export const BlogCardWrapper = styled.div`
     img {
       transform: scale(1.2);
     }
+  }
+`
+
+export const BlogSideMenuTitle = styled.span`
+  display: inline-block;
+  position: relative;
+  &::before,
+  &::after {
+    content: '/';
+    position: absolute;
+    bottom: 0;
+  }
+  &::before {
+    left: -14px;
+    transform: scale(-1, 1);
+  }
+  &::after {
+    right: -10px;
   }
 `
