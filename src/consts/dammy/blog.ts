@@ -55,7 +55,8 @@ export const blogs = {
             tag_id: 'portfolio',
             id: '2KPtyTDJ5PZFtrtEzFUSGy',
           },
-          image: '../../assets/commons/error/image_1.png',
+          image:
+            '//images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
         },
         {
           title:
@@ -69,7 +70,8 @@ export const blogs = {
             tag_id: 'portfolio',
             id: '2KPtyTDJ5PZFtrtEzFUSGy',
           },
-          image: '../../assets/commons/error/image_1.png',
+          image:
+            '//images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
         },
         {
           title: 'test-1',
@@ -82,7 +84,8 @@ export const blogs = {
             tag_id: 'portfolio',
             id: '2KPtyTDJ5PZFtrtEzFUSGy',
           },
-          image: '../../assets/commons/error/image_1.png',
+          image:
+            '//images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
         },
         {
           title: 'test-21',
@@ -95,7 +98,8 @@ export const blogs = {
             tag_id: 'portfolio',
             id: '2KPtyTDJ5PZFtrtEzFUSGy',
           },
-          image: '../../assets/commons/error/image_1.png',
+          image:
+            '//images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
         },
         {
           title: 'ポートフォリオ公開に至るまで（アーキテクチャ編）',
@@ -108,7 +112,8 @@ export const blogs = {
             tag_id: 'portfolio',
             id: '2KPtyTDJ5PZFtrtEzFUSGy',
           },
-          image: '../../assets/commons/error/image_1.png',
+          image:
+            '//images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
         },
         {
           title: 'ネストされた動的ルーティングの実装方法',
