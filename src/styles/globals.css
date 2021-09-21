@@ -66,6 +66,23 @@ a {
 }
 
 /* =====================
+    markdown
+  ====================== */
+.md p {
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+.md a {
+  text-decoration: underline;
+}
+.md.light a {
+  color: #62acff;
+}
+.md.dark a {
+  color: #72e2ff;
+}
+
+/* =====================
     blog
   ====================== */
 

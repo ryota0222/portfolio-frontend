@@ -1,4 +1,5 @@
 import { Document } from '@contentful/rich-text-types'
+import { VFile } from 'vfile'
 
 // button
 export type ButtonVariant = 'solid' | 'outline'
@@ -66,6 +67,14 @@ export interface Field {
   metadata: Record<string, unknown>
   sys: Record<string, unknown>
   fields: Record<string, unknown>
+}
+
+export interface Introduction {
+  name: string
+  description?: string
+  twitter: string
+  github: string
+  imageData: string
 }
 
 export interface Blog {
