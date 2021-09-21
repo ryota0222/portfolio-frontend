@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const PageWrapper = styled.div`
   width: 100%;
-  min-height: calc(var(--vh, 1vh) * 400 - 72px);
+  min-height: calc(var(--vh, 1vh) * 100 - 72px);
 `
 
 export const TitleLabel = styled.span`
@@ -100,5 +100,15 @@ export const BlogSideMenuTitle = styled.span`
   }
   &::after {
     right: -10px;
+  }
+`
+
+export const UnVisibleScrollBar = styled.div`
+  height: ${({ height }) => (height ? height : '100%')};
+  display: block;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 `
