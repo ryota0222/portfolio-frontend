@@ -26,7 +26,7 @@ interface Props {
   data: unknown
 }
 
-const RoadmapTemplate = ({ data }) => {
+const RoadmapTemplate: React.FC<Props> = ({ data }) => {
   const route = useRouter()
   const query = route.query
   const [isSp] = useSp()

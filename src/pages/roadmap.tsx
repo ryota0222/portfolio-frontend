@@ -12,6 +12,7 @@ import RoadmapTemplate from '@/components/templates/Roadmap'
 import { roadmap as DAMMY_WORK } from '@/consts/dammy/roadmap'
 import { RoadmapType } from '@/types/interface'
 import { HeadComponent } from '@/utils/head'
+
 const Roadmap = ({ data }) => {
   const route = useRouter()
   const query = route.query
