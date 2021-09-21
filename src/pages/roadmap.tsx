@@ -8,7 +8,7 @@ import {
 import { useRouter } from 'next/router'
 import * as apis from '@/apis/api'
 import { RoadmapItem } from '@/apis/models'
-// import RoadmapTemplate from '@/components/templates/Roadmap'
+import RoadmapTemplate from '@/components/templates/Roadmap'
 import { roadmap as DAMMY_WORK } from '@/consts/dammy/roadmap'
 import { RoadmapType } from '@/types/interface'
 import { HeadComponent } from '@/utils/head'
@@ -53,7 +53,7 @@ const Roadmap = ({ data }) => {
           </Center>
         )}
         {/* データがある場合 */}
-        {/* <RoadmapTemplate data={data.data} /> */}
+        {displayData?.length > 0 && <RoadmapTemplate data={data.data} />}
       </Box>
     </>
   )
