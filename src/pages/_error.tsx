@@ -1,12 +1,12 @@
+import { useMemo } from 'react'
 import { Box, Text, useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
+import useErrorImage from '@/hooks/useErrorImage'
 import { HeadComponent } from '@/utils/head'
 
 const Error = ({ statusCode, message }) => {
   const color = useColorModeValue('dark', 'white')
-  const min = 1
-  const max = 2
-  let random: number = Math.floor(Math.random() * (max + 1 - min)) + min
+  const [selectedImage] = useErrorImage()
   return (
     <>
       <HeadComponent title={statusCode} />
@@ -23,11 +23,7 @@ const Error = ({ statusCode, message }) => {
       </Text>
       <Box w="full">
         <Box maxW="320px" mx="auto" w="90%">
-          <Image
-            src={require(`../assets/commons/error/image_${random}.png`)}
-            alt={'画像'}
-            layout="responsive"
-          />
+          <Image src={selectedImage} alt={'画像'} layout="responsive" />
         </Box>
       </Box>
       <Text colorScheme={color} textAlign="center" mt="4">

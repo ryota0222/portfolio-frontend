@@ -11,6 +11,7 @@ import {
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { RoadmapItem } from '@/apis/models'
+import noTaskImage from '@/assets/roadmap/no_task.png'
 import { RoadmapListItem } from '@/components/atoms/RoadmapListItem'
 import RoadmapMenuItem from '@/components/molecules/RoadmapMenuItem'
 import { RoadmapMenu } from '@/components/molecules/SpRoadmapMenu'
@@ -18,7 +19,6 @@ import { ROADMAP_TYPE } from '@/consts/config'
 import useSp from '@/hooks/useSp'
 import { UnVisibleScrollBar } from '@/styles/globals'
 import { RoadmapType } from '@/types/interface'
-
 interface Props {
   /**
    * ロードマップのデータ
@@ -75,7 +75,7 @@ const RoadmapTemplate = ({ data }) => {
               タスクがありません
             </Text>
             <Image
-              src={require('../../assets/roadmap/no_task.png')}
+              src={noTaskImage}
               alt={'タスクがありません'}
               layout="responsive"
               objectFit="cover"
@@ -130,7 +130,7 @@ const RoadmapTemplate = ({ data }) => {
                       タスクがありません
                     </Text>
                     <Image
-                      src={require('../../assets/roadmap/no_task.png')}
+                      src={noTaskImage}
                       alt={'タスクがありません'}
                       layout="responsive"
                       objectFit="cover"
