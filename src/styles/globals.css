@@ -188,12 +188,12 @@ a {
 .loader.dark,
 .loader.dark:before,
 .loader.dark:after {
-  background: #5A5A5A;
+  background: #5a5a5a;
   -webkit-animation: loadDark 1s infinite ease-in-out;
   animation: loadDark 1s infinite ease-in-out;
 }
 .loader {
-  color: #F0F0F0;
+  color: #f0f0f0;
   text-indent: -9999em;
   margin: 88px auto;
   position: relative;
@@ -252,11 +252,11 @@ a {
   0%,
   80%,
   100% {
-    box-shadow: 0 0 #5A5A5A;
+    box-shadow: 0 0 #5a5a5a;
     height: 2em;
   }
   40% {
-    box-shadow: 0 -1em #5A5A5A;
+    box-shadow: 0 -1em #5a5a5a;
     height: 2.5em;
   }
 }
@@ -264,11 +264,11 @@ a {
   0%,
   80%,
   100% {
-    box-shadow: 0 0 #5A5A5A;
+    box-shadow: 0 0 #5a5a5a;
     height: 2em;
   }
   40% {
-    box-shadow: 0 -1em #5A5A5A;
+    box-shadow: 0 -1em #5a5a5a;
     height: 2.5em;
   }
 }
