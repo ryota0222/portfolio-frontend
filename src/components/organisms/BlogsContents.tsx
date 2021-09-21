@@ -428,7 +428,7 @@ const BlogsContents: React.FC<Props> = ({
                     w={blogContentWidth}
                   >
                     <BlogCard
-                      imageData={`https://images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png`}
+                      imageData={`https:${content.image}`}
                       title={content.title}
                       tagName={content.tag.label}
                       tagBg={content.tag.color}
