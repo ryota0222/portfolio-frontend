@@ -68,6 +68,7 @@ export const HeaderComponent = memo(() => {
       w="full"
       zIndex={1}
     >
+      {/* ロゴ部分 */}
       <Tooltip
         label={<IntroCard {...SHORT_INTRODUCTION} />}
         placement="bottom-start"
@@ -86,7 +87,7 @@ export const HeaderComponent = memo(() => {
         </Button>
       </Tooltip>
       <Flex alignItems="center">
-        {['portfolio', 'blog', 'roadmap'].map((page: PageName, idx) => {
+        {['blog', 'roadmap'].map((page: PageName, idx) => {
           return (
             <Box key={idx} mx={2}>
               <PageSelectBtn
