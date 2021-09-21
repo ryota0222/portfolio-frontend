@@ -25,18 +25,22 @@ export interface RoadmapItemProps {
 
 const RoadmapItem = ({ type, selected }: RoadmapItemProps) => {
   const iconColor = useColorModeValue('#B9B9B9', '#DADADA')
-  const toggleColor = useMemo(() => {
-    if (selected) {
-      return '#1DAEFF'
-    } else {
-      return iconColor
+  const textColor = useColorModeValue('#526E7D', '#FFFFFF')
+  const toggleIconName = useMemo(() => {
+    switch (type) {
+      case 'schedule':
+        return !selected ? 'map-solid' : 'map-gradient'
+      case 'develop':
+        return !selected ? 'person-solid' : 'person-gradient'
+      case 'merge':
+        return !selected ? 'flag-solid' : 'flag-gradient'
     }
-  }, [selected])
+  }, [type, selected])
   return (
     <Flex flexFlow="column" alignItems="center" cursor="pointer">
-      <SvgIcon name={type} color={toggleColor} />
+      <SvgIcon name={toggleIconName} color={iconColor} width={36} height={36} />
       <Collapse in={selected} animateOpacity>
-        <Text color={toggleColor} fontWeight="bold" fontSize="xs">
+        <Text color={textColor} fontWeight="bold" fontSize="xs" mt={1}>
           {type === 'schedule' && '未実装'}
           {type === 'develop' && '開発中'}
           {type === 'merge' && '実装済'}
@@ -66,7 +70,7 @@ export const RoadmapMenu = memo(({ roadmapType }: Props) => {
   return (
     <Box
       display="inline-flex"
-      height="224px"
+      height="200px"
       boxSizing="border-box"
       pt="32px"
       px="48px"

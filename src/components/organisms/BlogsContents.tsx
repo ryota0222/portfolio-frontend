@@ -26,7 +26,7 @@ import { FiSearch } from 'react-icons/fi'
 import { IoIosClose } from 'react-icons/io'
 import { IoSearch } from 'react-icons/io5'
 import { Counter } from '@/components/atoms/Counter'
-import ArchiveSolid from '@/components/atoms/svg/ArchiveSolid'
+import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
 import { BlogCard } from '@/components/molecules/BlogCard/index'
 import { PageNation } from '@/components/organisms/PageNation/index'
@@ -213,7 +213,12 @@ const BlogsContents: React.FC<Props> = ({
               onClick={() => setIsSpArchive(!isSpArchive)}
               isVisible={isSpArchive}
             >
-              <ArchiveSolid color={inputColor} width={18} height={18} />
+              <SvgIcon
+                color={inputColor}
+                width={18}
+                height={18}
+                name="archive-solid"
+              />
               {/* デフォルト */}
               {!query?.time && (
                 <Text fontSize="small" ml={1} color="#9A9A9A" lineHeight="14px">

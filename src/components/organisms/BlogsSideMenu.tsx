@@ -4,8 +4,7 @@ import dayjs from 'dayjs'
 import throttle from 'just-throttle'
 import router, { useRouter } from 'next/router'
 import { Counter } from '@/components/atoms/Counter'
-import SvgArchiveGradient from '@/components/atoms/svg/ArchiveGradient'
-import SvgTagGradient from '@/components/atoms/svg/TagGradient'
+import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
 import { BlogSetting } from '@/types/interface'
 interface Props {
@@ -44,7 +43,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
         <Box pb={2}>
           <Flex alignItems="center" mb={4}>
             <Box as="span" mr={2}>
-              <SvgArchiveGradient width={18} height={18} />
+              <SvgIcon width={18} height={18} name="archive-gradient" />
             </Box>
             <Title>月別アーカイブ</Title>
           </Flex>
@@ -79,7 +78,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
         <Box pb={4} mt={12}>
           <Flex alignItems="center" mb={4}>
             <Box as="span" mr={2}>
-              <SvgTagGradient width={16} height={16} />
+              <SvgIcon width={16} height={16} name="tag-gradient" />
             </Box>
             <Title>タグ別アーカイブ</Title>
           </Flex>

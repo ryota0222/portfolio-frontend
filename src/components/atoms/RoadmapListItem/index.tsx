@@ -22,9 +22,6 @@ export const RoadmapListItem = memo(({ children, complete }: Props) => {
   )
   return (
     <Flex alignItems="center">
-      <Circle width="20px" height="20px" bg={bg} boxShadow={shadow} mr={2}>
-        <SvgIcon name="circle-check" width="16px" height="16px" />
-      </Circle>
       <Text
         color={textColor}
         fontSize="md"

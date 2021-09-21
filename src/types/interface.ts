@@ -20,6 +20,15 @@ export type SvgIconName =
   | 'home'
   | 'twitter'
   | 'facebook'
+  | 'tag-gradient'
+  | 'archive-gradient'
+  | 'archive-solid'
+  | 'map-gradient'
+  | 'map-solid'
+  | 'person-gradient'
+  | 'person-solid'
+  | 'flag-gradient'
+  | 'flag-solid'
 
 // counter
 export type CounterType = 'good' | 'bad'

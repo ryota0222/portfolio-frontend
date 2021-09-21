@@ -1,11 +1,12 @@
 import { Story, Meta } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { ROADMAP_TYPE } from '@/consts/config'
-import { RoadmapMenu, Props } from '.'
+import { Props } from '.'
+import RoadmapMenuItem from '.'
 
 export default {
-  title: 'Design System/Molecules/RoadmapMenu',
-  component: RoadmapMenu,
+  title: 'Design System/Molecules/RoadmapMenuItem',
+  component: RoadmapMenuItem,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
@@ -25,19 +26,12 @@ export default {
   },
 } as Meta
 
-const Template: Story<Props> = (args) => <RoadmapMenu {...args} />
+const Template: Story<Props> = (args) => <RoadmapMenuItem {...args} />
 
 export const Schedule = Template.bind({})
 
 Schedule.args = {
   roadmapType: 'schedule',
-}
-
-Schedule.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A1012',
-  },
 }
 
 export const Develop = Template.bind({})
