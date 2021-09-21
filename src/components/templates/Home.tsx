@@ -10,7 +10,6 @@ import {
 import Image from 'next/image'
 import { FaTwitter, FaGithub } from 'react-icons/fa'
 import TopImage from '@/assets/top/image.png'
-import { Logo } from '@/components/atoms/Logo'
 import { GRADIENT } from '@/consts/config'
 import { PageWrapper } from '@/styles/globals'
 

@@ -11,6 +11,7 @@ import {
 import throttle from 'just-throttle'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import coffeeImage from '@/assets/blogs/coffee.png'
 import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { Counter } from '@/components/molecules/Counter'
@@ -18,6 +19,7 @@ import { Intro } from '@/components/molecules/Intro'
 import useSp from '@/hooks/useSp'
 import { BlogSideMenuTitle } from '@/styles/globals'
 import { Tag, Lgtm, Author, CounterType } from '@/types/interface'
+
 interface Props {
   /**
    * タグデータ
@@ -196,10 +198,7 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
               />
             </a>
             <Flex w="70%">
-              <Image
-                src={require('../../assets/blogs/coffee.png')}
-                alt="画像"
-              />
+              <Image src={coffeeImage} alt="画像" />
             </Flex>
           </Flex>
           {/* buy */}
