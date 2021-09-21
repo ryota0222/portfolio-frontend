@@ -9,14 +9,31 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import { FaTwitter, FaGithub } from 'react-icons/fa'
+import { Remark } from 'react-remark'
 import TopImage from '@/assets/top/image.png'
 import { GRADIENT } from '@/consts/config'
 import { PageWrapper } from '@/styles/globals'
+import { Introduction } from '@/types/interface'
 
-const HomeTemplate = ({ introduction }) => {
+interface Props {
+  /**
+   * 自己紹介データ
+   */
+  introduction: Introduction
+}
+
+const HomeTemplate: React.FC<Props> = ({ introduction }) => {
   const textColor = useColorModeValue('#002E48', '#FFFFFF')
   const githubColor = useColorModeValue('rgb(24,43,77)', '#FFFFFF')
+  const colorTheme = useColorModeValue('light', 'dark')
   const width = useBreakpointValue({ base: '100%', md: '50%' })
+  const nameFontSize = useBreakpointValue({ base: '3rem', md: '4rem' })
+  const snsJustifyContent = useBreakpointValue({
+    base: 'flex-end',
+    md: 'flex-start',
+  })
+  const snsMx = useBreakpointValue({ base: 8, md: 0 })
+  const nameMb = useBreakpointValue({ base: 4, md: 8 })
   const flexDirection: 'column' | 'row' = useBreakpointValue({
     base: 'column',
     md: 'row',
@@ -56,7 +73,7 @@ const HomeTemplate = ({ introduction }) => {
             {/* 名前 */}
             <Text
               fontWeight="700"
-              fontSize="4rem"
+              fontSize={nameFontSize}
               fontFamily="'Josefin Sans'"
               lineHeight="4.2rem"
               color={textColor}
@@ -64,21 +81,30 @@ const HomeTemplate = ({ introduction }) => {
               backgroundClip="text"
               d="inline-block"
               style={{ WebkitTextFillColor: 'transparent' }}
-              mb="8"
+              mb={nameMb}
             >
               {introduction.name}
             </Text>
             {/* 自己紹介 */}
             {introduction?.description && (
-              <Text
-                fontSize="sm"
-                color={textColor}
-                dangerouslySetInnerHTML={{ __html: introduction.description }}
-                maxW="480px"
-                className="introduction"
-              ></Text>
+              <Box className={`${colorTheme} md`}>
+                <Remark
+                  rehypeReactOptions={{
+                    components: {
+                      p: (props) => <p className="md-para" {...props} />,
+                    },
+                  }}
+                >
+                  {introduction.description}
+                </Remark>
+              </Box>
             )}
-            <Flex mt="8">
+            <Flex
+              mt="20px"
+              mx={snsMx}
+              justifyContent={snsJustifyContent}
+              mb={8}
+            >
               {/* github */}
               {introduction?.github && (
                 <Link href={introduction.github} isExternal mr="6">

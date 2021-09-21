@@ -186,7 +186,7 @@ export const SpHeaderComponent = memo(() => {
             pb="32px"
             borderRadius="0px 0px 16px 16px / 00px 00px 16px 16px"
           >
-            {['portfolio', 'blog', 'roadmap'].map((page: PageName, idx) => {
+            {['blog', 'roadmap'].map((page: PageName, idx) => {
               return (
                 <Box key={idx} mx={2} my={8}>
                   <PageSelectBtn
