@@ -36,7 +36,7 @@ export const GRADIENT =
 
 export const INTRODUCTION = {
   name: 'RyoTa.',
-  description: `神戸大学卒業後、2020年4月よりフロントエンドエンジニアとしてSI企業に新卒入社。Webアプリケーションや、ネイティブアプリの開発をメインで行う一方で、デザインの分野にも興味があり、Webデザインやグラフィックデザイン、アニメーションなどにも取り組んでいます。Adobe XDやFigmaを用いたデザインモックの作成や、ツールを用いた素材やアニメーションの作成もしています。 神戸で[「つながる勉強会」](https://tsunagaru-kobe.connpass.com/)という勉強会を2021年1月より行っています。`,
+  description: `神戸大学卒業後、2020年4月よりフロントエンドエンジニアとしてSI企業に新卒入社。Webアプリケーションや、ネイティブアプリの開発をメインで行う一方で、デザインの分野にも興味があり、Webデザインやグラフィックデザイン、アニメーションなどにも取り組んでいます。Adobe XDやFigmaを用いたデザインモックの作成や、ツールを用いた素材やアニメーションの作成もしています。 2021年1月より[「つながる勉強会」](https://tsunagaru-kobe.connpass.com/)という勉強会の運営に携わっています。`,
   twitter: 'https://twitter.com/RyoTa___0222',
   github: 'https://github.com/RyoTa0222',
   imageData:
