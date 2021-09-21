@@ -1,4 +1,10 @@
-import { Box, Flex, useBreakpointValue } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  useBreakpointValue,
+  useColorModeValue,
+  Center,
+} from '@chakra-ui/react'
 import {
   InlineResponse400,
   InlineResponse2002,
@@ -52,8 +58,9 @@ const BlogsTemplate: React.FC<Props> = ({
     base: '100%',
     md: '50%',
   })
+  const colorTheme = useColorModeValue('light', 'dark')
   // return <></>
-  if (!settings.success || !contents?.success || isError) {
+  if ((!settings.success && !contents?.success) || isError) {
     return (
       // <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
       <></>
@@ -78,12 +85,19 @@ const BlogsTemplate: React.FC<Props> = ({
           )}
           {/* コンテンツ */}
           <Box w={contentW} minH={minHeight}>
-            <BlogsContents
-              data={(contents as InlineResponse2003).data}
-              settings={(settings as InlineResponse2002).data}
-              title={title}
-              searchWord={searchWord}
-            />
+            {!isLoading && (
+              <BlogsContents
+                data={(contents as InlineResponse2003).data}
+                settings={(settings as InlineResponse2002).data}
+                title={title}
+                searchWord={searchWord}
+              />
+            )}
+            {isLoading && (
+              <Center w="full" h="full">
+                <div className={`loader ${colorTheme}`}>ローディング中</div>
+              </Center>
+            )}
           </Box>
           {/* サイドメニュー */}
           <Box as="aside" flex={1} minH={minHeight} display={sideMenuDisplay}>
