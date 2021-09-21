@@ -49,7 +49,7 @@ const RoadmapMenuItem: React.FC<Props> = ({ roadmapType, children }) => {
       boxShadow={shadow}
       borderRadius="32px"
       maxWidth="400px"
-      width="90vw"
+      width="32vw"
       bg={bg}
       h="full"
       flexDirection="column"
