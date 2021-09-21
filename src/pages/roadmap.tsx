@@ -1,5 +1,10 @@
 import { useEffect, useMemo } from 'react'
-import { Box, Center, useColorModeValue } from '@chakra-ui/react'
+import {
+  Box,
+  Center,
+  useColorModeValue,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import * as apis from '@/apis/api'
 import { RoadmapItem } from '@/apis/models'
@@ -28,11 +33,18 @@ const Roadmap = ({ data }) => {
     return null
   }, [data, type])
   const textColor = useColorModeValue('#999', '#aaa')
-  // console.log(displayData)
+  const display = useBreakpointValue({ base: 'block', md: 'flex' })
+  const align = useBreakpointValue({ base: 'initial', md: 'center' })
   return (
     <>
       <HeadComponent title="ロードマップ" url={url} ogType="article" />
-      <Box minHeight="calc(var(--vh, 1vh) * 100 - 72px)">
+      <Box
+        minHeight="calc(var(--vh, 1vh) * 100 - 72px)"
+        display={display}
+        alignItems={align}
+        justifyContent={align}
+        w="100%"
+      >
         {/* データがない場合 */}
         {(!displayData || !displayData.length) && (
           <Center color={textColor} fontWeight="bold" letterSpacing={2}>

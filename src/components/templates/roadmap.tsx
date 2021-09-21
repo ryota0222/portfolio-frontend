@@ -51,6 +51,7 @@ const RoadmapTemplate = ({ data }) => {
   if (isSp) {
     return (
       <Box px={8} pt={8} pb="160px">
+        {/* データがある場合 */}
         {displayData.length > 0 && (
           <UnorderedList spacing={2}>
             {displayData.map((item, index) => (
@@ -61,6 +62,25 @@ const RoadmapTemplate = ({ data }) => {
               </ListItem>
             ))}
           </UnorderedList>
+        )}
+        {/* データがない場合 */}
+        {!displayData?.length && (
+          <Box w="100%" h="100%">
+            <Text
+              textAlign="center"
+              fontWeight="bold"
+              mt={12}
+              color={'#9AAFBA'}
+            >
+              タスクがありません
+            </Text>
+            <Image
+              src={require('../../assets/roadmap/no_task.png')}
+              alt={'タスクがありません'}
+              layout="responsive"
+              objectFit="cover"
+            />
+          </Box>
         )}
         {/* メニュー */}
         <Box
@@ -76,7 +96,7 @@ const RoadmapTemplate = ({ data }) => {
     )
   } else {
     return (
-      <Flex h="full" justify="space-evenly">
+      <Flex w="100%" h="full" justify="space-evenly">
         {ROADMAP_TYPE.map((type) => {
           const listData = getDisplayData(type)
           return (
