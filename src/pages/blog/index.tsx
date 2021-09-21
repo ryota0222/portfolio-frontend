@@ -18,8 +18,8 @@ const fetcher = async (url, offset, limit, searchWord, tag, time) => {
 }
 
 const Blog = ({ settings, contents }) => {
-  // const [_contents, setContents] = useState(contents)
   const router = useRouter()
+  const [contentsData, setContentsData] = useState(contents)
   const { query } = router
   const { time, searchWord, tag, page } = query
   const offset = page ? (Number(page as string) - 1) * BLOG_NUMBER_PER_PAGE : 0
@@ -27,8 +27,13 @@ const Blog = ({ settings, contents }) => {
   const { data, error } = useSWR(
     ['api/blog', offset, limit, searchWord, tag, time],
     fetcher,
-    { initialData: contents },
+    { initialData: null },
   )
+  useEffect(() => {
+    if (data) {
+      setContentsData(data)
+    }
+  }, [data])
   const title = useMemo(() => {
     if (time) {
       return dayjs(time as string).format('YYYY/M')
@@ -38,9 +43,10 @@ const Blog = ({ settings, contents }) => {
     }
     return ''
   }, [time, tag])
+  // データ取得失敗時
+  // TODO: エラー時のUI
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-
+  // データ取得成功時 / ローディング時
   return (
     <>
       <HeadComponent
@@ -50,7 +56,7 @@ const Blog = ({ settings, contents }) => {
       />
       <BlogsTemplate
         settings={settings}
-        contents={data}
+        contents={contentsData}
         title={title}
         searchWord={searchWord as string | undefined}
         isLoading={!error && !data}

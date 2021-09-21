@@ -3,19 +3,50 @@ export const blogs = {
     success: true,
     data: {
       monthly_archives: [
-        { '2021-01': { count: 6 } },
-        { '2021-02': { count: 1 } },
-        { '2021-07': { count: 4 } },
+        {
+          '2021-08': {
+            count: 1,
+          },
+        },
+        {
+          '2021-02': {
+            count: 1,
+          },
+        },
+        {
+          '2021-01': {
+            count: 6,
+          },
+        },
       ],
       tag_archives: [
         {
-          frontend: { percent: 45, count: 5 },
+          frontend: {
+            percent: 62.5,
+            order: 1,
+            count: 5,
+          },
         },
         {
-          other: { percent: 9, count: 1 },
+          tsundoku: {
+            percent: 12.5,
+            count: 1,
+            order: 10,
+          },
         },
         {
-          portfolio: { count: 5, percent: 45 },
+          portfolio: {
+            order: 20,
+            percent: 12.5,
+            count: 1,
+          },
+        },
+        {
+          other: {
+            order: 100,
+            count: 1,
+            percent: 12.5,
+          },
         },
       ],
       tags: [
@@ -26,14 +57,20 @@ export const blogs = {
           id: '7IbO2pMYCPfsOp12HmO8vf',
         },
         {
+          label: '積読',
+          color: '#37b90e',
+          tag_id: 'tsundoku',
+          id: '5VFkjqFuv31Zb1CzGUlshj',
+        },
+        {
           label: 'ポートフォリオ裏話',
-          color: '#adff2f',
+          color: '#7cbf16',
           tag_id: 'portfolio',
           id: '2KPtyTDJ5PZFtrtEzFUSGy',
         },
         {
           label: 'その他',
-          color: '#4b5563',
+          color: '#e29300',
           tag_id: 'other',
           id: '6C1X1w8hIFIN4GMl9JFvL',
         },
