@@ -1,7 +1,4 @@
 import { memo } from 'react'
-
-import coffeeImage from '@/assets/blogs/coffee.png'
-
 import {
   Box,
   Center,
@@ -14,6 +11,7 @@ import {
 import throttle from 'just-throttle'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import coffeeImage from '@/assets/blogs/coffee.png'
 import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { Counter } from '@/components/molecules/Counter'
