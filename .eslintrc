@@ -3,7 +3,7 @@
   "rules": {
     "react/display-name": "off",
     "import/order": [
-      "warning",
+      1,
       {
         "groups": ["builtin", "external", "internal"],
         "pathGroups": [
