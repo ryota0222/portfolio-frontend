@@ -62,7 +62,12 @@ const ArrowButton = ({ onClick }) => {
       {/* <picture>
         {SourceWebP} */}
       {/* {SourcePng} */}
-      <img src={spHeaderDark.src} alt="arrow" width={300} height={140} />
+      <Image
+        src={`https://portfolio-frontend-7a0k38iau-ryota.vercel.app/images/light/sp_header.png`}
+        alt="arrow"
+        width={300}
+        height={140}
+      />
       {/* 
       </picture> */}
       <Fade in={show}>
