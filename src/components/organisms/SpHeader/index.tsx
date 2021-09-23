@@ -62,7 +62,7 @@ const ArrowButton = ({ onClick }) => {
       {/* <picture>
         {SourceWebP} */}
       {/* {SourcePng} */}
-      <Image
+      <img
         src={`https://portfolio-frontend-7a0k38iau-ryota.vercel.app/images/light/sp_header.png`}
         alt="arrow"
         width={300}
