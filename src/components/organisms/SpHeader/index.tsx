@@ -61,8 +61,9 @@ const ArrowButton = ({ onClick }) => {
     <Box position="relative" onClick={onClick} h="144px">
       {/* <picture>
         {SourceWebP} */}
-      {SourcePng}
-      {/* <img src={spHeaderDark.src} alt="arrow" width={300} height={140} />
+      {/* {SourcePng} */}
+      <img src={spHeaderDark.src} alt="arrow" width={300} height={140} />
+      {/* 
       </picture> */}
       <Fade in={show}>
         <Box
