@@ -14,6 +14,7 @@ import Ads from '@/components/organisms/Ads'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
 import useSp from '@/hooks/useSp'
+import Error from '@/pages/_error'
 import { PageWrapper } from '@/styles/globals'
 
 interface Props {
@@ -59,16 +60,14 @@ const BlogsTemplate: React.FC<Props> = ({
     md: '50%',
   })
   const colorTheme = useColorModeValue('light', 'dark')
-  // return <></>
   if ((!settings.success && !contents?.success) || isError) {
     return (
-      // <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
-      <></>
+      <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
     )
   } else {
     return (
       <PageWrapper id="blog-container">
-        <Flex flexFlow={flexFlow}>
+        <Flex flexFlow={flexFlow} justifyContent="space-between">
           {/* メニュー */}
           {/* スマホサイズじゃない場合 */}
           {!isSp && (
@@ -100,7 +99,13 @@ const BlogsTemplate: React.FC<Props> = ({
             )}
           </Box>
           {/* サイドメニュー */}
-          <Box as="aside" flex={1} minH={minHeight} display={sideMenuDisplay}>
+          <Box
+            as="aside"
+            flex={1}
+            minH={minHeight}
+            display={sideMenuDisplay}
+            maxW="360px"
+          >
             <Ads />
           </Box>
         </Flex>
