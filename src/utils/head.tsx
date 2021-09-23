@@ -35,7 +35,7 @@ export const HeadComponent = ({
       <meta property="og:site_name" content={_title} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@RyoTa___0222" />
-      <meta name="twitter:url" content={_image} />
+      <meta name="twitter:url" content={_url} />
       <meta name="twitter:title" content={_title} />
       <meta name="twitter:description" content={_description} />
       <meta name="twitter:image" content={_image} />
