@@ -26,7 +26,7 @@ const Error = ({ statusCode, message }) => {
           <Image src={selectedImage} alt={'画像'} layout="responsive" />
         </Box>
       </Box>
-      <Text colorScheme={color} textAlign="center" mt="4">
+      <Text colorScheme={color} textAlign="center" mt="8">
         {message}
       </Text>
     </>

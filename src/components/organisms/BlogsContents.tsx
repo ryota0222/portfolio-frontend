@@ -63,8 +63,6 @@ const BlogsContents: React.FC<Props> = ({
   const inputColor = useColorModeValue('#B9B9B9', 'white')
   const blogBgColor = useColorModeValue('#F1F4F4', '#303334')
   const spMenuBgColor = useColorModeValue('#F1F4F4', '#252829')
-  const spMenuShadowColor = useColorModeValue('#e1e6e6', '#252829')
-  const hoverBgColor = useColorModeValue('#e5e5e5', '#353839')
   const textColor = useColorModeValue('dark', 'white')
   const contentsDirection = useBreakpointValue<FlexboxProps['flexDirection']>({
     base: 'column',
@@ -159,7 +157,7 @@ const BlogsContents: React.FC<Props> = ({
         justifyContent={contentsFlex}
         position="relative"
       >
-        {/* SP */}
+        {/* SPのみ表示 */}
         {isSp && (
           <>
             {/* 検索 */}
@@ -396,7 +394,7 @@ const BlogsContents: React.FC<Props> = ({
             </Modal>
           </>
         )}
-        {/* PC */}
+        {/* PCのみ表示 */}
         {!isSp && (
           // 検索フォーム
           <SearchForm
@@ -453,12 +451,17 @@ const BlogsContents: React.FC<Props> = ({
         </>
       ) : (
         // 記事がない時
-        <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>
+        <Text
+          textAlign="center"
+          fontSize="sm"
+          my={8}
+          mt={16}
+          color={noDataColor}
+        >
           記事がありません
         </Text>
       )}
       {/* スマホのメニューにタップされた際の画面全体のブラー */}
-      {/* {isSpMenuClicked && ( */}
       <Fade in={isSpMenuClicked} unmountOnExit={true}>
         <Box
           w="100vw"
@@ -470,7 +473,6 @@ const BlogsContents: React.FC<Props> = ({
           onClick={clearBlur}
         ></Box>
       </Fade>
-      {/* )} */}
     </Box>
   )
 }
