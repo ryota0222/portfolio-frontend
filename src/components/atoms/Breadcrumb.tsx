@@ -24,7 +24,7 @@ const BreadcrumbComponent: React.FC<Props> = ({ tag }) => {
       </BreadcrumbItem>
       <BreadcrumbItem>
         <BreadcrumbLink
-          href={`/blog?category=${tag.tag_id}`}
+          href={`/blog?tag=${tag.id}`}
           style={{ color: fontColor, fontSize: fontSize, lineHeight: '16px' }}
           _hover={{
             textDecoration: 'none',

@@ -86,7 +86,7 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
       pt={containerPt}
       mr={mr}
     >
-      <Box pt={5} position="sticky" top="0px">
+      <Box position="sticky" top="0px">
         {/* パンくずリスト */}
         {!isSp && (
           <Box
