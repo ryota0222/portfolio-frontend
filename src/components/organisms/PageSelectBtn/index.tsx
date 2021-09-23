@@ -68,10 +68,8 @@ export const PageSelectBtn = (props: Props) => {
     }
   }, [props.name])
   const handleClick = () => {
-    if (!~route?.pathname?.indexOf(props.name)) {
-      props.handlePageTransition()
-      setIsReverse(!isReverse)
-    }
+    props.handlePageTransition()
+    setIsReverse(!isReverse)
   }
   const _props: any = Object.assign({}, props)
   delete _props.currentPage
