@@ -48,7 +48,7 @@ export const SHORT_INTRODUCTION = {
   description: `神戸大学卒業後、2020年4月よりフロントエンドエンジニアとしてSI企業に新卒入社。Webアプリケーションや、ネイティブアプリの開発を行う一方、Webデザインやグラフィックデザイン、アニメーションなどにも取り組んでいます。 神戸で「つながる勉強会」を2021年1月より行っています。`,
   twitter: 'https://twitter.com/RyoTa___0222',
   github: 'https://github.com/RyoTa0222',
-  imageData: `${process.env.SITE_URL}/images/ryota.png`,
+  imageData: `/images/ryota.png`,
 }
 
 // meta
