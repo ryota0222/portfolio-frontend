@@ -1,7 +1,6 @@
 import { memo, useState, useEffect } from 'react'
 import {
   useColorModeValue,
-  Portal,
   Box,
   Flex,
   Fade,
@@ -15,9 +14,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import menu from '@/assets/animations/common/sp_header_menu.json'
 import d_gear from '@/assets/animations/dark/gear.json'
-import spHeaderDark from '@/assets/animations/dark/sp_header.png'
 import l_gear from '@/assets/animations/light/gear.json'
-import spHeaderLight from '@/assets/animations/light/sp_header.png'
 import menuArrow from '@/assets/commons/menu_arrow.svg'
 import { LottieControl } from '@/components/atoms/Animation'
 import { Btn } from '@/components/atoms/Button'

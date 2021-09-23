@@ -40,7 +40,7 @@ export const HeaderComponent = memo(() => {
   const handlePageTransition = (name: PageName) => {
     setPageName(name)
     if (router) {
-      router.push(`/${name}`)
+      router.push({ pathname: `/${name}` })
     }
   }
   /**
