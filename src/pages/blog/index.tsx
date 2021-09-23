@@ -43,10 +43,7 @@ const Blog = ({ settings, contents }) => {
     }
     return ''
   }, [time, tag])
-  // データ取得失敗時
-  // TODO: エラー時のUI
-  if (error) return <div>failed to load</div>
-  // データ取得成功時 / ローディング時
+  // データ取得成功時 / ローディング時 / 失敗時
   return (
     <>
       <HeadComponent
