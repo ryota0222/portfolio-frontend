@@ -44,16 +44,24 @@ const ArrowButton = ({ onClick }) => {
     />,
   )
   const SourcePng = useColorModeValue(
-    <Image src={spHeaderLight} alt="arrow" />,
-    <Image src={spHeaderDark} alt="arrow" />,
+    <Image
+      src={`/images/light/sp_header.png`}
+      alt="arrow"
+      width={300}
+      height={140}
+    />,
+    <Image
+      src={`/images/dark/sp_header.png`}
+      alt="arrow"
+      width={300}
+      height={140}
+    />,
   )
-  const SourcePngData = useColorModeValue(spHeaderLight, spHeaderDark)
   return (
     <Box position="relative" onClick={onClick} h="144px">
       <picture>
         {SourceWebP}
-        {/* {SourcePng} */}
-        <Image src={SourcePngData} alt="arrow" />
+        {SourcePng}
       </picture>
       <Fade in={show}>
         <Box
