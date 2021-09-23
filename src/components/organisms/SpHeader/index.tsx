@@ -33,43 +33,13 @@ const ArrowButton = ({ onClick }) => {
       setShow(true)
     }, 500)
   }, [])
-  const SourceWebP = useColorModeValue(
-    <source
-      srcSet="../../../assets/animations/light/sp_header.webp"
-      type="image/webp"
-    />,
-    <source
-      srcSet="../../../assets/animations/dark/sp_header.webp"
-      type="image/webp"
-    />,
-  )
-  const SourcePng = useColorModeValue(
-    <Image
-      src={`/images/light/sp_header.png`}
-      alt="arrow"
-      width={300}
-      height={140}
-    />,
-    <Image
-      src={`/images/dark/sp_header.png`}
-      alt="arrow"
-      width={300}
-      height={140}
-    />,
+  const imageData = useColorModeValue(
+    `${process.env.SITE_URL}/images/light/sp_header.png`,
+    `${process.env.SITE_URL}/images/dark/sp_header.png`,
   )
   return (
     <Box position="relative" onClick={onClick} h="144px">
-      {/* <picture>
-        {SourceWebP} */}
-      {/* {SourcePng} */}
-      <img
-        src={`https://portfolio-frontend-7a0k38iau-ryota.vercel.app/images/light/sp_header.png`}
-        alt="arrow"
-        width={300}
-        height={140}
-      />
-      {/* 
-      </picture> */}
+      <img src={imageData} alt="arrow" width={300} height={140} />
       <Fade in={show}>
         <Box
           position="absolute"
