@@ -7,6 +7,7 @@ import { FooterComponent } from '@/components/organisms/Footer'
 import { HeaderComponent } from '@/components/organisms/Header'
 import { SpHeaderComponent } from '@/components/organisms/SpHeader'
 import Provider from '@/components/templates/Provider'
+import usePageView from '@/hooks/usePageView'
 import { Container } from '@/styles/globals'
 import '@/styles/globals.css'
 import f from '@/utils/fontSize'
@@ -48,6 +49,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       window.removeEventListener('resize', setFillHeight)
     }
   }, [])
+  // PVをカウントするイベント
+  usePageView()
   return (
     <Provider>
       <Container>

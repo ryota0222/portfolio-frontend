@@ -21,7 +21,7 @@ export const HeadComponent = ({
   const _description =
     description && description.length > 0 ? description : DESCRIPTION
   const _image = image && image.length > 0 ? image : IMAGE
-  const _url = url && url.length > 0 ? url : `${process.env.SITE_URL}/`
+  const _url = url && url.length > 0 ? url : `/`
   const _ogType = ogType && ogType.length > 0 ? ogType : `website`
   return (
     <Head>
