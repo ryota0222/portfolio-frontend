@@ -22,8 +22,8 @@ const Roadmap = ({ data }) => {
   }, [query])
   const url = useMemo(() => {
     if (Object.keys(query).length > 0)
-      return `${process.env.SITE_URL}/roadmap?type=${query.type}`
-    return `${process.env.SITE_URL}/roadmap`
+      return `${process.env.NEXT_PUBLIC_SITE_URL}/roadmap?type=${query.type}`
+    return `${process.env.NEXT_PUBLIC_SITE_URL}/roadmap`
   }, [query])
   const displayData = useMemo(() => {
     if (data?.success) {

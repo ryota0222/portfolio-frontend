@@ -8,7 +8,7 @@ const Portfolio = ({ data }) => {
     <>
       <HeadComponent
         title="ポートフォリオ"
-        url={`${process.env.SITE_URL}/portfolio`}
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/portfolio`}
         ogType="article"
       />
       <PortfolioWorkTemplate data={data} />
