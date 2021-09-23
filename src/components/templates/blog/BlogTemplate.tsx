@@ -198,7 +198,13 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
           </Box>
         </Box>
         {/* サイドメニュー */}
-        <Box as="aside" flex={1} minH={minHeight} display={sideMenuDisplay}>
+        <Box
+          as="aside"
+          flex={1}
+          minH={minHeight}
+          display={sideMenuDisplay}
+          maxW="360px"
+        >
           <Ads />
         </Box>
       </Flex>
