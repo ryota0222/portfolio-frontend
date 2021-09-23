@@ -48,7 +48,7 @@ const Blog = ({ settings, contents }) => {
     <>
       <HeadComponent
         title="ブログ一覧"
-        url={`${process.env.SITE_URL}/blog`}
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog`}
         ogType="blog"
       />
       <BlogsTemplate

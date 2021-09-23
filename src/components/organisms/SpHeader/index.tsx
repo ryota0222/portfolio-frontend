@@ -31,8 +31,8 @@ const ArrowButton = ({ onClick }) => {
     }, 500)
   }, [])
   const imageData = useColorModeValue(
-    `${process.env.SITE_URL}/images/light/sp_header.png`,
-    `${process.env.SITE_URL}/images/dark/sp_header.png`,
+    `${process.env.NEXT_PUBLIC_SITE_URL}/images/light/sp_header.png`,
+    `${process.env.NEXT_PUBLIC_SITE_URL}/images/dark/sp_header.png`,
   )
   return (
     <Box position="relative" onClick={onClick} h="144px">

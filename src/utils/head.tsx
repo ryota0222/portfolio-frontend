@@ -21,7 +21,8 @@ export const HeadComponent = ({
   const _description =
     description && description.length > 0 ? description : DESCRIPTION
   const _image = image && image.length > 0 ? image : IMAGE
-  const _url = url && url.length > 0 ? url : `/`
+  const _url =
+    url && url.length > 0 ? url : `${process.env.NEXT_PUBLIC_SITE_URL}/`
   const _ogType = ogType && ogType.length > 0 ? ogType : `website`
   return (
     <Head>
@@ -35,19 +36,19 @@ export const HeadComponent = ({
       <meta property="og:site_name" content={_title} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@RyoTa___0222" />
-      <meta name="twitter:url" content={_url} />
+      <meta name="twitter:url" content={_image} />
       <meta name="twitter:title" content={_title} />
       <meta name="twitter:description" content={_description} />
       <meta name="twitter:image" content={_image} />
       <link rel="canonical" href={_url} />
       <link
         rel="shortcut icon"
-        href={`${process.env.SITE_URL}/favicons/favicon.ico`}
+        href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicons/favicon.ico`}
       />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href={`${process.env.SITE_URL}/favicons/apple-touch-icon.png`}
+        href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicons/apple-touch-icon.png`}
       />
     </Head>
   )

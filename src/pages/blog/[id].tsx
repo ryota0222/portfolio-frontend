@@ -31,7 +31,7 @@ const BlogDetail = ({ data }) => {
       ></Script>
       <HeadComponent
         title={data.data.title}
-        url={`${process.env.SITE_URL}/blog/${id}`}
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`}
         ogType="blog"
         image={`https:${data.data.image}`}
       />
