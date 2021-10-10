@@ -83,7 +83,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const breadCrumbBgColor = useColorModeValue('#F0F0F0', '#252829')
   return (
     <PageWrapper id="blog-container">
-      <Flex flexFlow={flexFlow}>
+      <Flex flexFlow={flexFlow} justifyContent="space-between">
         {/* メニュー */}
         <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight} mt={'-48px'}>
           <BlogSideMenu
