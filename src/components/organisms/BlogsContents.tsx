@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState, useRef } from 'react'
 import { useEffect } from 'react'
 import {
   Box,
@@ -25,6 +25,7 @@ import { AiOutlineTag } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
 import { IoIosClose } from 'react-icons/io'
 import { IoSearch } from 'react-icons/io5'
+import { MdQueryBuilder } from 'react-icons/md'
 import { Counter } from '@/components/atoms/Counter'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
@@ -97,6 +98,7 @@ const BlogsContents: React.FC<Props> = ({
   }
   // enterを押した際に実行する
   const handleKeyPress = useCallback((e) => {
+    console.log(e)
     if (e.key == 'Enter') {
       e.preventDefault()
       handleSearch()
@@ -521,12 +523,39 @@ const SearchForm = ({ value, setValue, onChange, onKeyPress }) => {
  * スマホ用の検索フォーム
  */
 const SpSearchForm = ({ value, setValue, onChange, onKeyPress, isVisible }) => {
-  const inputBg = useColorModeValue('#F0F0F0', '#252829')
+  const inputBg = useColorModeValue('#F1F4F4', '#252829')
   const inputColor = useColorModeValue('#B9B9B9', 'white')
+  const inputTextColor = useColorModeValue('#666', 'white')
+  const spMenuShadowColor = useColorModeValue('#e1e6e6', '#252829')
+  const inputRef = useRef(null)
+  const router = useRouter()
+  const {
+    query: { searchWord },
+  } = router
   // 検索文字列の消去
   const clearSearch = () => {
     setValue('')
   }
+  // side effect
+  useEffect(() => {
+    // フォームが非表示になった場合
+    if (!isVisible) {
+      // queryの検索文字と実際の入力値が異なる場合検索をし直す
+      if (typeof searchWord === 'string' && value !== searchWord) {
+        let path = '/blog'
+        if (value.trim().length > 0) {
+          path += `?searchWord=${value}`
+        }
+        router.push(path)
+      }
+    }
+    // フォームが表示された時フォーカスを当てる
+    if (isVisible && inputRef) {
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }
+  }, [isVisible])
   return (
     <InputGroup
       w={isVisible ? '100%' : 0}
@@ -538,18 +567,30 @@ const SpSearchForm = ({ value, setValue, onChange, onKeyPress, isVisible }) => {
         transition: 'all 0.4s',
         borderRadius: 4,
       }}
+      _before={{
+        content: '""',
+        position: 'absolute',
+        width: '90%',
+        height: '100%',
+        left: '50%',
+        top: '4px',
+        filter: 'blur(5px)',
+        background: spMenuShadowColor,
+        zIndex: -1,
+        transform: 'translateX(-50%)',
+      }}
     >
       <Input
         padding={isVisible ? '0 40px' : 0}
+        ref={inputRef}
         size="sm"
         bgColor="white"
-        color="black"
         value={value}
         onChange={onChange}
         _focus={{ outline: 'none' }}
         style={{
           backgroundColor: inputBg,
-          color: inputColor,
+          color: inputTextColor,
           borderRadius: 8,
           height: '36px',
           border: 'none',

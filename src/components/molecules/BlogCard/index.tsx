@@ -56,7 +56,7 @@ export const BlogCard = memo(
             height={'90px'}
             objectFit={'cover'}
             loading={'lazy'}
-            quality={70}
+            quality={100}
           />
           <Box ml="8px" width="calc(100% - 120px - 8px)">
             {/* タイトル */}
@@ -65,7 +65,7 @@ export const BlogCard = memo(
               noOfLines={2}
               mt={1}
               fontWeight="bold"
-              fontSize="x-small"
+              fontSize="0.8rem"
               wordBreak="break-all"
             >
               {title}
@@ -130,7 +130,7 @@ export const BlogCard = memo(
                   height={'100%'}
                   objectFit={'cover'}
                   loading={'lazy'}
-                  quality={70}
+                  quality={100}
                 />
               </Wrapper>
             </Box>
@@ -140,7 +140,7 @@ export const BlogCard = memo(
               noOfLines={2}
               mt={1}
               fontWeight="bold"
-              fontSize="x-small"
+              fontSize="0.8rem"
             >
               {title}
             </Text>

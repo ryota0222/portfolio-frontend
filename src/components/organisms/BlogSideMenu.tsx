@@ -86,7 +86,13 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
       pt={containerPt}
       mr={mr}
     >
-      <Box position="sticky" top="0px">
+      <Box
+        position="sticky"
+        top="0px"
+        pt={4}
+        maxHeight="calc(100vh - 48px)"
+        overflowY="scroll"
+      >
         {/* パンくずリスト */}
         {!isSp && (
           <Box
@@ -201,7 +207,6 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
               <Image src={coffeeImage} alt="画像" />
             </Flex>
           </Flex>
-          {/* buy */}
         </Box>
       </Box>
     </Box>

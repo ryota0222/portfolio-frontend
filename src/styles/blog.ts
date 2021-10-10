@@ -8,9 +8,6 @@ const H2 = styled.h2`
   margin-bottom: 24px;
   font-weight: bold;
   display: inline-block;
-  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `
 
 const H3 = styled.h3`
@@ -19,9 +16,6 @@ const H3 = styled.h3`
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
-  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `
 
 const H4 = styled.h4`
@@ -30,9 +24,6 @@ const H4 = styled.h4`
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
-  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `
 
 const H5 = styled.h5`
@@ -41,9 +32,6 @@ const H5 = styled.h5`
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
-  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `
 
 const H6 = styled.h6`
@@ -52,9 +40,6 @@ const H6 = styled.h6`
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
-  background: -webkit-linear-gradient(0deg, #6882ff, #00cbcf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `
 
 const Paragraph = styled.p`
