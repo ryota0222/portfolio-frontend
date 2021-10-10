@@ -31,6 +31,7 @@ import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
 import { BlogCard } from '@/components/molecules/BlogCard/index'
 import { PageNation } from '@/components/organisms/PageNation/index'
+import useBlogPath from '@/hooks/useBlogPath'
 import useSp from '@/hooks/useSp'
 import usePageNation from '@/middleware/blog'
 import { BlogContents, BlogSetting } from '@/types/interface'
@@ -49,6 +50,7 @@ const BlogsContents: React.FC<Props> = ({
   settings,
 }) => {
   const [isSp] = useSp()
+  const { path, setSearch, setTag, setTime } = useBlogPath()
   const [isSpSearch, setIsSpSearch] = useState(false)
   const [isSpArchive, setIsSpArchive] = useState(false)
   const [isSpTag, setIsSpTag] = useState(false)
@@ -81,10 +83,10 @@ const BlogsContents: React.FC<Props> = ({
     }
   }, [])
   // 検索フォーム
-  const [search, setSearch] = useState(searchWord ?? '')
+  const [search, setSearchWord] = useState(searchWord ?? '')
   // 検索文字を入力
   const handleSearchChange = (event) => {
-    setSearch(event.target.value)
+    setSearchWord(event.target.value)
   }
   // 検索
   const handleSearch = () => {
@@ -106,22 +108,40 @@ const BlogsContents: React.FC<Props> = ({
     }
   }, [])
   useEffect(() => {
-    if (searchWord) setSearch(searchWord)
+    if (searchWord) setSearchWord(searchWord)
   }, [searchWord])
   // 検索文字列の消去
   const clearSearch = (e) => {
-    setSearch('')
+    setSearchWord('')
     e.stopPropagation()
+    const _path = setSearch()
+    router.push(_path)
+  }
+  // 時間の絞り込みの消去
+  const clearTime = (e) => {
+    setIsSpArchive(false)
+    e.stopPropagation()
+    const _path = setTime()
+    router.push(_path)
+  }
+  // タグの絞り込みの消去
+  const clearTag = (e) => {
+    setIsSpTag(false)
+    e.stopPropagation()
+    const _path = setTag()
+    router.push(_path)
   }
   // 月で絞り込み
   const filterMonthlyArchive = (date) => {
     setIsSpArchive(false)
-    router.push(`/blog?time=${dayjs(date).format('YYYY-MM')}`)
+    const path = setTime(dayjs(date).format('YYYY-MM'))
+    router.push(path)
   }
   // タグで絞り込み
   const filterTagArchive = (tagId) => {
     setIsSpTag(false)
-    router.push(`/blog?tag=${tagId}`)
+    const path = setTag(tagId)
+    router.push(path)
   }
   // タグのラベル
   const tagLabel = useCallback(
@@ -203,8 +223,7 @@ const BlogsContents: React.FC<Props> = ({
             {/* 検索フォーム */}
             <SpSearchForm
               value={search}
-              setValue={setSearch}
-              onChange={handleSearchChange}
+              setValue={setSearchWord}
               onKeyPress={handleKeyPress}
               isVisible={isSpSearch}
             />
@@ -227,9 +246,26 @@ const BlogsContents: React.FC<Props> = ({
               )}
               {/* 絞り込まれている場合 */}
               {query?.time && (
-                <Text fontSize="small" ml={1} color="#9A9A9A" lineHeight="14px">
-                  {dayjs(query.time as string).format('YYYY/MM')}
-                </Text>
+                <>
+                  <Text
+                    fontSize="small"
+                    ml={1}
+                    color="#9A9A9A"
+                    lineHeight="14px"
+                  >
+                    {dayjs(query.time as string).format('YYYY/MM')}
+                  </Text>
+                  <Button
+                    backgroundColor="transparent"
+                    height="24px"
+                    width="24px"
+                    p={0}
+                    minW={0}
+                    onClick={clearTime}
+                  >
+                    <IoIosClose color={inputColor} size="24px" />
+                  </Button>
+                </>
               )}
             </SpMenuItem>
             {/* 月別アーカイブモーダル */}
@@ -307,15 +343,27 @@ const BlogsContents: React.FC<Props> = ({
               )}
               {/* 絞り込まれている場合 */}
               {query?.tag && (
-                <Text
-                  fontSize="small"
-                  ml={1}
-                  color="#9A9A9A"
-                  lineHeight="14px"
-                  isTruncated
-                >
-                  {tagLabel(query.tag)}
-                </Text>
+                <>
+                  <Text
+                    fontSize="small"
+                    ml={1}
+                    color="#9A9A9A"
+                    lineHeight="14px"
+                    isTruncated
+                  >
+                    {tagLabel(query.tag)}
+                  </Text>
+                  <Button
+                    backgroundColor="transparent"
+                    height="24px"
+                    width="24px"
+                    p={0}
+                    minW={0}
+                    onClick={clearTag}
+                  >
+                    <IoIosClose color={inputColor} size="24px" />
+                  </Button>
+                </>
               )}
             </SpMenuItem>
             {/* タグ別アーカイブモーダル */}
@@ -498,7 +546,6 @@ const SearchForm = ({ value, setValue, onChange, onKeyPress }) => {
         value={value}
         onChange={onChange}
         style={{ backgroundColor: inputBg, color: inputColor, borderRadius: 8 }}
-        onKeyPress={onKeyPress}
       />
       <InputLeftElement height="32px">
         <FiSearch color={inputColor} size="16px" />
@@ -522,31 +569,40 @@ const SearchForm = ({ value, setValue, onChange, onKeyPress }) => {
 /**
  * スマホ用の検索フォーム
  */
-const SpSearchForm = ({ value, setValue, onChange, onKeyPress, isVisible }) => {
+const SpSearchForm = ({ value, setValue, onKeyPress, isVisible }) => {
   const inputBg = useColorModeValue('#F1F4F4', '#252829')
   const inputColor = useColorModeValue('#B9B9B9', 'white')
   const inputTextColor = useColorModeValue('#666', 'white')
   const spMenuShadowColor = useColorModeValue('#e1e6e6', '#252829')
+  const inputBtnColor = useColorModeValue('#252829', '#F0F0F0')
   const inputRef = useRef(null)
   const router = useRouter()
   const {
     query: { searchWord },
   } = router
+  const { path, setSearch } = useBlogPath()
+  // 検索文字を入力
+  const handleSearchChange = (event) => {
+    setValue(event.target.value)
+  }
   // 検索文字列の消去
   const clearSearch = () => {
     setValue('')
+    const _path = setSearch('')
+    router.push(_path)
+  }
+  const search = (val?: string) => {
+    const _path = setSearch(value)
+    console.log(_path)
+    router.push(_path)
   }
   // side effect
   useEffect(() => {
     // フォームが非表示になった場合
     if (!isVisible) {
       // queryの検索文字と実際の入力値が異なる場合検索をし直す
-      if (typeof searchWord === 'string' && value !== searchWord) {
-        let path = '/blog'
-        if (value.trim().length > 0) {
-          path += `?searchWord=${value}`
-        }
-        router.push(path)
+      if (value !== searchWord) {
+        search(value)
       }
     }
     // フォームが表示された時フォーカスを当てる
@@ -557,7 +613,7 @@ const SpSearchForm = ({ value, setValue, onChange, onKeyPress, isVisible }) => {
     }
   }, [isVisible])
   return (
-    <InputGroup
+    <Box
       w={isVisible ? '100%' : 0}
       zIndex={999999999}
       style={{
@@ -567,52 +623,69 @@ const SpSearchForm = ({ value, setValue, onChange, onKeyPress, isVisible }) => {
         transition: 'all 0.4s',
         borderRadius: 4,
       }}
-      _before={{
-        content: '""',
-        position: 'absolute',
-        width: '90%',
-        height: '100%',
-        left: '50%',
-        top: '4px',
-        filter: 'blur(5px)',
-        background: spMenuShadowColor,
-        zIndex: -1,
-        transform: 'translateX(-50%)',
-      }}
     >
-      <Input
-        padding={isVisible ? '0 40px' : 0}
-        ref={inputRef}
-        size="sm"
-        bgColor="white"
-        value={value}
-        onChange={onChange}
-        _focus={{ outline: 'none' }}
-        style={{
-          backgroundColor: inputBg,
-          color: inputTextColor,
-          borderRadius: 8,
-          height: '36px',
-          border: 'none',
+      <InputGroup
+        _before={{
+          content: '""',
+          position: 'absolute',
+          width: '90%',
+          height: '100%',
+          left: '50%',
+          top: '4px',
+          filter: 'blur(5px)',
+          background: spMenuShadowColor,
+          zIndex: -1,
+          transform: 'translateX(-50%)',
         }}
-        onKeyPress={onKeyPress}
-      />
-      <InputLeftElement height="32px" display={isVisible ? 'flex' : 'none'}>
-        <FiSearch color={inputColor} size="16px" />
-      </InputLeftElement>
-      <InputRightElement height="32px" display={isVisible ? 'flex' : 'none'}>
+      >
+        <Input
+          padding={isVisible ? '0 40px' : 0}
+          ref={inputRef}
+          size="sm"
+          bgColor="white"
+          value={value}
+          onChange={handleSearchChange}
+          _focus={{ outline: 'none' }}
+          style={{
+            backgroundColor: inputBg,
+            color: inputTextColor,
+            borderRadius: 8,
+            height: '36px',
+            border: 'none',
+          }}
+          onKeyPress={onKeyPress}
+        />
+        <InputLeftElement height="32px" display={isVisible ? 'flex' : 'none'}>
+          <FiSearch color={inputColor} size="16px" />
+        </InputLeftElement>
+        <InputRightElement height="32px" display={isVisible ? 'flex' : 'none'}>
+          <Button
+            backgroundColor="transparent"
+            height="24px"
+            width="24px"
+            p={0}
+            minW={0}
+            onClick={clearSearch}
+          >
+            <IoIosClose color={inputColor} size="24px" />
+          </Button>
+        </InputRightElement>
+      </InputGroup>
+      <Flex justifyContent="flex-end" mt={4}>
         <Button
-          backgroundColor="transparent"
-          height="24px"
-          width="24px"
-          p={0}
-          minW={0}
-          onClick={clearSearch}
+          backgroundColor={inputBtnColor}
+          display={isVisible ? 'inline-block' : 'none'}
+          color={inputBg}
+          height="32px"
+          fontSize="0.8rem"
+          _active={{}}
+          _hover={{}}
+          onClick={() => search(value)}
         >
-          <IoIosClose color={inputColor} size="24px" />
+          検索
         </Button>
-      </InputRightElement>
-    </InputGroup>
+      </Flex>
+    </Box>
   )
 }
 
