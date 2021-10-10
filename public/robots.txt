@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ryota-portfolio.vercel.app
+Host: https://ryota.vercel.app
 
 # Sitemaps
-Sitemap: https://ryota-portfolio.vercel.app/sitemap.xml
+Sitemap: https://ryota.vercel.app/sitemap.xml
