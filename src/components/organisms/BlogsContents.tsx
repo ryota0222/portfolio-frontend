@@ -91,7 +91,8 @@ const BlogsContents: React.FC<Props> = ({
   // 検索
   const handleSearch = () => {
     const e_data = encodeURI(search)
-    router.push(`/blog?searchWord=${e_data}`)
+    const _path = setSearch(e_data)
+    router.push(_path)
   }
   const clearBlur = () => {
     if (isSpSearch) setIsSpSearch(false)
@@ -99,14 +100,16 @@ const BlogsContents: React.FC<Props> = ({
     if (isSpTag) setIsSpTag(false)
   }
   // enterを押した際に実行する
-  const handleKeyPress = useCallback((e) => {
-    console.log(e)
-    if (e.key == 'Enter') {
-      e.preventDefault()
-      handleSearch()
-      if (isSp) setIsSpSearch(false)
-    }
-  }, [])
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (e.key == 'Enter') {
+        e.preventDefault()
+        handleSearch()
+        if (isSp) setIsSpSearch(false)
+      }
+    },
+    [search],
+  )
   useEffect(() => {
     if (searchWord) setSearchWord(searchWord)
   }, [searchWord])
@@ -226,6 +229,7 @@ const BlogsContents: React.FC<Props> = ({
               setValue={setSearchWord}
               onKeyPress={handleKeyPress}
               isVisible={isSpSearch}
+              toggleVisible={setIsSpSearch(!isSpSearch)}
             />
             {/* 月別アーカイブ */}
             <SpMenuItem
@@ -533,6 +537,7 @@ const BlogsContents: React.FC<Props> = ({
 const SearchForm = ({ value, setValue, onChange, onKeyPress }) => {
   const inputBg = useColorModeValue('#F0F0F0', '#252829')
   const inputColor = useColorModeValue('#B9B9B9', 'white')
+  const inputTextColor = useColorModeValue('#666', 'white')
   // 検索文字列の消去
   const clearSearch = () => {
     setValue('')
@@ -542,10 +547,11 @@ const SearchForm = ({ value, setValue, onChange, onKeyPress }) => {
       <Input
         size="sm"
         bgColor="white"
-        color="black"
+        color={inputTextColor}
         value={value}
         onChange={onChange}
-        style={{ backgroundColor: inputBg, color: inputColor, borderRadius: 8 }}
+        onKeyPress={onKeyPress}
+        style={{ backgroundColor: inputBg, borderRadius: 8 }}
       />
       <InputLeftElement height="32px">
         <FiSearch color={inputColor} size="16px" />
@@ -569,7 +575,13 @@ const SearchForm = ({ value, setValue, onChange, onKeyPress }) => {
 /**
  * スマホ用の検索フォーム
  */
-const SpSearchForm = ({ value, setValue, onKeyPress, isVisible }) => {
+const SpSearchForm = ({
+  value,
+  setValue,
+  onKeyPress,
+  isVisible,
+  toggleVisible,
+}) => {
   const inputBg = useColorModeValue('#F1F4F4', '#252829')
   const inputColor = useColorModeValue('#B9B9B9', 'white')
   const inputTextColor = useColorModeValue('#666', 'white')
@@ -591,10 +603,16 @@ const SpSearchForm = ({ value, setValue, onKeyPress, isVisible }) => {
     const _path = setSearch('')
     router.push(_path)
   }
+  // 検索
   const search = (val?: string) => {
-    const _path = setSearch(value)
+    const _path = setSearch(val)
     console.log(_path)
     router.push(_path)
+  }
+  // 検索ボタンをおす
+  const onSearchPress = (val?: string) => {
+    search(val)
+    toggleVisible()
   }
   // side effect
   useEffect(() => {
@@ -680,7 +698,7 @@ const SpSearchForm = ({ value, setValue, onKeyPress, isVisible }) => {
           fontSize="0.8rem"
           _active={{}}
           _hover={{}}
-          onClick={() => search(value)}
+          onClick={() => onSearchPress(value)}
         >
           検索
         </Button>

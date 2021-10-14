@@ -1,12 +1,19 @@
 import {
   Box,
+  Center,
   Flex,
   Text,
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Document, BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
+import {
+  Document,
+  BLOCKS,
+  MARKS,
+  INLINES,
+  TopLevelBlock,
+} from '@contentful/rich-text-types'
 import Image from 'next/image'
 import Link from 'next/link'
 import ImageComponent from '@/components/atoms/Image'
@@ -35,7 +42,12 @@ interface ContentImageProps {
   title: string
 }
 
-const getRichTextRenderer = (data: Document) => {
+const getRichTextRenderer = (data: TopLevelBlock[]) => {
+  const document: Document = {
+    nodeType: BLOCKS.DOCUMENT,
+    data: {},
+    content: data,
+  }
   // オプション
   const options = {
     renderMark: {
@@ -70,11 +82,51 @@ const getRichTextRenderer = (data: Document) => {
         return <InlineEmbeddedEntry title={title} id={id} />
       },
       [INLINES.HYPERLINK]: ({ data }, children) => {
+        const ogp = data['ogp']
+        if (ogp) {
+          return (
+            <LinkEntry
+              url={data.uri}
+              ogp_title={ogp['og:title']}
+              ogp_description={ogp['og:description']}
+              ogp_url={ogp['og:url']}
+              ogp_image={ogp['og:image']}
+            />
+          )
+        }
         return (
           <BlogStyle.ExternalLink href={data.uri}>
             {children}
           </BlogStyle.ExternalLink>
         )
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        console.log(node.content)
+        if (
+          node.content.length === 1 &&
+          node.content[0]?.marks?.find((x) => x.type === 'code')
+        ) {
+          return <Code>{children}</Code>
+        } else if (
+          node.content[0].nodeType === 'text' &&
+          node.content[0].value === '' &&
+          node.content[1].nodeType === 'hyperlink' &&
+          node.content[1].content[0]?.data['ogp'] !== undefined &&
+          node.content[2].nodeType === 'text' &&
+          node.content[2].value === ''
+        ) {
+          const ogp = node.content[1].content[0].data['ogp']
+          return (
+            <LinkEntry
+              url={node.content[1].data.uri}
+              ogp_title={ogp['og:title']}
+              ogp_description={ogp['og:description']}
+              ogp_url={ogp['og:url']}
+              ogp_image={ogp['og:image']}
+            />
+          )
+        }
+        return <BlogStyle.Paragraph>{children}</BlogStyle.Paragraph>
       },
       [BLOCKS.PARAGRAPH]: (node, children) => {
         if (
@@ -127,7 +179,7 @@ const getRichTextRenderer = (data: Document) => {
     },
     renderText: (text) => text.replace('!', '?'),
   }
-  return documentToReactComponents(data, options)
+  return documentToReactComponents(document, options)
 }
 
 export default getRichTextRenderer
@@ -159,7 +211,7 @@ const EmbeddedEntry: React.FC<EmbeddedEntryProps> = ({
   id,
 }) => {
   const bg = useColorModeValue('#f6f6f6', '#313131')
-  const titleFontSize = useBreakpointValue({ base: '0.9rem', md: '1.2rem' })
+  const titleFontSize = useBreakpointValue({ base: '0.9rem', md: '1rem' })
   return (
     <Box my={8} cursor="pointer">
       <Link href={`/blog/${id}`} passHref>
@@ -171,7 +223,7 @@ const EmbeddedEntry: React.FC<EmbeddedEntryProps> = ({
           backgroundColor={bg}
         >
           {thumbnail_url ? (
-            <Box
+            <Flex
               borderRadius={9}
               overflow="hidden"
               width={'80px'}
@@ -184,7 +236,7 @@ const EmbeddedEntry: React.FC<EmbeddedEntryProps> = ({
                 height={'80px'}
                 objectFit="cover"
               />
-            </Box>
+            </Flex>
           ) : (
             <></>
           )}
@@ -239,6 +291,86 @@ const ContentImage: React.FC<ContentImageProps> = ({ url, title }) => {
       <Box boxShadow={`0 8px 40px ${shadow}`} maxW="600px">
         <ImageComponent url={url} title={title} />
       </Box>
+    </Box>
+  )
+}
+
+const LinkEntry = ({ url, ogp_title, ogp_description, ogp_url, ogp_image }) => {
+  const bg = useColorModeValue('#f6f6f6', '#313131')
+  const hoverBg = useColorModeValue('#f2f2f2', '#444')
+  const textColor = useColorModeValue('#002E48', '#FFFFFF')
+  return (
+    <Box my={4}>
+      <Flex
+        as="a"
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        borderRadius={10}
+        borderColor="#dddddd"
+        borderWidth="1px"
+        justifyContent="space-between"
+        h="120px"
+        _hover={{ bgColor: hoverBg }}
+        boxSizing="content-box"
+        backgroundColor={bg}
+      >
+        <Box p={4}>
+          <Text
+            color={textColor}
+            fontWeight="bold"
+            noOfLines={2}
+            fontSize="0.9rem"
+            lineHeight="1.2rem"
+          >
+            {ogp_title}
+          </Text>
+          {ogp_description?.length && (
+            <Text
+              noOfLines={1}
+              color={textColor}
+              fontSize="0.7rem"
+              lineHeight="1rem"
+              mt={2}
+            >
+              {ogp_description}
+            </Text>
+          )}
+          {ogp_url?.length && (
+            <Flex justifyContent="flex-start" alignItems="center" mt={2}>
+              <Center w="14px" h="14px">
+                <img
+                  src={`http://www.google.com/s2/favicons?domain=${ogp_url}`}
+                  alt="favicon"
+                  width="14px"
+                  height="14px"
+                />
+              </Center>
+              <Text
+                color={textColor}
+                fontSize="0.7rem"
+                ml={2}
+                noOfLines={1}
+                lineHeight="1rem"
+              >
+                {ogp_url}
+              </Text>
+            </Flex>
+          )}
+        </Box>
+        {ogp_image?.length && (
+          <img
+            src={`${ogp_image}`}
+            alt="favicon"
+            style={{
+              aspectRatio: '1 /1',
+              borderTopRightRadius: '9px',
+              borderBottomRightRadius: '9px',
+              objectFit: 'cover',
+            }}
+          />
+        )}
+      </Flex>
     </Box>
   )
 }

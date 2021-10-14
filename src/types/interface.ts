@@ -1,5 +1,4 @@
-import { Document } from '@contentful/rich-text-types'
-import { VFile } from 'vfile'
+import { TopLevelBlock } from '@contentful/rich-text-types'
 
 // button
 export type ButtonVariant = 'solid' | 'outline'
@@ -82,7 +81,7 @@ export interface Blog {
   image: string
   created_at: string
   updated_at: string
-  content: Document
+  content: TopLevelBlock[]
   entry: Record<string, Field>[]
   asset: Record<string, Field>[]
   author: Author
