@@ -159,6 +159,7 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
                   `https://twitter.com/intent/tweet?text=${title} | RyoTa.&url=${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`,
                 )}
                 target="_blank"
+                rel="noreferrer"
               >
                 <SvgIcon name="twitter" width="40px" height="40px" />
               </Box>
@@ -169,6 +170,7 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
                   `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`,
                 )}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 <SvgIcon name="facebook" width="40px" height="40px" />
               </Box>

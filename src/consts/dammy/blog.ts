@@ -287,19 +287,22 @@ export const blog = {
           data: {},
           content: [
             {
-              data: {},
-              marks: [],
-              value:
-                'フレームワークはNuxt.jsを使用しており、TypeScript、Vuexを使用しております。Nuxt.jsはまだTypeScriptにVuexが標準で対応していなかったので、',
-              nodeType: 'text',
-            },
-            {
               data: {
                 uri: 'https://qiita.com/shindex/items/a90217b9e4c03c5b5215',
               },
               content: [
                 {
-                  data: {},
+                  data: {
+                    ogp: {
+                      'og:title':
+                        'Visual Studio Code - Code Editing. Redefined',
+                      'og:description':
+                        'Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.  Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows.',
+                      'og:image':
+                        'https://code.visualstudio.com/opengraphimg/opengraph-home.png',
+                      'og:url': 'https://code.visualstudio.com/',
+                    },
+                  },
                   marks: [],
                   value:
                     'NuxtJS + Vuexでいい感じのTypescript環境をあまり頑張らないで構築する',
@@ -307,30 +310,6 @@ export const blog = {
                 },
               ],
               nodeType: 'hyperlink',
-            },
-            {
-              data: {},
-              marks: [],
-              value:
-                ' を参考にTypeScriptを導入しました。Nuxt.jsはSSGと呼ばれる、ビルドをするタイミングでAPIを叩いてあらかじめデータを取得しておく方法で書き出しています。こうしておくことによって、サイトにアクセスした時にすでにデータを取得した状態なので描画スピードが爆速だったり、通信をそもそもしないのでアクセスキーやトークンが漏れてしまう恐れがなくなるというメリットがあります。また、',
-              nodeType: 'text',
-            },
-            {
-              data: {},
-              marks: [
-                {
-                  type: 'bold',
-                },
-              ],
-              value: 'ブログで最も重要なSEO対策にも有効です。',
-              nodeType: 'text',
-            },
-            {
-              data: {},
-              marks: [],
-              value:
-                'この部分については熱く厚く描きたいので別の記事にまとめたいと思います。',
-              nodeType: 'text',
             },
           ],
           nodeType: 'paragraph',
