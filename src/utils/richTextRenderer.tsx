@@ -352,6 +352,7 @@ const LinkEntry = ({ url, ogp_title, ogp_description, ogp_url, ogp_image }) => {
                 ml={2}
                 noOfLines={1}
                 lineHeight="1rem"
+                wordBreak="break-all"
               >
                 {ogp_url}
               </Text>
