@@ -177,1697 +177,2151 @@ export const blogs = {
 export const blog = {
   success: true,
   data: {
-    title: 'test-21',
+    title: 'VSCodeのおすすめ拡張機能',
     image:
-      '//images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
-    created_at: '2021-07-11',
-    updated_at: '2021-09-11',
-    content: {
-      data: {},
-      content: [
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                '今回はこのポートフォリオのアーキテクチャについてご紹介させていただきたいと思います。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: '開発環境',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-2',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'まず、構成図がこちらになります。といっても「Nuxt  contentful」と検索したらよく出てくる構成ですが（笑）',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {
-            target: {
-              metadata: {
-                tags: [],
+      '//images.ctfassets.net/6c3h1vzo5ct6/5AazcIzZsWHBb7RJpJuDu0/4f9f310f5dcff556cea20f335d3d2810/___________________13133.png',
+    created_at: '2021-10-10',
+    updated_at: '2021-10-14',
+    content: [
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'はじめに',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '私は、フロントエンドエンジニアです。普段のアプリケーションの開発時に、',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'Visual Studio Code',
+                marks: [],
+                data: {},
               },
-              sys: {
-                space: {
-                  sys: {
-                    type: 'Link',
-                    linkType: 'Space',
-                    id: '6c3h1vzo5ct6',
-                  },
-                },
-                id: '3yLCAjPLibqMP5f1xmP33A',
-                type: 'Asset',
-                createdAt: '2021-02-02T15:24:49.323Z',
-                updatedAt: '2021-02-02T15:24:49.323Z',
-                environment: {
-                  sys: {
-                    id: 'master',
-                    type: 'Link',
-                    linkType: 'Environment',
-                  },
-                },
-                revision: 1,
-                locale: 'en-US',
+            ],
+            data: {
+              uri: 'https://code.visualstudio.com/',
+            },
+          },
+          {
+            nodeType: 'text',
+            value:
+              '（以降VSCode）という統合開発環境を利用しています。今回は、まず拡張機能についての紹介を行い、次に普段使用しているお勧めの拡張機能を紹介します。最後に、チーム開発でメンバーにお勧めの拡張機能を共有する方法を紹介します。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: '拡張機能について',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'VSCodeは拡張機能を用いることで能力を向上させるでき、拡張機能をインストールすることで、ユーザーはより効率的に、自分好みに利用することが可能になります。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-3',
+        content: [
+          {
+            nodeType: 'text',
+            value: '拡張機能の探し方',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: '1. ブラウザでの探し方',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'VSCodeの拡張機能は ',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'MarketPlace',
+                marks: [],
+                data: {},
               },
-              fields: {
-                title: 'architecture',
-                file: {
-                  url: '//images.ctfassets.net/6c3h1vzo5ct6/3yLCAjPLibqMP5f1xmP33A/c0bc389098bacb4b0d6ca7a665f01c35/architectore.png',
-                  details: {
-                    size: 57735,
-                    image: {
-                      width: 1002,
-                      height: 509,
-                    },
-                  },
-                  fileName: 'architectore.png',
-                  contentType: 'image/png',
-                },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/VSCode',
+            },
+          },
+          {
+            nodeType: 'text',
+            value:
+              ' というところで管理されており、そこで公開されている拡張機能を見ることができます。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'https://marketplace.visualstudio.com/VSCode',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/VSCode',
+              ogp: {
+                'og:title': 'Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url': 'https://marketplace.visualstudio.com/VSCode',
+                'og:image':
+                  'https://cdn.vsassets.io/v/M193_20211008.5/_content/Header/access-marketplace.png',
+                'og:description':
+                  'Extensions for Visual Studio family of products on Visual Studio Marketplace',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+                'twitter:creator': '@VisualStudio',
               },
             },
           },
-          content: [],
-          nodeType: 'embedded-asset-block',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'フレームワーク',
-              nodeType: 'text',
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '検索機能や、絞り込み機能もあるので自分の欲しい拡張機能を見つけやすくなっています。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
             },
-          ],
-          nodeType: 'heading-3',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {
-                uri: 'https://qiita.com/shindex/items/a90217b9e4c03c5b5215',
-              },
-              content: [
-                {
-                  data: {
-                    ogp: {
-                      'og:title':
-                        'Visual Studio Code - Code Editing. Redefined',
-                      'og:description':
-                        'Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.  Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows.',
-                      'og:image':
-                        'https://code.visualstudio.com/opengraphimg/opengraph-home.png',
-                      'og:url': 'https://code.visualstudio.com/',
-                    },
-                  },
-                  marks: [],
-                  value:
-                    'NuxtJS + Vuexでいい感じのTypescript環境をあまり頑張らないで構築する',
-                  nodeType: 'text',
-                },
-              ],
-              nodeType: 'hyperlink',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'Github',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-3',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'git管理にはGitHubを導入しました。理由としては、ブランチを切り分けて管理をすることができるということと、後述するNetlifyに自動デプロイをすることができるからです。前者についてですが、今回のサイトは、本URLである本番サイト以外に、開発サイトを公開しております。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'h３だよ',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-3',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                '理由としては、本番サイトにデプロイする前に、UI崩れがないかや、動作確認をするためです。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'h4です',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-4',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'そのためには、異なるソースからビルドした結果をデプロイする必要があり、gitでの管理が必須というわけです。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'h5てばよ',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-5',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'こんにちは今晩わ、あけましておめでとうございますこれからもよろしく、お願いし明日。そのためには、異なるソースからビルドした結果をデプロイする必要があり、gitでの管理が必須というわけです。そのためには、異なるソースからビルドした結果をデプロイする必要があり、gitでの管理が必須というわけです。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'h6でございます',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-6',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'h66666666666666そのためには、異なるソースからビルドした結果をデプロイする必要があり、gitでの管理が必須というわけです。そのためには、異なるソースからビルドした結果をデプロイする必要があり、gitでの管理が必須というわけです。そのためには、異なるソースからビルドした結果をデプロイする必要があり、gitでの管理が必須というわけです。そのためには、異なるソースからビルドした結果をデプロイする必要があり、gitでの管理が必須というわけです。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [
-                {
-                  type: 'code',
-                },
-              ],
-              value:
-                "const a = 'b'\nlet hoge = () => {\n    console.log('alert')\n}",
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [
-                {
-                  type: 'code',
-                },
-              ],
-              value:
-                'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  marks: [
-                    {
-                      type: 'code',
-                    },
-                  ],
-                  value: '世の中世知辛いよなぁ\nこんなこと言ってる人いたよ',
-                  nodeType: 'text',
-                },
-              ],
-              nodeType: 'paragraph',
-            },
-          ],
-          nodeType: 'blockquote',
-        },
-        {
-          data: {},
-          content: [],
-          nodeType: 'hr',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: 'トイレ1トイレ',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: '布団が吹っ飛んだ',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: '帰るが帰る',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-          ],
-          nodeType: 'ordered-list',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'Netlify',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-3',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                '言わずと知れたホスティングサービスです。Vue.jsやNuxt.jsを使ったアプリケーションを作った場合にNetlifyを使わなかったことはないです。firebase Hostingやherokuに浮気したことがありましたが最終的にNetilfyに戻ってました（笑）何がすごいかというと、',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value:
-                        'デプロイ方法としてドラッグ&ドロップや、gitが選べる',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: '環境変数をNetlifyで設定できる',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: 'カスタムドメインを使用できる',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: 'デプロイ中もサイトを公開し続けられる ← 神',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: 'なんてったって',
-                      nodeType: 'text',
-                    },
-                    {
-                      data: {},
-                      marks: [
-                        {
-                          type: 'bold',
-                        },
-                      ],
-                      value: '無料',
-                      nodeType: 'text',
-                    },
-                    {
-                      data: {},
-                      marks: [],
-                      value: 'で使える',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-          ],
-          nodeType: 'unordered-list',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'もっとあるのですが、とりあえずこれだけでも魅力的です。無料でできることがかなり多いので、かなりカスタマイズができてしまいます。今回のケースでは、GitHubのdevelopとproductionの２つのブランチをデプロイターゲットとして、それぞれのブランチにソースがプッシュされた際に、自動的にNetlifyのそれぞれのサイトにデプロイされるように設定をしています。開発者はソースをプッシュするだけでいいのでデプロイまでの手順がかなり削減されることがお分かりいただけるかと思います。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'contentful',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'heading-2',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: 'よくある「JAMStackなブログ開発」の',
-              nodeType: 'text',
-            },
-            {
-              data: {},
-              marks: [
-                {
-                  type: 'bold',
-                },
-              ],
-              value: 'A(API) ',
-              nodeType: 'text',
-            },
-            {
-              data: {},
-              marks: [],
-              value:
-                'の部分、CMSです。WordPressなどとは異なりHeadressCMSと呼ばれており、コンテンツの管理に特化しており、API経由でJSON形式のデータを取得することができます。今までに使用したHeadressCMSは、',
-              nodeType: 'text',
-            },
-            {
-              data: {
-                uri: 'https://www.contentful.com/',
-              },
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value: 'contentful',
-                  nodeType: 'text',
-                },
-              ],
-              nodeType: 'hyperlink',
-            },
-            {
-              data: {},
-              marks: [],
-              value: ' と ',
-              nodeType: 'text',
-            },
-            {
-              data: {
-                uri: 'https://microcms.io/',
-              },
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value: 'microCMS',
-                  nodeType: 'text',
-                },
-              ],
-              nodeType: 'hyperlink',
-            },
-            {
-              data: {},
-              marks: [],
-              value:
-                ' の２つがあるのですが、今回はcontentfulを採用しました。理由としては、',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: '細かい設定がcontentfulの方が多い',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value: '検索や絞り込みクエリが豊富',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      value:
-                        'microCMSでできることはcontentfulでできる（はず...!!!）',
-                      nodeType: 'text',
-                    },
-                  ],
-                  nodeType: 'paragraph',
-                },
-              ],
-              nodeType: 'list-item',
-            },
-          ],
-          nodeType: 'unordered-list',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'といった感じです。microCMSもかなりいいサービスなんですが、まだ発展途上ということもあり、そういった点でやはりすでにサービスとして安定しているcontentfulを選択しました。ただ、microCMSは日本製ということもあり、かなり応援しています。',
-              nodeType: 'text',
-            },
-            {
-              data: {
-                target: {
-                  metadata: {
-                    tags: [],
-                  },
-                  sys: {
-                    space: {
-                      sys: {
-                        type: 'Link',
-                        linkType: 'Space',
-                        id: '6c3h1vzo5ct6',
-                      },
-                    },
-                    id: '2oJtmrsM3sKrrZ4orhAYAT',
-                    type: 'Entry',
-                    createdAt: '2021-01-23T16:08:38.445Z',
-                    updatedAt: '2021-07-12T17:35:24.936Z',
-                    environment: {
-                      sys: {
-                        id: 'master',
-                        type: 'Link',
-                        linkType: 'Environment',
-                      },
-                    },
-                    revision: 9,
-                    contentType: {
-                      sys: {
-                        type: 'Link',
-                        linkType: 'ContentType',
-                        id: 'blog',
-                      },
-                    },
-                    locale: 'en-US',
-                  },
-                  fields: {
-                    title: 'ネストされた動的ルーティングの実装方法',
-                    id: 'nuxtjs_double_dynamic_routing',
-                    description:
-                      'Nuxt.jsで、動的に変化するパスの下に、さらに動的なルーティングを設定する方法をご紹介します。',
-                    thumbnail: {
-                      metadata: {
-                        tags: [],
-                      },
-                      sys: {
-                        space: {
-                          sys: {
-                            type: 'Link',
-                            linkType: 'Space',
-                            id: '6c3h1vzo5ct6',
-                          },
-                        },
-                        id: '719zVuFAO6NdzPg3vlXk6J',
-                        type: 'Asset',
-                        createdAt: '2021-01-23T15:25:34.851Z',
-                        updatedAt: '2021-01-23T15:25:51.866Z',
-                        environment: {
-                          sys: {
-                            id: 'master',
-                            type: 'Link',
-                            linkType: 'Environment',
-                          },
-                        },
-                        revision: 2,
-                        locale: 'en-US',
-                      },
-                      fields: {
-                        title: 'nuxtjs-double-dynamic-routing',
-                        file: {
-                          url: '//images.ctfassets.net/6c3h1vzo5ct6/719zVuFAO6NdzPg3vlXk6J/96ecff40c214f98bd2cba30802d1d72d/0124.png',
-                          details: {
-                            size: 39222,
-                            image: {
-                              width: 800,
-                              height: 400,
-                            },
-                          },
-                          fileName: '0124.png',
-                          contentType: 'image/png',
-                        },
-                      },
-                    },
-                    body: {
-                      data: {},
-                      content: [
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value:
-                                'はじめに、動的なルーティングを設定する方法',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'heading-2',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value:
-                                'Nuxt.jsで動的なルーティングは以下の通りに記述します。（',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {
-                                uri: 'https://ja.nuxtjs.org/docs/2.x/features/file-system-routing/#%E5%8B%95%E7%9A%84%E3%81%AA%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0',
-                              },
-                              content: [
-                                {
-                                  data: {},
-                                  marks: [],
-                                  value: '参考URL',
-                                  nodeType: 'text',
-                                },
-                              ],
-                              nodeType: 'hyperlink',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value: '）',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value:
-                                'markup\npages/\n--| blog/\n-----| _id.vue',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value: 'これで、例えば記事IDが ',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value: 'abcdefg',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value: ' であれば ',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value: '/blog/abcdefg',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value: ' というURLが生成されます。',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value: '結論、動的なルーティングをネストする方法',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'heading-2',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value:
-                                'markup\npages/\n--| blog/\n-----| _category\n--------| index.vue\n--------| _id.vue',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value:
-                                'これでネストができます。例えばこの記事のパスで言いますと、カテゴリが ',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value: 'frontend',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value: ' 、記事IDが ',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value: 'nuxtjs-double-dynamic-routing',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value: ' なので ',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value:
-                                '/blog/frontend/nuxtjs-double-dynamic-routing',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value: ' というパスが生成されます。',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value: 'ちなみに、パラメータは ',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value: '$route.params',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value: ' の中に格納されています。先の例の ',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value: '_id.vue',
-                              nodeType: 'text',
-                            },
-                            {
-                              data: {},
-                              marks: [],
-                              value:
-                                ' で言いますと、以下の感じでパラメータを取得できます。',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [
-                                {
-                                  type: 'code',
-                                },
-                              ],
-                              value:
-                                "js\nmounted() {\n  console.log(this.$route.params)\n}\n// {category: 'frontend', id: 'nuxtjs-double-dynamic-routing'}",
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value:
-                                '特に詰まるところはないかもしれないですが、ご参考になれば😆',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                        {
-                          data: {},
-                          content: [
-                            {
-                              data: {},
-                              marks: [],
-                              value: '',
-                              nodeType: 'text',
-                            },
-                          ],
-                          nodeType: 'paragraph',
-                        },
-                      ],
-                      nodeType: 'document',
-                    },
-                    category: {
-                      sys: {
-                        type: 'Link',
-                        linkType: 'Entry',
-                        id: '7IbO2pMYCPfsOp12HmO8vf',
-                      },
-                    },
-                    author: {
-                      sys: {
-                        type: 'Link',
-                        linkType: 'Entry',
-                        id: '7724te5nlymsMRQejeGBV4',
-                      },
-                    },
-                  },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
                 },
               },
-              content: [],
-              nodeType: 'embedded-entry-inline',
-            },
-            {
-              data: {},
-              marks: [],
-              value: 'ですますこんにちは。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'さて、Nuxt.jsの話をしたときに、ビルドした時にAPIを叩いて全てのコンテンツを事前に取得する、と書きました。それはつまり、CMSでコンテンツを追加してもそれだけではコンテンツが反映されない、ということです。サイトに反映させるためには、ソースをビルドをしなおす必要があります。ただ、手動ではしたくありません。そこで、contentfulにはwebhookというものがあります。webhookを用いると、なんらかのイベントをトリガーにして、あらかじめ設定しておいた処理を実行することができます。今回のケースでは、',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                '（何らかのイベント）＝（contentfulでコンテンツの公開する）',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                '\n（あらかじめ設定しておいた処理）＝（Netlifyでソースをビルドし、公開しなおす）',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                'といった感じです。ちなみに、microCMSでもこういったwebhookは用意されているようです。ほんとどのサービスもすごすぎて便利な世の中です。',
-              nodeType: 'text',
-            },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {
-            target: {
-              metadata: {
-                tags: [],
+              id: '7hTiBJK4Q5dbsp9nT0QDEE',
+              type: 'Asset',
+              createdAt: '2021-10-10T07:50:25.115Z',
+              updatedAt: '2021-10-10T07:50:25.115Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
               },
-              sys: {
-                space: {
-                  sys: {
-                    type: 'Link',
-                    linkType: 'Space',
-                    id: '6c3h1vzo5ct6',
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'marketplace',
+              description: 'マーケットプレイスのトップ画面',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/7hTiBJK4Q5dbsp9nT0QDEE/104947abb2889ae15c1219fd76cd3cc4/___________________13121.png',
+                details: {
+                  size: 225487,
+                  image: {
+                    width: 1447,
+                    height: 1130,
                   },
                 },
-                id: 'zX4vrqv3sXVmxeekpkv4t',
-                type: 'Entry',
-                createdAt: '2021-08-14T13:11:08.298Z',
-                updatedAt: '2021-08-14T13:11:08.298Z',
-                environment: {
-                  sys: {
-                    id: 'master',
-                    type: 'Link',
-                    linkType: 'Environment',
-                  },
-                },
-                revision: 1,
-                contentType: {
-                  sys: {
-                    type: 'Link',
-                    linkType: 'ContentType',
-                    id: 'blog',
-                  },
-                },
-                locale: 'en-US',
-              },
-              fields: {
-                title: '「エンジニアのためのGitの教科書」を読んで',
-                id: 'tsundoku-engineer-git',
-                description:
-                  '今回は「エンジニアのためのGitの教科書」という本を読んで学んだこと、感想をお話しします。',
-                thumbnail: {
-                  metadata: {
-                    tags: [],
-                  },
-                  sys: {
-                    space: {
-                      sys: {
-                        type: 'Link',
-                        linkType: 'Space',
-                        id: '6c3h1vzo5ct6',
-                      },
-                    },
-                    id: '3vCsihLtpUkiOi6v961E8V',
-                    type: 'Asset',
-                    createdAt: '2021-08-14T07:08:32.663Z',
-                    updatedAt: '2021-08-14T07:08:32.663Z',
-                    environment: {
-                      sys: {
-                        id: 'master',
-                        type: 'Link',
-                        linkType: 'Environment',
-                      },
-                    },
-                    revision: 1,
-                    locale: 'en-US',
-                  },
-                  fields: {
-                    title: '「エンジニアのためのGitの教科書」を読んで',
-                    description:
-                      '"「エンジニアのためのGitの教科書」を読んで"という記事のサムネイル',
-                    file: {
-                      url: '//images.ctfassets.net/6c3h1vzo5ct6/3vCsihLtpUkiOi6v961E8V/8809c38751a5fbb43a52b40d0b4e6f95/___________________507.png',
-                      details: {
-                        size: 868726,
-                        image: {
-                          width: 1600,
-                          height: 900,
-                        },
-                      },
-                      fileName: 'グループ 507.png',
-                      contentType: 'image/png',
-                    },
-                  },
-                },
-                body: {
-                  nodeType: 'document',
-                  data: {},
-                  content: [
-                    {
-                      nodeType: 'heading-2',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'はじめに',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            '皆さんは、Gitをご存知でしょうか。\nエンジニアを目指して間もない方なら、まだ聞いたことはないかもしれませんが、Gitという技術は、今後のキャリアの中でかなり序盤で出会うことになるかと思います。私自身、大学生の頃に行ったインターンシップ先の企業で、プログラミングと同時にGitも教えてもらいました。それくらい、エンジニアとしてのキャリアを進めていく上で必ず使う技術なのです。これから紹介する本では、Gitの内部構造がどうなっているのかを知ることができます。',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'heading-2',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: '対象読者',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            'Gitについてある程度の理解がある＆実際に使ったことがある人におすすめです。理由は、「Gitとは？」といった初学者向けの内容はなく、いきなりリポジトリを作成した時のGitの構造についての紹介から始まるため、ある程度予備知識がないとつまづきやすいと考えるからです。Gitについてあまり知らないという方は、図などをたくさん用いて説明したり、GitHubなどのプラットフォームとの連携方法を細かく記載してある本の方が良いかと思います。ただ、間違いなく、どこかのタイミングでは読むべき本であると考えます。',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'heading-2',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'Gitとは',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: 'Gitとは、',
-                          marks: [],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'text',
-                          value: '「バージョン管理システム」',
-                          marks: [
-                            {
-                              type: 'bold',
-                            },
-                          ],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'text',
-                          value:
-                            'を指します。プロジェクトにGitを導入するメリットとして、',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'unordered-list',
-                      content: [
-                        {
-                          nodeType: 'list-item',
-                          content: [
-                            {
-                              nodeType: 'paragraph',
-                              content: [
-                                {
-                                  nodeType: 'text',
-                                  value: '作業内容を履歴で残せる',
-                                  marks: [],
-                                  data: {},
-                                },
-                              ],
-                              data: {},
-                            },
-                          ],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'list-item',
-                          content: [
-                            {
-                              nodeType: 'paragraph',
-                              content: [
-                                {
-                                  nodeType: 'text',
-                                  value:
-                                    'チーム開発で共同でソースコードの編集がしやすい',
-                                  marks: [],
-                                  data: {},
-                                },
-                              ],
-                              data: {},
-                            },
-                          ],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'list-item',
-                          content: [
-                            {
-                              nodeType: 'paragraph',
-                              content: [
-                                {
-                                  nodeType: 'text',
-                                  value:
-                                    'タグを作成でき、バージョンを分けることでわかりやすい運用ができる',
-                                  marks: [],
-                                  data: {},
-                                },
-                              ],
-                              data: {},
-                            },
-                          ],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'list-item',
-                          content: [
-                            {
-                              nodeType: 'paragraph',
-                              content: [
-                                {
-                                  nodeType: 'text',
-                                  value:
-                                    'GitHubなどのプラットフォームを活用すれば、自分のソースコードを公開できる',
-                                  marks: [],
-                                  data: {},
-                                },
-                              ],
-                              data: {},
-                            },
-                          ],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            'などが挙げられます。魅力が伝わったでしょうか？？😳Gitを利用すると、',
-                          marks: [],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'text',
-                          value: '開発の体験（Developer Experience）',
-                          marks: [
-                            {
-                              type: 'bold',
-                            },
-                          ],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'text',
-                          value: 'が一気に向上します。',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            'ただ、このGitですが、なんとなくの理解だけで普段の開発は乗り切れるのですが、「コンフリクトが起きてしまった」「HEADの参照がないって言われた」「どうしてもプッシュができない」など（直面して右往左往した人もきっといるはず...！😭）の場面になった時、なぜ発生したのかを理解していないと、どう対処すればいいかがわかりません。私も、Gitを普段から利用していますが、どのように内部で動いているのかを全く知らず、思った通りに動かない場合に困った経験が多々あります。',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            '今回読んだ本は、そういった悩みを少しでも解消することができる本です！',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'heading-2',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: '本の紹介',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            '「エンジニアのためのGitの教科書  上級編」は、Kindleでなんと',
-                          marks: [],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'text',
-                          value: '990円（超お手頃価格...!!）',
-                          marks: [
-                            {
-                              type: 'bold',
-                            },
-                          ],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'text',
-                          value:
-                            'で、79ページの本になります。発売日は2016年と技術本としては少し古いですが、Git自体はそこまで大きなアップデートが繰り返されるわけではないので、特に問題はないかと思います。ただ、Gitのアップデートによって、使用目的によっては別のコマンドを推奨していたりする場合もあるので、その辺りは公式ドキュメントや、別の最新の本でキャッチアップをして補った方がいいかもしれません。この本では、Gitが`init`や `add`、 `commit` や `push`などのコマンドを実行した際に、どういったことが内部で行われているかを知ることができる本となっています。',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'heading-2',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: '本を読み終えて',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            'まず、本を読んで思ったのは、「gitのコマンドってこんなにあるんだ！」ということです。恥ずかしながら、今までドキュメント などを読んだことがなく、プロジェクトで利用する中で詰まった時のみ調べて対処してきたので、最低限のコマンドしか知らなかったのですが、今回で、たくさんの便利なコマンドを知ることができました。',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            'また、驚きとしては、`git commit` や `git add` などのコマンドは、Gitの低レベル関数と呼ばれる、より単一の働きを持つ関数を組み合わせたコマンドだということです（ご存知でしたか？）仕組みを知れた今、Gitについての探究心がより高まったので、今後はドキュメントを読み進めて行こうかなぁ、などと考えています。',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            '本来の目的である、Gitの内部の動きを理解する！という部分についてですが、ブラックボックスであったGitの仕組みが、かなり理解できました。今後、プロジェクトをGitで管理する際、頭の中できちんと思い浮かべながらブランチの管理ができるようになったと思います（成長！！）',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'heading-2',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value: '最後に',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                    {
-                      nodeType: 'paragraph',
-                      content: [
-                        {
-                          nodeType: 'text',
-                          value:
-                            '今回は、Gitが内部でどうなっているのかを知るために、「エンジニアのためのGitの教科書」を読みました。ただし、Gitはプロジェクトでどう運用するかが重要です。同著者が執筆した本には、',
-                          marks: [],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'hyperlink',
-                          content: [
-                            {
-                              nodeType: 'text',
-                              value:
-                                'エンジニアのためのGitの教科書 実践で使える！バージョン管理とチーム開発手法',
-                              marks: [],
-                              data: {},
-                            },
-                          ],
-                          data: {
-                            uri: 'https://www.amazon.co.jp/gp/product/B01AIB438A/ref=dbs_a_def_rwt_bibl_vppi_i1',
-                          },
-                        },
-                        {
-                          nodeType: 'text',
-                          value: ' や',
-                          marks: [],
-                          data: {},
-                        },
-                        {
-                          nodeType: 'hyperlink',
-                          content: [
-                            {
-                              nodeType: 'text',
-                              value:
-                                'DevOps導入指南 Infrastructure as Codeでチーム開発・サービス運用を効率化する',
-                              marks: [],
-                              data: {},
-                            },
-                          ],
-                          data: {
-                            uri: 'https://www.amazon.co.jp/gp/product/B01M4KNOFM/ref=dbs_a_def_rwt_bibl_vppi_i2',
-                          },
-                        },
-                        {
-                          nodeType: 'text',
-                          value:
-                            ' といった本もあるので、今後運用方法をより堅実なものにするために読んでみたいなと考えています😄以上です！',
-                          marks: [],
-                          data: {},
-                        },
-                      ],
-                      data: {},
-                    },
-                  ],
-                },
-                category: {
-                  sys: {
-                    type: 'Link',
-                    linkType: 'Entry',
-                    id: '5VFkjqFuv31Zb1CzGUlshj',
-                  },
-                },
-                author: {
-                  sys: {
-                    type: 'Link',
-                    linkType: 'Entry',
-                    id: '7724te5nlymsMRQejeGBV4',
-                  },
-                },
+                fileName: 'グループ 13121.png',
+                contentType: 'image/png',
               },
             },
           },
-          content: [],
-          nodeType: 'embedded-entry-block',
         },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: '',
-              nodeType: 'text',
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '例えば「JavaScript」と検索すると、以下のようにJavaScript関連の拡張機能が表示されます。表示されている拡張機能は、タグにJavaScriptが設定されています。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
             },
-          ],
-          nodeType: 'paragraph',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: '最後に',
-              nodeType: 'text',
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '36XF7U3zcd5ppu3tk3EzTX',
+              type: 'Asset',
+              createdAt: '2021-10-10T08:06:07.481Z',
+              updatedAt: '2021-10-10T08:06:07.481Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
             },
-          ],
-          nodeType: 'heading-2',
-        },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value:
-                '以上が、開発環境の構成でしたが、いかがでしたでしょうか。普段からフロントエンドを触っている人からすればよく見る構成やサービスだと思われるかと思いますが、基本的にバックエンドをしている方や、Laravueの構成をとっている方にとっては「なんだこれ」という感じだと思います。サーバーの用意やdockerの準備などをしなくてよくなるので、開発体験が格段に上がるはずですので、ぜひこういった構成も参考にしていただきたいです！！',
-              nodeType: 'text',
+            fields: {
+              title: 'MarketPlace検索画面',
+              description: 'MarketPlace検索画面',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/36XF7U3zcd5ppu3tk3EzTX/396023bd87d143c5926ff19890c87151/74a0f338ef9ae947d29415fa8be4a8e3.png',
+                details: {
+                  size: 312083,
+                  image: {
+                    width: 1920,
+                    height: 969,
+                  },
+                },
+                fileName: '74a0f338ef9ae947d29415fa8be4a8e3.png',
+                contentType: 'image/png',
+              },
             },
-          ],
-          nodeType: 'paragraph',
+          },
         },
-        {
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              value: '次回はSEOについてお話します。',
-              nodeType: 'text',
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: '2. VSCodeでの探し方',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'VSCodeで拡張機能を表示するには、左のタブメニューで写真の赤枠のボタンを選択します。（VSCodeのバージョンによってUIが異なるかもしれないです😭 ）ホバーすると「Extensions」と表示されるので、確認することが可能です。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
             },
-          ],
-          nodeType: 'paragraph',
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '5WvZ9sHoYhwEthiM1lxbyG',
+              type: 'Asset',
+              createdAt: '2021-10-10T08:17:44.241Z',
+              updatedAt: '2021-10-10T08:17:44.241Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'VSCodeの拡張機能表示',
+              description: 'VSCodeの拡張機能表示',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/5WvZ9sHoYhwEthiM1lxbyG/9e83dda2a5a7745b3562ff2b753ef2b7/____________________________86.png',
+                details: {
+                  size: 104668,
+                  image: {
+                    width: 792,
+                    height: 571,
+                  },
+                },
+                fileName: 'マスクグループ 86.png',
+                contentType: 'image/png',
+              },
+            },
+          },
         },
-      ],
-      nodeType: 'document',
-    },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '拡張機能を選択すると、パネルが以下のような表示に変わります。\n検索フォーム（①）と、インストール済みの拡張機能一覧、おすすめの拡張機能一覧が表示されます。また、WebブラウザのMarketPlaceと同様に絞り込み機能を利用したい場合は②のアイコンをクリックするとリストが表示されます。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '6ZFUtYlhnRCWr7iSpPhgtN',
+              type: 'Asset',
+              createdAt: '2021-10-10T08:27:13.542Z',
+              updatedAt: '2021-10-10T08:27:13.542Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'VSCode拡張機能パネル',
+              description: 'VSCode拡張機能パネル',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/6ZFUtYlhnRCWr7iSpPhgtN/2924fe58196266759dfad63e2f1f500c/____________________________87.png',
+                details: {
+                  size: 133056,
+                  image: {
+                    width: 792,
+                    height: 571,
+                  },
+                },
+                fileName: 'マスクグループ 87.png',
+                contentType: 'image/png',
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめの拡張機能',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-3',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'UI',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Simple icons',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '様々な拡張子のファイルで、アイコンを表示することができます。ぱっと見るだけで何のファイルかわかるので、かなり便利です。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.vscode-simple-icons',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.vscode-simple-icons',
+              ogp: {
+                'og:title': 'Simple icons - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.vscode-simple-icons',
+                'og:image':
+                  'https://laurenttreguier.gallerycdn.vsassets.io/extensions/laurenttreguier/vscode-simple-icons/1.16.0/1630868055242/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - An icon theme that tries to be simple',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Better Comments',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'これまで皆さんコメントアウトをたくさんしてきたかと思いますが、この拡張機能を使うと、コメントアウトの色を変更させ、目立たせることができます。また、スタイルのカスタマイズも可能です。私の場合、TODO（今後、改修や修正を行うところ）のコメントアウトはぱっと見てわかるようにしたかったので、以下のように設定しました。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '5bSzEcfpjrJmmMnbZ6Y3Ki',
+              type: 'Asset',
+              createdAt: '2021-10-10T08:56:11.475Z',
+              updatedAt: '2021-10-10T08:56:11.475Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'better Commentsの設定例',
+              description: 'better Commentsの設定例',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/5bSzEcfpjrJmmMnbZ6Y3Ki/95c8a41662a1635b1120cdd1aba9e87c/____________________________2021-10-10_17.55.33.png',
+                details: {
+                  size: 11267,
+                  image: {
+                    width: 180,
+                    height: 96,
+                  },
+                },
+                fileName: 'スクリーンショット 2021-10-10 17.55.33.png',
+                contentType: 'image/png',
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments',
+              ogp: {
+                'og:title': 'Better Comments - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments',
+                'og:image':
+                  'https://aaron-bond.gallerycdn.vsassets.io/extensions/aaron-bond/better-comments/2.1.0/1594671781043/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Improve your code commenting by annotating with alert, informational, TODOs, and more!',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'GitHub Theme',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★☆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'VSCodeにはデフォルトでいくつかのテーマが用意されていますが、他のテーマを利用することもできます。GitHub Themeはその名の通り、GitHubと同じUIテーマです。個人的な感想ですが、ソースコードの可読性が高いと思います。普段GitHubでソースコード を読んでいて読みやすいと思った人にはおすすめです！2021/10/10現在、４種類のテーマを用意されており、さすがGitHub公式！と言った感じですね😄',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme',
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Code Spell Checker',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★☆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'みなさんは、開発をしている最中に英単語のスペルミス、もしくはキャメルケースでパスカル記法で書いている時に大文字にするのを忘れて２つの英単語がひとつづきになっていた、、なんてことはないでしょうか？\nそんな経験がある方は、ぜひこの拡張機能をインストールしてください！',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: 'KN02D3kF8l2Wsmz51Q3fx',
+              type: 'Asset',
+              createdAt: '2021-10-10T09:12:44.198Z',
+              updatedAt: '2021-10-10T09:12:44.198Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'code spell checkerの利用方法',
+              description: 'code spell checkerの利用方法',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/KN02D3kF8l2Wsmz51Q3fx/6e9475308b1d18d638299f35cde08ef0/___________________13130.png',
+                details: {
+                  size: 29421,
+                  image: {
+                    width: 862,
+                    height: 301,
+                  },
+                },
+                fileName: 'グループ 13130.png',
+                contentType: 'image/png',
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker',
+              ogp: {
+                'og:title': 'Code Spell Checker - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker',
+                'og:image':
+                  'https://streetsidesoftware.gallerycdn.vsassets.io/extensions/streetsidesoftware/code-spell-checker/2.0.10/1633785285196/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Spelling checker for source code',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'new-zenkaku',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★☆☆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '皆さんは開発中に全角でスペースを押して、エラーになったものの原因の特定に時間がかかった、、と言った苦い経験はないでしょうか？？私は、時々あったので、改善をするためにこの拡張機能をインストールしました。この拡張機能は、全角スペースをハイライトで表示することで、わかりやすくなります。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=FusionDev.new-zenkaku',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=FusionDev.new-zenkaku',
+              ogp: {
+                'og:title': 'new-zenkaku - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=FusionDev.new-zenkaku',
+                'og:image':
+                  'https://fusiondev.gallerycdn.vsassets.io/extensions/fusiondev/new-zenkaku/0.0.3/1620571164513/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - show double-byte-whiteSpace',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-3',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Lint',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Prettier',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'コードのフォマットを行うことができます。様々なプログラミング言語に対応しており、`.prettierrc`という設定ファイルに基づきコードを整形できます。必須の拡張機能です',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode',
+              ogp: {
+                'og:title':
+                  'Prettier - Code formatter - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode',
+                'og:image':
+                  'https://esbenp.gallerycdn.vsassets.io/extensions/esbenp/prettier-vscode/9.0.0/1632149351877/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Code formatter using prettier',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'ESLint',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'コードのフォーマットや構文チェックを行うことができます。`.eslintrc`という設定ファイルに基づき、実行されます。プロジェクトによってはPrettierと併用することもあります。個人的には、併用がおすすめです。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint',
+              ogp: {
+                'og:title': 'ESLint - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint',
+                'og:image':
+                  'https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/2.2.1/1633523279359/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Integrates ESLint JavaScript into VS Code.',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'stylelint',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★☆☆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'CSS、SCSS、Lessなどのスタイルの構文解析を行うことができます。CSSに使い慣れていない初期の頃はかなり重宝するかと思います。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint',
+              ogp: {
+                'og:title': 'stylelint - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint',
+                'og:image':
+                  'https://stylelint.gallerycdn.vsassets.io/extensions/stylelint/vscode-stylelint/0.87.6/1633379894986/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Modern CSS/SCSS/Less linter',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-3',
+        content: [
+          {
+            nodeType: 'text',
+            value: '開発',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Auto Rename Tag',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'HTMLを書いている際にタグを変更したい場合、先頭のタグの名前を変更するだけで閉じるタグの名前も自動で変更させることができます。一つずつの作業はそこまで時間のかかる作業ではないですが、地味にストレスな作業なのでフロントエンドを触る方は入れておいて損はないかと思います。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag',
+              ogp: {
+                'og:title': 'Auto Rename Tag - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag',
+                'og:image':
+                  'https://formulahendry.gallerycdn.vsassets.io/extensions/formulahendry/auto-rename-tag/0.1.9/1634044270873/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Auto rename paired HTML/XML tag',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'CSS Peek',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★☆☆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'HTMLで書いたクラス名から、実際のCSS定義をしているところにジャンプすることができたり、ホバーでCSSを見ることができたりします。かなり便利ですが、HTMLもしくはejsでしかできないため、それ以外のタイプの場合動作しません😭',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek',
+              ogp: {
+                'og:title': 'CSS Peek - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek',
+                'og:image':
+                  'https://pranaygp.gallerycdn.vsassets.io/extensions/pranaygp/vscode-css-peek/4.2.0/1620151231705/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Allow peeking to css ID and class strings as definitions from html files to respective CSS. Allows peek and goto definition.',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'htmltagwrap',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '選択中の文字列に対してHTMLタグで囲むことができます。例えば、デザインから文字をペーストして、それに対して後からタグを挿入したり、複数の要素を`div`タグで囲みたい場合などに使用することができます。これは',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'フロントエンド開発をしている方にかなりお勧めします！',
+            marks: [
+              {
+                type: 'bold',
+              },
+            ],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap',
+              ogp: {
+                'og:title': 'htmltagwrap - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap',
+                'og:image':
+                  'https://bradgashler.gallerycdn.vsassets.io/extensions/bradgashler/htmltagwrap/0.0.7/1513928914744/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Wraps selected code with HTML tags',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Path Intellisense',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'パスの補完をしてくれます。フレームワークを利用していたり、ディレクトリが複雑になったり、ファイル数が多くなったりした場合に重宝します。入れておいて損はないです。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense',
+              ogp: {
+                'og:title': 'Path Intellisense - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense',
+                'og:image':
+                  'https://christian-kohler.gallerycdn.vsassets.io/extensions/christian-kohler/path-intellisense/2.4.0/1626705836544/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Visual Studio Code plugin that autocompletes filenames',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'Live Server',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★★',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'ワンクリックでローカルサーバーを起動することができます。HTMLをちょっと見たい時、作成したいときに便利です。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer',
+              ogp: {
+                'og:title': 'Live Server - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer',
+                'og:image':
+                  'https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.6.1/1555497731217/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Launch a development local Server with live reload feature for static & dynamic pages',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'REST Client',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★☆☆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'VSCodeでhttpリクエストを送れるようになります。代替手段として、ターミナルやPostmanなどのツールを既に利用していて慣れている方もいらっしゃるかと思うので、必須の拡張機能ではないですが、VSCodeでhttpファイルを開いていてその場で実行できたりするので、地味に便利です。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=humao.rest-client',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=humao.rest-client',
+              ogp: {
+                'og:title': 'REST Client - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=humao.rest-client',
+                'og:image':
+                  'https://humao.gallerycdn.vsassets.io/extensions/humao/rest-client/0.24.5/1617725796156/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - REST Client for Visual Studio Code',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-4',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'GitLens',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おすすめ度：★★★★☆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'Gitを使ってチーム開発をしている場合、ぜひインストールしていただきたいです。\n`git blame`というコマンドがあり、特定の行をいつ、誰が変更したかを調べることができるのですが、この拡張機能はその機能をUIで表示することができます。表示方法も以下の通り様々あります。',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: '誰がどのコミットで修正したかを簡単に遡ることができる',
+            marks: [
+              {
+                type: 'bold',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'のでチーム開発で役立つこと間違いなしです😄',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'unordered-list',
+        content: [
+          {
+            nodeType: 'list-item',
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value: '現在アクティブな行でインライン表示',
+                    marks: [],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'list-item',
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value: '現在アクティブな行でホバーした際にカードで表示',
+                    marks: [],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'list-item',
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value: 'VSCodeの下のステータスバーに表示',
+                    marks: [],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens',
+              ogp: {
+                'og:title':
+                  'GitLens — Git supercharged - Visual Studio Marketplace',
+                'og:type': 'website',
+                'og:url':
+                  'https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens',
+                'og:image':
+                  'https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/11.6.1/1633703096990/Microsoft.VisualStudio.Services.Icons.Default',
+                'og:description':
+                  'Extension for Visual Studio Code - Supercharge the Git capabilities built into Visual Studio Code — Visualize code authorship at a glance via Git blame annotations and code lens, seamlessly navigate and explore Git repositories, gain valuable insights via powerful comparison commands, and so much more',
+                'twitter:card': 'summary',
+                'twitter:site': '@Code',
+              },
+            },
+          },
+          {
+            nodeType: 'text',
+            value: '',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'チーム開発でメンバーにお勧めの拡張機能を共有する方法',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'チーム開発をする際、メンバーがVSCodeを利用していたとしても、同じ拡張機能をインストールしているとは限りません。ただ、プロジェクトによってはインストールして欲しい拡張機能があるかもしれません。その場合に、プロジェクトごとに、お勧めの拡張機能を表示させることができます。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-3',
+        content: [
+          {
+            nodeType: 'text',
+            value: '手順１：お勧めの拡張機能を定義するファイルを作成',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'プロジェクトの直下の`.vscode`フォルダに（なければ作成）`extensions.json`ファイルをファイルを作成してください。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-3',
+        content: [
+          {
+            nodeType: 'text',
+            value: '手順２：お勧めしたい拡張機能を選択',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '拡張機能のパネルを表示し、お勧めしたい拡張機能を選択します。\n拡張機能の詳細ページにある歯車をクリックし、メニューの中から「Add to Workspace Recommendations」をクリックしてください。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '4nEJcIlIrJUaXr1nKTy5Hh',
+              type: 'Asset',
+              createdAt: '2021-10-10T10:30:26.420Z',
+              updatedAt: '2021-10-10T10:30:26.420Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: '拡張機能のレコメンド手順',
+              description: '拡張機能のレコメンド手順',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/4nEJcIlIrJUaXr1nKTy5Hh/0d1e05f667e5c2685a0f587283a092f3/___________________13131.png',
+                details: {
+                  size: 1063798,
+                  image: {
+                    width: 3042,
+                    height: 1706,
+                  },
+                },
+                fileName: 'グループ 13131.png',
+                contentType: 'image/png',
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '`extensions.json`を見ると、以下のようになっているかと思います。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '{    \n    "recommendations": [\n        "ms-azuretools.vscode-docker"\n    ]\n}',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '先ほどの拡張機能のIDが追加されていることがわかります。ちなみに、`extensions.json`がない状態でもファイルを自動で作成してくれるので、ステップ１の手順は必須ではないです。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-3',
+        content: [
+          {
+            nodeType: 'text',
+            value: '手順３：お勧めの拡張機能を表示する',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'お勧めの拡張機能に設定したものを表示するには、拡張機能のパネルの検索フォームに`@recommended`と入力してください。もしくは、絞り込みボタンをクリックして、「Recommended」を選択してださい。以下のように、`extensions.json`に定義済みの拡張機能が表示されます。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '28niGHEMxJL4KdHyE5VUFy',
+              type: 'Asset',
+              createdAt: '2021-10-10T10:40:31.062Z',
+              updatedAt: '2021-10-10T10:40:31.062Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'お勧めの拡張機能を表示',
+              description: 'お勧めの拡張機能を表示',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/28niGHEMxJL4KdHyE5VUFy/43e18f56ce790c7c44b00b4a0153361a/____________________________2021-10-10_19.39.34.png',
+                details: {
+                  size: 53405,
+                  image: {
+                    width: 794,
+                    height: 284,
+                  },
+                },
+                fileName: 'スクリーンショット 2021-10-10 19.39.34.png',
+                contentType: 'image/png',
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: '最後に',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'ここに載っていない便利な拡張機能があれば教えていただきたいです！\nまた、拡張機能に関するVSCodeの便利機能なども教えてほしいです！',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+    ],
     entry: [
       {
         metadata: {
@@ -1881,10 +2335,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '2KPtyTDJ5PZFtrtEzFUSGy',
+          id: '36RmSxxSTFntOEC3dkXJj',
           type: 'Entry',
-          createdAt: '2021-01-17T08:42:19.879Z',
-          updatedAt: '2021-01-17T08:42:19.879Z',
+          createdAt: '2021-01-04T11:16:32.925Z',
+          updatedAt: '2021-10-10T07:11:07.047Z',
           environment: {
             sys: {
               id: 'master',
@@ -1892,7 +2346,7 @@ export const blog = {
               linkType: 'Environment',
             },
           },
-          revision: 1,
+          revision: 4,
           contentType: {
             sys: {
               type: 'Link',
@@ -1903,886 +2357,10 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          categoryName: 'ポートフォリオ裏話',
-          categoryId: 'portfolio',
-          color: '#adff2f',
-          priority: 20,
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: '2oJtmrsM3sKrrZ4orhAYAT',
-          type: 'Entry',
-          createdAt: '2021-01-23T16:08:38.445Z',
-          updatedAt: '2021-07-12T17:35:24.936Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 9,
-          contentType: {
-            sys: {
-              type: 'Link',
-              linkType: 'ContentType',
-              id: 'blog',
-            },
-          },
-          locale: 'en-US',
-        },
-        fields: {
-          title: 'ネストされた動的ルーティングの実装方法',
-          id: 'nuxtjs_double_dynamic_routing',
-          description:
-            'Nuxt.jsで、動的に変化するパスの下に、さらに動的なルーティングを設定する方法をご紹介します。',
-          thumbnail: {
-            metadata: {
-              tags: [],
-            },
-            sys: {
-              space: {
-                sys: {
-                  type: 'Link',
-                  linkType: 'Space',
-                  id: '6c3h1vzo5ct6',
-                },
-              },
-              id: '719zVuFAO6NdzPg3vlXk6J',
-              type: 'Asset',
-              createdAt: '2021-01-23T15:25:34.851Z',
-              updatedAt: '2021-01-23T15:25:51.866Z',
-              environment: {
-                sys: {
-                  id: 'master',
-                  type: 'Link',
-                  linkType: 'Environment',
-                },
-              },
-              revision: 2,
-              locale: 'en-US',
-            },
-            fields: {
-              title: 'nuxtjs-double-dynamic-routing',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/719zVuFAO6NdzPg3vlXk6J/96ecff40c214f98bd2cba30802d1d72d/0124.png',
-                details: {
-                  size: 39222,
-                  image: {
-                    width: 800,
-                    height: 400,
-                  },
-                },
-                fileName: '0124.png',
-                contentType: 'image/png',
-              },
-            },
-          },
-          body: {
-            data: {},
-            content: [
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: 'はじめに、動的なルーティングを設定する方法',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'heading-2',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value:
-                      'Nuxt.jsで動的なルーティングは以下の通りに記述します。（',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {
-                      uri: 'https://ja.nuxtjs.org/docs/2.x/features/file-system-routing/#%E5%8B%95%E7%9A%84%E3%81%AA%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0',
-                    },
-                    content: [
-                      {
-                        data: {},
-                        marks: [],
-                        value: '参考URL',
-                        nodeType: 'text',
-                      },
-                    ],
-                    nodeType: 'hyperlink',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value: '）',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: 'markup\npages/\n--| blog/\n-----| _id.vue',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: 'これで、例えば記事IDが ',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: 'abcdefg',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value: ' であれば ',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: '/blog/abcdefg',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value: ' というURLが生成されます。',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: '結論、動的なルーティングをネストする方法',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'heading-2',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value:
-                      'markup\npages/\n--| blog/\n-----| _category\n--------| index.vue\n--------| _id.vue',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value:
-                      'これでネストができます。例えばこの記事のパスで言いますと、カテゴリが ',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: 'frontend',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value: ' 、記事IDが ',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: 'nuxtjs-double-dynamic-routing',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value: ' なので ',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: '/blog/frontend/nuxtjs-double-dynamic-routing',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value: ' というパスが生成されます。',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: 'ちなみに、パラメータは ',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: '$route.params',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value: ' の中に格納されています。先の例の ',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value: '_id.vue',
-                    nodeType: 'text',
-                  },
-                  {
-                    data: {},
-                    marks: [],
-                    value:
-                      ' で言いますと、以下の感じでパラメータを取得できます。',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [
-                      {
-                        type: 'code',
-                      },
-                    ],
-                    value:
-                      "js\nmounted() {\n  console.log(this.$route.params)\n}\n// {category: 'frontend', id: 'nuxtjs-double-dynamic-routing'}",
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value:
-                      '特に詰まるところはないかもしれないですが、ご参考になれば😆',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: '',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-            ],
-            nodeType: 'document',
-          },
-          category: {
-            sys: {
-              type: 'Link',
-              linkType: 'Entry',
-              id: '7IbO2pMYCPfsOp12HmO8vf',
-            },
-          },
-          author: {
-            sys: {
-              type: 'Link',
-              linkType: 'Entry',
-              id: '7724te5nlymsMRQejeGBV4',
-            },
-          },
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: 'zX4vrqv3sXVmxeekpkv4t',
-          type: 'Entry',
-          createdAt: '2021-08-14T13:11:08.298Z',
-          updatedAt: '2021-08-14T13:11:08.298Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 1,
-          contentType: {
-            sys: {
-              type: 'Link',
-              linkType: 'ContentType',
-              id: 'blog',
-            },
-          },
-          locale: 'en-US',
-        },
-        fields: {
-          title: '「エンジニアのためのGitの教科書」を読んで',
-          id: 'tsundoku-engineer-git',
-          description:
-            '今回は「エンジニアのためのGitの教科書」という本を読んで学んだこと、感想をお話しします。',
-          thumbnail: {
-            metadata: {
-              tags: [],
-            },
-            sys: {
-              space: {
-                sys: {
-                  type: 'Link',
-                  linkType: 'Space',
-                  id: '6c3h1vzo5ct6',
-                },
-              },
-              id: '3vCsihLtpUkiOi6v961E8V',
-              type: 'Asset',
-              createdAt: '2021-08-14T07:08:32.663Z',
-              updatedAt: '2021-08-14T07:08:32.663Z',
-              environment: {
-                sys: {
-                  id: 'master',
-                  type: 'Link',
-                  linkType: 'Environment',
-                },
-              },
-              revision: 1,
-              locale: 'en-US',
-            },
-            fields: {
-              title: '「エンジニアのためのGitの教科書」を読んで',
-              description:
-                '"「エンジニアのためのGitの教科書」を読んで"という記事のサムネイル',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/3vCsihLtpUkiOi6v961E8V/8809c38751a5fbb43a52b40d0b4e6f95/___________________507.png',
-                details: {
-                  size: 868726,
-                  image: {
-                    width: 1600,
-                    height: 900,
-                  },
-                },
-                fileName: 'グループ 507.png',
-                contentType: 'image/png',
-              },
-            },
-          },
-          body: {
-            nodeType: 'document',
-            data: {},
-            content: [
-              {
-                nodeType: 'heading-2',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value: 'はじめに',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      '皆さんは、Gitをご存知でしょうか。\nエンジニアを目指して間もない方なら、まだ聞いたことはないかもしれませんが、Gitという技術は、今後のキャリアの中でかなり序盤で出会うことになるかと思います。私自身、大学生の頃に行ったインターンシップ先の企業で、プログラミングと同時にGitも教えてもらいました。それくらい、エンジニアとしてのキャリアを進めていく上で必ず使う技術なのです。これから紹介する本では、Gitの内部構造がどうなっているのかを知ることができます。',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'heading-2',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value: '対象読者',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      'Gitについてある程度の理解がある＆実際に使ったことがある人におすすめです。理由は、「Gitとは？」といった初学者向けの内容はなく、いきなりリポジトリを作成した時のGitの構造についての紹介から始まるため、ある程度予備知識がないとつまづきやすいと考えるからです。Gitについてあまり知らないという方は、図などをたくさん用いて説明したり、GitHubなどのプラットフォームとの連携方法を細かく記載してある本の方が良いかと思います。ただ、間違いなく、どこかのタイミングでは読むべき本であると考えます。',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'heading-2',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value: 'Gitとは',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value: 'Gitとは、',
-                    marks: [],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'text',
-                    value: '「バージョン管理システム」',
-                    marks: [
-                      {
-                        type: 'bold',
-                      },
-                    ],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'text',
-                    value:
-                      'を指します。プロジェクトにGitを導入するメリットとして、',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'unordered-list',
-                content: [
-                  {
-                    nodeType: 'list-item',
-                    content: [
-                      {
-                        nodeType: 'paragraph',
-                        content: [
-                          {
-                            nodeType: 'text',
-                            value: '作業内容を履歴で残せる',
-                            marks: [],
-                            data: {},
-                          },
-                        ],
-                        data: {},
-                      },
-                    ],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'list-item',
-                    content: [
-                      {
-                        nodeType: 'paragraph',
-                        content: [
-                          {
-                            nodeType: 'text',
-                            value:
-                              'チーム開発で共同でソースコードの編集がしやすい',
-                            marks: [],
-                            data: {},
-                          },
-                        ],
-                        data: {},
-                      },
-                    ],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'list-item',
-                    content: [
-                      {
-                        nodeType: 'paragraph',
-                        content: [
-                          {
-                            nodeType: 'text',
-                            value:
-                              'タグを作成でき、バージョンを分けることでわかりやすい運用ができる',
-                            marks: [],
-                            data: {},
-                          },
-                        ],
-                        data: {},
-                      },
-                    ],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'list-item',
-                    content: [
-                      {
-                        nodeType: 'paragraph',
-                        content: [
-                          {
-                            nodeType: 'text',
-                            value:
-                              'GitHubなどのプラットフォームを活用すれば、自分のソースコードを公開できる',
-                            marks: [],
-                            data: {},
-                          },
-                        ],
-                        data: {},
-                      },
-                    ],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      'などが挙げられます。魅力が伝わったでしょうか？？😳Gitを利用すると、',
-                    marks: [],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'text',
-                    value: '開発の体験（Developer Experience）',
-                    marks: [
-                      {
-                        type: 'bold',
-                      },
-                    ],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'text',
-                    value: 'が一気に向上します。',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      'ただ、このGitですが、なんとなくの理解だけで普段の開発は乗り切れるのですが、「コンフリクトが起きてしまった」「HEADの参照がないって言われた」「どうしてもプッシュができない」など（直面して右往左往した人もきっといるはず...！😭）の場面になった時、なぜ発生したのかを理解していないと、どう対処すればいいかがわかりません。私も、Gitを普段から利用していますが、どのように内部で動いているのかを全く知らず、思った通りに動かない場合に困った経験が多々あります。',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      '今回読んだ本は、そういった悩みを少しでも解消することができる本です！',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'heading-2',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value: '本の紹介',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      '「エンジニアのためのGitの教科書  上級編」は、Kindleでなんと',
-                    marks: [],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'text',
-                    value: '990円（超お手頃価格...!!）',
-                    marks: [
-                      {
-                        type: 'bold',
-                      },
-                    ],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'text',
-                    value:
-                      'で、79ページの本になります。発売日は2016年と技術本としては少し古いですが、Git自体はそこまで大きなアップデートが繰り返されるわけではないので、特に問題はないかと思います。ただ、Gitのアップデートによって、使用目的によっては別のコマンドを推奨していたりする場合もあるので、その辺りは公式ドキュメントや、別の最新の本でキャッチアップをして補った方がいいかもしれません。この本では、Gitが`init`や `add`、 `commit` や `push`などのコマンドを実行した際に、どういったことが内部で行われているかを知ることができる本となっています。',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'heading-2',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value: '本を読み終えて',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      'まず、本を読んで思ったのは、「gitのコマンドってこんなにあるんだ！」ということです。恥ずかしながら、今までドキュメント などを読んだことがなく、プロジェクトで利用する中で詰まった時のみ調べて対処してきたので、最低限のコマンドしか知らなかったのですが、今回で、たくさんの便利なコマンドを知ることができました。',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      'また、驚きとしては、`git commit` や `git add` などのコマンドは、Gitの低レベル関数と呼ばれる、より単一の働きを持つ関数を組み合わせたコマンドだということです（ご存知でしたか？）仕組みを知れた今、Gitについての探究心がより高まったので、今後はドキュメントを読み進めて行こうかなぁ、などと考えています。',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      '本来の目的である、Gitの内部の動きを理解する！という部分についてですが、ブラックボックスであったGitの仕組みが、かなり理解できました。今後、プロジェクトをGitで管理する際、頭の中できちんと思い浮かべながらブランチの管理ができるようになったと思います（成長！！）',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'heading-2',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value: '最後に',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-              {
-                nodeType: 'paragraph',
-                content: [
-                  {
-                    nodeType: 'text',
-                    value:
-                      '今回は、Gitが内部でどうなっているのかを知るために、「エンジニアのためのGitの教科書」を読みました。ただし、Gitはプロジェクトでどう運用するかが重要です。同著者が執筆した本には、',
-                    marks: [],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'hyperlink',
-                    content: [
-                      {
-                        nodeType: 'text',
-                        value:
-                          'エンジニアのためのGitの教科書 実践で使える！バージョン管理とチーム開発手法',
-                        marks: [],
-                        data: {},
-                      },
-                    ],
-                    data: {
-                      uri: 'https://www.amazon.co.jp/gp/product/B01AIB438A/ref=dbs_a_def_rwt_bibl_vppi_i1',
-                    },
-                  },
-                  {
-                    nodeType: 'text',
-                    value: ' や',
-                    marks: [],
-                    data: {},
-                  },
-                  {
-                    nodeType: 'hyperlink',
-                    content: [
-                      {
-                        nodeType: 'text',
-                        value:
-                          'DevOps導入指南 Infrastructure as Codeでチーム開発・サービス運用を効率化する',
-                        marks: [],
-                        data: {},
-                      },
-                    ],
-                    data: {
-                      uri: 'https://www.amazon.co.jp/gp/product/B01M4KNOFM/ref=dbs_a_def_rwt_bibl_vppi_i2',
-                    },
-                  },
-                  {
-                    nodeType: 'text',
-                    value:
-                      ' といった本もあるので、今後運用方法をより堅実なものにするために読んでみたいなと考えています😄以上です！',
-                    marks: [],
-                    data: {},
-                  },
-                ],
-                data: {},
-              },
-            ],
-          },
-          category: {
-            sys: {
-              type: 'Link',
-              linkType: 'Entry',
-              id: '5VFkjqFuv31Zb1CzGUlshj',
-            },
-          },
-          author: {
-            sys: {
-              type: 'Link',
-              linkType: 'Entry',
-              id: '7724te5nlymsMRQejeGBV4',
-            },
-          },
+          categoryName: '開発',
+          categoryId: 'develop',
+          color: '#76a2f9',
+          priority: 30,
         },
       },
     ],
@@ -2799,10 +2377,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '3rBIZHnfUXZQB5WAH3bUjU',
+          id: '28niGHEMxJL4KdHyE5VUFy',
           type: 'Asset',
-          createdAt: '2021-02-02T15:03:02.808Z',
-          updatedAt: '2021-02-02T15:03:02.808Z',
+          createdAt: '2021-10-10T10:40:31.062Z',
+          updatedAt: '2021-10-10T10:40:31.062Z',
           environment: {
             sys: {
               id: 'master',
@@ -2814,17 +2392,18 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          title: 'until-release-portfolio-architecture',
+          title: 'お勧めの拡張機能を表示',
+          description: 'お勧めの拡張機能を表示',
           file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/3rBIZHnfUXZQB5WAH3bUjU/0dd8f5c012efb124d2b645a086472902/until-release-portfolio-architecture.png',
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/28niGHEMxJL4KdHyE5VUFy/43e18f56ce790c7c44b00b4a0153361a/____________________________2021-10-10_19.39.34.png',
             details: {
-              size: 276654,
+              size: 53405,
               image: {
-                width: 1080,
-                height: 540,
+                width: 794,
+                height: 284,
               },
             },
-            fileName: 'until-release-portfolio-architecture.png',
+            fileName: 'スクリーンショット 2021-10-10 19.39.34.png',
             contentType: 'image/png',
           },
         },
@@ -2841,10 +2420,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '3vCsihLtpUkiOi6v961E8V',
+          id: '36XF7U3zcd5ppu3tk3EzTX',
           type: 'Asset',
-          createdAt: '2021-08-14T07:08:32.663Z',
-          updatedAt: '2021-08-14T07:08:32.663Z',
+          createdAt: '2021-10-10T08:06:07.481Z',
+          updatedAt: '2021-10-10T08:06:07.481Z',
           environment: {
             sys: {
               id: 'master',
@@ -2856,19 +2435,18 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          title: '「エンジニアのためのGitの教科書」を読んで',
-          description:
-            '"「エンジニアのためのGitの教科書」を読んで"という記事のサムネイル',
+          title: 'MarketPlace検索画面',
+          description: 'MarketPlace検索画面',
           file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/3vCsihLtpUkiOi6v961E8V/8809c38751a5fbb43a52b40d0b4e6f95/___________________507.png',
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/36XF7U3zcd5ppu3tk3EzTX/396023bd87d143c5926ff19890c87151/74a0f338ef9ae947d29415fa8be4a8e3.png',
             details: {
-              size: 868726,
+              size: 312083,
               image: {
-                width: 1600,
-                height: 900,
+                width: 1920,
+                height: 969,
               },
             },
-            fileName: 'グループ 507.png',
+            fileName: '74a0f338ef9ae947d29415fa8be4a8e3.png',
             contentType: 'image/png',
           },
         },
@@ -2885,10 +2463,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '3yLCAjPLibqMP5f1xmP33A',
+          id: '4nEJcIlIrJUaXr1nKTy5Hh',
           type: 'Asset',
-          createdAt: '2021-02-02T15:24:49.323Z',
-          updatedAt: '2021-02-02T15:24:49.323Z',
+          createdAt: '2021-10-10T10:30:26.420Z',
+          updatedAt: '2021-10-10T10:30:26.420Z',
           environment: {
             sys: {
               id: 'master',
@@ -2900,17 +2478,18 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          title: 'architecture',
+          title: '拡張機能のレコメンド手順',
+          description: '拡張機能のレコメンド手順',
           file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/3yLCAjPLibqMP5f1xmP33A/c0bc389098bacb4b0d6ca7a665f01c35/architectore.png',
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/4nEJcIlIrJUaXr1nKTy5Hh/0d1e05f667e5c2685a0f587283a092f3/___________________13131.png',
             details: {
-              size: 57735,
+              size: 1063798,
               image: {
-                width: 1002,
-                height: 509,
+                width: 3042,
+                height: 1706,
               },
             },
-            fileName: 'architectore.png',
+            fileName: 'グループ 13131.png',
             contentType: 'image/png',
           },
         },
@@ -2927,10 +2506,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '719zVuFAO6NdzPg3vlXk6J',
+          id: '5AazcIzZsWHBb7RJpJuDu0',
           type: 'Asset',
-          createdAt: '2021-01-23T15:25:34.851Z',
-          updatedAt: '2021-01-23T15:25:51.866Z',
+          createdAt: '2021-10-10T10:58:04.085Z',
+          updatedAt: '2021-10-10T10:58:04.085Z',
           environment: {
             sys: {
               id: 'master',
@@ -2938,21 +2517,237 @@ export const blog = {
               linkType: 'Environment',
             },
           },
-          revision: 2,
+          revision: 1,
           locale: 'en-US',
         },
         fields: {
-          title: 'nuxtjs-double-dynamic-routing',
+          title: 'VSCodeのお勧め拡張機能',
+          description: 'VSCodeのお勧め拡張機能',
           file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/719zVuFAO6NdzPg3vlXk6J/96ecff40c214f98bd2cba30802d1d72d/0124.png',
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/5AazcIzZsWHBb7RJpJuDu0/4f9f310f5dcff556cea20f335d3d2810/___________________13133.png',
             details: {
-              size: 39222,
+              size: 181914,
               image: {
-                width: 800,
-                height: 400,
+                width: 1258,
+                height: 705,
               },
             },
-            fileName: '0124.png',
+            fileName: 'グループ 13133.png',
+            contentType: 'image/png',
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '5WvZ9sHoYhwEthiM1lxbyG',
+          type: 'Asset',
+          createdAt: '2021-10-10T08:17:44.241Z',
+          updatedAt: '2021-10-10T08:17:44.241Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          locale: 'en-US',
+        },
+        fields: {
+          title: 'VSCodeの拡張機能表示',
+          description: 'VSCodeの拡張機能表示',
+          file: {
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/5WvZ9sHoYhwEthiM1lxbyG/9e83dda2a5a7745b3562ff2b753ef2b7/____________________________86.png',
+            details: {
+              size: 104668,
+              image: {
+                width: 792,
+                height: 571,
+              },
+            },
+            fileName: 'マスクグループ 86.png',
+            contentType: 'image/png',
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '5bSzEcfpjrJmmMnbZ6Y3Ki',
+          type: 'Asset',
+          createdAt: '2021-10-10T08:56:11.475Z',
+          updatedAt: '2021-10-10T08:56:11.475Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          locale: 'en-US',
+        },
+        fields: {
+          title: 'better Commentsの設定例',
+          description: 'better Commentsの設定例',
+          file: {
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/5bSzEcfpjrJmmMnbZ6Y3Ki/95c8a41662a1635b1120cdd1aba9e87c/____________________________2021-10-10_17.55.33.png',
+            details: {
+              size: 11267,
+              image: {
+                width: 180,
+                height: 96,
+              },
+            },
+            fileName: 'スクリーンショット 2021-10-10 17.55.33.png',
+            contentType: 'image/png',
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '6ZFUtYlhnRCWr7iSpPhgtN',
+          type: 'Asset',
+          createdAt: '2021-10-10T08:27:13.542Z',
+          updatedAt: '2021-10-10T08:27:13.542Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          locale: 'en-US',
+        },
+        fields: {
+          title: 'VSCode拡張機能パネル',
+          description: 'VSCode拡張機能パネル',
+          file: {
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/6ZFUtYlhnRCWr7iSpPhgtN/2924fe58196266759dfad63e2f1f500c/____________________________87.png',
+            details: {
+              size: 133056,
+              image: {
+                width: 792,
+                height: 571,
+              },
+            },
+            fileName: 'マスクグループ 87.png',
+            contentType: 'image/png',
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '7hTiBJK4Q5dbsp9nT0QDEE',
+          type: 'Asset',
+          createdAt: '2021-10-10T07:50:25.115Z',
+          updatedAt: '2021-10-10T07:50:25.115Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          locale: 'en-US',
+        },
+        fields: {
+          title: 'marketplace',
+          description: 'マーケットプレイスのトップ画面',
+          file: {
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/7hTiBJK4Q5dbsp9nT0QDEE/104947abb2889ae15c1219fd76cd3cc4/___________________13121.png',
+            details: {
+              size: 225487,
+              image: {
+                width: 1447,
+                height: 1130,
+              },
+            },
+            fileName: 'グループ 13121.png',
+            contentType: 'image/png',
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: 'KN02D3kF8l2Wsmz51Q3fx',
+          type: 'Asset',
+          createdAt: '2021-10-10T09:12:44.198Z',
+          updatedAt: '2021-10-10T09:12:44.198Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          locale: 'en-US',
+        },
+        fields: {
+          title: 'code spell checkerの利用方法',
+          description: 'code spell checkerの利用方法',
+          file: {
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/KN02D3kF8l2Wsmz51Q3fx/6e9475308b1d18d638299f35cde08ef0/___________________13130.png',
+            details: {
+              size: 29421,
+              image: {
+                width: 862,
+                height: 301,
+              },
+            },
+            fileName: 'グループ 13130.png',
             contentType: 'image/png',
           },
         },
@@ -2960,66 +2755,161 @@ export const blog = {
     ],
     author: null,
     lgtm: {
-      bad: 0,
       good: 0,
+      bad: 0,
     },
     index: [
       {
-        label: '開発環境',
+        label: 'はじめに',
         type: 'h2',
         index: 0,
       },
       {
-        label: 'フレームワーク',
-        type: 'h3',
+        label: '拡張機能について',
+        type: 'h2',
         index: 1,
       },
       {
-        label: 'Github',
+        label: '拡張機能の探し方',
         type: 'h3',
         index: 2,
       },
       {
-        label: 'h３だよ',
-        type: 'h3',
+        label: '1. ブラウザでの探し方',
+        type: 'h4',
         index: 3,
       },
       {
-        label: 'h4です',
+        label: '2. VSCodeでの探し方',
         type: 'h4',
         index: 4,
       },
       {
-        label: 'h5てばよ',
-        type: 'h5',
+        label: 'おすすめの拡張機能',
+        type: 'h2',
         index: 5,
       },
       {
-        label: 'h6でございます',
-        type: 'h6',
+        label: 'UI',
+        type: 'h3',
         index: 6,
       },
       {
-        label: 'Netlify',
-        type: 'h3',
+        label: 'Simple icons',
+        type: 'h4',
         index: 7,
       },
       {
-        label: 'contentful',
-        type: 'h2',
+        label: 'Better Comments',
+        type: 'h4',
         index: 8,
+      },
+      {
+        label: 'GitHub Theme',
+        type: 'h4',
+        index: 9,
+      },
+      {
+        label: 'Code Spell Checker',
+        type: 'h4',
+        index: 10,
+      },
+      {
+        label: 'new-zenkaku',
+        type: 'h4',
+        index: 11,
+      },
+      {
+        label: 'Lint',
+        type: 'h3',
+        index: 12,
+      },
+      {
+        label: 'Prettier',
+        type: 'h4',
+        index: 13,
+      },
+      {
+        label: 'ESLint',
+        type: 'h4',
+        index: 14,
+      },
+      {
+        label: 'stylelint',
+        type: 'h4',
+        index: 15,
+      },
+      {
+        label: '開発',
+        type: 'h3',
+        index: 16,
+      },
+      {
+        label: 'Auto Rename Tag',
+        type: 'h4',
+        index: 17,
+      },
+      {
+        label: 'CSS Peek',
+        type: 'h4',
+        index: 18,
+      },
+      {
+        label: 'htmltagwrap',
+        type: 'h4',
+        index: 19,
+      },
+      {
+        label: 'Path Intellisense',
+        type: 'h4',
+        index: 20,
+      },
+      {
+        label: 'Live Server',
+        type: 'h4',
+        index: 21,
+      },
+      {
+        label: 'REST Client',
+        type: 'h4',
+        index: 22,
+      },
+      {
+        label: 'GitLens',
+        type: 'h4',
+        index: 23,
+      },
+      {
+        label: 'チーム開発でメンバーにお勧めの拡張機能を共有する方法',
+        type: 'h2',
+        index: 24,
+      },
+      {
+        label: '手順１：お勧めの拡張機能を定義するファイルを作成',
+        type: 'h3',
+        index: 25,
+      },
+      {
+        label: '手順２：お勧めしたい拡張機能を選択',
+        type: 'h3',
+        index: 26,
+      },
+      {
+        label: '手順３：お勧めの拡張機能を表示する',
+        type: 'h3',
+        index: 27,
       },
       {
         label: '最後に',
         type: 'h2',
-        index: 9,
+        index: 28,
       },
     ],
     tag: {
-      label: 'ポートフォリオ裏話',
-      color: '#adff2f',
-      tag_id: 'portfolio',
-      id: '2KPtyTDJ5PZFtrtEzFUSGy',
+      label: '開発',
+      color: '#76a2f9',
+      tag_id: 'develop',
+      id: '36RmSxxSTFntOEC3dkXJj',
     },
   },
 }

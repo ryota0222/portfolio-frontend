@@ -1,12 +1,19 @@
 import {
   Box,
+  Center,
   Flex,
   Text,
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Document, BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
+import {
+  Document,
+  BLOCKS,
+  MARKS,
+  INLINES,
+  TopLevelBlock,
+} from '@contentful/rich-text-types'
 import Image from 'next/image'
 import Link from 'next/link'
 import ImageComponent from '@/components/atoms/Image'
@@ -35,7 +42,12 @@ interface ContentImageProps {
   title: string
 }
 
-const getRichTextRenderer = (data: Document) => {
+const getRichTextRenderer = (data: TopLevelBlock[]) => {
+  const document: Document = {
+    nodeType: BLOCKS.DOCUMENT,
+    data: {},
+    content: data,
+  }
   // オプション
   const options = {
     renderMark: {
@@ -70,6 +82,18 @@ const getRichTextRenderer = (data: Document) => {
         return <InlineEmbeddedEntry title={title} id={id} />
       },
       [INLINES.HYPERLINK]: ({ data }, children) => {
+        const ogp = data['ogp']
+        if (ogp) {
+          return (
+            <LinkEntry
+              url={data.uri}
+              ogp_title={ogp['og:title']}
+              ogp_description={ogp['og:description']}
+              ogp_url={ogp['og:url']}
+              ogp_image={ogp['og:image']}
+            />
+          )
+        }
         return (
           <BlogStyle.ExternalLink href={data.uri}>
             {children}
@@ -77,26 +101,39 @@ const getRichTextRenderer = (data: Document) => {
         )
       },
       [BLOCKS.PARAGRAPH]: (node, children) => {
+        console.log(node.content)
         if (
           node.content.length === 1 &&
           node.content[0]?.marks?.find((x) => x.type === 'code')
         ) {
           return <Code>{children}</Code>
         } else if (
-          node.content.length === 1 &&
-          node.content[0].nodeType === 'hyperlink' &&
-          node.content[0]?.content[0]?.data['ogp'] !== undefined
+          node.content[0].nodeType === 'text' &&
+          node.content[0].value === '' &&
+          node.content[1].nodeType === 'hyperlink' &&
+          node.content[1].content[0]?.data['ogp'] !== undefined &&
+          node.content[2].nodeType === 'text' &&
+          node.content[2].value === ''
         ) {
-          const ogp = node.content[0].content[0].data['ogp']
+          const ogp = node.content[1].content[0].data['ogp']
           return (
             <LinkEntry
-              url={node.content[0].data.uri}
+              url={node.content[1].data.uri}
               ogp_title={ogp['og:title']}
               ogp_description={ogp['og:description']}
               ogp_url={ogp['og:url']}
               ogp_image={ogp['og:image']}
             />
           )
+        }
+        return <BlogStyle.Paragraph>{children}</BlogStyle.Paragraph>
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        if (
+          node.content.length === 1 &&
+          node.content[0].marks.find((x) => x.type === 'code')
+        ) {
+          return <Code>{children}</Code>
         }
         return <BlogStyle.Paragraph>{children}</BlogStyle.Paragraph>
       },
@@ -142,7 +179,7 @@ const getRichTextRenderer = (data: Document) => {
     },
     renderText: (text) => text.replace('!', '?'),
   }
-  return documentToReactComponents(data, options)
+  return documentToReactComponents(document, options)
 }
 
 export default getRichTextRenderer
@@ -284,25 +321,38 @@ const LinkEntry = ({ url, ogp_title, ogp_description, ogp_url, ogp_image }) => {
             fontWeight="bold"
             noOfLines={2}
             fontSize="0.9rem"
+            lineHeight="1.2rem"
           >
             {ogp_title}
           </Text>
           {ogp_description?.length && (
-            <Text noOfLines={1} color={textColor} fontSize="0.7rem" mt={2}>
+            <Text
+              noOfLines={1}
+              color={textColor}
+              fontSize="0.7rem"
+              lineHeight="1rem"
+              mt={2}
+            >
               {ogp_description}
             </Text>
           )}
           {ogp_url?.length && (
-            <Flex justifyContent="flex-start" alignItems="center" mt={3}>
-              <Box w="14px" h="14px">
+            <Flex justifyContent="flex-start" alignItems="center" mt={2}>
+              <Center w="14px" h="14px">
                 <img
-                  src={`${ogp_url}/favicon.ico`}
+                  src={`http://www.google.com/s2/favicons?domain=${ogp_url}`}
                   alt="favicon"
                   width="14px"
                   height="14px"
                 />
-              </Box>
-              <Text color={textColor} fontSize="0.7rem" ml={2}>
+              </Center>
+              <Text
+                color={textColor}
+                fontSize="0.7rem"
+                ml={2}
+                noOfLines={1}
+                lineHeight="1rem"
+              >
                 {ogp_url}
               </Text>
             </Flex>
