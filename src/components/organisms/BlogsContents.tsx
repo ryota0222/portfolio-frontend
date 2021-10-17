@@ -229,7 +229,7 @@ const BlogsContents: React.FC<Props> = ({
               setValue={setSearchWord}
               onKeyPress={handleKeyPress}
               isVisible={isSpSearch}
-              toggleVisible={setIsSpSearch(!isSpSearch)}
+              toggleVisible={() => setIsSpSearch(!isSpSearch)}
             />
             {/* 月別アーカイブ */}
             <SpMenuItem
@@ -606,7 +606,6 @@ const SpSearchForm = ({
   // 検索
   const search = (val?: string) => {
     const _path = setSearch(val)
-    console.log(_path)
     router.push(_path)
   }
   // 検索ボタンをおす
