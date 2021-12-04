@@ -56,17 +56,7 @@ const ExternalLink = styled.a`
 `
 
 const Bold = styled.b`
-  position: relative;
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 0.6rem;
-    left: 0;
-    bottom: 0;
-    background: #fddd0060;
-    z-index: -1;
-  }
+  background: linear-gradient(transparent 60%, #fddd0060 60%);
 `
 
 const UnOrderList = styled.ul`
