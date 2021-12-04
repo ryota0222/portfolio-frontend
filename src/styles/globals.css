@@ -120,11 +120,11 @@ a {
   content: '';
   position: absolute;
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   top: 50%;
   left: -20px;
-  transform: translateY(-50%) scale(1.4);
+  transform: translateY(-50%) scale(1.6);
   background: -webkit-linear-gradient(
       38.45deg,
       #9e00ff -1.95%,

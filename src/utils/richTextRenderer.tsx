@@ -55,18 +55,45 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
     },
     renderNode: {
       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-        const { title, description, thumbnail, id } = node.data.target.fields
-        const thumbnail_url = thumbnail?.fields?.file?.url ?? null
-        const thumbnail_alt = thumbnail?.fields?.description ?? ''
-        return (
-          <EmbeddedEntry
-            title={title}
-            description={description}
-            thumbnail_alt={thumbnail_alt}
-            thumbnail_url={thumbnail_url}
-            id={id}
-          />
-        )
+        const { title, description, thumbnail, id, embeddedType, embeddedUrl } =
+          node.data.target.fields
+        // 埋め込みのタイプが指定されている場合
+        if (embeddedType) {
+          switch (embeddedType?.sys?.id) {
+            // code sand box
+            case '4NecTy7FIkYr7Si5dD1WDf':
+              return (
+                <iframe
+                  src={`${embeddedUrl}&theme=dark`}
+                  title="upload-image"
+                  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                  style={{
+                    width: '100%',
+                    height: '500px',
+                    border: 0,
+                    borderRadius: '4px',
+                    overflow: 'hidden',
+                    margin: '24px 0',
+                  }}
+                />
+              )
+          }
+        }
+        // そうではない場合
+        else {
+          const thumbnail_url = thumbnail?.fields?.file?.url ?? null
+          const thumbnail_alt = thumbnail?.fields?.description ?? ''
+          return (
+            <EmbeddedEntry
+              title={title}
+              description={description}
+              thumbnail_alt={thumbnail_alt}
+              thumbnail_url={thumbnail_url}
+              id={id}
+            />
+          )
+        }
       },
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const target = node.data.target

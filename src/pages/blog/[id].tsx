@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import * as apis from '@/apis/api'
@@ -8,6 +8,9 @@ import Prism from '@/plugins/prism'
 import { HeadComponent } from '@/utils/head'
 
 const BlogDetail = ({ data }) => {
+  const [mounted, setMounted] = useState(false)
+  // ブラウザで描画されたときにtrue
+  useEffect(() => setMounted(true), [])
   const router = useRouter()
   const id = router.query.id
   useEffect(() => {
@@ -35,7 +38,7 @@ const BlogDetail = ({ data }) => {
         ogType="blog"
         image={`https:${data.data.image}`}
       />
-      <BlogDetailTemplate data={data.data} />
+      {mounted && <BlogDetailTemplate data={data.data} />}
     </>
   )
 }
