@@ -9,12 +9,12 @@ import { HeadComponent } from '@/utils/head'
 
 const BlogDetail = ({ data }) => {
   const [mounted, setMounted] = useState(false)
-  // ブラウザで描画されたときにtrue
-  useEffect(() => setMounted(true), [])
   const router = useRouter()
   const id = router.query.id
   useEffect(() => {
-    Prism.highlightAll()
+    // ブラウザで描画されたときにtrue
+    setMounted(true)
+    setTimeout(() => Prism.highlightAll(), 0)
   }, [])
   if (!data) return <></>
   return (
