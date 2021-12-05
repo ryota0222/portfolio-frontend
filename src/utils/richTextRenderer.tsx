@@ -128,21 +128,20 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
         )
       },
       [BLOCKS.PARAGRAPH]: (node, children) => {
-        console.log(node.content)
         if (
           node.content.length === 1 &&
           node.content[0]?.marks?.find((x) => x.type === 'code')
         ) {
           return <Code>{children}</Code>
         } else if (
-          node.content[0].nodeType === 'text' &&
-          node.content[0].value === '' &&
-          node.content[1].nodeType === 'hyperlink' &&
-          node.content[1].content[0]?.data['ogp'] !== undefined &&
-          node.content[2].nodeType === 'text' &&
-          node.content[2].value === ''
+          node?.content[0]?.nodeType === 'text' &&
+          node?.content[0]?.value === '' &&
+          node?.content[1]?.nodeType === 'hyperlink' &&
+          !!node?.content[1]?.ogp &&
+          node?.content[2]?.nodeType === 'text' &&
+          node?.content[2]?.value === ''
         ) {
-          const ogp = node.content[1].content[0].data['ogp']
+          const ogp = node?.content[1].ogp
           return (
             <LinkEntry
               url={node.content[1].data.uri}
@@ -152,15 +151,6 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
               ogp_image={ogp['og:image']}
             />
           )
-        }
-        return <BlogStyle.Paragraph>{children}</BlogStyle.Paragraph>
-      },
-      [BLOCKS.PARAGRAPH]: (node, children) => {
-        if (
-          node.content.length === 1 &&
-          node.content[0].marks.find((x) => x.type === 'code')
-        ) {
-          return <Code>{children}</Code>
         }
         return <BlogStyle.Paragraph>{children}</BlogStyle.Paragraph>
       },
