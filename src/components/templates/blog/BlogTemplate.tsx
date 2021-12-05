@@ -101,7 +101,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
           className={cssName}
           pb={16}
         >
-          <Box maxW="500px" m="auto" h="100%">
+          <Box maxW="550px" m="auto" h="100%">
             {/* タイトル */}
             <Text
               fontSize={titleFontSize}
