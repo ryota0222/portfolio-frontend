@@ -1,11 +1,4 @@
-import {
-  Box,
-  Center,
-  Flex,
-  Text,
-  useColorModeValue,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
   Document,
@@ -14,33 +7,13 @@ import {
   INLINES,
   TopLevelBlock,
 } from '@contentful/rich-text-types'
-import Image from 'next/image'
-import Link from 'next/link'
-import ImageComponent from '@/components/atoms/Image'
-import { SvgIcon } from '@/components/atoms/SvgIcon'
+import { Code } from '@/components/atoms/blog/Code'
+import { ContentImage } from '@/components/atoms/blog/ContentImage'
+import { EmbeddedEntry } from '@/components/atoms/blog/EmbeddedEntry'
+import { InlineEmbeddedEntry } from '@/components/atoms/blog/InlineEmbeddedEntry'
+import { LinkEntry } from '@/components/atoms/blog/LinkEntry'
+import { CautionCard } from '@/components/molecules/CautionCard'
 import BlogStyle from '@/styles/blog'
-
-interface CodeProps {
-  lang?: string
-}
-
-interface EmbeddedEntryProps {
-  title: string
-  description: string
-  thumbnail_url: string | null
-  thumbnail_alt: string
-  id: string
-}
-
-interface InlineEmbeddedEntryProps {
-  title: string
-  id: string
-}
-
-interface ContentImageProps {
-  url: string
-  title: string
-}
 
 const getRichTextRenderer = (data: TopLevelBlock[]) => {
   const document: Document = {
@@ -55,8 +28,24 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
     },
     renderNode: {
       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-        const { title, description, thumbnail, id, embeddedType, embeddedUrl } =
-          node.data.target.fields
+        const {
+          title,
+          description,
+          thumbnail,
+          id,
+          embeddedType,
+          embeddedUrl,
+          type,
+        } = node.data.target.fields
+        // cautionコンポーネントの場合
+        if (node.data.target.sys?.contentType?.sys?.id === 'caution-card') {
+          console.log(description)
+          return (
+            <Box my={4}>
+              <CautionCard type={type}>{description}</CautionCard>
+            </Box>
+          )
+        }
         // 埋め込みのタイプが指定されている場合
         if (embeddedType) {
           switch (embeddedType?.sys?.id) {
@@ -200,195 +189,3 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
 }
 
 export default getRichTextRenderer
-
-const Code: React.FC<CodeProps> = ({ children, lang }) => {
-  const _lang = lang ?? 'js'
-  return (
-    <BlogStyle.CodeWrapper className="code prism">
-      <div className="head-component">
-        <div className="btn-wrapper">
-          <span className="btn"></span>
-          <span className="btn"></span>
-          <span className="btn"></span>
-        </div>
-      </div>
-      <pre className={`line-numbers language-${_lang}`}>
-        <code className={`language-${_lang}`}>{children}</code>
-      </pre>
-    </BlogStyle.CodeWrapper>
-  )
-}
-
-const EmbeddedEntry: React.FC<EmbeddedEntryProps> = ({
-  children,
-  title,
-  description,
-  thumbnail_url,
-  thumbnail_alt,
-  id,
-}) => {
-  const bg = useColorModeValue('#f6f6f6', '#313131')
-  const titleFontSize = useBreakpointValue({ base: '0.9rem', md: '1rem' })
-  return (
-    <Box my={8} cursor="pointer">
-      <Link href={`/blog/${id}`} passHref>
-        <Flex
-          borderRadius={10}
-          borderColor="#dddddd"
-          borderWidth="1px"
-          p={4}
-          backgroundColor={bg}
-        >
-          {thumbnail_url ? (
-            <Flex
-              borderRadius={9}
-              overflow="hidden"
-              width={'80px'}
-              height={'80px'}
-            >
-              <Image
-                src={`https:${thumbnail_url}`}
-                alt={thumbnail_alt.length > 0 ? thumbnail_alt : '画像'}
-                width={'80px'}
-                height={'80px'}
-                objectFit="cover"
-              />
-            </Flex>
-          ) : (
-            <></>
-          )}
-          <Box ml={4} w={`calc(100% - 80px)`}>
-            <Text fontWeight="bold" fontSize={titleFontSize}>
-              {title}
-            </Text>
-            <Text noOfLines={2} fontSize={12} mt={2}>
-              {description}
-            </Text>
-          </Box>
-        </Flex>
-      </Link>
-    </Box>
-  )
-}
-
-const InlineEmbeddedEntry: React.FC<InlineEmbeddedEntryProps> = ({
-  children,
-  title,
-  id,
-}) => {
-  const bg = useColorModeValue('#f6f6f6', '#313131')
-  const color = useColorModeValue('#313131', '#f6f6f6')
-  const border = useColorModeValue('#ddd', '#666')
-  return (
-    <Link href={`/blog/${id}`} passHref>
-      <Flex
-        borderRadius={8}
-        borderColor={border}
-        borderWidth="1px"
-        backgroundColor={bg}
-        display="inline-flex"
-        px={2}
-        alignItems="center"
-        height="28px"
-        cursor="pointer"
-      >
-        <SvgIcon name="link" color={color} width="18px" height="18px" />
-        <Text fontWeight="bold" fontSize="0.6rem" ml={2}>
-          {title}
-        </Text>
-      </Flex>
-    </Link>
-  )
-}
-
-const ContentImage: React.FC<ContentImageProps> = ({ url, title }) => {
-  const shadow = useColorModeValue('#00000010', '#00000080')
-  return (
-    <Box m="40px auto" maxW="600px">
-      <Box boxShadow={`0 8px 40px ${shadow}`} maxW="600px">
-        <ImageComponent url={url} title={title} />
-      </Box>
-    </Box>
-  )
-}
-
-const LinkEntry = ({ url, ogp_title, ogp_description, ogp_url, ogp_image }) => {
-  const bg = useColorModeValue('#f6f6f6', '#313131')
-  const hoverBg = useColorModeValue('#f2f2f2', '#444')
-  const textColor = useColorModeValue('#002E48', '#FFFFFF')
-  return (
-    <Box my={4}>
-      <Flex
-        as="a"
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        borderRadius={10}
-        borderColor="#dddddd"
-        borderWidth="1px"
-        justifyContent="space-between"
-        h="120px"
-        _hover={{ bgColor: hoverBg }}
-        boxSizing="content-box"
-        backgroundColor={bg}
-      >
-        <Box p={4}>
-          <Text
-            color={textColor}
-            fontWeight="bold"
-            noOfLines={2}
-            fontSize="0.9rem"
-            lineHeight="1.2rem"
-          >
-            {ogp_title}
-          </Text>
-          {ogp_description?.length && (
-            <Text
-              noOfLines={1}
-              color={textColor}
-              fontSize="0.7rem"
-              lineHeight="1rem"
-              mt={2}
-            >
-              {ogp_description}
-            </Text>
-          )}
-          {ogp_url?.length && (
-            <Flex justifyContent="flex-start" alignItems="center" mt={2}>
-              <Center w="14px" h="14px">
-                <img
-                  src={`http://www.google.com/s2/favicons?domain=${ogp_url}`}
-                  alt="favicon"
-                  width="14px"
-                  height="14px"
-                />
-              </Center>
-              <Text
-                color={textColor}
-                fontSize="0.7rem"
-                ml={2}
-                noOfLines={1}
-                lineHeight="1rem"
-                wordBreak="break-all"
-              >
-                {ogp_url}
-              </Text>
-            </Flex>
-          )}
-        </Box>
-        {ogp_image?.length && (
-          <img
-            src={`${ogp_image}`}
-            alt="favicon"
-            style={{
-              aspectRatio: '1 /1',
-              borderTopRightRadius: '9px',
-              borderBottomRightRadius: '9px',
-              objectFit: 'cover',
-            }}
-          />
-        )}
-      </Flex>
-    </Box>
-  )
-}
