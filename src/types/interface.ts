@@ -141,3 +141,5 @@ export interface BlogContents {
     total_count: number
   }
 }
+
+export type CautionType = 'info' | 'error' | 'warning'
