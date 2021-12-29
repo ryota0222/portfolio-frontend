@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useColorModeValue } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import * as apis from '@/apis/api'
@@ -11,6 +12,13 @@ const BlogDetail = ({ data }) => {
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const id = router.query.id
+  const INLINE_CODE_COLOR = useColorModeValue('red', '#ff9eb6')
+  useEffect(() => {
+    console.log(INLINE_CODE_COLOR)
+    if (typeof document !== undefined) {
+      document.documentElement.style.setProperty('--code', INLINE_CODE_COLOR)
+    }
+  }, [INLINE_CODE_COLOR])
   useEffect(() => {
     // ブラウザで描画されたときにtrue
     setMounted(true)

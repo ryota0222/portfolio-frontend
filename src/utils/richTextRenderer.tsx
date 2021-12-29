@@ -33,13 +33,12 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           description,
           thumbnail,
           id,
-          embeddedType,
           embeddedUrl,
+          codepenId,
           type,
         } = node.data.target.fields
         // cautionコンポーネントの場合
         if (node.data.target.sys?.contentType?.sys?.id === 'caution-card') {
-          console.log(description)
           return (
             <Box my={4}>
               <CautionCard type={type}>{description}</CautionCard>
@@ -47,10 +46,32 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           )
         }
         // 埋め込みのタイプが指定されている場合
-        if (embeddedType) {
-          switch (embeddedType?.sys?.id) {
+        if (type) {
+          switch (type) {
             // code sand box
-            case '4NecTy7FIkYr7Si5dD1WDf':
+            case 'codepen':
+              return (
+                <iframe
+                  height="300"
+                  style={{ width: '100%' }}
+                  scrolling="no"
+                  title="what-is-spacer-grid"
+                  src={`https://codepen.io/RyoTa0222/embed/${codepenId}?default-tab=html%2Cresult`}
+                  frameBorder="no"
+                  loading="lazy"
+                  allowTransparency={true}
+                  allowFullScreen={true}
+                >
+                  See the Pen{' '}
+                  <a href={`https://codepen.io/RyoTa0222/pen/${codepenId}`}>
+                    what-is-spacer-grid
+                  </a>{' '}
+                  by RyoTa (
+                  <a href="https://codepen.io/RyoTa0222">@RyoTa0222</a>) on{' '}
+                  <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+              )
+            case 'codesandbox':
               return (
                 <iframe
                   src={`${embeddedUrl}&theme=dark`}
