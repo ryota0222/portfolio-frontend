@@ -8,7 +8,6 @@ const H2 = styled.h2`
   margin-top: 72px;
   margin-bottom: 24px;
   font-weight: bold;
-  display: inline-block;
   padding-left: 20px;
   position: relative;
   &::before {
@@ -28,7 +27,6 @@ const H3 = styled.h3`
   margin-top: 64px;
   margin-bottom: 16px;
   font-weight: bold;
-  display: inline-block;
   padding-left: 20px;
   position: relative;
   &::before {
@@ -48,7 +46,6 @@ const H4 = styled.h4`
   margin-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
-  display: inline-block;
   padding-left: 20px;
   position: relative;
   &::before {
@@ -68,7 +65,6 @@ const H5 = styled.h5`
   margin-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
-  display: inline-block;
   padding-left: 20px;
   position: relative;
   &::before {
@@ -88,7 +84,6 @@ const H6 = styled.h6`
   margin-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
-  display: inline-block;
   padding-left: 20px;
   position: relative;
   &::before {
