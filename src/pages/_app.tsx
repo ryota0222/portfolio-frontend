@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Box, useBreakpointValue } from '@chakra-ui/react'
+import { Box, useBreakpointValue, useColorModeValue } from '@chakra-ui/react'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
 import { AppProps } from 'next/app'

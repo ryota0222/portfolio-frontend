@@ -106,7 +106,7 @@ const H6 = styled.h6`
 const Paragraph = styled.p`
   font-size: 1rem;
   line-height: 2rem;
-  margin: 1rem 0;
+  margin: 2rem 0;
   @media (max-width: 30em) {
     font-size: 0.9rem;
     line-height: 1.8rem;
@@ -133,11 +133,17 @@ const Bold = styled.b`
 const UnOrderList = styled.ul`
   margin: 24px 0;
   padding-left: 32px;
+  p {
+    margin: 0.4rem 0;
+  }
 `
 
 const OrderList = styled.ol`
   margin: 24px 0;
   padding-left: 32px;
+  p {
+    margin: 0.4rem 0;
+  }
 `
 
 const BlockQuote = styled.blockquote`
