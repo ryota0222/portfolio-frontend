@@ -1,53 +1,124 @@
 import styled from 'styled-components'
+import { GRADIENT } from '@/consts/config'
 
 const H1 = styled.h1``
 
 const H2 = styled.h2`
   font-size: 1.6rem;
-  padding-top: 72px;
+  margin-top: 72px;
   margin-bottom: 24px;
   font-weight: bold;
   display: inline-block;
+  padding-left: 20px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6px;
+    background: ${GRADIENT};
+    opacity: 0.6;
+  }
 `
 
 const H3 = styled.h3`
   font-size: 1.4rem;
-  padding-top: 64px;
+  margin-top: 64px;
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
+  padding-left: 20px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6px;
+    background: ${GRADIENT};
+    opacity: 0.6;
+  }
 `
 
 const H4 = styled.h4`
   font-size: 1.3rem;
-  padding-top: 48px;
+  margin-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
+  padding-left: 20px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6px;
+    background: ${GRADIENT};
+    opacity: 0.6;
+  }
 `
 
 const H5 = styled.h5`
   font-size: 1.2rem;
-  padding-top: 48px;
+  margin-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
+  padding-left: 20px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6px;
+    background: ${GRADIENT};
+    opacity: 0.6;
+  }
 `
 
 const H6 = styled.h6`
   font-size: 1.1rem;
-  padding-top: 48px;
+  margin-top: 48px;
   margin-bottom: 16px;
   font-weight: bold;
   display: inline-block;
+  padding-left: 20px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 6px;
+    background: ${GRADIENT};
+    opacity: 0.6;
+  }
 `
 
 const Paragraph = styled.p`
   font-size: 1rem;
   line-height: 2rem;
+  margin: 1rem 0;
   @media (max-width: 30em) {
     font-size: 0.9rem;
     line-height: 1.8rem;
+  }
+  & > code {
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #dddddd10;
+    color: var(--code);
   }
 `
 
