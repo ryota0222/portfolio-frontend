@@ -36,6 +36,7 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           embeddedUrl,
           codepenId,
           type,
+          code,
         } = node.data.target.fields
         // cautionコンポーネントの場合
         if (node.data.target.sys?.contentType?.sys?.id === 'caution-card') {
@@ -43,6 +44,12 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
             <Box my={4}>
               <CautionCard type={type}>{description}</CautionCard>
             </Box>
+          )
+        }
+        // code blockの場合
+        if (node.data.target.sys?.contentType?.sys?.id === 'code') {
+          return (
+            <Code lang={type ?? 'js'}>{code.content[0].content[0].value}</Code>
           )
         }
         // 埋め込みのタイプが指定されている場合
@@ -142,6 +149,7 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           node.content.length === 1 &&
           node.content[0]?.marks?.find((x) => x.type === 'code')
         ) {
+          // コードブロックの場合
           return <Code>{children}</Code>
         } else if (
           node?.content[0]?.nodeType === 'text' &&
@@ -151,6 +159,7 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           node?.content[2]?.nodeType === 'text' &&
           node?.content[2]?.value === ''
         ) {
+          // OGP付きのリンクの場合
           const ogp = node?.content[1].ogp
           return (
             <LinkEntry
