@@ -143,7 +143,7 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
         <Box mt={2} pb={2}>
           {/* タイトル */}
           <Text fontSize="small" fontWeight="bold" mb={4} textAlign="center">
-            <BlogSideMenuTitle>シェアしよう！</BlogSideMenuTitle>
+            <BlogSideMenuTitle>シェアお願いします！</BlogSideMenuTitle>
           </Text>
           <Center
             mb={4}
