@@ -64,7 +64,6 @@ const BlogsContents: React.FC<Props> = ({
   const { contents, page } = data
   const noDataColor = useColorModeValue('#999', '#ccc')
   const inputColor = useColorModeValue('#B9B9B9', 'white')
-  const blogBgColor = useColorModeValue('#F1F4F4', '#303334')
   const spMenuBgColor = useColorModeValue('#F1F4F4', '#252829')
   const textColor = useColorModeValue('dark', 'white')
   const contentsDirection = useBreakpointValue<FlexboxProps['flexDirection']>({
@@ -74,7 +73,7 @@ const BlogsContents: React.FC<Props> = ({
   const blogContentWidth = useBreakpointValue({ base: '100%', md: 'auto' })
   const blogContentMargin = useBreakpointValue({
     base: '0 0 16px',
-    md: '0 8px 16px',
+    md: '0 8px 32px',
   })
   const contentsFlex = useBreakpointValue({ base: 'space-between', md: 'auto' })
   useEffect(() => {
@@ -474,8 +473,6 @@ const BlogsContents: React.FC<Props> = ({
                 <Link href={`/blog/${content.id}`} key={content.id} passHref>
                   <Box
                     m={blogContentMargin}
-                    backgroundColor={blogBgColor}
-                    borderRadius={8}
                     position="relative"
                     w={blogContentWidth}
                   >

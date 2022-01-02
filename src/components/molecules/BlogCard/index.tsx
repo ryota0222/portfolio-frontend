@@ -47,7 +47,7 @@ export const BlogCard = memo(
     const secondColor = useColorModeValue('#9A9A9A', '#9A9A9A')
     if (isSp) {
       return (
-        <Flex borderRadius={8} p={2} backgroundColor={bgColor} width={'100%'}>
+        <Flex p={2} width={'100%'}>
           {/* 画像 */}
           <Image
             src={imageData}
@@ -107,14 +107,7 @@ export const BlogCard = memo(
     } else {
       return (
         <BlogCardWrapper>
-          <Box
-            borderRadius={8}
-            p={2}
-            backgroundColor={bgColor}
-            width={'40vw'}
-            maxWidth={'180px'}
-            h="100%"
-          >
+          <Box p={1} width={'40vw'} maxWidth={'180px'} h="100%">
             <Box
               position="relative"
               width={'100%'}
@@ -138,7 +131,7 @@ export const BlogCard = memo(
             <Text
               color={textColor}
               noOfLines={2}
-              mt={1}
+              mt={0}
               fontWeight="bold"
               fontSize="0.8rem"
             >
