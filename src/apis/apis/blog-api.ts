@@ -177,11 +177,13 @@ export const BlogApiAxiosParamCreator = function (
      * ブログのコンテンツ詳細の取得
      * @summary ブログのコンテンツ詳細の取得
      * @param {string} id ブログのID
+     * @param {number} [preview] プレビューモードかどうか
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getBlogContentsDetail: async (
       id: string,
+      preview?: number,
       options: any = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
@@ -208,6 +210,10 @@ export const BlogApiAxiosParamCreator = function (
       }
       const localVarHeaderParameter = {} as any
       const localVarQueryParameter = {} as any
+
+      if (preview !== undefined) {
+        localVarQueryParameter['preview'] = preview
+      }
 
       const query = new URLSearchParams(localVarUrlObj.search)
       for (const key in localVarQueryParameter) {
@@ -432,11 +438,13 @@ export const BlogApiFp = function (configuration?: Configuration) {
      * ブログのコンテンツ詳細の取得
      * @summary ブログのコンテンツ詳細の取得
      * @param {string} id ブログのID
+     * @param {number} [preview] プレビューモードかどうか
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async getBlogContentsDetail(
       id: string,
+      preview?: number,
       options?: any,
     ): Promise<
       (
@@ -446,7 +454,7 @@ export const BlogApiFp = function (configuration?: Configuration) {
     > {
       const localVarAxiosArgs = await BlogApiAxiosParamCreator(
         configuration,
-      ).getBlogContentsDetail(id, options)
+      ).getBlogContentsDetail(id, preview, options)
       return (
         axios: AxiosInstance = globalAxios,
         basePath: string = BASE_PATH,
@@ -569,15 +577,17 @@ export const BlogApiFactory = function (
      * ブログのコンテンツ詳細の取得
      * @summary ブログのコンテンツ詳細の取得
      * @param {string} id ブログのID
+     * @param {number} [preview] プレビューモードかどうか
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getBlogContentsDetail(
       id: string,
+      preview?: number,
       options?: any,
     ): AxiosPromise<InlineResponse2004> {
       return BlogApiFp(configuration)
-        .getBlogContentsDetail(id, options)
+        .getBlogContentsDetail(id, preview, options)
         .then((request) => request(axios, basePath))
     },
     /**
@@ -660,13 +670,14 @@ export class BlogApi extends BaseAPI {
    * ブログのコンテンツ詳細の取得
    * @summary ブログのコンテンツ詳細の取得
    * @param {string} id ブログのID
+   * @param {number} [preview] プレビューモードかどうか
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof BlogApi
    */
-  public getBlogContentsDetail(id: string, options?: any) {
+  public getBlogContentsDetail(id: string, preview?: number, options?: any) {
     return BlogApiFp(this.configuration)
-      .getBlogContentsDetail(id, options)
+      .getBlogContentsDetail(id, preview, options)
       .then((request) => request(this.axios, this.basePath))
   }
   /**

@@ -1,4 +1,6 @@
+import { useMemo } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { TITLE, DESCRIPTION, KEYWORD, IMAGE, URL } from '@/consts/config'
 import { OgType } from '@/types/interface'
 
@@ -17,6 +19,8 @@ export const HeadComponent = ({
   url,
   ogType,
 }: Props) => {
+  const router = useRouter()
+  const { pathname } = router
   const _title = title && title.length > 0 ? `${title} | ${TITLE}` : TITLE
   const _description =
     description && description.length > 0 ? description : DESCRIPTION
@@ -24,6 +28,9 @@ export const HeadComponent = ({
   const _url =
     url && url.length > 0 ? url : `${process.env.NEXT_PUBLIC_SITE_URL}/`
   const _ogType = ogType && ogType.length > 0 ? ogType : `website`
+  const isAdsensePage = useMemo(() => {
+    return pathname.indexOf('blog') !== -1
+  }, [pathname])
   return (
     <Head>
       <title>{_title}</title>
@@ -50,6 +57,14 @@ export const HeadComponent = ({
         sizes="180x180"
         href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicons/apple-touch-icon.png`}
       />
+      {/* Google Adsense */}
+      {isAdsensePage && (
+        <script
+          crossOrigin="anonymous"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7852298720384342"
+        ></script>
+      )}
     </Head>
   )
 }

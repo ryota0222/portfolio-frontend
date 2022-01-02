@@ -87,7 +87,7 @@ const HomeTemplate: React.FC<Props> = ({ introduction }) => {
             </Text>
             {/* 自己紹介 */}
             {introduction?.description && (
-              <Box className={`${colorTheme} md`}>
+              <Box className={`${colorTheme} md`} mb={8}>
                 <Remark
                   rehypeReactOptions={{
                     components: {
@@ -99,25 +99,25 @@ const HomeTemplate: React.FC<Props> = ({ introduction }) => {
                 </Remark>
               </Box>
             )}
-            <Flex
+            {/* <Flex
               mt="20px"
               mx={snsMx}
               justifyContent={snsJustifyContent}
               mb={8}
-            >
-              {/* github */}
-              {introduction?.github && (
+            > */}
+            {/* github */}
+            {/* {introduction?.github && (
                 <Link href={introduction.github} isExternal mr="6">
                   <FaGithub color={githubColor} size="32px" />
                 </Link>
-              )}
-              {/* twitter */}
-              {introduction.twitter && (
+              )} */}
+            {/* twitter */}
+            {/* {introduction.twitter && (
                 <Link href={introduction.twitter} isExternal>
                   <FaTwitter color="#00AAEC" size="32px" />
                 </Link>
-              )}
-            </Flex>
+              )} */}
+            {/* </Flex> */}
           </Box>
         </Center>
       </Flex>

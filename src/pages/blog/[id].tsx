@@ -14,7 +14,6 @@ const BlogDetail = ({ data }) => {
   const id = router.query.id
   const INLINE_CODE_COLOR = useColorModeValue('red', '#ff9eb6')
   useEffect(() => {
-    console.log(INLINE_CODE_COLOR)
     if (typeof document !== undefined) {
       document.documentElement.style.setProperty('--code', INLINE_CODE_COLOR)
     }

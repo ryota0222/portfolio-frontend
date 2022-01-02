@@ -43,12 +43,6 @@ class MyDocument extends Document<{ prefix: string | null }> {
               />
             </>
           )}
-          {/* Google Adsense */}
-          <script
-            crossOrigin="anonymous"
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7852298720384342"
-          ></script>
           <link
             href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;700&family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700;900&display=swap"
             rel="stylesheet"
