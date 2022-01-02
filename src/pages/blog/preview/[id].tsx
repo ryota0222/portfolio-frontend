@@ -25,8 +25,8 @@ const BlogPreviewDetail = () => {
     }
   }, [INLINE_CODE_COLOR])
   useEffect(() => {
-    void getContents()
-  }, [])
+    if (id) void getContents()
+  }, [id])
   useEffect(() => {
     // データ取得時の処理
     if (data) {
