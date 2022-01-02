@@ -69,23 +69,23 @@ export const HeaderComponent = memo(() => {
       zIndex={1}
     >
       {/* ロゴ部分 */}
-      <Tooltip
+      {/* <Tooltip
         label={<IntroCard {...SHORT_INTRODUCTION} />}
         placement="bottom-start"
         openDelay={1000}
         bg="transparent"
         boxShadow="none"
+      > */}
+      <Button
+        onClick={() => router.push('/')}
+        colorScheme={btnScheme}
+        _active={{}}
+        _focus={{}}
+        p={0}
       >
-        <Button
-          onClick={() => router.push('/')}
-          colorScheme={btnScheme}
-          _active={{}}
-          _focus={{}}
-          p={0}
-        >
-          <Logo />
-        </Button>
-      </Tooltip>
+        <Logo />
+      </Button>
+      {/* </Tooltip> */}
       <Flex alignItems="center">
         {['blog', 'roadmap'].map((page: PageName, idx) => {
           return (
