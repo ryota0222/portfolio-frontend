@@ -37,14 +37,20 @@ const BlogPreviewDetail = () => {
   }, [data])
   if (!data)
     return (
-      <HeadComponent>
+      <HeadComponent
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/preview`}
+        ogType="article"
+      >
         <meta name="robots" content="noindex,nofollow" />
       </HeadComponent>
     )
   else if (mounted)
     return (
       <>
-        <HeadComponent>
+        <HeadComponent
+          url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/preview`}
+          ogType="article"
+        >
           <meta name="robots" content="noindex,nofollow" />
         </HeadComponent>
         <BlogDetailTemplate data={data.data} />
@@ -52,7 +58,10 @@ const BlogPreviewDetail = () => {
     )
   else
     return (
-      <HeadComponent>
+      <HeadComponent
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/preview`}
+        ogType="article"
+      >
         <meta name="robots" content="noindex,nofollow" />
       </HeadComponent>
     )
