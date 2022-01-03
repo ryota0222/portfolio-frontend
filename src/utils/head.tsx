@@ -12,13 +12,14 @@ interface Props {
   ogType?: OgType
 }
 
-export const HeadComponent = ({
+export const HeadComponent: React.FC<Props> = ({
   title,
   description,
   image,
   url,
   ogType,
-}: Props) => {
+  children,
+}) => {
   const router = useRouter()
   const { pathname } = router
   const _title = title && title.length > 0 ? `${title} | ${TITLE}` : TITLE
@@ -34,6 +35,7 @@ export const HeadComponent = ({
   return (
     <Head>
       <title>{_title}</title>
+      <meta content={_description} name="description"></meta>
       <meta property="og:title" content={_title} />
       <meta property="og:description" content={_description} />
       <meta name="keywords" content={KEYWORD} />
@@ -65,6 +67,7 @@ export const HeadComponent = ({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7852298720384342"
         ></script>
       )}
+      {children}
     </Head>
   )
 }

@@ -5,6 +5,7 @@ import * as apis from '@/apis/api'
 import { InlineResponse2004 } from '@/apis/models'
 import BlogDetailTemplate from '@/components/templates/blog/BlogTemplate'
 import Prism from '@/plugins/prism'
+import { HeadComponent } from '@/utils/head'
 
 const BlogPreviewDetail = () => {
   const [mounted, setMounted] = useState(false)
@@ -34,9 +35,27 @@ const BlogPreviewDetail = () => {
       setTimeout(() => Prism.highlightAll(), 0)
     }
   }, [data])
-  if (!data) return <></>
-  else if (mounted) return <BlogDetailTemplate data={data.data} />
-  else return <></>
+  if (!data)
+    return (
+      <HeadComponent>
+        <meta name="robots" content="noindex,nofollow" />
+      </HeadComponent>
+    )
+  else if (mounted)
+    return (
+      <>
+        <HeadComponent>
+          <meta name="robots" content="noindex,nofollow" />
+        </HeadComponent>
+        <BlogDetailTemplate data={data.data} />
+      </>
+    )
+  else
+    return (
+      <HeadComponent>
+        <meta name="robots" content="noindex,nofollow" />
+      </HeadComponent>
+    )
 }
 
 export default BlogPreviewDetail
