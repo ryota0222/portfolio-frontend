@@ -42,7 +42,7 @@ const BlogDetail = ({ data }) => {
       <HeadComponent
         title={data.data.title}
         url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`}
-        ogType="blog"
+        ogType="article"
         image={`https:${data.data.image}`}
       />
       {mounted && <BlogDetailTemplate data={data.data} />}
