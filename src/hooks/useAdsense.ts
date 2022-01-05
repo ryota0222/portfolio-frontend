@@ -5,10 +5,12 @@ const useAdsense = (): { asPath: string } => {
   const { asPath } = useRouter()
 
   useEffect(() => {
-    try {
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-    } catch (err) {
-      console.log(err)
+    if (typeof window !== undefined) {
+      try {
+        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+      } catch (err) {
+        console.log(err)
+      }
     }
   }, [asPath])
   return { asPath }
