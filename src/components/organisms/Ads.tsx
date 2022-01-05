@@ -1,7 +1,29 @@
-// https://b.0218.jp/202104021830.html
+import React from 'react'
+import { Box } from '@chakra-ui/react'
+import useAdsense from '@/hooks/useAdsense'
 
 const Ads = () => {
-  return <></>
+  const { asPath } = useAdsense()
+  return (
+    <Box key={asPath} boxSizing="border-box" w="100%" px={4} py="40px">
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block', textAlign: 'center' }}
+        data-ad-client="ca-pub-7852298720384342"
+        data-ad-slot="3823047599"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block', textAlign: 'center' }}
+        data-ad-client="ca-pub-7852298720384342"
+        data-ad-slot="7187577532"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+    </Box>
+  )
 }
 
 export default Ads

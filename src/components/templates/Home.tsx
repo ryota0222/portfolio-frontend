@@ -40,7 +40,7 @@ const HomeTemplate: React.FC<Props> = ({ introduction }) => {
   })
   const minHeight = useBreakpointValue({
     base: 'auto',
-    md: 'calc(var(--vh, 1vh) * 100 - 72px)',
+    md: 'calc(var(--vh, 1vh) * 100 - 48px)',
   })
   const imageSize = useBreakpointValue({
     base: 600,
