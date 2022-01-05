@@ -14,6 +14,7 @@ const Ads = () => {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
+      {/* 縦長 */}
       <ins
         className="adsbygoogle"
         style={{ display: 'block', textAlign: 'center' }}
