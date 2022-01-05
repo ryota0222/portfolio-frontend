@@ -202,7 +202,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                   className="adsbygoogle"
                   style={{ display: 'block', textAlign: 'center' }}
                   data-ad-client="ca-pub-7852298720384342"
-                  data-ad-slot="3823047599"
+                  data-ad-slot="2534210176"
                   data-ad-format="auto"
                   data-full-width-responsive="true"
                 ></ins>
