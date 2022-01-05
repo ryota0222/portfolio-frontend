@@ -90,7 +90,7 @@ const BlogSideMenu: React.FC<Props> = memo(({ tag, lgtm, title, author }) => {
         position="sticky"
         top="0px"
         pt={4}
-        maxHeight="calc(100vh - 48px)"
+        maxHeight="calc(var(--vh, 1vh) * 100 - 48px)"
         overflowY="scroll"
       >
         {/* パンくずリスト */}

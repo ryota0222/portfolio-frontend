@@ -58,7 +58,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Box w="full" as="main" h="100%">
           <Component {...pageProps} />
         </Box>
-        <FooterComponent />
+        <Box position={'absolute'} bottom={0} left={0} w="100vw">
+          <FooterComponent />
+        </Box>
       </Container>
     </Provider>
   )
