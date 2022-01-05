@@ -516,7 +516,7 @@ const BlogsContents: React.FC<Props> = ({
       <Fade in={isSpMenuClicked} unmountOnExit={true}>
         <Box
           w="100vw"
-          h="100vh"
+          h="calc(var(--vh, 1vh) * 100)"
           position="fixed"
           left={0}
           top={0}

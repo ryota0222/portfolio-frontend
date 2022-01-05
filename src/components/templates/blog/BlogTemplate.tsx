@@ -16,6 +16,7 @@ import { SvgIcon } from '@/components/atoms/SvgIcon'
 import Ads from '@/components/organisms/Ads'
 import BlogSideMenu from '@/components/organisms/BlogSideMenu'
 import { BLOG_IMAGE_MAX_WIDTH } from '@/consts/config'
+import useAdsense from '@/hooks/useAdsense'
 import useBlogContentWidth from '@/hooks/useBlogContentWidth'
 import useSp from '@/hooks/useSp'
 import { PageWrapper } from '@/styles/globals'
@@ -27,6 +28,7 @@ interface Props {
 
 const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const [w, h, setImageW, setImageH, clientW, ratio] = useBlogContentWidth()
+  const { asPath } = useAdsense()
   const iconColor = useColorModeValue('#919AC2', '#FFFFFF')
   const [isSp] = useSp()
   // 画像の幅と高さを取得
@@ -194,6 +196,17 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
               <div className="contents-wrapper body">
                 {getRichTextRenderer(data.content)}
               </div>
+              {/* 広告 */}
+              <Box key={asPath} boxSizing="border-box" w="100%" py="40px">
+                <ins
+                  className="adsbygoogle"
+                  style={{ display: 'block', textAlign: 'center' }}
+                  data-ad-client="ca-pub-7852298720384342"
+                  data-ad-slot="3823047599"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                ></ins>
+              </Box>
             </Box>
           </Box>
         </Box>

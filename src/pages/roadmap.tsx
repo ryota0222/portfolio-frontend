@@ -40,7 +40,7 @@ const Roadmap = ({ data }) => {
     <>
       <HeadComponent title="ロードマップ" url={url} ogType="article" />
       <Box
-        minHeight="calc(var(--vh, 1vh) * 100 - 72px)"
+        minHeight="calc(var(--vh, 1vh) * 100 - 48px)"
         display={display}
         alignItems={align}
         justifyContent={align}

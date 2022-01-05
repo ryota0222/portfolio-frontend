@@ -37,7 +37,7 @@ const BlogsTemplate: React.FC<Props> = ({
   const [isSp] = useSp()
   const minHeight = useBreakpointValue({
     base: 'auto',
-    md: 'calc(var(--vh, 1vh) * 100 - 72px)',
+    md: 'calc(var(--vh, 1vh) * 100 - 48px)',
   })
   const sideMenuDisplay = useBreakpointValue({
     base: 'none',
@@ -53,12 +53,13 @@ const BlogsTemplate: React.FC<Props> = ({
   })
   const sideMenuMaxW = useBreakpointValue({
     base: '100%',
-    md: '360px',
+    md: '320px',
   })
   const contentW = useBreakpointValue({
     base: '100%',
     md: '50%',
   })
+  const bg = useColorModeValue('#F0F0F0', '#252829')
   const colorTheme = useColorModeValue('light', 'dark')
   if ((!settings.success && !contents?.success) || isError) {
     return (
@@ -76,14 +77,21 @@ const BlogsTemplate: React.FC<Props> = ({
               w={sideMenuW}
               minH={minHeight}
               position="relative"
+              bgColor={bg}
             >
-              <Box h="100vh" position="absolute" top="-48px" left={0} w="100%">
+              <Box
+                minH="calc(var(--vh, 1vh) * 100)"
+                position="absolute"
+                top="-48px"
+                left={0}
+                w="100%"
+              >
                 <BlogsSideMenu data={(settings as InlineResponse2002).data} />
               </Box>
             </Box>
           )}
           {/* コンテンツ */}
-          <Box w={contentW} minH={minHeight}>
+          <Box w={contentW} minH={minHeight} pl="40px">
             {!isLoading && (
               <BlogsContents
                 data={(contents as InlineResponse2003).data}

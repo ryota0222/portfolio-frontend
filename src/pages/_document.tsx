@@ -78,6 +78,11 @@ class MyDocument extends Document<{ prefix: string | null }> {
             content="/favicons/browserconfig.xml"
           />
           <meta name="theme-color" content="#444444" />
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7852298720384342"
+            crossOrigin="anonymous"
+          ></script>
         </Head>
         <body>
           <Main />
