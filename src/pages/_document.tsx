@@ -23,6 +23,7 @@ class MyDocument extends Document<{ prefix: string | null }> {
     return (
       <Html dir={dir} lang={locale} prefix={prefix}>
         <Head>
+          <script> </script>
           {/* Google Analytics */}
           {existsGaId && (
             <>
