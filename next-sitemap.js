@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://ryota.vercel.app',
+  siteUrl: 'https://www.ryotanny.com',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   exclude: [
