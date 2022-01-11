@@ -22,7 +22,7 @@ export const HeadComponent: React.FC<Props> = ({
 }) => {
   const router = useRouter()
   const { pathname } = router
-  const _title = title && title.length > 0 ? `${title} - ${TITLE}` : TITLE
+  const _title = title && title.length > 0 ? `${title} – ${TITLE}` : TITLE
   const _description =
     description && description.length > 0 ? description : DESCRIPTION
   const _image = image && image.length > 0 ? image : IMAGE
