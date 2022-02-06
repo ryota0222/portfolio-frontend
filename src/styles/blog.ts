@@ -144,7 +144,10 @@ const OrderList = styled.ol`
 const BlockQuote = styled.blockquote`
   border-left: 3px solid #dddddd;
   padding-left: 10px;
-  margin: 24px 0;
+  margin: 48px 0;
+  p {
+    margin: 0px 8px;
+  }
 `
 
 const CodeWrapper = styled.div`
