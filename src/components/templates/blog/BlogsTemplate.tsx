@@ -107,15 +107,15 @@ const BlogsTemplate: React.FC<Props> = ({
             )}
           </Box>
           {/* サイドメニュー */}
-          {/* <Box
+          <Box
             as="aside"
             flex={1}
             minH={minHeight}
             display={sideMenuDisplay}
             maxW="360px"
           >
-            <Ads />
-          </Box> */}
+            {/* <Ads /> */}
+          </Box>
         </Flex>
       </PageWrapper>
     )
