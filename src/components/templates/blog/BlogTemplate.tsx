@@ -28,7 +28,7 @@ interface Props {
 
 const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const [w, h, setImageW, setImageH, clientW, ratio] = useBlogContentWidth()
-  // const { asPath } = useAdsense()
+  const { asPath } = useAdsense()
   const iconColor = useColorModeValue('#919AC2', '#FFFFFF')
   const [isSp] = useSp()
   // 画像の幅と高さを取得
@@ -102,6 +102,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
           id="blog-content"
           className={cssName}
           pb={16}
+          m="auto"
         >
           <Box maxW="550px" m="auto" h="100%">
             {/* タイトル */}
@@ -197,12 +198,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                 {getRichTextRenderer(data.content)}
               </div>
               {/* 広告 */}
-              <Box
-                //  key={asPath}
-                boxSizing="border-box"
-                w="100%"
-                py="40px"
-              >
+              {/* <Box key={asPath} boxSizing="border-box" w="100%" py="40px">
                 <ins
                   className="adsbygoogle"
                   style={{ display: 'block', textAlign: 'center' }}
@@ -211,21 +207,23 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                   data-ad-format="auto"
                   data-full-width-responsive="true"
                 ></ins>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </Box>
         {/* サイドメニュー */}
-        {/* <Box
-          as="aside"
-          flex={1}
-          minH={minHeight}
-          display={sideMenuDisplay}
-          maxW="360px"
-          overflow="hidden"
-        >
-          <Ads />
-        </Box> */}
+        {!isSp && (
+          <Box
+            as="aside"
+            flex={1}
+            minH={minHeight}
+            display={sideMenuDisplay}
+            maxW="360px"
+            overflow="hidden"
+          >
+            {/* <Ads /> */}
+          </Box>
+        )}
       </Flex>
     </PageWrapper>
   )
