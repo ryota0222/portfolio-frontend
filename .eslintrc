@@ -3,6 +3,7 @@
   "rules": {
     "react/display-name": "off",
     "@next/next/no-img-element": "off",
+    "@next/next/no-sync-scripts": "off",
     "import/order": [
       1,
       {

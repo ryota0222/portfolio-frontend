@@ -12,6 +12,7 @@ import { ContentImage } from '@/components/atoms/blog/ContentImage'
 import { EmbeddedEntry } from '@/components/atoms/blog/EmbeddedEntry'
 import { InlineEmbeddedEntry } from '@/components/atoms/blog/InlineEmbeddedEntry'
 import { LinkEntry } from '@/components/atoms/blog/LinkEntry'
+import Gist from '@/components/Gist'
 import { CautionCard } from '@/components/molecules/CautionCard'
 import BlogStyle from '@/styles/blog'
 
@@ -95,6 +96,14 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
                   }}
                 />
               )
+            case 'gist':
+              const regex = /https:\/\/gist.github.com\/.*\//g
+              const baseUrl = embeddedUrl.match(regex)
+              const targetId = embeddedUrl.substring(
+                baseUrl[0].length,
+                embeddedUrl.length,
+              )
+              return <Gist id={targetId} />
           }
         }
         // そうではない場合
