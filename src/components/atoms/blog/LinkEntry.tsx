@@ -15,7 +15,7 @@ export const LinkEntry: React.FC<Props> = memo(
     const hoverBg = useColorModeValue('#f2f2f2', '#444')
     const textColor = useColorModeValue('#002E48', '#FFFFFF')
     return (
-      <Box my={4}>
+      <Box my={16}>
         <Flex
           as="a"
           href={url}
