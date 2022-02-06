@@ -10,7 +10,7 @@ import {
   InlineResponse2002,
   InlineResponse2003,
 } from '@/apis/models'
-import Ads from '@/components/organisms/Ads'
+// import Ads from '@/components/organisms/Ads'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
 import useSp from '@/hooks/useSp'
@@ -91,7 +91,7 @@ const BlogsTemplate: React.FC<Props> = ({
             </Box>
           )}
           {/* コンテンツ */}
-          <Box w={contentW} minH={minHeight} pl="40px">
+          <Box w={contentW} minH={minHeight}>
             {!isLoading && (
               <BlogsContents
                 data={(contents as InlineResponse2003).data}
@@ -107,7 +107,7 @@ const BlogsTemplate: React.FC<Props> = ({
             )}
           </Box>
           {/* サイドメニュー */}
-          <Box
+          {/* <Box
             as="aside"
             flex={1}
             minH={minHeight}
@@ -115,7 +115,7 @@ const BlogsTemplate: React.FC<Props> = ({
             maxW="360px"
           >
             <Ads />
-          </Box>
+          </Box> */}
         </Flex>
       </PageWrapper>
     )

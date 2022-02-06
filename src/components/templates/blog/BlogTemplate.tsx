@@ -13,7 +13,7 @@ import tocbot from 'tocbot'
 import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
 import ImageComponent from '@/components/atoms/Image'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
-import Ads from '@/components/organisms/Ads'
+// import Ads from '@/components/organisms/Ads'
 import BlogSideMenu from '@/components/organisms/BlogSideMenu'
 import { BLOG_IMAGE_MAX_WIDTH } from '@/consts/config'
 import useAdsense from '@/hooks/useAdsense'
@@ -28,7 +28,7 @@ interface Props {
 
 const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const [w, h, setImageW, setImageH, clientW, ratio] = useBlogContentWidth()
-  const { asPath } = useAdsense()
+  // const { asPath } = useAdsense()
   const iconColor = useColorModeValue('#919AC2', '#FFFFFF')
   const [isSp] = useSp()
   // 画像の幅と高さを取得
@@ -55,7 +55,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
     md: 'calc(var(--vh, 1vh) * 100 - 48px)',
   })
   const titleFontSize = useBreakpointValue({
-    base: '2xl',
+    base: 'lg',
     md: '3xl',
   })
   const contentsPadding = useBreakpointValue({
@@ -197,7 +197,12 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                 {getRichTextRenderer(data.content)}
               </div>
               {/* 広告 */}
-              <Box key={asPath} boxSizing="border-box" w="100%" py="40px">
+              <Box
+                //  key={asPath}
+                boxSizing="border-box"
+                w="100%"
+                py="40px"
+              >
                 <ins
                   className="adsbygoogle"
                   style={{ display: 'block', textAlign: 'center' }}
@@ -211,15 +216,16 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
           </Box>
         </Box>
         {/* サイドメニュー */}
-        <Box
+        {/* <Box
           as="aside"
           flex={1}
           minH={minHeight}
           display={sideMenuDisplay}
           maxW="360px"
+          overflow="hidden"
         >
           <Ads />
-        </Box>
+        </Box> */}
       </Flex>
     </PageWrapper>
   )
