@@ -1,36 +1,7 @@
-import { useMemo } from 'react'
-import { Box, Text, useColorModeValue } from '@chakra-ui/react'
-import Image from 'next/image'
-import useErrorImage from '@/hooks/useErrorImage'
-import { HeadComponent } from '@/utils/head'
+import ErrorPageTemplate from '@/components/templates/ErrorPage'
 
 const Error = ({ statusCode, message }) => {
-  const color = useColorModeValue('dark', 'white')
-  const [selectedImage] = useErrorImage()
-  return (
-    <>
-      <HeadComponent title={statusCode} />
-      <Text
-        colorScheme={color}
-        fontSize="5xl"
-        fontWeight="bold"
-        fontFamily="'Josefin Sans'"
-        as="h1"
-        textAlign="center"
-        mb="4"
-      >
-        {statusCode}
-      </Text>
-      <Box w="full">
-        <Box maxW="320px" mx="auto" w="90%">
-          <Image src={selectedImage} alt={'画像'} layout="responsive" />
-        </Box>
-      </Box>
-      <Text colorScheme={color} textAlign="center" mt="8">
-        {message}
-      </Text>
-    </>
-  )
+  return <ErrorPageTemplate title={statusCode} description={message} />
 }
 
 Error.getInitialProps = ({ res, err }) => {
