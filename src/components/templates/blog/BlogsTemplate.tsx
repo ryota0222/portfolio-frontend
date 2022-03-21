@@ -6,11 +6,7 @@ import {
   useColorModeValue,
   Center,
 } from '@chakra-ui/react'
-import {
-  InlineResponse400,
-  InlineResponse2002,
-  InlineResponse2003,
-} from '@/apis/models'
+import { InlineResponse400, InlineResponse2002 } from '@/apis/models'
 // import Ads from '@/components/organisms/Ads'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
@@ -20,7 +16,7 @@ import { PageWrapper } from '@/styles/globals'
 
 interface Props {
   settings?: InlineResponse400 | InlineResponse2002
-  contents?: InlineResponse400 | InlineResponse2003
+  contents?: InlineResponse400 | any
   title: string
   searchWord?: string
   isLoading: boolean
@@ -105,7 +101,7 @@ const BlogsTemplate: React.FC<Props> = ({
             {/* コンテンツが返ってきた場合 */}
             {!isLoading && (
               <BlogsContents
-                data={(contents as InlineResponse2003).data}
+                data={(contents as any).data}
                 settings={(settings as InlineResponse2002).data}
                 title={title}
                 searchWord={searchWord}

@@ -55,7 +55,7 @@ export const getStaticPaths = async () => {
   const func = await apis.BlogApiFp().getBlogContents(0, 500)
   const response = await func()
   const data = response.data
-  const paths = data.data.contents.map((content) => ({
+  const paths = (data as any).data.contents.map((content) => ({
     params: { id: content.id },
   }))
   return { paths, fallback: false }
