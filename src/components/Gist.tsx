@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
+import useSp from '@/hooks/useSp'
 
 interface Props {
   id: string
@@ -7,13 +8,15 @@ interface Props {
 
 const Gist: React.FC<Props> = ({ id, file }) => {
   const ref = useRef<HTMLIFrameElement | null>(null)
+  console.log(id, file)
+  const [isSp] = useSp()
   useEffect(() => {
     updateIframeContent()
   }, [])
-  const defineUrl = () => {
+  const defineUrl = useCallback(() => {
     const fileArg = file ? `?file=${file}` : ''
     return `https://gist.github.com/${id}.js${fileArg}`
-  }
+  }, [id, file])
   const updateIframeContent = () => {
     const iframe = ref.current
     let doc = (iframe as any).document
@@ -40,6 +43,17 @@ const Gist: React.FC<Props> = ({ id, file }) => {
     doc.open()
     doc.writeln(iframeHtml)
     doc.close()
+  }
+  if (isSp) {
+    return (
+      <a
+        href={`https://gist.github.com/${id}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {`https://gist.github.com/${id}`}
+      </a>
+    )
   }
   return (
     <iframe
