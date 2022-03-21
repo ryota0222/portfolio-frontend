@@ -6,13 +6,15 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
-import { Tag } from '@/types/interface'
+import { Series, Tag } from '@/types/interface'
 
 interface Props {
   tag: Tag
+  series: null | Series
 }
 
-const BreadcrumbComponent: React.FC<Props> = ({ tag }) => {
+const BreadcrumbComponent: React.FC<Props> = ({ tag, series }) => {
+  console.log(series)
   const fontColor = useColorModeValue('#25282A', 'white')
   const fontSize = useBreakpointValue({ base: '12px', md: 'small' })
   return (
@@ -22,6 +24,7 @@ const BreadcrumbComponent: React.FC<Props> = ({ tag }) => {
           <SvgIcon name="home" color={fontColor} width="14px" height="14px" />
         </BreadcrumbLink>
       </BreadcrumbItem>
+      {/* カテゴリ */}
       <BreadcrumbItem>
         <BreadcrumbLink
           href={`/blog?tag=${tag.id}`}
@@ -33,6 +36,20 @@ const BreadcrumbComponent: React.FC<Props> = ({ tag }) => {
           {tag.label}
         </BreadcrumbLink>
       </BreadcrumbItem>
+      {/* シリーズ */}
+      {series && (
+        <BreadcrumbItem>
+          <BreadcrumbLink
+            href={`/blog?tag=${tag.id}&series=${series.slug}&title=${series.name}`}
+            style={{ color: fontColor, fontSize: fontSize, lineHeight: '16px' }}
+            _hover={{
+              textDecoration: 'none',
+            }}
+          >
+            {series.name}
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+      )}
     </Breadcrumb>
   )
 }

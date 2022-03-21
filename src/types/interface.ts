@@ -29,6 +29,8 @@ export type SvgIconName =
   | 'person-solid'
   | 'flag-gradient'
   | 'flag-solid'
+  | 'folder'
+  | 'file'
 
 // counter
 export type CounterType = 'good' | 'bad'
@@ -48,6 +50,11 @@ export interface Author {
   description: string
   image: string
   id: string
+}
+
+export interface Series {
+  name: string
+  slug: string
 }
 
 export interface Lgtm {
@@ -88,6 +95,7 @@ export interface Blog {
   lgtm: Lgtm
   index: BlogIndexItem[]
   tag: Tag
+  series: Series
 }
 
 export type BlogTitle = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
@@ -112,6 +120,8 @@ export interface BlogSetting {
     {
       count: number
       percent: number
+      order: number
+      series?: string[]
     }
   >[]
   tags?: {

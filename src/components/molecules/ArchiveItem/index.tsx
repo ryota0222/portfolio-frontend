@@ -4,9 +4,17 @@ import { Counter } from '@/components/atoms/Counter'
 
 export interface Props {
   /**
-   * 幅
+   * カウント
    */
-  count: number
+  count?: number
+  /**
+   * フォルダ
+   */
+  folder?: number
+  /**
+   * ファイル
+   */
+  file?: number
   /**
    * trueならアクティブ
    */
@@ -18,7 +26,7 @@ export interface Props {
 }
 
 const ArchiveItem: React.FC<Props> = memo(
-  ({ children, isActive, count, onClick }) => {
+  ({ children, isActive, count = 0, folder = 0, file = 0, onClick }) => {
     const hoverBgColor = useColorModeValue('#e5e5e5', '#353839')
     const textColor = useColorModeValue('dark', 'white')
     return (
@@ -35,7 +43,7 @@ const ArchiveItem: React.FC<Props> = memo(
         <Text fontSize="sm" colorScheme={textColor} fontWeight="bold">
           {children}
         </Text>
-        <Counter number={count} />
+        <Counter number={count} folder={folder} file={file} />
       </Flex>
     )
   },

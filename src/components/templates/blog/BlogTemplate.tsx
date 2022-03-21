@@ -90,6 +90,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
         <Box maxW={sideMenuMaxW} w={sideMenuW} minH={minHeight} mt={'-48px'}>
           <BlogSideMenu
             tag={data.tag}
+            series={data.series}
             lgtm={data.lgtm}
             title={data.title}
             author={data.author}
@@ -127,7 +128,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                 px={contentsPadding}
                 py={1}
               >
-                <BreadcrumbComponent tag={data.tag} />
+                <BreadcrumbComponent tag={data.tag} series={data.series} />
               </Box>
             )}
             <Box px={contentsPadding}>

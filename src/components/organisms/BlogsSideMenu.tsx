@@ -73,14 +73,14 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
           </Box>
         </Box>
       )}
-      {/* タグ別アーカイブ */}
+      {/* カテゴリ別アーカイブ */}
       {data.tag_archives?.length > 0 && data.tags?.length > 0 && (
         <Box pb={4} mt={12}>
           <Flex alignItems="center" mb={4}>
             <Box as="span" mr={2}>
-              <SvgIcon width={16} height={16} name="tag-gradient" />
+              <SvgIcon width={'16px'} height={'16px'} name="tag-gradient" />
             </Box>
-            <Title>タグ別アーカイブ</Title>
+            <Title>カテゴリ別アーカイブ</Title>
           </Flex>
           <Box>
             {data.tag_archives.map((item, index) => {
@@ -93,7 +93,8 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                 <Box key={index} my={2}>
                   <ArchiveItem
                     isActive={isTagActive(tagData.id)}
-                    count={tagValue.count}
+                    file={tagValue.count}
+                    folder={tagValue?.series?.length}
                     onClick={throttle(
                       () => router.push(`/blog?tag=${tagData.id}`),
                       1000,

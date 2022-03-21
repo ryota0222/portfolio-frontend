@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import {
   Box,
   Flex,
@@ -5,11 +6,7 @@ import {
   useColorModeValue,
   Center,
 } from '@chakra-ui/react'
-import {
-  InlineResponse400,
-  InlineResponse2002,
-  InlineResponse2003,
-} from '@/apis/models'
+import { InlineResponse400, InlineResponse2002 } from '@/apis/models'
 // import Ads from '@/components/organisms/Ads'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
@@ -19,7 +16,7 @@ import { PageWrapper } from '@/styles/globals'
 
 interface Props {
   settings?: InlineResponse400 | InlineResponse2002
-  contents?: InlineResponse400 | InlineResponse2003
+  contents?: InlineResponse400 | any
   title: string
   searchWord?: string
   isLoading: boolean
@@ -61,6 +58,9 @@ const BlogsTemplate: React.FC<Props> = ({
   })
   const bg = useColorModeValue('#F0F0F0', '#252829')
   const colorTheme = useColorModeValue('light', 'dark')
+  const isContentsArray = useMemo(() => {
+    return Array.isArray(contents)
+  }, [contents])
   if ((!settings.success && !contents?.success) || isError) {
     return (
       <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
@@ -92,18 +92,20 @@ const BlogsTemplate: React.FC<Props> = ({
           )}
           {/* コンテンツ */}
           <Box w={contentW} minH={minHeight}>
-            {!isLoading && (
-              <BlogsContents
-                data={(contents as InlineResponse2003).data}
-                settings={(settings as InlineResponse2002).data}
-                title={title}
-                searchWord={searchWord}
-              />
-            )}
+            {/* 取得中 */}
             {isLoading && (
               <Center w="full" h="full">
                 <div className={`loader ${colorTheme}`}>ローディング中</div>
               </Center>
+            )}
+            {/* コンテンツが返ってきた場合 */}
+            {!isLoading && (
+              <BlogsContents
+                data={(contents as any).data}
+                settings={(settings as InlineResponse2002).data}
+                title={title}
+                searchWord={searchWord}
+              />
             )}
           </Box>
           {/* サイドメニュー */}
