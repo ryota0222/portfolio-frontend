@@ -14,25 +14,19 @@
 /**
  *
  * @export
- * @interface InlineResponse2007Data
+ * @interface BlogContentsFilteringWithoutTagData
  */
-export interface InlineResponse2007Data {
+export interface BlogContentsFilteringWithoutTagData {
   /**
    *
-   * @type {Array&lt;RoadmapItem&gt;}
-   * @memberof InlineResponse2007Data
+   * @type {Array&lt;BlogContent&gt;}
+   * @memberof BlogContentsFilteringWithoutTagData
    */
-  schedule?: any
+  contents?: any
   /**
    *
-   * @type {Array&lt;RoadmapItem&gt;}
-   * @memberof InlineResponse2007Data
+   * @type {BlogContentsFilteringWithoutTagDataPage}
+   * @memberof BlogContentsFilteringWithoutTagData
    */
-  develop?: any
-  /**
-   *
-   * @type {Array&lt;RoadmapItem&gt;}
-   * @memberof InlineResponse2007Data
-   */
-  merge?: any
+  page?: any
 }

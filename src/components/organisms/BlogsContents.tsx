@@ -1,5 +1,4 @@
-import { useCallback, useMemo, useState, useRef } from 'react'
-import { useEffect } from 'react'
+import { useCallback, useMemo, useState, useRef, useEffect } from 'react'
 import {
   Box,
   Flex,
@@ -16,6 +15,7 @@ import {
   InputRightElement,
   FlexboxProps,
   Fade,
+  Spacer,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import throttle from 'just-throttle'
@@ -25,12 +25,12 @@ import { AiOutlineTag } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
 import { IoIosClose } from 'react-icons/io'
 import { IoSearch } from 'react-icons/io5'
-import { MdQueryBuilder } from 'react-icons/md'
-import { Counter } from '@/components/atoms/Counter'
+import { Btn } from '@/components/atoms/Button/index'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
 import { BlogCard } from '@/components/molecules/BlogCard/index'
 import { PageNation } from '@/components/organisms/PageNation/index'
+import { BLOG_SERIES_MAX_CONTENTS } from '@/consts/config'
 import useBlogPath from '@/hooks/useBlogPath'
 import useSp from '@/hooks/useSp'
 import usePageNation from '@/middleware/blog'
@@ -65,7 +65,9 @@ const BlogsContents: React.FC<Props> = ({
   const noDataColor = useColorModeValue('#999', '#ccc')
   const inputColor = useColorModeValue('#B9B9B9', 'white')
   const spMenuBgColor = useColorModeValue('#F1F4F4', '#252829')
-  const textColor = useColorModeValue('dark', 'white')
+  const textColor = useColorModeValue('#1A202C', 'white')
+  const btnBgColor = useColorModeValue('#1A202C', 'white')
+  const btnTextColor = useColorModeValue('white', 'dark')
   const contentsDirection = useBreakpointValue<FlexboxProps['flexDirection']>({
     base: 'column',
     sm: 'row',
@@ -83,9 +85,14 @@ const BlogsContents: React.FC<Props> = ({
   }, [])
   // 検索フォーム
   const [search, setSearchWord] = useState(searchWord ?? '')
-  // 検索文字を入力
-  const handleSearchChange = (event) => {
-    setSearchWord(event.target.value)
+  // コンテンツデータが配列かどうか
+  const isBlogContentsArray = useMemo(() => {
+    return Array.isArray(contents)
+  }, [contents])
+  const clearBlur = () => {
+    if (isSpSearch) setIsSpSearch(false)
+    if (isSpArchive) setIsSpArchive(false)
+    if (isSpTag) setIsSpTag(false)
   }
   // 検索
   const handleSearch = () => {
@@ -93,10 +100,16 @@ const BlogsContents: React.FC<Props> = ({
     const _path = setSearch(e_data)
     router.push(_path)
   }
-  const clearBlur = () => {
-    if (isSpSearch) setIsSpSearch(false)
-    if (isSpArchive) setIsSpArchive(false)
-    if (isSpTag) setIsSpTag(false)
+  // 検索文字列の消去
+  const clearSearch = (e) => {
+    setSearchWord('')
+    e.stopPropagation()
+    const _path = setSearch()
+    router.push(_path)
+  }
+  // 検索文字を入力
+  const handleSearchChange = (event) => {
+    setSearchWord(event.target.value)
   }
   // enterを押した際に実行する
   const handleKeyPress = useCallback(
@@ -112,13 +125,6 @@ const BlogsContents: React.FC<Props> = ({
   useEffect(() => {
     if (searchWord) setSearchWord(searchWord)
   }, [searchWord])
-  // 検索文字列の消去
-  const clearSearch = (e) => {
-    setSearchWord('')
-    e.stopPropagation()
-    const _path = setSearch()
-    router.push(_path)
-  }
   // 時間の絞り込みの消去
   const clearTime = (e) => {
     setIsSpArchive(false)
@@ -171,6 +177,14 @@ const BlogsContents: React.FC<Props> = ({
     },
     [query],
   )
+  // シリーズの詳細を見る
+  const getMoreSeries = (contentId: string, label: string) => {
+    if (contentId === 'others') {
+      router.push(`${path}&series=${contentId}&title=${label}`)
+    } else {
+      router.push(`/blog?series=${contentId}&title=${label}`)
+    }
+  }
   return (
     <Box w="full" h="full" boxSizing="border-box" p={4} maxW="620px" m="auto">
       {/* 検索フォーム */}
@@ -332,7 +346,7 @@ const BlogsContents: React.FC<Props> = ({
                 </Box>
               </ModalContent>
             </Modal>
-            {/* タグ別アーカイブ */}
+            {/* カテゴリ別アーカイブ */}
             <SpMenuItem
               onClick={() => setIsSpTag(!isSpTag)}
               isVisible={isSpTag}
@@ -369,7 +383,7 @@ const BlogsContents: React.FC<Props> = ({
                 </>
               )}
             </SpMenuItem>
-            {/* タグ別アーカイブモーダル */}
+            {/* カテゴリ別アーカイブモーダル */}
             <Modal
               isOpen={isSpTag}
               onClose={() => setIsSpTag(false)}
@@ -412,7 +426,8 @@ const BlogsContents: React.FC<Props> = ({
                           <Box key={index} my={2}>
                             <ArchiveItem
                               isActive={isTagActive(tagData.id)}
-                              count={tagValue.count}
+                              file={tagValue.count}
+                              folder={tagValue?.series?.length}
                               onClick={throttle(
                                 () => filterTagArchive(tagData.id),
                                 1000,
@@ -458,8 +473,14 @@ const BlogsContents: React.FC<Props> = ({
           />
         )}
       </Flex>
+      {/* タイトル（あれば） */}
+      {query?.title && (
+        <Text fontWeight="bold" mb={4} textAlign="center" as="h3">
+          {query.title}
+        </Text>
+      )}
       {/* 記事一覧 */}
-      {contents && contents.length > 0 ? (
+      {contents && (
         <>
           {/* 記事がある時 */}
           <Flex
@@ -467,50 +488,134 @@ const BlogsContents: React.FC<Props> = ({
             justifyContent="space-between"
             flexDirection={contentsDirection}
           >
-            {/* コンテンツ */}
-            {contents.map((content) => {
-              return (
-                <Link href={`/blog/${content.id}`} key={content.id} passHref>
-                  <Box
-                    m={blogContentMargin}
-                    position="relative"
-                    w={blogContentWidth}
-                  >
-                    <BlogCard
-                      imageData={`https:${content.image}`}
-                      title={content.title}
-                      tagName={content.tag.label}
-                      tagBg={content.tag.color}
-                      createdAt={content.created_at}
-                      updatedAt={content.updated_at}
-                    />
-                  </Box>
-                </Link>
-              )
-            })}
+            {/* コンテンツ（配列） */}
+            {isBlogContentsArray &&
+              contents.map((content) => {
+                return (
+                  <Link href={`/blog/${content.id}`} key={content.id} passHref>
+                    <Box
+                      m={blogContentMargin}
+                      position="relative"
+                      w={blogContentWidth}
+                    >
+                      <BlogCard
+                        imageData={`https:${content.image}`}
+                        title={content.title}
+                        tagName={content.tag.label}
+                        tagBg={content.tag.color}
+                        createdAt={content.created_at}
+                        updatedAt={content.updated_at}
+                      />
+                    </Box>
+                  </Link>
+                )
+              })}
+            {/* コンテンツ（オブジェクト） */}
+            {!isBlogContentsArray && (
+              <Box w="100%">
+                {Object.keys(contents).map((contentId) => {
+                  const content = contents[contentId]
+                  return (
+                    <>
+                      <Flex alignItems={'center'} mb={2} pl={2}>
+                        <SvgIcon
+                          name="folder"
+                          color={textColor}
+                          width="18px"
+                          height="18px"
+                          mr={2}
+                        />
+                        <Text fontWeight="bold">{content.label}</Text>
+                        {content.contents.length > BLOG_SERIES_MAX_CONTENTS && (
+                          <>
+                            <Spacer />
+                            <Btn
+                              round
+                              bgColor={btnBgColor}
+                              color={btnTextColor}
+                              onClick={() =>
+                                getMoreSeries(contentId, content.label)
+                              }
+                              fontSize="xx-small"
+                              height="28px"
+                              _hover={{ opacity: 0.8 }}
+                              _activeLink={{ opacity: 0.8 }}
+                              px={3}
+                              mr={2}
+                            >
+                              もっと見る
+                            </Btn>
+                          </>
+                        )}
+                      </Flex>
+                      {content.total > 0 ? (
+                        <Flex
+                          flexWrap="wrap"
+                          justifyContent="space-between"
+                          flexDirection={contentsDirection}
+                          mb={8}
+                        >
+                          {content.contents.map((c) => (
+                            <Link href={`/blog/${c.id}`} key={c.id} passHref>
+                              <Box
+                                m={blogContentMargin}
+                                position="relative"
+                                w={blogContentWidth}
+                              >
+                                <BlogCard
+                                  imageData={`https:${c.image}`}
+                                  title={c.title}
+                                  tagName={c.tag.label}
+                                  tagBg={c.tag.color}
+                                  createdAt={c.created_at}
+                                  updatedAt={c.updated_at}
+                                />
+                              </Box>
+                            </Link>
+                          ))}
+                        </Flex>
+                      ) : (
+                        <Text
+                          textAlign="center"
+                          fontSize="sm"
+                          my={16}
+                          color={noDataColor}
+                        >
+                          記事がありません
+                        </Text>
+                      )}
+                    </>
+                  )
+                })}
+              </Box>
+            )}
+            {/* データがない場合 */}
+            {isBlogContentsArray && contents.length === 0 && (
+              // 記事がない時
+              <Text
+                textAlign="center"
+                fontSize="sm"
+                my={8}
+                mt={16}
+                color={noDataColor}
+              >
+                記事がありません
+              </Text>
+            )}
           </Flex>
           {/* ページネーション */}
-          <Flex justifyContent="center" my={4} mt={8}>
-            <PageNation
-              total={page.total_count}
-              currentPage={state.page}
-              increment={increment}
-              decrement={decrement}
-              set={set}
-            />
-          </Flex>
+          {page && (
+            <Flex justifyContent="center" my={4} mt={8}>
+              <PageNation
+                total={page.total_count}
+                currentPage={state.page}
+                increment={increment}
+                decrement={decrement}
+                set={set}
+              />
+            </Flex>
+          )}
         </>
-      ) : (
-        // 記事がない時
-        <Text
-          textAlign="center"
-          fontSize="sm"
-          my={8}
-          mt={16}
-          color={noDataColor}
-        >
-          記事がありません
-        </Text>
       )}
       {/* スマホのメニューにタップされた際の画面全体のブラー */}
       <Fade in={isSpMenuClicked} unmountOnExit={true}>

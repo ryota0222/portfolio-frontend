@@ -21,13 +21,13 @@ const TitleComponent: React.FC<Props> = memo(({ roadmapType }) => {
   return (
     <VStack w="full">
       {roadmapType === 'schedule' && (
-        <SvgIcon name="map-gradient" width={40} height={40} />
+        <SvgIcon name="map-gradient" width={'40px'} height={'40px'} />
       )}
       {roadmapType === 'develop' && (
-        <SvgIcon name="person-gradient" width={40} height={40} />
+        <SvgIcon name="person-gradient" width={'40px'} height={'40px'} />
       )}
       {roadmapType === 'merge' && (
-        <SvgIcon name="flag-gradient" width={40} height={40} />
+        <SvgIcon name="flag-gradient" width={'40px'} height={'40px'} />
       )}
       <Text color={textColor} fontWeight="bold" fontSize="small">
         {text}
