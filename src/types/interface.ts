@@ -52,6 +52,11 @@ export interface Author {
   id: string
 }
 
+export interface Series {
+  name: string
+  slug: string
+}
+
 export interface Lgtm {
   good: number
   bad: number
@@ -90,6 +95,7 @@ export interface Blog {
   lgtm: Lgtm
   index: BlogIndexItem[]
   tag: Tag
+  series: Series
 }
 
 export type BlogTitle = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
