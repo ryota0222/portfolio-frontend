@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import {
   Box,
   Flex,
@@ -61,6 +62,9 @@ const BlogsTemplate: React.FC<Props> = ({
   })
   const bg = useColorModeValue('#F0F0F0', '#252829')
   const colorTheme = useColorModeValue('light', 'dark')
+  const isContentsArray = useMemo(() => {
+    return Array.isArray(contents)
+  }, [contents])
   if ((!settings.success && !contents?.success) || isError) {
     return (
       <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
@@ -92,6 +96,13 @@ const BlogsTemplate: React.FC<Props> = ({
           )}
           {/* コンテンツ */}
           <Box w={contentW} minH={minHeight}>
+            {/* 取得中 */}
+            {isLoading && (
+              <Center w="full" h="full">
+                <div className={`loader ${colorTheme}`}>ローディング中</div>
+              </Center>
+            )}
+            {/* コンテンツが返ってきた場合 */}
             {!isLoading && (
               <BlogsContents
                 data={(contents as InlineResponse2003).data}
@@ -99,11 +110,6 @@ const BlogsTemplate: React.FC<Props> = ({
                 title={title}
                 searchWord={searchWord}
               />
-            )}
-            {isLoading && (
-              <Center w="full" h="full">
-                <div className={`loader ${colorTheme}`}>ローディング中</div>
-              </Center>
             )}
           </Box>
           {/* サイドメニュー */}

@@ -29,6 +29,8 @@ export type SvgIconName =
   | 'person-solid'
   | 'flag-gradient'
   | 'flag-solid'
+  | 'folder'
+  | 'file'
 
 // counter
 export type CounterType = 'good' | 'bad'
@@ -112,6 +114,8 @@ export interface BlogSetting {
     {
       count: number
       percent: number
+      order: number
+      series?: string[]
     }
   >[]
   tags?: {

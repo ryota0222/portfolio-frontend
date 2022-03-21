@@ -3,51 +3,27 @@ export const blogs = {
     success: true,
     data: {
       monthly_archives: [
-        {
-          '2021-08': {
-            count: 1,
-          },
-        },
-        {
-          '2021-02': {
-            count: 1,
-          },
-        },
-        {
-          '2021-01': {
-            count: 6,
-          },
-        },
+        { '2022-03': { count: 1 } },
+        { '2022-02': { count: 1 } },
+        { '2022-01': { count: 2 } },
+        { '2021-12': { count: 5 } },
+        { '2021-10': { count: 1 } },
+        { '2021-08': { count: 1 } },
+        { '2021-02': { count: 1 } },
+        { '2021-01': { count: 6 } },
       ],
       tag_archives: [
+        { frontend: { percent: 75, count: 12, order: 1 } },
+        { tsundoku: { percent: 12.5, count: 1, order: 10 } },
         {
-          frontend: {
-            percent: 62.5,
-            order: 1,
-            count: 5,
+          develop: {
+            percent: 17,
+            order: 30,
+            series: ['73EnXXD9c68EJaDzUpcZCl', '5IneHQynSmsqJARCQz441f'],
+            count: 3,
           },
         },
-        {
-          tsundoku: {
-            percent: 12.5,
-            count: 1,
-            order: 10,
-          },
-        },
-        {
-          portfolio: {
-            order: 20,
-            percent: 12.5,
-            count: 1,
-          },
-        },
-        {
-          other: {
-            order: 100,
-            count: 1,
-            percent: 12.5,
-          },
-        },
+        { other: { percent: 12.5, order: 100, count: 1 } },
       ],
       tags: [
         {
@@ -64,9 +40,15 @@ export const blogs = {
         },
         {
           label: 'ポートフォリオ裏話',
-          color: '#7cbf16',
+          color: '#169cbf',
           tag_id: 'portfolio',
           id: '2KPtyTDJ5PZFtrtEzFUSGy',
+        },
+        {
+          label: '開発',
+          color: '#76a2f9',
+          tag_id: 'develop',
+          id: '36RmSxxSTFntOEC3dkXJj',
         },
         {
           label: 'その他',
@@ -177,18 +159,115 @@ export const blogs = {
 export const blog = {
   success: true,
   data: {
-    title: 'VSCodeのおすすめ拡張機能',
+    title: 'ユーティリティクラスを生成する',
+    description:
+      'ユーティリティクラスを簡単に生成する方法を紹介します。簡易なサイトを作るだけなのでライブラリを入れたくないなどの場合に活用することができます。',
     image:
-      '//images.ctfassets.net/6c3h1vzo5ct6/5AazcIzZsWHBb7RJpJuDu0/4f9f310f5dcff556cea20f335d3d2810/___________________13133.png',
-    created_at: '2021-10-10',
-    updated_at: '2021-10-14',
+      '//images.ctfassets.net/6c3h1vzo5ct6/4ZgkoZNn9DuUMmO5BiZlEk/b47a061cb70333ee3b04dee8afc39600/Group_14.png',
+    created_at: '2022-02-03',
+    updated_at: '2022-02-03',
     content: [
       {
-        nodeType: 'heading-2',
+        nodeType: 'paragraph',
         content: [
           {
             nodeType: 'text',
-            value: 'はじめに',
+            value:
+              'ユーティリティクラスとは、１つのクラス名が一意のCSSのプロパティと値となるものです。例えば、',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'm-0',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value:
+              'というクラス名には以下のようなCSSが当たっており、このクラス名以外に、このプロパティと値の組み合わせのCSSはありません。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-entry-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '5CNm92PDABeVGAdlmvdErU',
+              type: 'Entry',
+              createdAt: '2022-02-03T15:34:31.559Z',
+              updatedAt: '2022-02-03T15:34:31.559Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              contentType: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'ContentType',
+                  id: 'code',
+                },
+              },
+              locale: 'en-US',
+            },
+            fields: {
+              type: 'css',
+              code: {
+                nodeType: 'document',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'paragraph',
+                    content: [
+                      {
+                        nodeType: 'text',
+                        value: '.m-0 {\n  margin: 0 !important;\n}',
+                        marks: [
+                          {
+                            type: 'code',
+                          },
+                        ],
+                        data: {},
+                      },
+                    ],
+                    data: {},
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '',
             marks: [],
             data: {},
           },
@@ -201,7 +280,7 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              '私は、フロントエンドエンジニアです。普段のアプリケーションの開発時に、',
+              'そして、このユーティリティクラスをベースに設計されたCSSフレームワークで最も波が来ているのが',
             marks: [],
             data: {},
           },
@@ -210,80 +289,28 @@ export const blog = {
             content: [
               {
                 nodeType: 'text',
-                value: 'Visual Studio Code',
+                value: 'tailwind css',
                 marks: [],
                 data: {},
               },
             ],
             data: {
-              uri: 'https://code.visualstudio.com/',
+              uri: 'https://tailwindcss.jp/',
+            },
+            ogp: {
+              'og:url': 'https://tailwindcss.com/',
+              'og:type': 'article',
+              'og:description':
+                'A utility-first CSS framework for rapidly building custom user interfaces.',
+              'og:image':
+                'https://tailwindcss.com/_next/static/media/twitter-large-card.2e0e43628f69eba639f387da72c3e323.png',
+              'og:title':
+                'Tailwind CSS - A Utility-First CSS Framework for Rapidly Building Custom Designs',
             },
           },
           {
             nodeType: 'text',
-            value:
-              '（以降VSCode）という統合開発環境を利用しています。今回は、まず拡張機能についての紹介を行い、次に普段使用しているお勧めの拡張機能を紹介します。最後に、チーム開発でメンバーにお勧めの拡張機能を共有する方法を紹介します。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-2',
-        content: [
-          {
-            nodeType: 'text',
-            value: '拡張機能について',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'VSCodeは拡張機能を用いることで能力を向上させるでき、拡張機能をインストールすることで、ユーザーはより効率的に、自分好みに利用することが可能になります。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-3',
-        content: [
-          {
-            nodeType: 'text',
-            value: '拡張機能の探し方',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: '1. ブラウザでの探し方',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'VSCodeの拡張機能は ',
+            value: 'です。個人的には、',
             marks: [],
             data: {},
           },
@@ -292,19 +319,78 @@ export const blog = {
             content: [
               {
                 nodeType: 'text',
-                value: 'MarketPlace',
+                value: 'ChakraUI',
                 marks: [],
                 data: {},
               },
             ],
             data: {
-              uri: 'https://marketplace.visualstudio.com/VSCode',
+              uri: 'https://chakra-ui.com/',
+            },
+            ogp: {
+              'og:url': 'https://chakra-ui.com',
+              'og:type': 'website',
+              'og:image': 'https://chakra-ui.com/twitter-og-image.png',
+              'og:image:alt':
+                'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+              'og:image:width': '1012',
+              'og:image:height': '506',
+              'og:locale': 'en_US',
+              'og:site_name':
+                'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+              'og:title':
+                'Chakra UI - A simple, modular and accessible component library that gives you the building blocks you need to build your React applications.',
+              'og:description':
+                'Simple, Modular and Accessible UI Components for your React Applications. Built with Styled System',
             },
           },
           {
             nodeType: 'text',
             value:
-              ' というところで管理されており、そこで公開されている拡張機能を見ることができます。',
+              'が好きですが、どうやらGithubのスター数を比較してみたら（2022/2/3）tailwindの方が人気なようです😱',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'blockquote',
+        content: [
+          {
+            nodeType: 'paragraph',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'tailwind: 53.2k',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'paragraph',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'chakra-ui: 23.8k',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'ちなみに、ユーティリティファーストについてtailwindのドキュメントでわかりやすく説明されていたので、より詳細に知りたい方は読んでみてください。',
             marks: [],
             data: {},
           },
@@ -325,25 +411,22 @@ export const blog = {
             content: [
               {
                 nodeType: 'text',
-                value: 'https://marketplace.visualstudio.com/VSCode',
+                value: 'https://tailwindcss.jp/docs/utility-first',
                 marks: [],
                 data: {},
               },
             ],
             data: {
-              uri: 'https://marketplace.visualstudio.com/VSCode',
-              ogp: {
-                'og:title': 'Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url': 'https://marketplace.visualstudio.com/VSCode',
-                'og:image':
-                  'https://cdn.vsassets.io/v/M193_20211008.5/_content/Header/access-marketplace.png',
-                'og:description':
-                  'Extensions for Visual Studio family of products on Visual Studio Marketplace',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-                'twitter:creator': '@VisualStudio',
-              },
+              uri: 'https://tailwindcss.jp/docs/utility-first',
+            },
+            ogp: {
+              'og:url': 'https://tailwindcss.com/docs/utility-first',
+              'og:type': 'article',
+              'og:description':
+                '制約された単純なユーティリティのセットから複雑なコンポーネントを構築します。',
+              'og:image':
+                'https://tailwindcss.com/_next/static/media/twitter-large-card.2e0e43628f69eba639f387da72c3e323.png',
+              'og:title': 'ユーティリティファースト - Tailwind CSS',
             },
           },
           {
@@ -361,302 +444,48 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              '検索機能や、絞り込み機能もあるので自分の欲しい拡張機能を見つけやすくなっています。',
+              '今回は、ユーティリティクラスを簡易に生成する方法をご紹介します。ちょっとしたサイトを使う場合などに利用できます。ちなみに私の場合は、Djangoで作られたサイトのフロントをReact.jsでリプレイスする際に、元々使われていた',
             marks: [],
             data: {},
           },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'embedded-asset-block',
-        content: [],
-        data: {
-          target: {
-            metadata: {
-              tags: [],
+          {
+            nodeType: 'hyperlink',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'django-bootstrap',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {
+              uri: 'https://pypi.org/project/django-bootstrap4/',
             },
-            sys: {
-              space: {
-                sys: {
-                  type: 'Link',
-                  linkType: 'Space',
-                  id: '6c3h1vzo5ct6',
-                },
-              },
-              id: '7hTiBJK4Q5dbsp9nT0QDEE',
-              type: 'Asset',
-              createdAt: '2021-10-10T07:50:25.115Z',
-              updatedAt: '2021-10-10T07:50:25.115Z',
-              environment: {
-                sys: {
-                  id: 'master',
-                  type: 'Link',
-                  linkType: 'Environment',
-                },
-              },
-              revision: 1,
-              locale: 'en-US',
-            },
-            fields: {
-              title: 'marketplace',
-              description: 'マーケットプレイスのトップ画面',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/7hTiBJK4Q5dbsp9nT0QDEE/104947abb2889ae15c1219fd76cd3cc4/___________________13121.png',
-                details: {
-                  size: 225487,
-                  image: {
-                    width: 1447,
-                    height: 1130,
-                  },
-                },
-                fileName: 'グループ 13121.png',
-                contentType: 'image/png',
-              },
+            ogp: {
+              'og:url': 'https://pypi.org/project/django-bootstrap4/',
+              'og:site_name': 'PyPI',
+              'og:type': 'website',
+              'og:image': 'https://pypi.org/static/images/twitter.6fecba6f.jpg',
+              'og:title': 'django-bootstrap4',
+              'og:description': 'Bootstrap 4 for Django',
             },
           },
-        },
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
           {
             nodeType: 'text',
             value:
-              '例えば「JavaScript」と検索すると、以下のようにJavaScript関連の拡張機能が表示されます。表示されている拡張機能は、タグにJavaScriptが設定されています。',
+              'のユーティリティクラスをReactで使いたいが、そのためにライブラリをインストールするのは避けたくてこの手法を取りました。',
             marks: [],
             data: {},
           },
         ],
         data: {},
-      },
-      {
-        nodeType: 'embedded-asset-block',
-        content: [],
-        data: {
-          target: {
-            metadata: {
-              tags: [],
-            },
-            sys: {
-              space: {
-                sys: {
-                  type: 'Link',
-                  linkType: 'Space',
-                  id: '6c3h1vzo5ct6',
-                },
-              },
-              id: '36XF7U3zcd5ppu3tk3EzTX',
-              type: 'Asset',
-              createdAt: '2021-10-10T08:06:07.481Z',
-              updatedAt: '2021-10-10T08:06:07.481Z',
-              environment: {
-                sys: {
-                  id: 'master',
-                  type: 'Link',
-                  linkType: 'Environment',
-                },
-              },
-              revision: 1,
-              locale: 'en-US',
-            },
-            fields: {
-              title: 'MarketPlace検索画面',
-              description: 'MarketPlace検索画面',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/36XF7U3zcd5ppu3tk3EzTX/396023bd87d143c5926ff19890c87151/74a0f338ef9ae947d29415fa8be4a8e3.png',
-                details: {
-                  size: 312083,
-                  image: {
-                    width: 1920,
-                    height: 969,
-                  },
-                },
-                fileName: '74a0f338ef9ae947d29415fa8be4a8e3.png',
-                contentType: 'image/png',
-              },
-            },
-          },
-        },
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: '2. VSCodeでの探し方',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'VSCodeで拡張機能を表示するには、左のタブメニューで写真の赤枠のボタンを選択します。（VSCodeのバージョンによってUIが異なるかもしれないです😭 ）ホバーすると「Extensions」と表示されるので、確認することが可能です。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'embedded-asset-block',
-        content: [],
-        data: {
-          target: {
-            metadata: {
-              tags: [],
-            },
-            sys: {
-              space: {
-                sys: {
-                  type: 'Link',
-                  linkType: 'Space',
-                  id: '6c3h1vzo5ct6',
-                },
-              },
-              id: '5WvZ9sHoYhwEthiM1lxbyG',
-              type: 'Asset',
-              createdAt: '2021-10-10T08:17:44.241Z',
-              updatedAt: '2021-10-10T08:17:44.241Z',
-              environment: {
-                sys: {
-                  id: 'master',
-                  type: 'Link',
-                  linkType: 'Environment',
-                },
-              },
-              revision: 1,
-              locale: 'en-US',
-            },
-            fields: {
-              title: 'VSCodeの拡張機能表示',
-              description: 'VSCodeの拡張機能表示',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/5WvZ9sHoYhwEthiM1lxbyG/9e83dda2a5a7745b3562ff2b753ef2b7/____________________________86.png',
-                details: {
-                  size: 104668,
-                  image: {
-                    width: 792,
-                    height: 571,
-                  },
-                },
-                fileName: 'マスクグループ 86.png',
-                contentType: 'image/png',
-              },
-            },
-          },
-        },
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              '拡張機能を選択すると、パネルが以下のような表示に変わります。\n検索フォーム（①）と、インストール済みの拡張機能一覧、おすすめの拡張機能一覧が表示されます。また、WebブラウザのMarketPlaceと同様に絞り込み機能を利用したい場合は②のアイコンをクリックするとリストが表示されます。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'embedded-asset-block',
-        content: [],
-        data: {
-          target: {
-            metadata: {
-              tags: [],
-            },
-            sys: {
-              space: {
-                sys: {
-                  type: 'Link',
-                  linkType: 'Space',
-                  id: '6c3h1vzo5ct6',
-                },
-              },
-              id: '6ZFUtYlhnRCWr7iSpPhgtN',
-              type: 'Asset',
-              createdAt: '2021-10-10T08:27:13.542Z',
-              updatedAt: '2021-10-10T08:27:13.542Z',
-              environment: {
-                sys: {
-                  id: 'master',
-                  type: 'Link',
-                  linkType: 'Environment',
-                },
-              },
-              revision: 1,
-              locale: 'en-US',
-            },
-            fields: {
-              title: 'VSCode拡張機能パネル',
-              description: 'VSCode拡張機能パネル',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/6ZFUtYlhnRCWr7iSpPhgtN/2924fe58196266759dfad63e2f1f500c/____________________________87.png',
-                details: {
-                  size: 133056,
-                  image: {
-                    width: 792,
-                    height: 571,
-                  },
-                },
-                fileName: 'マスクグループ 87.png',
-                contentType: 'image/png',
-              },
-            },
-          },
-        },
       },
       {
         nodeType: 'heading-2',
         content: [
           {
             nodeType: 'text',
-            value: 'おすすめの拡張機能',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-3',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'UI',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'Simple icons',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
+            value: '準備',
             marks: [],
             data: {},
           },
@@ -669,7 +498,7 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              '様々な拡張子のファイルで、アイコンを表示することができます。ぱっと見るだけで何のファイルかわかるので、かなり便利です。',
+              '今回はbootstrapを用います。まず、以下のリンクからGitHubに移動してください。',
             marks: [],
             data: {},
           },
@@ -690,26 +519,27 @@ export const blog = {
             content: [
               {
                 nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.vscode-simple-icons',
+                value: 'https://github.com/twbs/bootstrap',
                 marks: [],
                 data: {},
               },
             ],
             data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.vscode-simple-icons',
-              ogp: {
-                'og:title': 'Simple icons - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=LaurentTreguier.vscode-simple-icons',
-                'og:image':
-                  'https://laurenttreguier.gallerycdn.vsassets.io/extensions/laurenttreguier/vscode-simple-icons/1.16.0/1630868055242/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - An icon theme that tries to be simple',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
+              uri: 'https://github.com/twbs/bootstrap',
+            },
+            ogp: {
+              'fb:app_id': '1401488693436528',
+              'og:image':
+                'https://repository-images.githubusercontent.com/2126244/2389b780-b3b2-11ea-86b3-b834e22f5194',
+              'og:image:alt':
+                'The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. - GitHub - twbs/bootstrap: The most popular HTML, CSS, and JavaScript framework for...',
+              'og:site_name': 'GitHub',
+              'og:type': 'object',
+              'og:title':
+                'GitHub - twbs/bootstrap: The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.',
+              'og:url': 'https://github.com/twbs/bootstrap',
+              'og:description':
+                'The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. - GitHub - twbs/bootstrap: The most popular HTML, CSS, and JavaScript framework for...',
             },
           },
           {
@@ -722,36 +552,12 @@ export const blog = {
         data: {},
       },
       {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'Better Comments',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
         nodeType: 'paragraph',
         content: [
           {
             nodeType: 'text',
             value:
-              'これまで皆さんコメントアウトをたくさんしてきたかと思いますが、この拡張機能を使うと、コメントアウトの色を変更させ、目立たせることができます。また、スタイルのカスタマイズも可能です。私の場合、TODO（今後、改修や修正を行うところ）のコメントアウトはぱっと見てわかるようにしたかったので、以下のように設定しました。',
+              '次に、ローカルにクローンします。クローンが終わるとbootstrapというフォルダができるので移動します。',
             marks: [],
             data: {},
           },
@@ -759,7 +565,7 @@ export const blog = {
         data: {},
       },
       {
-        nodeType: 'embedded-asset-block',
+        nodeType: 'embedded-entry-block',
         content: [],
         data: {
           target: {
@@ -774,10 +580,10 @@ export const blog = {
                   id: '6c3h1vzo5ct6',
                 },
               },
-              id: '5bSzEcfpjrJmmMnbZ6Y3Ki',
-              type: 'Asset',
-              createdAt: '2021-10-10T08:56:11.475Z',
-              updatedAt: '2021-10-10T08:56:11.475Z',
+              id: '2UtiMc3ZEDPx2MVMgllLm3',
+              type: 'Entry',
+              createdAt: '2022-02-03T15:36:01.534Z',
+              updatedAt: '2022-02-03T15:39:28.541Z',
               environment: {
                 sys: {
                   id: 'master',
@@ -785,23 +591,40 @@ export const blog = {
                   linkType: 'Environment',
                 },
               },
-              revision: 1,
+              revision: 3,
+              contentType: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'ContentType',
+                  id: 'code',
+                },
+              },
               locale: 'en-US',
             },
             fields: {
-              title: 'better Commentsの設定例',
-              description: 'better Commentsの設定例',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/5bSzEcfpjrJmmMnbZ6Y3Ki/95c8a41662a1635b1120cdd1aba9e87c/____________________________2021-10-10_17.55.33.png',
-                details: {
-                  size: 11267,
-                  image: {
-                    width: 180,
-                    height: 96,
+              type: 'bash',
+              code: {
+                nodeType: 'document',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'paragraph',
+                    content: [
+                      {
+                        nodeType: 'text',
+                        value:
+                          "> git clone https://github.com/twbs/bootstrap.git\nCloning into 'bootstrap'...\nremote: Enumerating objects: 175573, done.\nremote: Total 175573 (delta 0), reused 0 (delta 0), pack-reused 175573\nReceiving objects: 100% (175573/175573), 191.36 MiB | 7.43 MiB/s, done.\nResolving deltas: 100% (115262/115262), done.\n\n> cd bootstrap",
+                        marks: [
+                          {
+                            type: 'code',
+                          },
+                        ],
+                        data: {},
+                      },
+                    ],
+                    data: {},
                   },
-                },
-                fileName: 'スクリーンショット 2021-10-10 17.55.33.png',
-                contentType: 'image/png',
+                ],
               },
             },
           },
@@ -812,789 +635,14 @@ export const blog = {
         content: [
           {
             nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments',
-              ogp: {
-                'og:title': 'Better Comments - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments',
-                'og:image':
-                  'https://aaron-bond.gallerycdn.vsassets.io/extensions/aaron-bond/better-comments/2.1.0/1594671781043/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Improve your code commenting by annotating with alert, informational, TODOs, and more!',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'GitHub Theme',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★☆',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
             value:
-              'VSCodeにはデフォルトでいくつかのテーマが用意されていますが、他のテーマを利用することもできます。GitHub Themeはその名の通り、GitHubと同じUIテーマです。個人的な感想ですが、ソースコードの可読性が高いと思います。普段GitHubでソースコード を読んでいて読みやすいと思った人にはおすすめです！2021/10/10現在、４種類のテーマを用意されており、さすがGitHub公式！と言った感じですね😄',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme',
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'Code Spell Checker',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★☆',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'みなさんは、開発をしている最中に英単語のスペルミス、もしくはキャメルケースでパスカル記法で書いている時に大文字にするのを忘れて２つの英単語がひとつづきになっていた、、なんてことはないでしょうか？\nそんな経験がある方は、ぜひこの拡張機能をインストールしてください！',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'embedded-asset-block',
-        content: [],
-        data: {
-          target: {
-            metadata: {
-              tags: [],
-            },
-            sys: {
-              space: {
-                sys: {
-                  type: 'Link',
-                  linkType: 'Space',
-                  id: '6c3h1vzo5ct6',
-                },
-              },
-              id: 'KN02D3kF8l2Wsmz51Q3fx',
-              type: 'Asset',
-              createdAt: '2021-10-10T09:12:44.198Z',
-              updatedAt: '2021-10-10T09:12:44.198Z',
-              environment: {
-                sys: {
-                  id: 'master',
-                  type: 'Link',
-                  linkType: 'Environment',
-                },
-              },
-              revision: 1,
-              locale: 'en-US',
-            },
-            fields: {
-              title: 'code spell checkerの利用方法',
-              description: 'code spell checkerの利用方法',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/KN02D3kF8l2Wsmz51Q3fx/6e9475308b1d18d638299f35cde08ef0/___________________13130.png',
-                details: {
-                  size: 29421,
-                  image: {
-                    width: 862,
-                    height: 301,
-                  },
-                },
-                fileName: 'グループ 13130.png',
-                contentType: 'image/png',
-              },
-            },
-          },
-        },
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker',
-              ogp: {
-                'og:title': 'Code Spell Checker - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker',
-                'og:image':
-                  'https://streetsidesoftware.gallerycdn.vsassets.io/extensions/streetsidesoftware/code-spell-checker/2.0.10/1633785285196/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Spelling checker for source code',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'new-zenkaku',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★☆☆',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              '皆さんは開発中に全角でスペースを押して、エラーになったものの原因の特定に時間がかかった、、と言った苦い経験はないでしょうか？？私は、時々あったので、改善をするためにこの拡張機能をインストールしました。この拡張機能は、全角スペースをハイライトで表示することで、わかりやすくなります。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=FusionDev.new-zenkaku',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=FusionDev.new-zenkaku',
-              ogp: {
-                'og:title': 'new-zenkaku - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=FusionDev.new-zenkaku',
-                'og:image':
-                  'https://fusiondev.gallerycdn.vsassets.io/extensions/fusiondev/new-zenkaku/0.0.3/1620571164513/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - show double-byte-whiteSpace',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-3',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'Lint',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'Prettier',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'コードのフォマットを行うことができます。様々なプログラミング言語に対応しており、`.prettierrc`という設定ファイルに基づきコードを整形できます。必須の拡張機能です',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode',
-              ogp: {
-                'og:title':
-                  'Prettier - Code formatter - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode',
-                'og:image':
-                  'https://esbenp.gallerycdn.vsassets.io/extensions/esbenp/prettier-vscode/9.0.0/1632149351877/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Code formatter using prettier',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'ESLint',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'コードのフォーマットや構文チェックを行うことができます。`.eslintrc`という設定ファイルに基づき、実行されます。プロジェクトによってはPrettierと併用することもあります。個人的には、併用がおすすめです。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint',
-              ogp: {
-                'og:title': 'ESLint - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint',
-                'og:image':
-                  'https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/2.2.1/1633523279359/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Integrates ESLint JavaScript into VS Code.',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'stylelint',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★☆☆',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'CSS、SCSS、Lessなどのスタイルの構文解析を行うことができます。CSSに使い慣れていない初期の頃はかなり重宝するかと思います。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint',
-              ogp: {
-                'og:title': 'stylelint - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint',
-                'og:image':
-                  'https://stylelint.gallerycdn.vsassets.io/extensions/stylelint/vscode-stylelint/0.87.6/1633379894986/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Modern CSS/SCSS/Less linter',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-3',
-        content: [
-          {
-            nodeType: 'text',
-            value: '開発',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'Auto Rename Tag',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'HTMLを書いている際にタグを変更したい場合、先頭のタグの名前を変更するだけで閉じるタグの名前も自動で変更させることができます。一つずつの作業はそこまで時間のかかる作業ではないですが、地味にストレスな作業なのでフロントエンドを触る方は入れておいて損はないかと思います。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag',
-              ogp: {
-                'og:title': 'Auto Rename Tag - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag',
-                'og:image':
-                  'https://formulahendry.gallerycdn.vsassets.io/extensions/formulahendry/auto-rename-tag/0.1.9/1634044270873/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Auto rename paired HTML/XML tag',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'CSS Peek',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★☆☆',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'HTMLで書いたクラス名から、実際のCSS定義をしているところにジャンプすることができたり、ホバーでCSSを見ることができたりします。かなり便利ですが、HTMLもしくはejsでしかできないため、それ以外のタイプの場合動作しません😭',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek',
-              ogp: {
-                'og:title': 'CSS Peek - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek',
-                'og:image':
-                  'https://pranaygp.gallerycdn.vsassets.io/extensions/pranaygp/vscode-css-peek/4.2.0/1620151231705/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Allow peeking to css ID and class strings as definitions from html files to respective CSS. Allows peek and goto definition.',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'htmltagwrap',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              '選択中の文字列に対してHTMLタグで囲むことができます。例えば、デザインから文字をペーストして、それに対して後からタグを挿入したり、複数の要素を`div`タグで囲みたい場合などに使用することができます。これは',
+              '次に、scssフォルダの中のscssファイルをcssにコンパイルします。',
             marks: [],
             data: {},
           },
           {
             nodeType: 'text',
-            value: 'フロントエンド開発をしている方にかなりお勧めします！',
+            value: '以降の手順はVSCodeを利用します。',
             marks: [
               {
                 type: 'bold',
@@ -1606,68 +654,11 @@ export const blog = {
         data: {},
       },
       {
-        nodeType: 'paragraph',
+        nodeType: 'heading-2',
         content: [
           {
             nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap',
-              ogp: {
-                'og:title': 'htmltagwrap - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap',
-                'og:image':
-                  'https://bradgashler.gallerycdn.vsassets.io/extensions/bradgashler/htmltagwrap/0.0.7/1513928914744/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Wraps selected code with HTML tags',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'Path Intellisense',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
+            value: 'VSCodeの拡張機能のインストール',
             marks: [],
             data: {},
           },
@@ -1680,7 +671,7 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              'パスの補完をしてくれます。フレームワークを利用していたり、ディレクトリが複雑になったり、ファイル数が多くなったりした場合に重宝します。入れておいて損はないです。',
+              'cssに変換するために、VSCodeでLive Sass Compilerという拡張機能をインストールします。',
             marks: [],
             data: {},
           },
@@ -1688,82 +679,80 @@ export const blog = {
         data: {},
       },
       {
-        nodeType: 'paragraph',
+        nodeType: 'blockquote',
         content: [
           {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
+            nodeType: 'paragraph',
             content: [
               {
                 nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense',
+                value: 'Name: Live Sass Compiler',
                 marks: [],
                 data: {},
               },
             ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense',
-              ogp: {
-                'og:title': 'Path Intellisense - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense',
-                'og:image':
-                  'https://christian-kohler.gallerycdn.vsassets.io/extensions/christian-kohler/path-intellisense/2.4.0/1626705836544/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Visual Studio Code plugin that autocompletes filenames',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
+            data: {},
+          },
+          {
+            nodeType: 'paragraph',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'Id: ritwickdey.live-sass',
+                marks: [],
+                data: {},
               },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
+            ],
             data: {},
           },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
           {
-            nodeType: 'text',
-            value: 'Live Server',
-            marks: [],
+            nodeType: 'paragraph',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'Description: Compile Sass or Scss to CSS at realtime with live browser reload.',
+                marks: [],
+                data: {},
+              },
+            ],
             data: {},
           },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
           {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★★',
-            marks: [],
+            nodeType: 'paragraph',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'Version: 3.0.0',
+                marks: [],
+                data: {},
+              },
+            ],
             data: {},
           },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
           {
-            nodeType: 'text',
-            value:
-              'ワンクリックでローカルサーバーを起動することができます。HTMLをちょっと見たい時、作成したいときに便利です。',
-            marks: [],
+            nodeType: 'paragraph',
+            content: [
+              {
+                nodeType: 'text',
+                value: 'Publisher: Ritwick Dey',
+                marks: [],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'paragraph',
+            content: [
+              {
+                nodeType: 'text',
+                value:
+                  'VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass',
+                marks: [],
+                data: {},
+              },
+            ],
             data: {},
           },
         ],
@@ -1784,25 +773,25 @@ export const blog = {
               {
                 nodeType: 'text',
                 value:
-                  'https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer',
+                  'https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass',
                 marks: [],
                 data: {},
               },
             ],
             data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer',
-              ogp: {
-                'og:title': 'Live Server - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer',
-                'og:image':
-                  'https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.6.1/1555497731217/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Launch a development local Server with live reload feature for static & dynamic pages',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
+              uri: 'https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass',
+            },
+            ogp: {
+              'og:title': 'Live Sass Compiler - Visual Studio Marketplace',
+              'og:type': 'website',
+              'og:url':
+                'https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass',
+              'og:image':
+                'https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/live-sass/3.0.0/1531332580258/Microsoft.VisualStudio.Services.Icons.Default',
+              'og:description':
+                'Extension for Visual Studio Code - Compile Sass or Scss to CSS at realtime with live browser reload.',
+              'twitter:card': 'summary',
+              'twitter:site': '@Code',
             },
           },
           {
@@ -1815,11 +804,24 @@ export const blog = {
         data: {},
       },
       {
-        nodeType: 'heading-4',
+        nodeType: 'paragraph',
         content: [
           {
             nodeType: 'text',
-            value: 'REST Client',
+            value:
+              '拡張機能のインストール後、VSCodeの右下に「Watch Sass」というボタンが表示されるようになったと思います。次に、コンパイルする前に設定を行います。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: '拡張機能Live Sass Compilerの設定',
             marks: [],
             data: {},
           },
@@ -1831,12 +833,61 @@ export const blog = {
         content: [
           {
             nodeType: 'text',
-            value: 'おすすめ度：★★★☆☆',
+            value: '拡張機能のページから、設定画面を開きます。',
             marks: [],
             data: {},
           },
         ],
         data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '2GsFyNy1eb3XFH2LmoLnbD',
+              type: 'Asset',
+              createdAt: '2022-02-03T15:58:48.438Z',
+              updatedAt: '2022-02-03T15:58:48.438Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'generate-utility-css-compiler',
+              description: '',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/2GsFyNy1eb3XFH2LmoLnbD/09f78f536ebadabaef327e8579e8f57e/Group_6.png',
+                details: {
+                  size: 462549,
+                  image: {
+                    width: 1792,
+                    height: 1120,
+                  },
+                },
+                fileName: 'Group 6.png',
+                contentType: 'image/png',
+              },
+            },
+          },
+        },
       },
       {
         nodeType: 'paragraph',
@@ -1844,7 +895,148 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              'VSCodeでhttpリクエストを送れるようになります。代替手段として、ターミナルやPostmanなどのツールを既に利用していて慣れている方もいらっしゃるかと思うので、必須の拡張機能ではないですが、VSCodeでhttpファイルを開いていてその場で実行できたりするので、地味に便利です。',
+              'Settingsが開いた後、「Live Sass Compile › Settings: Formats」の設定を確認します。そして、歯車アイコンからメニューを開き、「Copy Setting as JSON」をクリックし、設定情報をコピーします。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-asset-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '3tlMfAA9tbHug741KOMVPR',
+              type: 'Asset',
+              createdAt: '2022-02-03T16:05:12.022Z',
+              updatedAt: '2022-02-03T16:05:12.022Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'generate-utility-css-copy-setting',
+              description: '',
+              file: {
+                url: '//images.ctfassets.net/6c3h1vzo5ct6/3tlMfAA9tbHug741KOMVPR/927298ef98a57895a09a18324d83a960/Group_7.png',
+                details: {
+                  size: 158507,
+                  image: {
+                    width: 1792,
+                    height: 803,
+                  },
+                },
+                fileName: 'Group 7.png',
+                contentType: 'image/png',
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'コピー後、「Edit in settings.json」をクリックし、settings.jsonを開きます。ここで、先ほどコピーしたJSONを貼り付けます。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-entry-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '70ferBfK7WM860jNz0elqm',
+              type: 'Entry',
+              createdAt: '2022-02-03T16:08:50.743Z',
+              updatedAt: '2022-02-03T16:11:40.221Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 2,
+              contentType: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'ContentType',
+                  id: 'code',
+                },
+              },
+              locale: 'en-US',
+            },
+            fields: {
+              type: 'json',
+              code: {
+                nodeType: 'document',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'paragraph',
+                    content: [
+                      {
+                        nodeType: 'text',
+                        value:
+                          '"liveSassCompile.settings.formats": [\n  {\n    "format": "expanded",\n    "extensionName": ".css",\n    "savePath": null\n  }\n]',
+                        marks: [
+                          {
+                            type: 'code',
+                          },
+                        ],
+                        data: {},
+                      },
+                    ],
+                    data: {},
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'ここで、今回のやりたいことのために、デフォルトの設定を変更していきます。',
             marks: [],
             data: {},
           },
@@ -1856,83 +1048,212 @@ export const blog = {
         content: [
           {
             nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
+            value: 'savePath',
+            marks: [
               {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=humao.rest-client',
-                marks: [],
-                data: {},
+                type: 'code',
               },
             ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=humao.rest-client',
-              ogp: {
-                'og:title': 'REST Client - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=humao.rest-client',
-                'og:image':
-                  'https://humao.gallerycdn.vsassets.io/extensions/humao/rest-client/0.24.5/1617725796156/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - REST Client for Visual Studio Code',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'の値がデフォルトでは',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'null',
+            marks: [
+              {
+                type: 'code',
               },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
+            ],
             data: {},
           },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-4',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'GitLens',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'おすすめ度：★★★★☆',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
           {
             nodeType: 'text',
             value:
-              'Gitを使ってチーム開発をしている場合、ぜひインストールしていただきたいです。\n`git blame`というコマンドがあり、特定の行をいつ、誰が変更したかを調べることができるのですが、この拡張機能はその機能をUIで表示することができます。表示方法も以下の通り様々あります。',
+              'となっていますが、この値を任意のフォルダ名に変更します。デフォルトのnull値では、コンパイル対象のscssファイルと同じ階層にcssファイルが生成されますが、フォルダ名を指定しておくと、そのフォルダの中にcssファイルが生成されます。もしフォルダがなければ自動生成されるのが地味に便利😆',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '今回は',
             marks: [],
             data: {},
           },
           {
             nodeType: 'text',
-            value: '誰がどのコミットで修正したかを簡単に遡ることができる',
+            value: 'savePath',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'の値を',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: '/css',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'とします。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'また、',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'format',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'の値がデフォルトでは',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'expanded',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'となっていますが、こちらは',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'compressed',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'を設定することができます。設定による違いは以下の通りです。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'embedded-entry-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '1wHBiVw2hz8l0eOZi8JVmH',
+              type: 'Entry',
+              createdAt: '2022-02-03T16:20:24.186Z',
+              updatedAt: '2022-02-03T16:20:24.186Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              contentType: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'ContentType',
+                  id: 'code',
+                },
+              },
+              locale: 'en-US',
+            },
+            fields: {
+              type: 'css',
+              code: {
+                nodeType: 'document',
+                data: {},
+                content: [
+                  {
+                    nodeType: 'paragraph',
+                    content: [
+                      {
+                        nodeType: 'text',
+                        value:
+                          '/* expanded */\n*,\n*::before,\n*::after {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n/* compressed */\n*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}@media (prefers-reduced-motion: no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);',
+                        marks: [],
+                        data: {},
+                      },
+                    ],
+                    data: {},
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'ファイルサイズを削減し、視認性が下がっても問題ない場合',
             marks: [
               {
                 type: 'bold',
@@ -1942,7 +1263,101 @@ export const blog = {
           },
           {
             nodeType: 'text',
-            value: 'のでチーム開発で役立つこと間違いなしです😄',
+            value: 'は',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'compressed',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: '、そうでない場合は',
+            marks: [],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'expanded',
+            marks: [
+              {
+                type: 'code',
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'text',
+            value: 'という使い分けで大丈夫かと思います✋',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '設定は以上です！',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'scssファイルをコンパイル',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              '最後に、scssファイルをコンパイルします。「Watch Sass」ボタンをクリックしてください。「Working on it...」となり、コンパイルが開始します。「Watching...」となると、コンパイルが完了しており、先ほどsavePathで設定したパスにcssファイルが生成されていることを確認します。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value:
+              'ちなみに、「Watching...」は変更の監視をしている状態で、scssファイルを変更したら変更を検知しコンパイルを実行します。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'paragraph',
+        content: [
+          {
+            nodeType: 'text',
+            value: '生成されたcssファイルは以下の通りです。',
             marks: [],
             data: {},
           },
@@ -1960,7 +1375,7 @@ export const blog = {
                 content: [
                   {
                     nodeType: 'text',
-                    value: '現在アクティブな行でインライン表示',
+                    value: 'bootstrap-grid.css',
                     marks: [],
                     data: {},
                   },
@@ -1978,7 +1393,7 @@ export const blog = {
                 content: [
                   {
                     nodeType: 'text',
-                    value: '現在アクティブな行でホバーした際にカードで表示',
+                    value: 'bootstrap-reboot.css',
                     marks: [],
                     data: {},
                   },
@@ -1996,7 +1411,43 @@ export const blog = {
                 content: [
                   {
                     nodeType: 'text',
-                    value: 'VSCodeの下のステータスバーに表示',
+                    value: 'bootstrap-utilities.css',
+                    marks: [],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'list-item',
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value: 'bootstrap.css',
+                    marks: [],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+            data: {},
+          },
+          {
+            nodeType: 'list-item',
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value: 'docs.css',
                     marks: [],
                     data: {},
                   },
@@ -2010,128 +1461,7 @@ export const blog = {
         data: {},
       },
       {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-          {
-            nodeType: 'hyperlink',
-            content: [
-              {
-                nodeType: 'text',
-                value:
-                  'https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens',
-                marks: [],
-                data: {},
-              },
-            ],
-            data: {
-              uri: 'https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens',
-              ogp: {
-                'og:title':
-                  'GitLens — Git supercharged - Visual Studio Marketplace',
-                'og:type': 'website',
-                'og:url':
-                  'https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens',
-                'og:image':
-                  'https://eamodio.gallerycdn.vsassets.io/extensions/eamodio/gitlens/11.6.1/1633703096990/Microsoft.VisualStudio.Services.Icons.Default',
-                'og:description':
-                  'Extension for Visual Studio Code - Supercharge the Git capabilities built into Visual Studio Code — Visualize code authorship at a glance via Git blame annotations and code lens, seamlessly navigate and explore Git repositories, gain valuable insights via powerful comparison commands, and so much more',
-                'twitter:card': 'summary',
-                'twitter:site': '@Code',
-              },
-            },
-          },
-          {
-            nodeType: 'text',
-            value: '',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-2',
-        content: [
-          {
-            nodeType: 'text',
-            value: 'チーム開発でメンバーにお勧めの拡張機能を共有する方法',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'チーム開発をする際、メンバーがVSCodeを利用していたとしても、同じ拡張機能をインストールしているとは限りません。ただ、プロジェクトによってはインストールして欲しい拡張機能があるかもしれません。その場合に、プロジェクトごとに、お勧めの拡張機能を表示させることができます。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-3',
-        content: [
-          {
-            nodeType: 'text',
-            value: '手順１：お勧めの拡張機能を定義するファイルを作成',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              'プロジェクトの直下の`.vscode`フォルダに（なければ作成）`extensions.json`ファイルをファイルを作成してください。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-3',
-        content: [
-          {
-            nodeType: 'text',
-            value: '手順２：お勧めしたい拡張機能を選択',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'paragraph',
-        content: [
-          {
-            nodeType: 'text',
-            value:
-              '拡張機能のパネルを表示し、お勧めしたい拡張機能を選択します。\n拡張機能の詳細ページにある歯車をクリックし、メニューの中から「Add to Workspace Recommendations」をクリックしてください。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'embedded-asset-block',
+        nodeType: 'embedded-entry-block',
         content: [],
         data: {
           target: {
@@ -2146,10 +1476,10 @@ export const blog = {
                   id: '6c3h1vzo5ct6',
                 },
               },
-              id: '4nEJcIlIrJUaXr1nKTy5Hh',
-              type: 'Asset',
-              createdAt: '2021-10-10T10:30:26.420Z',
-              updatedAt: '2021-10-10T10:30:26.420Z',
+              id: '1ETR5i6wPOiut3b2IyLGsK',
+              type: 'Entry',
+              createdAt: '2022-02-03T16:30:54.442Z',
+              updatedAt: '2022-02-03T16:30:54.442Z',
               environment: {
                 sys: {
                   id: 'master',
@@ -2158,23 +1488,19 @@ export const blog = {
                 },
               },
               revision: 1,
+              contentType: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'ContentType',
+                  id: 'caution-card',
+                },
+              },
               locale: 'en-US',
             },
             fields: {
-              title: '拡張機能のレコメンド手順',
-              description: '拡張機能のレコメンド手順',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/4nEJcIlIrJUaXr1nKTy5Hh/0d1e05f667e5c2685a0f587283a092f3/___________________13131.png',
-                details: {
-                  size: 1063798,
-                  image: {
-                    width: 3042,
-                    height: 1706,
-                  },
-                },
-                fileName: 'グループ 13131.png',
-                contentType: 'image/png',
-              },
+              description:
+                'cssファイルとは別にcss.mapというソースマップが生成されますが、今回は無視します',
+              type: 'info',
             },
           },
         },
@@ -2185,7 +1511,19 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              '`extensions.json`を見ると、以下のようになっているかと思います。',
+              'あとは、このcssを利用したいプロジェクトにコピーをすれば終了です。',
+            marks: [],
+            data: {},
+          },
+        ],
+        data: {},
+      },
+      {
+        nodeType: 'heading-2',
+        content: [
+          {
+            nodeType: 'text',
+            value: 'おまけ：Gist公開してます',
             marks: [],
             data: {},
           },
@@ -2198,12 +1536,8 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              '{    \n    "recommendations": [\n        "ms-azuretools.vscode-docker"\n    ]\n}',
-            marks: [
-              {
-                type: 'code',
-              },
-            ],
+              '今回生成したユーティリティクラスのファイルをGistで公開しています。',
+            marks: [],
             data: {},
           },
         ],
@@ -2214,20 +1548,7 @@ export const blog = {
         content: [
           {
             nodeType: 'text',
-            value:
-              '先ほどの拡張機能のIDが追加されていることがわかります。ちなみに、`extensions.json`がない状態でもファイルを自動で作成してくれるので、ステップ１の手順は必須ではないです。',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
-      },
-      {
-        nodeType: 'heading-3',
-        content: [
-          {
-            nodeType: 'text',
-            value: '手順３：お勧めの拡張機能を表示する',
+            value: 'リンク切れてます（すみません、、）',
             marks: [],
             data: {},
           },
@@ -2240,7 +1561,7 @@ export const blog = {
           {
             nodeType: 'text',
             value:
-              'お勧めの拡張機能に設定したものを表示するには、拡張機能のパネルの検索フォームに`@recommended`と入力してください。もしくは、絞り込みボタンをクリックして、「Recommended」を選択してださい。以下のように、`extensions.json`に定義済みの拡張機能が表示されます。',
+              'https://gist.github.com/RyoTa0222/56c8d009fe6dd51d0de6a99fce11956d',
             marks: [],
             data: {},
           },
@@ -2248,7 +1569,7 @@ export const blog = {
         data: {},
       },
       {
-        nodeType: 'embedded-asset-block',
+        nodeType: 'embedded-entry-block',
         content: [],
         data: {
           target: {
@@ -2263,10 +1584,10 @@ export const blog = {
                   id: '6c3h1vzo5ct6',
                 },
               },
-              id: '28niGHEMxJL4KdHyE5VUFy',
-              type: 'Asset',
-              createdAt: '2021-10-10T10:40:31.062Z',
-              updatedAt: '2021-10-10T10:40:31.062Z',
+              id: '39ZW4U2N4zDh3lopwpvLyk',
+              type: 'Entry',
+              createdAt: '2022-02-03T16:39:08.402Z',
+              updatedAt: '2022-02-03T16:39:08.402Z',
               environment: {
                 sys: {
                   id: 'master',
@@ -2275,46 +1596,30 @@ export const blog = {
                 },
               },
               revision: 1,
+              contentType: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'ContentType',
+                  id: 'embedded',
+                },
+              },
               locale: 'en-US',
             },
             fields: {
-              title: 'お勧めの拡張機能を表示',
-              description: 'お勧めの拡張機能を表示',
-              file: {
-                url: '//images.ctfassets.net/6c3h1vzo5ct6/28niGHEMxJL4KdHyE5VUFy/43e18f56ce790c7c44b00b4a0153361a/____________________________2021-10-10_19.39.34.png',
-                details: {
-                  size: 53405,
-                  image: {
-                    width: 794,
-                    height: 284,
-                  },
-                },
-                fileName: 'スクリーンショット 2021-10-10 19.39.34.png',
-                contentType: 'image/png',
-              },
+              title: 'bootstrap-grid.css',
+              embeddedUrl:
+                'https://gist.github.com/RyoTa0222/56c8d009fe6dd51d0de6a99fce11956d',
+              type: 'gist',
             },
           },
         },
-      },
-      {
-        nodeType: 'heading-2',
-        content: [
-          {
-            nodeType: 'text',
-            value: '最後に',
-            marks: [],
-            data: {},
-          },
-        ],
-        data: {},
       },
       {
         nodeType: 'paragraph',
         content: [
           {
             nodeType: 'text',
-            value:
-              'ここに載っていない便利な拡張機能があれば教えていただきたいです！\nまた、拡張機能に関するVSCodeの便利機能なども教えてほしいです！',
+            value: '',
             marks: [],
             data: {},
           },
@@ -2335,10 +1640,324 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '36RmSxxSTFntOEC3dkXJj',
+          id: '1ETR5i6wPOiut3b2IyLGsK',
           type: 'Entry',
-          createdAt: '2021-01-04T11:16:32.925Z',
-          updatedAt: '2021-10-10T07:11:07.047Z',
+          createdAt: '2022-02-03T16:30:54.442Z',
+          updatedAt: '2022-02-03T16:30:54.442Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          contentType: {
+            sys: {
+              type: 'Link',
+              linkType: 'ContentType',
+              id: 'caution-card',
+            },
+          },
+          locale: 'en-US',
+        },
+        fields: {
+          description:
+            'cssファイルとは別にcss.mapというソースマップが生成されますが、今回は無視します',
+          type: 'info',
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '1wHBiVw2hz8l0eOZi8JVmH',
+          type: 'Entry',
+          createdAt: '2022-02-03T16:20:24.186Z',
+          updatedAt: '2022-02-03T16:20:24.186Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          contentType: {
+            sys: {
+              type: 'Link',
+              linkType: 'ContentType',
+              id: 'code',
+            },
+          },
+          locale: 'en-US',
+        },
+        fields: {
+          type: 'css',
+          code: {
+            nodeType: 'document',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value:
+                      '/* expanded */\n*,\n*::before,\n*::after {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n/* compressed */\n*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}@media (prefers-reduced-motion: no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);',
+                    marks: [],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '2UtiMc3ZEDPx2MVMgllLm3',
+          type: 'Entry',
+          createdAt: '2022-02-03T15:36:01.534Z',
+          updatedAt: '2022-02-03T15:39:28.541Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 3,
+          contentType: {
+            sys: {
+              type: 'Link',
+              linkType: 'ContentType',
+              id: 'code',
+            },
+          },
+          locale: 'en-US',
+        },
+        fields: {
+          type: 'bash',
+          code: {
+            nodeType: 'document',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value:
+                      "> git clone https://github.com/twbs/bootstrap.git\nCloning into 'bootstrap'...\nremote: Enumerating objects: 175573, done.\nremote: Total 175573 (delta 0), reused 0 (delta 0), pack-reused 175573\nReceiving objects: 100% (175573/175573), 191.36 MiB | 7.43 MiB/s, done.\nResolving deltas: 100% (115262/115262), done.\n\n> cd bootstrap",
+                    marks: [
+                      {
+                        type: 'code',
+                      },
+                    ],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '39ZW4U2N4zDh3lopwpvLyk',
+          type: 'Entry',
+          createdAt: '2022-02-03T16:39:08.402Z',
+          updatedAt: '2022-02-03T16:39:08.402Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          contentType: {
+            sys: {
+              type: 'Link',
+              linkType: 'ContentType',
+              id: 'embedded',
+            },
+          },
+          locale: 'en-US',
+        },
+        fields: {
+          title: 'bootstrap-grid.css',
+          embeddedUrl:
+            'https://gist.github.com/RyoTa0222/56c8d009fe6dd51d0de6a99fce11956d',
+          type: 'gist',
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '5CNm92PDABeVGAdlmvdErU',
+          type: 'Entry',
+          createdAt: '2022-02-03T15:34:31.559Z',
+          updatedAt: '2022-02-03T15:34:31.559Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 1,
+          contentType: {
+            sys: {
+              type: 'Link',
+              linkType: 'ContentType',
+              id: 'code',
+            },
+          },
+          locale: 'en-US',
+        },
+        fields: {
+          type: 'css',
+          code: {
+            nodeType: 'document',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value: '.m-0 {\n  margin: 0 !important;\n}',
+                    marks: [
+                      {
+                        type: 'code',
+                      },
+                    ],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '70ferBfK7WM860jNz0elqm',
+          type: 'Entry',
+          createdAt: '2022-02-03T16:08:50.743Z',
+          updatedAt: '2022-02-03T16:11:40.221Z',
+          environment: {
+            sys: {
+              id: 'master',
+              type: 'Link',
+              linkType: 'Environment',
+            },
+          },
+          revision: 2,
+          contentType: {
+            sys: {
+              type: 'Link',
+              linkType: 'ContentType',
+              id: 'code',
+            },
+          },
+          locale: 'en-US',
+        },
+        fields: {
+          type: 'json',
+          code: {
+            nodeType: 'document',
+            data: {},
+            content: [
+              {
+                nodeType: 'paragraph',
+                content: [
+                  {
+                    nodeType: 'text',
+                    value:
+                      '"liveSassCompile.settings.formats": [\n  {\n    "format": "expanded",\n    "extensionName": ".css",\n    "savePath": null\n  }\n]',
+                    marks: [
+                      {
+                        type: 'code',
+                      },
+                    ],
+                    data: {},
+                  },
+                ],
+                data: {},
+              },
+            ],
+          },
+        },
+      },
+      {
+        metadata: {
+          tags: [],
+        },
+        sys: {
+          space: {
+            sys: {
+              type: 'Link',
+              linkType: 'Space',
+              id: '6c3h1vzo5ct6',
+            },
+          },
+          id: '7IbO2pMYCPfsOp12HmO8vf',
+          type: 'Entry',
+          createdAt: '2021-01-03T16:13:23.385Z',
+          updatedAt: '2021-01-12T16:30:20.915Z',
           environment: {
             sys: {
               id: 'master',
@@ -2357,10 +1976,10 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          categoryName: '開発',
-          categoryId: 'develop',
-          color: '#76a2f9',
-          priority: 30,
+          categoryName: 'フロントエンド',
+          categoryId: 'frontend',
+          color: '#ff6469',
+          priority: 1,
         },
       },
     ],
@@ -2377,10 +1996,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '28niGHEMxJL4KdHyE5VUFy',
+          id: '2GsFyNy1eb3XFH2LmoLnbD',
           type: 'Asset',
-          createdAt: '2021-10-10T10:40:31.062Z',
-          updatedAt: '2021-10-10T10:40:31.062Z',
+          createdAt: '2022-02-03T15:58:48.438Z',
+          updatedAt: '2022-02-03T15:58:48.438Z',
           environment: {
             sys: {
               id: 'master',
@@ -2392,18 +2011,18 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          title: 'お勧めの拡張機能を表示',
-          description: 'お勧めの拡張機能を表示',
+          title: 'generate-utility-css-compiler',
+          description: '',
           file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/28niGHEMxJL4KdHyE5VUFy/43e18f56ce790c7c44b00b4a0153361a/____________________________2021-10-10_19.39.34.png',
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/2GsFyNy1eb3XFH2LmoLnbD/09f78f536ebadabaef327e8579e8f57e/Group_6.png',
             details: {
-              size: 53405,
+              size: 462549,
               image: {
-                width: 794,
-                height: 284,
+                width: 1792,
+                height: 1120,
               },
             },
-            fileName: 'スクリーンショット 2021-10-10 19.39.34.png',
+            fileName: 'Group 6.png',
             contentType: 'image/png',
           },
         },
@@ -2420,10 +2039,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '36XF7U3zcd5ppu3tk3EzTX',
+          id: '3tlMfAA9tbHug741KOMVPR',
           type: 'Asset',
-          createdAt: '2021-10-10T08:06:07.481Z',
-          updatedAt: '2021-10-10T08:06:07.481Z',
+          createdAt: '2022-02-03T16:05:12.022Z',
+          updatedAt: '2022-02-03T16:05:12.022Z',
           environment: {
             sys: {
               id: 'master',
@@ -2435,18 +2054,18 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          title: 'MarketPlace検索画面',
-          description: 'MarketPlace検索画面',
+          title: 'generate-utility-css-copy-setting',
+          description: '',
           file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/36XF7U3zcd5ppu3tk3EzTX/396023bd87d143c5926ff19890c87151/74a0f338ef9ae947d29415fa8be4a8e3.png',
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/3tlMfAA9tbHug741KOMVPR/927298ef98a57895a09a18324d83a960/Group_7.png',
             details: {
-              size: 312083,
+              size: 158507,
               image: {
-                width: 1920,
-                height: 969,
+                width: 1792,
+                height: 803,
               },
             },
-            fileName: '74a0f338ef9ae947d29415fa8be4a8e3.png',
+            fileName: 'Group 7.png',
             contentType: 'image/png',
           },
         },
@@ -2463,10 +2082,10 @@ export const blog = {
               id: '6c3h1vzo5ct6',
             },
           },
-          id: '4nEJcIlIrJUaXr1nKTy5Hh',
+          id: '4ZgkoZNn9DuUMmO5BiZlEk',
           type: 'Asset',
-          createdAt: '2021-10-10T10:30:26.420Z',
-          updatedAt: '2021-10-10T10:30:26.420Z',
+          createdAt: '2022-02-03T16:48:35.019Z',
+          updatedAt: '2022-02-03T16:48:35.019Z',
           environment: {
             sys: {
               id: 'master',
@@ -2478,276 +2097,18 @@ export const blog = {
           locale: 'en-US',
         },
         fields: {
-          title: '拡張機能のレコメンド手順',
-          description: '拡張機能のレコメンド手順',
+          title: 'utiltyclassを生成する',
+          description: '',
           file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/4nEJcIlIrJUaXr1nKTy5Hh/0d1e05f667e5c2685a0f587283a092f3/___________________13131.png',
+            url: '//images.ctfassets.net/6c3h1vzo5ct6/4ZgkoZNn9DuUMmO5BiZlEk/b47a061cb70333ee3b04dee8afc39600/Group_14.png',
             details: {
-              size: 1063798,
+              size: 31980,
               image: {
-                width: 3042,
-                height: 1706,
+                width: 908,
+                height: 509,
               },
             },
-            fileName: 'グループ 13131.png',
-            contentType: 'image/png',
-          },
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: '5AazcIzZsWHBb7RJpJuDu0',
-          type: 'Asset',
-          createdAt: '2021-10-10T10:58:04.085Z',
-          updatedAt: '2021-10-10T10:58:04.085Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 1,
-          locale: 'en-US',
-        },
-        fields: {
-          title: 'VSCodeのお勧め拡張機能',
-          description: 'VSCodeのお勧め拡張機能',
-          file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/5AazcIzZsWHBb7RJpJuDu0/4f9f310f5dcff556cea20f335d3d2810/___________________13133.png',
-            details: {
-              size: 181914,
-              image: {
-                width: 1258,
-                height: 705,
-              },
-            },
-            fileName: 'グループ 13133.png',
-            contentType: 'image/png',
-          },
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: '5WvZ9sHoYhwEthiM1lxbyG',
-          type: 'Asset',
-          createdAt: '2021-10-10T08:17:44.241Z',
-          updatedAt: '2021-10-10T08:17:44.241Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 1,
-          locale: 'en-US',
-        },
-        fields: {
-          title: 'VSCodeの拡張機能表示',
-          description: 'VSCodeの拡張機能表示',
-          file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/5WvZ9sHoYhwEthiM1lxbyG/9e83dda2a5a7745b3562ff2b753ef2b7/____________________________86.png',
-            details: {
-              size: 104668,
-              image: {
-                width: 792,
-                height: 571,
-              },
-            },
-            fileName: 'マスクグループ 86.png',
-            contentType: 'image/png',
-          },
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: '5bSzEcfpjrJmmMnbZ6Y3Ki',
-          type: 'Asset',
-          createdAt: '2021-10-10T08:56:11.475Z',
-          updatedAt: '2021-10-10T08:56:11.475Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 1,
-          locale: 'en-US',
-        },
-        fields: {
-          title: 'better Commentsの設定例',
-          description: 'better Commentsの設定例',
-          file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/5bSzEcfpjrJmmMnbZ6Y3Ki/95c8a41662a1635b1120cdd1aba9e87c/____________________________2021-10-10_17.55.33.png',
-            details: {
-              size: 11267,
-              image: {
-                width: 180,
-                height: 96,
-              },
-            },
-            fileName: 'スクリーンショット 2021-10-10 17.55.33.png',
-            contentType: 'image/png',
-          },
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: '6ZFUtYlhnRCWr7iSpPhgtN',
-          type: 'Asset',
-          createdAt: '2021-10-10T08:27:13.542Z',
-          updatedAt: '2021-10-10T08:27:13.542Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 1,
-          locale: 'en-US',
-        },
-        fields: {
-          title: 'VSCode拡張機能パネル',
-          description: 'VSCode拡張機能パネル',
-          file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/6ZFUtYlhnRCWr7iSpPhgtN/2924fe58196266759dfad63e2f1f500c/____________________________87.png',
-            details: {
-              size: 133056,
-              image: {
-                width: 792,
-                height: 571,
-              },
-            },
-            fileName: 'マスクグループ 87.png',
-            contentType: 'image/png',
-          },
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: '7hTiBJK4Q5dbsp9nT0QDEE',
-          type: 'Asset',
-          createdAt: '2021-10-10T07:50:25.115Z',
-          updatedAt: '2021-10-10T07:50:25.115Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 1,
-          locale: 'en-US',
-        },
-        fields: {
-          title: 'marketplace',
-          description: 'マーケットプレイスのトップ画面',
-          file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/7hTiBJK4Q5dbsp9nT0QDEE/104947abb2889ae15c1219fd76cd3cc4/___________________13121.png',
-            details: {
-              size: 225487,
-              image: {
-                width: 1447,
-                height: 1130,
-              },
-            },
-            fileName: 'グループ 13121.png',
-            contentType: 'image/png',
-          },
-        },
-      },
-      {
-        metadata: {
-          tags: [],
-        },
-        sys: {
-          space: {
-            sys: {
-              type: 'Link',
-              linkType: 'Space',
-              id: '6c3h1vzo5ct6',
-            },
-          },
-          id: 'KN02D3kF8l2Wsmz51Q3fx',
-          type: 'Asset',
-          createdAt: '2021-10-10T09:12:44.198Z',
-          updatedAt: '2021-10-10T09:12:44.198Z',
-          environment: {
-            sys: {
-              id: 'master',
-              type: 'Link',
-              linkType: 'Environment',
-            },
-          },
-          revision: 1,
-          locale: 'en-US',
-        },
-        fields: {
-          title: 'code spell checkerの利用方法',
-          description: 'code spell checkerの利用方法',
-          file: {
-            url: '//images.ctfassets.net/6c3h1vzo5ct6/KN02D3kF8l2Wsmz51Q3fx/6e9475308b1d18d638299f35cde08ef0/___________________13130.png',
-            details: {
-              size: 29421,
-              image: {
-                width: 862,
-                height: 301,
-              },
-            },
-            fileName: 'グループ 13130.png',
+            fileName: 'Group 14.png',
             contentType: 'image/png',
           },
         },
@@ -2755,161 +2116,41 @@ export const blog = {
     ],
     author: null,
     lgtm: {
-      good: 0,
       bad: 0,
+      good: 0,
     },
     index: [
       {
-        label: 'はじめに',
+        label: '準備',
         type: 'h2',
         index: 0,
       },
       {
-        label: '拡張機能について',
+        label: 'VSCodeの拡張機能のインストール',
         type: 'h2',
         index: 1,
       },
       {
-        label: '拡張機能の探し方',
-        type: 'h3',
+        label: '拡張機能Live Sass Compilerの設定',
+        type: 'h2',
         index: 2,
       },
       {
-        label: '1. ブラウザでの探し方',
-        type: 'h4',
+        label: 'scssファイルをコンパイル',
+        type: 'h2',
         index: 3,
       },
       {
-        label: '2. VSCodeでの探し方',
-        type: 'h4',
+        label: 'おまけ：Gist公開してます',
+        type: 'h2',
         index: 4,
-      },
-      {
-        label: 'おすすめの拡張機能',
-        type: 'h2',
-        index: 5,
-      },
-      {
-        label: 'UI',
-        type: 'h3',
-        index: 6,
-      },
-      {
-        label: 'Simple icons',
-        type: 'h4',
-        index: 7,
-      },
-      {
-        label: 'Better Comments',
-        type: 'h4',
-        index: 8,
-      },
-      {
-        label: 'GitHub Theme',
-        type: 'h4',
-        index: 9,
-      },
-      {
-        label: 'Code Spell Checker',
-        type: 'h4',
-        index: 10,
-      },
-      {
-        label: 'new-zenkaku',
-        type: 'h4',
-        index: 11,
-      },
-      {
-        label: 'Lint',
-        type: 'h3',
-        index: 12,
-      },
-      {
-        label: 'Prettier',
-        type: 'h4',
-        index: 13,
-      },
-      {
-        label: 'ESLint',
-        type: 'h4',
-        index: 14,
-      },
-      {
-        label: 'stylelint',
-        type: 'h4',
-        index: 15,
-      },
-      {
-        label: '開発',
-        type: 'h3',
-        index: 16,
-      },
-      {
-        label: 'Auto Rename Tag',
-        type: 'h4',
-        index: 17,
-      },
-      {
-        label: 'CSS Peek',
-        type: 'h4',
-        index: 18,
-      },
-      {
-        label: 'htmltagwrap',
-        type: 'h4',
-        index: 19,
-      },
-      {
-        label: 'Path Intellisense',
-        type: 'h4',
-        index: 20,
-      },
-      {
-        label: 'Live Server',
-        type: 'h4',
-        index: 21,
-      },
-      {
-        label: 'REST Client',
-        type: 'h4',
-        index: 22,
-      },
-      {
-        label: 'GitLens',
-        type: 'h4',
-        index: 23,
-      },
-      {
-        label: 'チーム開発でメンバーにお勧めの拡張機能を共有する方法',
-        type: 'h2',
-        index: 24,
-      },
-      {
-        label: '手順１：お勧めの拡張機能を定義するファイルを作成',
-        type: 'h3',
-        index: 25,
-      },
-      {
-        label: '手順２：お勧めしたい拡張機能を選択',
-        type: 'h3',
-        index: 26,
-      },
-      {
-        label: '手順３：お勧めの拡張機能を表示する',
-        type: 'h3',
-        index: 27,
-      },
-      {
-        label: '最後に',
-        type: 'h2',
-        index: 28,
       },
     ],
     tag: {
-      label: '開発',
-      color: '#76a2f9',
-      tag_id: 'develop',
-      id: '36RmSxxSTFntOEC3dkXJj',
+      label: 'フロントエンド',
+      color: '#ff6469',
+      tag_id: 'frontend',
+      id: '7IbO2pMYCPfsOp12HmO8vf',
     },
   },
 }

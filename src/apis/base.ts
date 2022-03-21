@@ -16,7 +16,11 @@ import { Configuration } from './configuration'
 // @ts-ignore
 import globalAxios, { AxiosPromise, AxiosInstance } from 'axios'
 
-export const BASE_PATH = process.env.NEXT_PUBLIC_API_URL.replace(/\/+$/, '')
+export const BASE_PATH =
+  `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_VERSION}`.replace(
+    /\/+$/,
+    '',
+  )
 
 /**
  *
