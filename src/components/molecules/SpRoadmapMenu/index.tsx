@@ -38,7 +38,12 @@ const RoadmapItem = ({ type, selected }: RoadmapItemProps) => {
   }, [type, selected])
   return (
     <Flex flexFlow="column" alignItems="center" cursor="pointer">
-      <SvgIcon name={toggleIconName} color={iconColor} width={36} height={36} />
+      <SvgIcon
+        name={toggleIconName}
+        color={iconColor}
+        width={'36px'}
+        height={'36px'}
+      />
       <Collapse in={selected} animateOpacity>
         <Text color={textColor} fontWeight="bold" fontSize="xs" mt={1}>
           {type === 'schedule' && '未実装'}
