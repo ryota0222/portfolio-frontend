@@ -12,5 +12,6 @@
  * Do not edit the class manually.
  */ export * from './apis/author-api'
 export * from './apis/blog-api'
+export * from './apis/news-api'
 export * from './apis/portfolio-api'
 export * from './apis/roadmap-api'
