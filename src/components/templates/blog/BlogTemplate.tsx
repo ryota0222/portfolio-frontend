@@ -7,7 +7,6 @@ import {
   useColorModeValue,
   Center,
 } from '@chakra-ui/react'
-import dayjs from 'dayjs'
 import NextImage from 'next/image'
 import tocbot from 'tocbot'
 import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
@@ -19,15 +18,19 @@ import { BLOG_IMAGE_MAX_WIDTH } from '@/consts/config'
 import useAdsense from '@/hooks/useAdsense'
 import useBlogContentWidth from '@/hooks/useBlogContentWidth'
 import useSp from '@/hooks/useSp'
-import { PageWrapper } from '@/styles/globals'
+import useWindowHeight from '@/hooks/useWindowHeight'
+import { PageWrapper } from '@/styles/global.css'
 import { Blog } from '@/types/interface'
+import { formatDate } from '@/utils/dayjs'
 import getRichTextRenderer from '@/utils/richTextRenderer'
+
 interface Props {
   data: Blog
 }
 
 const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const [w, h, setImageW, setImageH, clientW, ratio] = useBlogContentWidth()
+  const { scrollHeight } = useWindowHeight()
   const { asPath } = useAdsense()
   const iconColor = useColorModeValue('#919AC2', '#FFFFFF')
   const [isSp] = useSp()
@@ -52,7 +55,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const cssName = useColorModeValue('light', 'dark')
   const minHeight = useBreakpointValue({
     base: 'auto',
-    md: 'calc(var(--vh, 1vh) * 100 - 48px)',
+    md: scrollHeight,
   })
   const titleFontSize = useBreakpointValue({
     base: 'lg',
@@ -175,7 +178,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                       height="18px"
                     />
                     <Text ml={2} fontSize="14px" letterSpacing="1px">
-                      {dayjs(data.created_at).format('YYYY/MM/DD')}
+                      {formatDate(data.created_at, 'YYYY/MM/DD')}
                     </Text>
                   </Flex>
                 )}
@@ -189,7 +192,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                       height="16px"
                     />
                     <Text ml={2} fontSize="14px" letterSpacing="1px">
-                      {dayjs(data.updated_at).format('YYYY/MM/DD')}
+                      {formatDate(data.updated_at, 'YYYY/MM/DD')}
                     </Text>
                   </Flex>
                 )}
