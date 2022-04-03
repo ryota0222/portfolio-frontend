@@ -8,8 +8,8 @@ import { HeaderComponent } from '@/components/organisms/Header'
 import { SpHeaderComponent } from '@/components/organisms/SpHeader'
 import Provider from '@/components/templates/Provider'
 import usePageView from '@/hooks/usePageView'
-import { Container } from '@/styles/globals'
-import '@/styles/globals.css'
+import { Container } from '@/styles/global.css'
+import '@/styles/global.css'
 import f from '@/utils/fontSize'
 
 Sentry.init({

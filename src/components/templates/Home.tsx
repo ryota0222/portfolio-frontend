@@ -12,7 +12,8 @@ import { FaTwitter, FaGithub } from 'react-icons/fa'
 import { Remark } from 'react-remark'
 import TopImage from '@/assets/top/image.png'
 import { GRADIENT } from '@/consts/config'
-import { PageWrapper } from '@/styles/globals'
+import useWindowHeight from '@/hooks/useWindowHeight'
+import { PageWrapper } from '@/styles/global.css'
 import { Introduction } from '@/types/interface'
 
 interface Props {
@@ -23,6 +24,7 @@ interface Props {
 }
 
 const HomeTemplate: React.FC<Props> = ({ introduction }) => {
+  const { scrollHeight } = useWindowHeight()
   const textColor = useColorModeValue('#002E48', '#FFFFFF')
   const githubColor = useColorModeValue('rgb(24,43,77)', '#FFFFFF')
   const colorTheme = useColorModeValue('light', 'dark')
@@ -40,7 +42,7 @@ const HomeTemplate: React.FC<Props> = ({ introduction }) => {
   })
   const minHeight = useBreakpointValue({
     base: 'auto',
-    md: 'calc(var(--vh, 1vh) * 100 - 48px)',
+    md: scrollHeight,
   })
   const imageSize = useBreakpointValue({
     base: 600,

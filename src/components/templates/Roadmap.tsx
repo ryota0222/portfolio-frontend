@@ -17,7 +17,7 @@ import RoadmapMenuItem from '@/components/molecules/RoadmapMenuItem'
 import { RoadmapMenu } from '@/components/molecules/SpRoadmapMenu'
 import { ROADMAP_TYPE } from '@/consts/config'
 import useSp from '@/hooks/useSp'
-import { UnVisibleScrollBar } from '@/styles/globals'
+import { UnVisibleScrollBar } from '@/styles/global.css'
 import { RoadmapType } from '@/types/interface'
 interface Props {
   /**

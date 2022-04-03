@@ -14,7 +14,7 @@ import { InlineEmbeddedEntry } from '@/components/atoms/blog/InlineEmbeddedEntry
 import { LinkEntry } from '@/components/atoms/blog/LinkEntry'
 import Gist from '@/components/Gist'
 import { CautionCard } from '@/components/molecules/CautionCard'
-import BlogStyle from '@/styles/blog'
+import BlogStyle from '@/styles/blog.css'
 
 const getRichTextRenderer = (data: TopLevelBlock[]) => {
   const document: Document = {

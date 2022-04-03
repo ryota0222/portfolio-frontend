@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import BlogStyle from '@/styles/blog'
+import BlogStyle from '@/styles/blog.css'
 
 interface Props {
   lang?: string
