@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { SCROLL_HEIGHT, FULL_HEIGHT } from '@/consts/style'
 
 export const Container = styled.div`
   width: 100vw;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: ${FULL_HEIGHT};
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
@@ -12,7 +13,7 @@ export const Container = styled.div`
 
 export const PageWrapper = styled.div`
   width: 100%;
-  min-height: calc(var(--vh, 1vh) * 100 - 48px);
+  min-height: ${SCROLL_HEIGHT};
 `
 
 export const TitleLabel = styled.span`

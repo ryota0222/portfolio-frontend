@@ -22,7 +22,7 @@ import {
   BaseAPI,
   RequiredError,
 } from '../base'
-import { InlineResponse2008 } from '../models'
+import { InlineResponse20010 } from '../models'
 import { InlineResponse2009 } from '../models'
 import { InlineResponse400 } from '../models'
 /**
@@ -155,7 +155,7 @@ export const AuthorApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<InlineResponse2009>
+      ) => AxiosPromise<InlineResponse20010>
     > {
       const localVarAxiosArgs = await AuthorApiAxiosParamCreator(
         configuration,
@@ -183,7 +183,7 @@ export const AuthorApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<InlineResponse2008>
+      ) => AxiosPromise<InlineResponse2009>
     > {
       const localVarAxiosArgs = await AuthorApiAxiosParamCreator(
         configuration,
@@ -219,7 +219,7 @@ export const AuthorApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthor(id: string, options?: any): AxiosPromise<InlineResponse2009> {
+    getAuthor(id: string, options?: any): AxiosPromise<InlineResponse20010> {
       return AuthorApiFp(configuration)
         .getAuthor(id, options)
         .then((request) => request(axios, basePath))
@@ -230,7 +230,7 @@ export const AuthorApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthors(options?: any): AxiosPromise<InlineResponse2008> {
+    getAuthors(options?: any): AxiosPromise<InlineResponse2009> {
       return AuthorApiFp(configuration)
         .getAuthors(options)
         .then((request) => request(axios, basePath))

@@ -25,6 +25,7 @@ const ImageComponent = ({ url, title }) => {
     }
     element.src = url
   }, [url])
+  // TODO: styled-componentsに移植
   return (
     <div
       style={{

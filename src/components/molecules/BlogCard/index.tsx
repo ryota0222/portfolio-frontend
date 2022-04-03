@@ -11,7 +11,7 @@ import { IoMdCreate } from 'react-icons/io'
 import { MdUpdate } from 'react-icons/md'
 import styled from 'styled-components'
 import useSp from '@/hooks/useSp'
-import { BlogCardWrapper } from '@/styles/globals'
+import { BlogCardWrapper } from '@/styles/global.css'
 export interface Props {
   /**
    * ブログのタイトル

@@ -22,24 +22,44 @@ import {
   BaseAPI,
   RequiredError,
 } from '../base'
-import { InlineResponse2008 } from '../models'
+import { InlineResponse2007 } from '../models'
 import { InlineResponse400 } from '../models'
 /**
- * RoadmapApi - axios parameter creator
+ * NewsApi - axios parameter creator
  * @export
  */
-export const RoadmapApiAxiosParamCreator = function (
+export const NewsApiAxiosParamCreator = function (
   configuration?: Configuration,
 ) {
   return {
     /**
-     * ロードマップを取得する
-     * @summary ロードマップを取得する
+     * ニュースのコンテンツの取得
+     * @summary ニュースのコンテンツの取得
+     * @param {number} offset 何番目から取得するか
+     * @param {number} limit 何個取得するか
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRoadMap: async (options: any = {}): Promise<RequestArgs> => {
-      const localVarPath = `/roadmap`
+    getNews: async (
+      offset: number,
+      limit: number,
+      options: any = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'offset' is not null or undefined
+      if (offset === null || offset === undefined) {
+        throw new RequiredError(
+          'offset',
+          'Required parameter offset was null or undefined when calling getNews.',
+        )
+      }
+      // verify required parameter 'limit' is not null or undefined
+      if (limit === null || limit === undefined) {
+        throw new RequiredError(
+          'limit',
+          'Required parameter limit was null or undefined when calling getNews.',
+        )
+      }
+      const localVarPath = `/news`
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, 'https://example.com')
       let baseOptions
@@ -53,6 +73,14 @@ export const RoadmapApiAxiosParamCreator = function (
       }
       const localVarHeaderParameter = {} as any
       const localVarQueryParameter = {} as any
+
+      if (offset !== undefined) {
+        localVarQueryParameter['offset'] = offset
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter['limit'] = limit
+      }
 
       const query = new URLSearchParams(localVarUrlObj.search)
       for (const key in localVarQueryParameter) {
@@ -80,28 +108,32 @@ export const RoadmapApiAxiosParamCreator = function (
 }
 
 /**
- * RoadmapApi - functional programming interface
+ * NewsApi - functional programming interface
  * @export
  */
-export const RoadmapApiFp = function (configuration?: Configuration) {
+export const NewsApiFp = function (configuration?: Configuration) {
   return {
     /**
-     * ロードマップを取得する
-     * @summary ロードマップを取得する
+     * ニュースのコンテンツの取得
+     * @summary ニュースのコンテンツの取得
+     * @param {number} offset 何番目から取得するか
+     * @param {number} limit 何個取得するか
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async getRoadMap(
+    async getNews(
+      offset: number,
+      limit: number,
       options?: any,
     ): Promise<
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<InlineResponse2008>
+      ) => AxiosPromise<InlineResponse2007>
     > {
-      const localVarAxiosArgs = await RoadmapApiAxiosParamCreator(
+      const localVarAxiosArgs = await NewsApiAxiosParamCreator(
         configuration,
-      ).getRoadMap(options)
+      ).getNews(offset, limit, options)
       return (
         axios: AxiosInstance = globalAxios,
         basePath: string = BASE_PATH,
@@ -117,46 +149,54 @@ export const RoadmapApiFp = function (configuration?: Configuration) {
 }
 
 /**
- * RoadmapApi - factory interface
+ * NewsApi - factory interface
  * @export
  */
-export const RoadmapApiFactory = function (
+export const NewsApiFactory = function (
   configuration?: Configuration,
   basePath?: string,
   axios?: AxiosInstance,
 ) {
   return {
     /**
-     * ロードマップを取得する
-     * @summary ロードマップを取得する
+     * ニュースのコンテンツの取得
+     * @summary ニュースのコンテンツの取得
+     * @param {number} offset 何番目から取得するか
+     * @param {number} limit 何個取得するか
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRoadMap(options?: any): AxiosPromise<InlineResponse2008> {
-      return RoadmapApiFp(configuration)
-        .getRoadMap(options)
+    getNews(
+      offset: number,
+      limit: number,
+      options?: any,
+    ): AxiosPromise<InlineResponse2007> {
+      return NewsApiFp(configuration)
+        .getNews(offset, limit, options)
         .then((request) => request(axios, basePath))
     },
   }
 }
 
 /**
- * RoadmapApi - object-oriented interface
+ * NewsApi - object-oriented interface
  * @export
- * @class RoadmapApi
+ * @class NewsApi
  * @extends {BaseAPI}
  */
-export class RoadmapApi extends BaseAPI {
+export class NewsApi extends BaseAPI {
   /**
-   * ロードマップを取得する
-   * @summary ロードマップを取得する
+   * ニュースのコンテンツの取得
+   * @summary ニュースのコンテンツの取得
+   * @param {number} offset 何番目から取得するか
+   * @param {number} limit 何個取得するか
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof RoadmapApi
+   * @memberof NewsApi
    */
-  public getRoadMap(options?: any) {
-    return RoadmapApiFp(this.configuration)
-      .getRoadMap(options)
+  public getNews(offset: number, limit: number, options?: any) {
+    return NewsApiFp(this.configuration)
+      .getNews(offset, limit, options)
       .then((request) => request(this.axios, this.basePath))
   }
 }

@@ -1,5 +1,4 @@
 import { useEffect, useState, useMemo } from 'react'
-import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import * as apis from '@/apis/api'
@@ -7,6 +6,7 @@ import { InlineResponse400 } from '@/apis/models'
 import BlogsTemplate from '@/components/templates/blog/BlogsTemplate'
 import { BLOG_NUMBER_PER_PAGE } from '@/consts/config'
 import { blogs as DAMMY_BLOGS } from '@/consts/dammy/blog'
+import { formatDate } from '@/utils/dayjs'
 import { HeadComponent } from '@/utils/head'
 
 const fetcher = async (url, offset, limit, searchWord, tag, time, series) => {
@@ -24,10 +24,11 @@ const Blog = ({ settings, contents }) => {
   const { time, searchWord, tag, page, series } = query
   const offset = page ? (Number(page as string) - 1) * BLOG_NUMBER_PER_PAGE : 0
   const limit = BLOG_NUMBER_PER_PAGE
+  // TODO: 今後修正
   const { data, error } = useSWR(
     ['api/v2/blog', offset, limit, searchWord, tag, time, series],
     fetcher,
-    { initialData: null },
+    { fallbackData: null },
   )
   useEffect(() => {
     if (data) {
@@ -36,7 +37,7 @@ const Blog = ({ settings, contents }) => {
   }, [data])
   const title = useMemo(() => {
     if (time) {
-      return dayjs(time as string).format('YYYY/M')
+      return formatDate(time as string, 'YYYY/M')
     } else if (tag) {
       const tagData = settings.data.tags.find((_tag) => _tag.id === tag)
       return tagData.label

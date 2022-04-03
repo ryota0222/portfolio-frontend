@@ -17,7 +17,8 @@
     "test:lint": "run-s lint lint:fix",
     "test-all": "run-s test:*",
     "prepare": "husky install",
-    "bundle-analyzer": "ANALYZE=true yarn build"
+    "bundle-analyzer": "ANALYZE=true yarn build",
+    "generate-client": "openapi-generator-cli generate -g typescript-axios -i ./src/apis/openapi.yml -o ./src/apis"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.5",
@@ -45,14 +46,16 @@
     "react-lottie": "^1.2.3",
     "react-remark": "^2.0.3",
     "react-transition-group": "^4.4.2",
+    "react-use": "^17.3.2",
     "storybook-addon-next-router": "^3.0.7",
     "styled-components": "^5.3.0",
     "stylis": "^4.0.10",
     "stylis-plugin-rtl": "^2.1.0",
-    "swr": "^0.5.6",
+    "swr": "^1.2.2",
     "tocbot": "^4.13.4"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.4.26",
     "@storybook/addon-a11y": "^6.3.4",
     "@storybook/addon-actions": "^6.3.4",
     "@storybook/addon-controls": "^6.3.4",

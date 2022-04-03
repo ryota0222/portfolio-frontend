@@ -14,19 +14,19 @@
 /**
  *
  * @export
- * @interface InlineResponse2009
+ * @interface InlineResponse20010
  */
-export interface InlineResponse2009 {
+export interface InlineResponse20010 {
   /**
    *
-   * @type {Array&lt;Author&gt;}
-   * @memberof InlineResponse2009
+   * @type {Author}
+   * @memberof InlineResponse20010
    */
   data: any
   /**
    *
    * @type {Success}
-   * @memberof InlineResponse2009
+   * @memberof InlineResponse20010
    */
   success: any
 }

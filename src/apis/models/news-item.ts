@@ -14,19 +14,31 @@
 /**
  *
  * @export
- * @interface InlineResponse2009
+ * @interface NewsItem
  */
-export interface InlineResponse2009 {
+export interface NewsItem {
+  /**
+   * ID
+   * @type {string}
+   * @memberof NewsItem
+   */
+  id: any
+  /**
+   * 日付
+   * @type {string}
+   * @memberof NewsItem
+   */
+  date: any
+  /**
+   * テキスト
+   * @type {string}
+   * @memberof NewsItem
+   */
+  text: any
   /**
    *
-   * @type {Array&lt;Author&gt;}
-   * @memberof InlineResponse2009
+   * @type {NewsItemImage}
+   * @memberof NewsItem
    */
-  data: any
-  /**
-   *
-   * @type {Success}
-   * @memberof InlineResponse2009
-   */
-  success: any
+  image: any
 }

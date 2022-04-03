@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 /**
- *
+ * 画像データ
  * @export
- * @interface InlineResponse2009
+ * @interface NewsItemImage
  */
-export interface InlineResponse2009 {
+export interface NewsItemImage {
   /**
-   *
-   * @type {Array&lt;Author&gt;}
-   * @memberof InlineResponse2009
+   * URL
+   * @type {string}
+   * @memberof NewsItemImage
    */
-  data: any
+  url?: any
   /**
-   *
-   * @type {Success}
-   * @memberof InlineResponse2009
+   * alt
+   * @type {string}
+   * @memberof NewsItemImage
    */
-  success: any
+  alt?: any
 }

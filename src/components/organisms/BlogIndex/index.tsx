@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Box, Flex, Text, useColorModeValue, Center } from '@chakra-ui/react'
-import { TitleLabel, Rod } from '@/styles/globals'
+import { TitleLabel, Rod } from '@/styles/global.css'
 import { BlogIndexItem } from '@/types/interface'
 
 export interface Props {

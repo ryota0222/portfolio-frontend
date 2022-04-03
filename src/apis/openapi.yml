@@ -1,0 +1,904 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: awpjdmga1943@icloud.com
+  description: ポートフォリオのAPIインタフェース定義
+  title: ポートフォリオのAPIインタフェース定義
+  version: 2.0.0
+servers:
+  - url: http://localhost:8080/v2
+tags:
+  - name: portfolio
+    description: ポートフォリオページに関するAPI
+  - name: blog
+    description: ブログページに関するAPI
+  - name: news
+    description: 新着情報に関するAPI
+  - name: roadmap
+    description: ロードマップページに関するAPI
+  - name: author
+    description: 著者に関するAPI
+paths:
+  /portfolio/works:
+    get:
+      tags:
+        - portfolio
+      summary: ポートフォリオの製作物一覧の取得
+      description: ポートフォリオの製作物一覧の取得。
+      operationId: getPortfolioWorks
+      parameters:
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/PortfolioWorks'
+        '400':
+          $ref: '#/components/responses/Error'
+  /portfolio/shops:
+    get:
+      tags:
+        - portfolio
+      summary: ポートフォリオの商品一覧の取得
+      description: ポートフォリオの商品一覧の取得。
+      operationId: getPortfolioShops
+      parameters:
+        - $ref: '#/components/parameters/ShopType'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/PortfolioShops'
+        '400':
+          $ref: '#/components/responses/Error'
+  /blog:
+    get:
+      tags:
+        - blog
+      summary: ブログの設定の取得
+      description: ブログの設定の取得
+      operationId: getBlog
+      responses:
+        '200':
+          $ref: '#/components/responses/Blog'
+        '400':
+          $ref: '#/components/responses/Error'
+  /blog/contents:
+    get:
+      tags:
+        - blog
+      summary: ブログのコンテンツの取得
+      description: ブログのコンテンツの取得
+      operationId: getBlogContents
+      parameters:
+        - $ref: '#/components/parameters/SearchWord'
+        - $ref: '#/components/parameters/Tag'
+        - $ref: '#/components/parameters/Time'
+        - $ref: '#/components/parameters/Series'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/BlogContents'
+        '400':
+          $ref: '#/components/responses/Error'
+  /blog/contents/{id}:
+    get:
+      tags:
+        - blog
+      summary: ブログのコンテンツ詳細の取得
+      description: ブログのコンテンツ詳細の取得
+      operationId: getBlogContentsDetail
+      parameters:
+        - $ref: '#/components/parameters/BlogId'
+        - $ref: '#/components/parameters/Mode'
+      responses:
+        '200':
+          $ref: '#/components/responses/BlogContentsDetail'
+        '400':
+          $ref: '#/components/responses/Error'
+  /blog/contents/lgtm:
+    get:
+      tags:
+        - blog
+      summary: ブログの評価を取得する
+      description: ブログの評価を取得する
+      operationId: getBlogContentsLgtm
+      parameters:
+        - $ref: '#/components/parameters/BlogIdQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/BlogLgtm'
+        '400':
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - blog
+      summary: ブログの評価をする
+      description: ブログの評価をする
+      operationId: postBlogContentsLgtm
+      requestBody:
+        description: 記事の評価
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+                - id
+                - action
+              properties:
+                type:
+                  type: string
+                  description: 評価のタイプ
+                  enum:
+                    - good
+                    - bad
+                id:
+                  type: string
+                  description: ブログID
+                action:
+                  type: string
+                  description: アクション
+                  enum:
+                    - increment
+                    - decrement
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/Error'
+  /news:
+    get:
+      tags:
+        - news
+      summary: ニュースのコンテンツの取得
+      description: ニュースのコンテンツの取得
+      operationId: getNews
+      parameters:
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/News'
+        '400':
+          $ref: '#/components/responses/Error'
+  /roadmap:
+    get:
+      tags:
+        - roadmap
+      summary: ロードマップを取得する
+      description: ロードマップを取得する
+      operationId: getRoadMap
+      responses:
+        '200':
+          $ref: '#/components/responses/RoadMap'
+        '400':
+          $ref: '#/components/responses/Error'
+  /authors:
+    get:
+      tags:
+        - author
+      summary: 著者のリストを取得する
+      description: 著者のリストを取得する
+      operationId: getAuthors
+      responses:
+        '200':
+          $ref: '#/components/responses/Authors'
+        '400':
+          $ref: '#/components/responses/Error'
+  /author/{id}:
+    get:
+      tags:
+        - author
+      summary: 著者データを取得する
+      description: 著者データを取得する
+      operationId: getAuthor
+      parameters:
+        - $ref: '#/components/parameters/AuthorId'
+      responses:
+        '200':
+          $ref: '#/components/responses/Author'
+        '400':
+          $ref: '#/components/responses/Error'
+components:
+  schemas:
+    Success:
+      type: boolean
+      description: 成功ならtrueを、失敗ならfalseを返す
+    PortfolioWorks:
+      type: object
+      properties:
+        image:
+          type: string
+          format: byte
+          description: 画像データ
+        title:
+          type: string
+          description: タイトル
+        description:
+          type: string
+          description: 説明
+        link:
+          type: string
+          description: リンク
+          nullable: true
+        github:
+          type: string
+          description: githubのリンク
+          nullable: true
+        year:
+          type: number
+          description: 製作した年
+      required:
+        - image
+        - title
+        - description
+        - year
+    PortfolioShops:
+      type: object
+      properties:
+        image:
+          type: string
+          format: byte
+          description: 画像データ
+        title:
+          type: string
+          description: タイトル
+        description:
+          type: string
+          description: 説明
+        link:
+          type: string
+          description: リンク
+          nullable: true
+      required:
+        - image
+        - title
+        - description
+        - link
+    NewsItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID
+          format: uuid
+        date:
+          type: string
+          format: date
+          description: 日付
+        text:
+          type: string
+          description: テキスト
+          default: ''
+        image:
+          type: object
+          properties:
+            url:
+              type: string
+              description: URL
+            alt:
+              type: string
+              description: alt
+          description: 画像データ
+          nullable: true
+      required:
+        - id
+        - date
+        - text
+        - image
+    TimeArchive:
+      type: object
+      properties:
+        label:
+          type: string
+          example: 2021-07
+          description: 年月別のアーカイブのラベル
+        count:
+          type: number
+          minimum: 1
+          description: カウント
+      required:
+        - label
+        - count
+    Tag:
+      type: object
+      properties:
+        label:
+          type: string
+          description: ラベル
+        color:
+          type: string
+          description: 色
+        tag_id:
+          type: string
+          format: uuid
+          description: タグID
+        id:
+          type: string
+          format: uuid
+          description: ID
+      required:
+        - label
+        - color
+        - tag_id
+        - id
+    TagArchive:
+      type: object
+      properties:
+        order:
+          type: number
+          description: 並び順
+        percentage:
+          type: number
+          description: 割合（%）
+        count:
+          type: number
+          description: カウント
+        series:
+          type: array
+          items:
+            type: string
+            description: シリーズのID
+      required:
+        - order
+        - percentage
+        - count
+    BlogContent:
+      type: object
+      properties:
+        title:
+          type: string
+          description: タイトル
+        id:
+          type: string
+          description: ブログID
+        created_at:
+          type: string
+          format: date
+          description: 作成日
+        tag:
+          $ref: '#/components/schemas/Tag'
+        image:
+          type: string
+          format: byte
+          description: 画像データ
+      required:
+        - title
+        - id
+        - created_at
+        - tag
+        - imag
+    BlogContentsFilteringWithoutTag:
+      type: object
+      required:
+        - success
+        - data
+      properties:
+        data:
+          type: object
+          properties:
+            contents:
+              type: array
+              items:
+                $ref: '#/components/schemas/BlogContent'
+            page:
+              type: object
+              properties:
+                current:
+                  type: number
+                  minimum: 1
+                total_count:
+                  type: number
+                  minimum: 1
+              required:
+                - current
+                - total_count
+        success:
+          $ref: '#/components/schemas/Success'
+    BlogContentsFilteringTag:
+      type: object
+      required:
+        - success
+        - data
+      properties:
+        data:
+          type: object
+          properties:
+            contents:
+              type: array
+              items:
+                $ref: '#/components/schemas/BlogContent'
+            page:
+              type: object
+              properties:
+                current:
+                  type: number
+                  minimum: 1
+                total_count:
+                  type: number
+                  minimum: 1
+              required:
+                - current
+                - total_count
+        success:
+          $ref: '#/components/schemas/Success'
+    Author:
+      type: object
+      properties:
+        name:
+          type: string
+          description: 著者名
+        description:
+          type: string
+          description: 説明
+        image:
+          type: string
+          format: byte
+          description: 画像データ
+        id:
+          type: string
+          description: 著者ID
+          format: uuid
+      required:
+        - name
+        - description
+        - image
+        - id
+    IndexTitle:
+      type: object
+      properties:
+        label:
+          type: string
+          description: ラベル
+        type:
+          type: string
+          description: タイトルのタイプ
+          enum:
+            - h1
+            - h2
+            - h3
+            - h4
+            - h5
+            - h6
+      required:
+        - label
+        - type
+    BlogContentElement:
+      type: object
+      properties:
+        type:
+          type: string
+          description: 要素のタイプ
+        text:
+          type: string
+          description: 文字
+        image:
+          type: string
+          format: byte
+          description: 画像データ
+        url:
+          type: string
+          description: URL
+        reference:
+          type: object
+          nullable: true
+          properties:
+            title:
+              type: string
+              description: タイトル
+            description:
+              type: string
+              description: 説明
+            image:
+              type: string
+              format: byte
+              description: 画像データ
+      required:
+        - type
+        - text
+        - image
+        - url
+        - reference
+    RoadmapItem:
+      type: object
+      properties:
+        label:
+          type: string
+          description: テキスト
+        completed:
+          type: boolean
+          description: trueなら完了
+      required:
+        - label
+        - completed
+  requestBodies:
+    Lgtm:
+      description: 記事の評価
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - type
+              - id
+              - action
+            properties:
+              type:
+                type: string
+                description: 評価のタイプ
+                enum:
+                  - good
+                  - bad
+              id:
+                type: string
+                description: ブログID
+              action:
+                type: string
+                description: アクション
+                enum:
+                  - increment
+                  - decrement
+  responses:
+    Success:
+      description: 成功
+      content:
+        application/json:
+          schema:
+            properties:
+              success:
+                $ref: '#/components/schemas/Success'
+    Error:
+      description: エラー
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                default: Invalid request
+                description: エラーメッセージ
+              success:
+                type: boolean
+                default: false
+                description: 成功ならtrueを、失敗ならfalseを返す
+    Authors:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Author'
+              success:
+                $ref: '#/components/schemas/Success'
+    Author:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/Author'
+              success:
+                $ref: '#/components/schemas/Success'
+    PortfolioWorks:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PortfolioWorks'
+              success:
+                $ref: '#/components/schemas/Success'
+    PortfolioShops:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PortfolioShops'
+              success:
+                $ref: '#/components/schemas/Success'
+    News:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  contents:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NewsItem'
+                  total:
+                    type: number
+              success:
+                $ref: '#/components/schemas/Success'
+    Blog:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  monthly_archives:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TimeArchive'
+                  tag_archives:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TagArchive'
+                  tags:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+                required:
+                  - monthly_archives
+                  - tag_archives
+                  - tags
+              success:
+                $ref: '#/components/schemas/Success'
+    BlogContents:
+      description: Success
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#/components/schemas/BlogContentsFilteringWithoutTag'
+              - $ref: '#/components/schemas/BlogContentsFilteringTag'
+    BlogContentsDetail:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  title:
+                    type: string
+                    description: タイトル
+                  image:
+                    type: string
+                    format: byte
+                    description: 画像データ
+                  created_at:
+                    type: string
+                    format: date
+                    description: 作成日
+                  updated_at:
+                    type: string
+                    format: date
+                    description: 更新日
+                  content:
+                    type: object
+                  entry:
+                    type: object
+                    nullable: true
+                  asset:
+                    type: object
+                    nullable: true
+                  author:
+                    $ref: '#/components/schemas/Author'
+                  lgtm:
+                    type: object
+                    properties:
+                      good:
+                        type: number
+                        minimum: 0
+                      bad:
+                        type: number
+                        minimum: 0
+                    required:
+                      - good
+                      - bad
+                  index:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/IndexTitle'
+                  tag:
+                    $ref: '#/components/schemas/Tag'
+                required:
+                  - title
+                  - image
+                  - created_at
+                  - updated_at
+                  - content
+                  - entry
+                  - asset
+                  - author
+                  - lgtm
+                  - index
+                  - tag
+              success:
+                $ref: '#/components/schemas/Success'
+    BlogLgtm:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  good:
+                    type: number
+                    minimum: 0
+                  bad:
+                    type: number
+                    minimum: 0
+                required:
+                  - good
+                  - bad
+              success:
+                $ref: '#/components/schemas/Success'
+    RoadMap:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - success
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  schedule:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RoadmapItem'
+                      description: リスト
+                  develop:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RoadmapItem'
+                      description: リスト
+                  merge:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RoadmapItem'
+                      description: リスト
+                required:
+                  - untreated
+                  - processing
+                  - processed
+              success:
+                $ref: '#/components/schemas/Success'
+  parameters:
+    ShopType:
+      in: query
+      name: shopType
+      description: ショップのタイプ
+      required: false
+      schema:
+        type: string
+        enum:
+          - stamp
+          - product
+          - wallpaper
+    Offset:
+      in: query
+      name: offset
+      description: 何番目から取得するか
+      required: true
+      schema:
+        type: number
+        minimum: 0
+    Mode:
+      in: query
+      name: preview
+      description: プレビューモードかどうか
+      required: false
+      schema:
+        type: number
+        minimum: 0
+        maximum: 1
+    Limit:
+      in: query
+      name: limit
+      description: 何個取得するか
+      required: true
+      schema:
+        type: number
+        minimum: 0
+    BlogId:
+      in: path
+      name: id
+      description: ブログのID
+      required: true
+      schema:
+        type: string
+    AuthorId:
+      in: path
+      name: id
+      description: 著者ID
+      required: true
+      schema:
+        type: string
+    BlogIdQuery:
+      in: query
+      name: id
+      description: ブログのID
+      required: true
+      schema:
+        type: string
+    SearchWord:
+      in: query
+      name: search_word
+      description: 検索ワード
+      required: false
+      schema:
+        type: string
+    Series:
+      in: query
+      name: series
+      description: シリーズのID
+      required: false
+      schema:
+        type: string
+    Tag:
+      in: query
+      name: tag
+      description: タグ
+      required: false
+      schema:
+        type: string
+    Time:
+      in: query
+      name: time
+      description: 絞り込み期間
+      required: false
+      schema:
+        type: string
+        format: date
