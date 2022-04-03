@@ -50,6 +50,9 @@ export const PageSelectBtn = (props: Props) => {
         return blog
       case 'roadmap':
         return roadmap
+      // TODO
+      case 'news':
+        return roadmap
       default:
         return null
     }
@@ -63,6 +66,8 @@ export const PageSelectBtn = (props: Props) => {
         return 'ブログ'
       case 'roadmap':
         return 'ロードマップ'
+      case 'news':
+        return 'ニュース'
       default:
         return null
     }

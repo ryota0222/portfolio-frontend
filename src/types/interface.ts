@@ -1,4 +1,5 @@
 import { TopLevelBlock } from '@contentful/rich-text-types'
+import * as apis from '@/apis/api'
 
 // button
 export type ButtonVariant = 'solid' | 'outline'
@@ -100,7 +101,7 @@ export interface Blog {
 
 export type BlogTitle = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-export type PageName = 'portfolio' | 'blog' | 'roadmap'
+export type PageName = 'portfolio' | 'blog' | 'roadmap' | 'news'
 
 export type ShopType = 'stamp' | 'product' | 'wallpaper'
 
@@ -153,3 +154,8 @@ export interface BlogContents {
 }
 
 export type CautionType = 'info' | 'error' | 'warning'
+
+export interface NewsProps {
+  contents: apis.NewsItem[]
+  total: number
+}

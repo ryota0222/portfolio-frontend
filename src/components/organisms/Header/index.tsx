@@ -1,4 +1,4 @@
-import { memo, useState, useMemo, useEffect } from 'react'
+import { memo, useState } from 'react'
 import {
   useColorModeValue,
   Box,
@@ -8,7 +8,6 @@ import {
   ModalOverlay,
   useDisclosure,
   ModalContent,
-  Tooltip,
   Button,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
@@ -17,10 +16,8 @@ import l_gear from '@/assets/animations/light/gear.json'
 import { LottieControl } from '@/components/atoms/Animation'
 import { Btn } from '@/components/atoms/Button'
 import { Logo } from '@/components/atoms/Logo'
-import { IntroCard } from '@/components/molecules/IntroCard'
 import { PageSelectBtn } from '@/components/organisms/PageSelectBtn'
 import { SettingPanel } from '@/components/organisms/SettingPanel'
-import { SHORT_INTRODUCTION } from '@/consts/config'
 import { PageName } from '@/types/interface'
 
 export const HeaderComponent = memo(() => {
@@ -87,7 +84,7 @@ export const HeaderComponent = memo(() => {
       </Button>
       {/* </Tooltip> */}
       <Flex alignItems="center">
-        {['blog', 'roadmap'].map((page: PageName, idx) => {
+        {['blog', 'news'].map((page: PageName, idx) => {
           return (
             <Box key={idx} mx={2}>
               <PageSelectBtn
