@@ -10,11 +10,13 @@ import * as apis from '@/apis/api'
 import { RoadmapItem } from '@/apis/models'
 import RoadmapTemplate from '@/components/templates/Roadmap'
 import { roadmap as DAMMY_WORK } from '@/consts/dammy/roadmap'
+import useWindowHeight from '@/hooks/useWindowHeight'
 import { RoadmapType } from '@/types/interface'
 import { HeadComponent } from '@/utils/head'
 
 const Roadmap = ({ data }) => {
   const route = useRouter()
+  const { scrollHeight } = useWindowHeight()
   const query = route.query
   const type = useMemo(() => {
     if (Object.keys(query).length > 0) return query.type as RoadmapType
@@ -40,7 +42,7 @@ const Roadmap = ({ data }) => {
     <>
       <HeadComponent title="ロードマップ" url={url} ogType="article" />
       <Box
-        minHeight="calc(var(--vh, 1vh) * 100 - 48px)"
+        minHeight={scrollHeight}
         display={display}
         alignItems={align}
         justifyContent={align}

@@ -272,3 +272,17 @@ a {
     height: 2.5em;
   }
 }
+
+@keyframes blink {
+  0% {
+    transform: translate(-50%, 0%) scale(10);
+  }
+  80% {
+    transform: translate(-50%, 0%) scale(1.4);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, 0%), scale(1, 6);
+    opacity: 0.9;
+  }
+}

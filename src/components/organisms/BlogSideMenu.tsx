@@ -17,7 +17,8 @@ import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { Counter } from '@/components/molecules/Counter'
 import { Intro } from '@/components/molecules/Intro'
 import useSp from '@/hooks/useSp'
-import { BlogSideMenuTitle } from '@/styles/globals'
+import useWindowHeight from '@/hooks/useWindowHeight'
+import { BlogSideMenuTitle } from '@/styles/global.css'
 import { Tag, Lgtm, Author, CounterType, Series } from '@/types/interface'
 
 interface Props {
@@ -46,6 +47,7 @@ interface Props {
 const BlogSideMenu: React.FC<Props> = memo(
   ({ tag, lgtm, title, author, series }) => {
     const [isSp] = useSp()
+    const { scrollHeight } = useWindowHeight()
     // const [good, setGood] = useState()
     // const [bad, setBad] = useState()
     const router = useRouter()
@@ -95,7 +97,7 @@ const BlogSideMenu: React.FC<Props> = memo(
           position="sticky"
           top="0px"
           pt={4}
-          maxHeight="calc(var(--vh, 1vh) * 100 - 48px)"
+          maxHeight={scrollHeight}
           overflowY="scroll"
         >
           {/* パンくずリスト */}

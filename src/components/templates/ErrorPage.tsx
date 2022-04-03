@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import useErrorImage from '@/hooks/useErrorImage'
-import { PageWrapper } from '@/styles/globals'
+import { PageWrapper } from '@/styles/global.css'
 import { HeadComponent } from '@/utils/head'
 
 interface Props {

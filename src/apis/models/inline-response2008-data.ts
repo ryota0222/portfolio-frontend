@@ -14,19 +14,25 @@
 /**
  *
  * @export
- * @interface InlineResponse2009
+ * @interface InlineResponse2008Data
  */
-export interface InlineResponse2009 {
+export interface InlineResponse2008Data {
   /**
    *
-   * @type {Array&lt;Author&gt;}
-   * @memberof InlineResponse2009
+   * @type {Array&lt;RoadmapItem&gt;}
+   * @memberof InlineResponse2008Data
    */
-  data: any
+  schedule?: any
   /**
    *
-   * @type {Success}
-   * @memberof InlineResponse2009
+   * @type {Array&lt;RoadmapItem&gt;}
+   * @memberof InlineResponse2008Data
    */
-  success: any
+  develop?: any
+  /**
+   *
+   * @type {Array&lt;RoadmapItem&gt;}
+   * @memberof InlineResponse2008Data
+   */
+  merge?: any
 }

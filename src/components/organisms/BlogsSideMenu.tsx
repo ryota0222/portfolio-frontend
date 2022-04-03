@@ -1,12 +1,12 @@
 import { memo, useCallback, useMemo } from 'react'
 import { Box, Flex, Text, Center, useColorModeValue } from '@chakra-ui/react'
-import dayjs from 'dayjs'
 import throttle from 'just-throttle'
 import router, { useRouter } from 'next/router'
 import { Counter } from '@/components/atoms/Counter'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
 import { BlogSetting } from '@/types/interface'
+import { formatDate } from '@/utils/dayjs'
 interface Props {
   data: BlogSetting
 }
@@ -59,13 +59,13 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                     onClick={throttle(
                       () =>
                         router.push(
-                          `/blog?time=${dayjs(date).format('YYYY-MM')}`,
+                          `/blog?time=${formatDate(date, 'YYYY-MM')}`,
                         ),
                       1000,
                       { trailing: false },
                     )}
                   >
-                    {dayjs(date).format('YYYY/M')}
+                    {formatDate(date, 'YYYY/M')}
                   </ArchiveItem>
                 </Box>
               )

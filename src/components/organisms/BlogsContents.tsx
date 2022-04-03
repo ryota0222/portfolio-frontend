@@ -17,7 +17,6 @@ import {
   Fade,
   Spacer,
 } from '@chakra-ui/react'
-import dayjs from 'dayjs'
 import throttle from 'just-throttle'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -31,10 +30,12 @@ import ArchiveItem from '@/components/molecules/ArchiveItem'
 import { BlogCard } from '@/components/molecules/BlogCard/index'
 import { PageNation } from '@/components/organisms/PageNation/index'
 import { BLOG_SERIES_MAX_CONTENTS } from '@/consts/config'
+import { FULL_HEIGHT } from '@/consts/style'
 import useBlogPath from '@/hooks/useBlogPath'
 import useSp from '@/hooks/useSp'
 import usePageNation from '@/middleware/blog'
 import { BlogContents, BlogSetting } from '@/types/interface'
+import { formatDate } from '@/utils/dayjs'
 
 interface Props {
   data: BlogContents
@@ -142,7 +143,7 @@ const BlogsContents: React.FC<Props> = ({
   // 月で絞り込み
   const filterMonthlyArchive = (date) => {
     setIsSpArchive(false)
-    const path = setTime(dayjs(date).format('YYYY-MM'))
+    const path = setTime(formatDate(date, 'YYYY-MM'))
     router.push(path)
   }
   // タグで絞り込み
@@ -270,7 +271,7 @@ const BlogsContents: React.FC<Props> = ({
                     color="#9A9A9A"
                     lineHeight="14px"
                   >
-                    {dayjs(query.time as string).format('YYYY/MM')}
+                    {formatDate(query.time as string, 'YYYY/MM')}
                   </Text>
                   <Button
                     backgroundColor="transparent"
@@ -335,7 +336,7 @@ const BlogsContents: React.FC<Props> = ({
                                 colorScheme={textColor}
                                 fontWeight="bold"
                               >
-                                {dayjs(date).format('YYYY/M')}
+                                {formatDate(date, 'YYYY/M')}
                               </Text>
                             </ArchiveItem>
                           </Box>
@@ -621,7 +622,7 @@ const BlogsContents: React.FC<Props> = ({
       <Fade in={isSpMenuClicked} unmountOnExit={true}>
         <Box
           w="100vw"
-          h="calc(var(--vh, 1vh) * 100)"
+          h={FULL_HEIGHT}
           position="fixed"
           left={0}
           top={0}

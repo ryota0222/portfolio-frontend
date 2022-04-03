@@ -19,7 +19,7 @@
 export interface InlineResponse2008 {
   /**
    *
-   * @type {Array&lt;Author&gt;}
+   * @type {InlineResponse2008Data}
    * @memberof InlineResponse2008
    */
   data: any

@@ -19,20 +19,8 @@
 export interface InlineResponse2007Data {
   /**
    *
-   * @type {Array&lt;RoadmapItem&gt;}
+   * @type {Array&lt;NewsItem&gt;}
    * @memberof InlineResponse2007Data
    */
-  schedule?: any
-  /**
-   *
-   * @type {Array&lt;RoadmapItem&gt;}
-   * @memberof InlineResponse2007Data
-   */
-  develop?: any
-  /**
-   *
-   * @type {Array&lt;RoadmapItem&gt;}
-   * @memberof InlineResponse2007Data
-   */
-  merge?: any
+  contents?: any
 }

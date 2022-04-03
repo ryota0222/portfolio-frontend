@@ -1,40 +1,14 @@
-import { CounterType, RoadmapType, SvgIconName } from '@/types/interface'
 import { PageName, ShopType } from '@/types/interface'
 
-export const SVG_ICON_NAME_LIST: SvgIconName[] = [
-  'circle-check',
-  'schedule',
-  'develop',
-  'merge',
-  'shirt',
-  'balloon',
-  'phone',
-  'link',
-  'create',
-  'update',
-  'home',
-  'twitter',
-  'facebook',
-]
-
-export const ROOT_FONT_SIZE = 16
-
-export const COUNTER_TYPE: CounterType[] = ['good', 'bad']
-
-export const ROADMAP_TYPE: RoadmapType[] = ['schedule', 'develop', 'merge']
+export * from '@/consts/meta'
+export * from '@/consts/style'
+export * from '@/consts/blog'
+export * from '@/consts/roadmap'
+export * from '@/consts/news'
 
 export const PAGE_NAME: PageName[] = ['portfolio', 'blog', 'roadmap']
 
 export const SHOP_TYPE: ShopType[] = ['stamp', 'product', 'wallpaper']
-
-export const BLOG_NUMBER_PER_PAGE = 9
-
-export const BLOG_IMAGE_MAX_WIDTH = 600
-
-export const BLOG_SERIES_MAX_CONTENTS = 6
-
-export const GRADIENT =
-  '-webkit-linear-gradient(38.45deg, #9E00FF -1.95%, rgba(255, 102, 212, 0.984375) 16.64%, rgba(233, 172, 255, 0) 49.6%), -webkit-linear-gradient(249.25deg, rgba(0, 255, 224, 0.79) -23.07%, rgba(162, 255, 89, 0.79) 13.65%, rgba(255, 214, 0, 0.11) 46.38%), -webkit-linear-gradient(158.28deg, #FF0000 -8.44%, #FF9A2B 44.44%, #FAFF00 96.23%);'
 
 export const INTRODUCTION = {
   name: 'RyoTa.',
@@ -52,11 +26,3 @@ export const SHORT_INTRODUCTION = {
   github: 'https://github.com/RyoTa0222',
   imageData: `/images/ryota.png`,
 }
-
-// meta
-export const TITLE = 'RyoTa.'
-export const DESCRIPTION =
-  'RyoTa.のポートフォリオサイトです。2020年よりフロントエンジニアとしてUI/UXの発信をしています。Adobe XDやFigmaを用いたデザインモックの作成や、ツールを用いた素材やアニメーションの作成もしています。'
-export const KEYWORD = 'エンジニアポートフォリオ,ブログ,IT'
-export const IMAGE = `${process.env.NEXT_PUBLIC_SITE_URL}/images/mv.png`
-export const URL = 'RyoTa.'

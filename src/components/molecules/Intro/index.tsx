@@ -9,7 +9,7 @@ import {
   Center,
 } from '@chakra-ui/react'
 import { UserIcon } from '@/components/atoms/UserIcon'
-import { GradationText } from '@/styles/globals'
+import { GradationText } from '@/styles/global.css'
 
 export interface Props {
   /**
