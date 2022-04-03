@@ -10,9 +10,11 @@ import { InlineResponse400, InlineResponse2002 } from '@/apis/models'
 // import Ads from '@/components/organisms/Ads'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
+import { FULL_HEIGHT } from '@/consts/style'
 import useSp from '@/hooks/useSp'
+import useWindowHeight from '@/hooks/useWindowHeight'
 import Error from '@/pages/_error'
-import { PageWrapper } from '@/styles/globals'
+import { PageWrapper } from '@/styles/global.css'
 
 interface Props {
   settings?: InlineResponse400 | InlineResponse2002
@@ -32,9 +34,10 @@ const BlogsTemplate: React.FC<Props> = ({
   isError,
 }) => {
   const [isSp] = useSp()
+  const { scrollHeight } = useWindowHeight()
   const minHeight = useBreakpointValue({
     base: 'auto',
-    md: 'calc(var(--vh, 1vh) * 100 - 48px)',
+    md: scrollHeight,
   })
   const sideMenuDisplay = useBreakpointValue({
     base: 'none',
@@ -80,7 +83,7 @@ const BlogsTemplate: React.FC<Props> = ({
               bgColor={bg}
             >
               <Box
-                minH="calc(var(--vh, 1vh) * 100)"
+                minH={FULL_HEIGHT}
                 position="absolute"
                 top="-48px"
                 left={0}

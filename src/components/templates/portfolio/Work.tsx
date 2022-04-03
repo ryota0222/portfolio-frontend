@@ -18,7 +18,8 @@ import {
   Transition,
 } from 'react-transition-group'
 import { PortfolioWorks } from '@/apis/models'
-import { PageWrapper } from '@/styles/globals'
+import useWindowHeight from '@/hooks/useWindowHeight'
+import { PageWrapper } from '@/styles/global.css'
 
 interface Props {
   data?: {
@@ -28,6 +29,7 @@ interface Props {
 }
 
 const PortfolioWorkTemplate: React.FC<Props> = ({ data }) => {
+  const { scrollHeight } = useWindowHeight()
   const [isReachBottom, setIsReachBottom] = useState(false)
   const [innerHeight, setInnerHeight] = useState(900)
   const width = useBreakpointValue({ base: '100%', sm: '50%' })
@@ -52,7 +54,7 @@ const PortfolioWorkTemplate: React.FC<Props> = ({ data }) => {
   })
   const minHeight = useBreakpointValue({
     base: 'auto',
-    sm: 'calc(var(--vh, 1vh) * 100 - 48px)',
+    sm: scrollHeight,
   })
   useEffect(() => {
     document.addEventListener('scroll', trackScroll)
