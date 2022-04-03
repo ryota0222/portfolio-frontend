@@ -38,9 +38,7 @@
   "paths": {
     "/portfolio/works": {
       "get": {
-        "tags": [
-          "portfolio"
-        ],
+        "tags": ["portfolio"],
         "summary": "ポートフォリオの製作物一覧の取得",
         "description": "ポートフォリオの製作物一覧の取得。",
         "operationId": "getPortfolioWorks",
@@ -64,9 +62,7 @@
     },
     "/portfolio/shops": {
       "get": {
-        "tags": [
-          "portfolio"
-        ],
+        "tags": ["portfolio"],
         "summary": "ポートフォリオの商品一覧の取得",
         "description": "ポートフォリオの商品一覧の取得。",
         "operationId": "getPortfolioShops",
@@ -93,9 +89,7 @@
     },
     "/blog": {
       "get": {
-        "tags": [
-          "blog"
-        ],
+        "tags": ["blog"],
         "summary": "ブログの設定の取得",
         "description": "ブログの設定の取得",
         "operationId": "getBlog",
@@ -111,9 +105,7 @@
     },
     "/blog/contents": {
       "get": {
-        "tags": [
-          "blog"
-        ],
+        "tags": ["blog"],
         "summary": "ブログのコンテンツの取得",
         "description": "ブログのコンテンツの取得",
         "operationId": "getBlogContents",
@@ -149,9 +141,7 @@
     },
     "/blog/contents/{id}": {
       "get": {
-        "tags": [
-          "blog"
-        ],
+        "tags": ["blog"],
         "summary": "ブログのコンテンツ詳細の取得",
         "description": "ブログのコンテンツ詳細の取得",
         "operationId": "getBlogContentsDetail",
@@ -175,9 +165,7 @@
     },
     "/blog/contents/lgtm": {
       "get": {
-        "tags": [
-          "blog"
-        ],
+        "tags": ["blog"],
         "summary": "ブログの評価を取得する",
         "description": "ブログの評価を取得する",
         "operationId": "getBlogContentsLgtm",
@@ -196,9 +184,7 @@
         }
       },
       "post": {
-        "tags": [
-          "blog"
-        ],
+        "tags": ["blog"],
         "summary": "ブログの評価をする",
         "description": "ブログの評価をする",
         "operationId": "postBlogContentsLgtm",
@@ -217,9 +203,7 @@
     },
     "/news": {
       "get": {
-        "tags": [
-          "news"
-        ],
+        "tags": ["news"],
         "summary": "ニュースのコンテンツの取得",
         "description": "ニュースのコンテンツの取得",
         "operationId": "getNews",
@@ -243,9 +227,7 @@
     },
     "/roadmap": {
       "get": {
-        "tags": [
-          "roadmap"
-        ],
+        "tags": ["roadmap"],
         "summary": "ロードマップを取得する",
         "description": "ロードマップを取得する",
         "operationId": "getRoadMap",
@@ -261,9 +243,7 @@
     },
     "/authors": {
       "get": {
-        "tags": [
-          "author"
-        ],
+        "tags": ["author"],
         "summary": "著者のリストを取得する",
         "description": "著者のリストを取得する",
         "operationId": "getAuthors",
@@ -279,9 +259,7 @@
     },
     "/author/{id}": {
       "get": {
-        "tags": [
-          "author"
-        ],
+        "tags": ["author"],
         "summary": "著者データを取得する",
         "description": "著者データを取得する",
         "operationId": "getAuthor",
@@ -338,12 +316,7 @@
             "description": "製作した年"
           }
         },
-        "required": [
-          "image",
-          "title",
-          "description",
-          "year"
-        ]
+        "required": ["image", "title", "description", "year"]
       },
       "PortfolioShops": {
         "type": "object",
@@ -367,12 +340,7 @@
             "nullable": true
           }
         },
-        "required": [
-          "image",
-          "title",
-          "description",
-          "link"
-        ]
+        "required": ["image", "title", "description", "link"]
       },
       "NewsItem": {
         "type": "object",
@@ -408,12 +376,7 @@
             "nullable": true
           }
         },
-        "required": [
-          "id",
-          "date",
-          "text",
-          "image"
-        ]
+        "required": ["id", "date", "text", "image"]
       },
       "TimeArchive": {
         "type": "object",
@@ -429,10 +392,7 @@
             "description": "カウント"
           }
         },
-        "required": [
-          "label",
-          "count"
-        ]
+        "required": ["label", "count"]
       },
       "Tag": {
         "type": "object",
@@ -456,12 +416,7 @@
             "description": "ID"
           }
         },
-        "required": [
-          "label",
-          "color",
-          "tag_id",
-          "id"
-        ]
+        "required": ["label", "color", "tag_id", "id"]
       },
       "TagArchive": {
         "type": "object",
@@ -486,11 +441,7 @@
             }
           }
         },
-        "required": [
-          "order",
-          "percentage",
-          "count"
-        ]
+        "required": ["order", "percentage", "count"]
       },
       "BlogContent": {
         "type": "object",
@@ -517,20 +468,11 @@
             "description": "画像データ"
           }
         },
-        "required": [
-          "title",
-          "id",
-          "created_at",
-          "tag",
-          "imag"
-        ]
+        "required": ["title", "id", "created_at", "tag", "imag"]
       },
       "BlogContentsFilteringWithoutTag": {
         "type": "object",
-        "required": [
-          "success",
-          "data"
-        ],
+        "required": ["success", "data"],
         "properties": {
           "data": {
             "type": "object",
@@ -553,10 +495,7 @@
                     "minimum": 1
                   }
                 },
-                "required": [
-                  "current",
-                  "total_count"
-                ]
+                "required": ["current", "total_count"]
               }
             }
           },
@@ -567,10 +506,7 @@
       },
       "BlogContentsFilteringTag": {
         "type": "object",
-        "required": [
-          "success",
-          "data"
-        ],
+        "required": ["success", "data"],
         "properties": {
           "data": {
             "type": "object",
@@ -593,10 +529,7 @@
                     "minimum": 1
                   }
                 },
-                "required": [
-                  "current",
-                  "total_count"
-                ]
+                "required": ["current", "total_count"]
               }
             }
           },
@@ -627,12 +560,7 @@
             "format": "uuid"
           }
         },
-        "required": [
-          "name",
-          "description",
-          "image",
-          "id"
-        ]
+        "required": ["name", "description", "image", "id"]
       },
       "IndexTitle": {
         "type": "object",
@@ -644,20 +572,10 @@
           "type": {
             "type": "string",
             "description": "タイトルのタイプ",
-            "enum": [
-              "h1",
-              "h2",
-              "h3",
-              "h4",
-              "h5",
-              "h6"
-            ]
+            "enum": ["h1", "h2", "h3", "h4", "h5", "h6"]
           }
         },
-        "required": [
-          "label",
-          "type"
-        ]
+        "required": ["label", "type"]
       },
       "BlogContentElement": {
         "type": "object",
@@ -699,13 +617,7 @@
             }
           }
         },
-        "required": [
-          "type",
-          "text",
-          "image",
-          "url",
-          "reference"
-        ]
+        "required": ["type", "text", "image", "url", "reference"]
       },
       "RoadmapItem": {
         "type": "object",
@@ -719,10 +631,7 @@
             "description": "trueなら完了"
           }
         },
-        "required": [
-          "label",
-          "completed"
-        ]
+        "required": ["label", "completed"]
       }
     },
     "requestBodies": {
@@ -733,19 +642,12 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "type",
-                "id",
-                "action"
-              ],
+              "required": ["type", "id", "action"],
               "properties": {
                 "type": {
                   "type": "string",
                   "description": "評価のタイプ",
-                  "enum": [
-                    "good",
-                    "bad"
-                  ]
+                  "enum": ["good", "bad"]
                 },
                 "id": {
                   "type": "string",
@@ -754,10 +656,7 @@
                 "action": {
                   "type": "string",
                   "description": "アクション",
-                  "enum": [
-                    "increment",
-                    "decrement"
-                  ]
+                  "enum": ["increment", "decrement"]
                 }
               }
             }
@@ -808,10 +707,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "array",
@@ -833,10 +729,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/Author"
@@ -855,10 +748,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "array",
@@ -880,10 +770,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "array",
@@ -905,10 +792,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "object",
@@ -935,10 +819,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "object",
@@ -962,11 +843,7 @@
                       }
                     }
                   },
-                  "required": [
-                    "monthly_archives",
-                    "tag_archives",
-                    "tags"
-                  ]
+                  "required": ["monthly_archives", "tag_archives", "tags"]
                 },
                 "success": {
                   "$ref": "#/components/schemas/Success"
@@ -999,10 +876,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "object",
@@ -1052,10 +926,7 @@
                           "minimum": 0
                         }
                       },
-                      "required": [
-                        "good",
-                        "bad"
-                      ]
+                      "required": ["good", "bad"]
                     },
                     "index": {
                       "type": "array",
@@ -1095,10 +966,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "object",
@@ -1112,10 +980,7 @@
                       "minimum": 0
                     }
                   },
-                  "required": [
-                    "good",
-                    "bad"
-                  ]
+                  "required": ["good", "bad"]
                 },
                 "success": {
                   "$ref": "#/components/schemas/Success"
@@ -1131,10 +996,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "success",
-                "data"
-              ],
+              "required": ["success", "data"],
               "properties": {
                 "data": {
                   "type": "object",
@@ -1161,11 +1023,7 @@
                       }
                     }
                   },
-                  "required": [
-                    "untreated",
-                    "processing",
-                    "processed"
-                  ]
+                  "required": ["untreated", "processing", "processed"]
                 },
                 "success": {
                   "$ref": "#/components/schemas/Success"
@@ -1184,11 +1042,7 @@
         "required": false,
         "schema": {
           "type": "string",
-          "enum": [
-            "stamp",
-            "product",
-            "wallpaper"
-          ]
+          "enum": ["stamp", "product", "wallpaper"]
         }
       },
       "Offset": {
