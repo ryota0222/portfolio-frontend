@@ -42,6 +42,8 @@ const NewsTemplate: React.FC<Props> = ({ contents, total, setOffset }) => {
   const [timeRef, setTimeRef] = useState<NodeJS.Timeout | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  console.log(`total: ${total}`)
+  console.log(`contents: ${contents.length}`)
   // 取得したコンテンツがtotalより大きいかどうか
   const isMaxContents = useMemo(() => {
     return total <= contents.length

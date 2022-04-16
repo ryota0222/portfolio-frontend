@@ -30,7 +30,7 @@ export const Icon = memo(({ type }: { type: CounterType }) => {
   }
 })
 
-export const Counter = memo(({ type, count, active }: Props) => {
+export const Counter: React.VFC<Props> = memo(({ type, count, active }) => {
   // 文字色
   const textColor = useMemo(() => {
     if (type === 'good') {
