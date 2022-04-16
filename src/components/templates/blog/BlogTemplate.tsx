@@ -31,7 +31,6 @@ interface Props {
 const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
   const [w, h, setImageW, setImageH, clientW, ratio] = useBlogContentWidth()
   const { scrollHeight } = useWindowHeight()
-  const { asPath } = useAdsense()
   const iconColor = useColorModeValue('#919AC2', '#FFFFFF')
   const [isSp] = useSp()
   // 画像の幅と高さを取得
@@ -136,7 +135,14 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
             )}
             <Box px={contentsPadding}>
               {/* 画像 */}
-              <Box position="relative" my={8} mb={4} overflow="hidden">
+              <Box mt={8} mb={4}>
+                <img
+                  src={`https:${data.image}`}
+                  alt={data.title}
+                  style={{ width: '100%' }}
+                />
+              </Box>
+              {/* <Box position="relative" my={8} mb={4} overflow="hidden">
                 <Box
                   width="100%"
                   height={`calc(${ratio} * ${
@@ -166,7 +172,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                     title={data.title}
                   />
                 </Center>
-              </Box>
+              </Box> */}
               <Box mb={8}>
                 {/* 作成日 */}
                 {data?.created_at && (

@@ -23,7 +23,6 @@ class MyDocument extends Document<{ prefix: string | null }> {
     return (
       <Html dir={dir} lang={locale} prefix={prefix}>
         <Head>
-          <script> </script>
           {/* Google Analytics */}
           {existsGaId && (
             <>
@@ -86,6 +85,7 @@ class MyDocument extends Document<{ prefix: string | null }> {
           ></script>
         </Head>
         <body>
+          <script> </script>
           <Main />
           <NextScript />
         </body>
