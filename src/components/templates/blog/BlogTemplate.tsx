@@ -142,37 +142,6 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                   style={{ width: '100%' }}
                 />
               </Box>
-              {/* <Box position="relative" my={8} mb={4} overflow="hidden">
-                <Box
-                  width="100%"
-                  height={`calc(${ratio} * ${
-                    clientW > BLOG_IMAGE_MAX_WIDTH
-                      ? BLOG_IMAGE_MAX_WIDTH
-                      : clientW
-                  }px)`}
-                  filter="brightness(0.8) blur(6px)"
-                  transform="scale(1.03)"
-                >
-                  <NextImage
-                    src={`https:${data.image}`}
-                    alt={data.title}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </Box>
-                <Center
-                  position="absolute"
-                  top={'50%'}
-                  left={'50%'}
-                  w="100%"
-                  transform="translate(-50%, -50%)"
-                >
-                  <ImageComponent
-                    url={`https:${data.image}`}
-                    title={data.title}
-                  />
-                </Center>
-              </Box> */}
               <Box mb={8}>
                 {/* 作成日 */}
                 {data?.created_at && (
