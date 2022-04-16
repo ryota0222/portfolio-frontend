@@ -3,6 +3,7 @@ import { Text, Spacer, Flex, useColorModeValue } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import useSWR from 'swr'
 import * as apis from '@/apis/api'
+import { Loading } from '@/components/atoms/Loading'
 import NewsTemplate from '@/components/templates/News'
 import { NEWS_NUMBER_PER_PAGE } from '@/consts/config'
 import { news as DAMMY_NEWS } from '@/consts/dammy/news'
@@ -62,8 +63,9 @@ const NewsPage: NextPage<Props> = ({ fallback }) => {
   }, [data, contents, error])
   // totalの数
   const totalNumber = useMemo(() => {
+    console.log(data)
     if (data) {
-      return data.data.total
+      return data.data?.total || 0
     }
     return 0
   }, [data])
@@ -79,9 +81,7 @@ const NewsPage: NextPage<Props> = ({ fallback }) => {
       {isLoadingWhileNoData && (
         <Flex minH={scrollHeight} flexDir="column" alignItems="center">
           <Spacer />
-          <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>
-            ローディング中...
-          </Text>
+          <Loading />
           <Spacer />
         </Flex>
       )}
