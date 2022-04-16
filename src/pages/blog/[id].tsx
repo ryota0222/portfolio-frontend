@@ -23,7 +23,7 @@ const BlogDetail = ({ data }) => {
     setMounted(true)
     setTimeout(() => Prism.highlightAll(), 0)
   }, [])
-  if (!data) return <></>
+  if (!data || !mounted) return <></>
   return (
     <>
       <Script
@@ -46,7 +46,7 @@ const BlogDetail = ({ data }) => {
         ogType="article"
         image={`https:${data.data.image}`}
       />
-      {mounted && <BlogDetailTemplate data={data.data} />}
+      <BlogDetailTemplate data={data.data} />
     </>
   )
 }

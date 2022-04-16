@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { InlineResponse400, InlineResponse2002 } from '@/apis/models'
 // import Ads from '@/components/organisms/Ads'
+import { Loading } from '@/components/atoms/Loading'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
 import { FULL_HEIGHT } from '@/consts/style'
@@ -98,7 +99,9 @@ const BlogsTemplate: React.FC<Props> = ({
             {/* 取得中 */}
             {isLoading && (
               <Center w="full" h="full">
-                <div className={`loader ${colorTheme}`}>ローディング中</div>
+                <div className={`loader ${colorTheme}`}>
+                  <Loading />
+                </div>
               </Center>
             )}
             {/* コンテンツが返ってきた場合 */}

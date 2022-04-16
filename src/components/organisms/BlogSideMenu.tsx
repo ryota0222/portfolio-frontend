@@ -187,7 +187,7 @@ const BlogSideMenu: React.FC<Props> = memo(
           {/* buy me a coffee */}
           <Box my={4} mb={12}>
             <Text fontSize="small" fontWeight="bold" mb={4} textAlign="center">
-              <BlogSideMenuTitle>コーヒー飲みたい！</BlogSideMenuTitle>
+              <BlogSideMenuTitle>コーヒー飲みたいです！</BlogSideMenuTitle>
             </Text>
             <Flex
               mt={6}

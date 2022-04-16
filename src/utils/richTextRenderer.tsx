@@ -128,7 +128,9 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           file: { url },
           title,
         } = fields
-        return <ContentImage url={`https:${url}`} title={title} />
+        // TODO
+        // return <ContentImage url={`https:${url}`} title={title} />
+        return <img src={url} alt={title || ''} style={{ width: '100%' }} />
       },
       [INLINES.EMBEDDED_ENTRY]: (node) => {
         const { title, id } = node.data.target.fields
