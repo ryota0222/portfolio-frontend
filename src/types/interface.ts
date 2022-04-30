@@ -129,6 +129,7 @@ export interface BlogSetting {
     color: string
     id: string
     label: string
+    icon: string
     tag_id: string
   }[]
 }
@@ -144,6 +145,7 @@ export interface BlogContents {
       id: string
       label: string
       tag_id: string
+      icon: string
     }
     title: string
   }[]

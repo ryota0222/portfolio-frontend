@@ -88,7 +88,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
               const tagValue = Object.values(item)[0]
               const tagData = data.tags.find((tag) => tag.tag_id === tagName)
               const label = tagData.label
-              const tagColor = tagData.color
+              const icon = tagData.icon
               return (
                 <Box key={index} my={2}>
                   <ArchiveItem
@@ -104,8 +104,8 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
                     )}
                   >
                     <Flex alignItems="center">
-                      <Text fontSize="sm" color={tagColor} fontWeight="bold">
-                        #
+                      <Text fontSize="sm" mr={2}>
+                        {icon}
                       </Text>
                       <Text
                         fontSize="small"
