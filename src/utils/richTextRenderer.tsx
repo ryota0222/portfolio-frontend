@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Image } from '@chakra-ui/react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
   Document,
@@ -130,7 +130,15 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
         } = fields
         // TODO
         // return <ContentImage url={`https:${url}`} title={title} />
-        return <img src={url} alt={title || ''} style={{ width: '100%' }} />
+        return (
+          <Image
+            src={url}
+            alt={title || ''}
+            margin="auto"
+            maxH="500px"
+            boxShadow={'0 6px 24px 4px #00000010'}
+          />
+        )
       },
       [INLINES.EMBEDDED_ENTRY]: (node) => {
         const { title, id } = node.data.target.fields

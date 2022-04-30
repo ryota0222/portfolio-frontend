@@ -30,6 +30,10 @@ export interface Props {
    */
   tagName: string
   /**
+   * タグのアイコン
+   */
+  tagIcon: string
+  /**
    * 作成日
    */
   createdAt: string
@@ -40,7 +44,15 @@ export interface Props {
 }
 
 export const BlogCard = memo(
-  ({ title, imageData, tagBg, tagName, createdAt, updatedAt }: Props) => {
+  ({
+    title,
+    imageData,
+    tagBg,
+    tagName,
+    tagIcon,
+    createdAt,
+    updatedAt,
+  }: Props) => {
     const [isSp] = useSp()
     const textColor = useColorModeValue('dark', '#FFFFFF')
     const bgColor = useColorModeValue('#F1F4F4', '#303334')
@@ -80,8 +92,8 @@ export const BlogCard = memo(
               mt={3}
               pb={4}
             >
-              <Text color={tagBg} fontSize="small" mr={1}>
-                #
+              <Text fontSize="small" mr={2}>
+                {tagIcon}
               </Text>
               <Text fontSize="x-small">{tagName}</Text>
             </Flex>
@@ -147,8 +159,8 @@ export const BlogCard = memo(
               mt={3}
               pb={7}
             >
-              <Text color={tagBg} fontSize="small" mr={1}>
-                #
+              <Text fontSize="small" mr={2}>
+                {tagIcon}
               </Text>
               <Text fontSize="x-small">{tagName}</Text>
             </Flex>
