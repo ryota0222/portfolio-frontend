@@ -1,5 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import { LottieControl, Props } from '.'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { LottieControl } from '.'
 
 export default {
   title: 'Design System/Atoms/Animation',
@@ -74,9 +74,9 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof LottieControl>
 
-const Template: Story<Props> = (args) => (
+const Template: ComponentStory<typeof LottieControl> = (args) => (
   <LottieControl
     width={args.width}
     height={args.height}

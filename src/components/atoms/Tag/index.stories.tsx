@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Tag, Props } from '.'
+import { Tag } from '.'
 
 export default {
   title: 'Design System/Atoms/Tag',
@@ -21,9 +21,11 @@ export default {
       control: 'color',
     },
   },
-} as Meta
+} as ComponentMeta<typeof Tag>
 
-const Template: Story<Props> = (args) => <Tag {...args}>sample</Tag>
+const Template: ComponentStory<typeof Tag> = (args) => (
+  <Tag {...args}>sample</Tag>
+)
 
 export const Default = Template.bind({})
 

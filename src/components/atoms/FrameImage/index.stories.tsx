@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { FrameImage, Props } from '.'
+import { FrameImage } from '.'
 
 export default {
   title: 'Design System/Atoms/FrameImage',
@@ -59,9 +59,11 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof FrameImage>
 
-const Template: Story<Props> = (args) => <FrameImage {...args} />
+const Template: ComponentStory<typeof FrameImage> = (args) => (
+  <FrameImage {...args} />
+)
 
 export const Default = Template.bind({})
 

@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Logo, Props } from '.'
+import { Logo } from '.'
 
 export default {
   title: 'Design System/Atoms/Logo',
@@ -35,9 +35,9 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Logo>
 
-const Template: Story<Props> = (args) => <Logo {...args}></Logo>
+const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args}></Logo>
 
 export const Default = Template.bind({})
 

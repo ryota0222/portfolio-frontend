@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { COUNTER_TYPE } from '@/consts/config'
 import { Counter, Props } from '.'
@@ -52,9 +52,9 @@ export default {
       controls: { expanded: true },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Counter>
 
-const Template: Story<Props> = (args) => <Counter {...args} />
+const Template: ComponentStory<typeof Counter> = (args) => <Counter {...args} />
 
 export const Active = Template.bind({})
 

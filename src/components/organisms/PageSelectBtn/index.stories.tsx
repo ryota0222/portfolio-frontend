@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { PAGE_NAME } from '@/consts/config'
 import { PageSelectBtn, Props } from '.'
@@ -12,7 +12,6 @@ export default {
   ],
   argTypes: {
     name: {
-      type: { name: 'PageName', required: true },
       defaultValue: 'portfolio',
       description: 'ページ名',
       options: PAGE_NAME,
@@ -35,7 +34,6 @@ export default {
       },
     },
     handlePageTransition: {
-      type: { name: 'Function', required: true },
       description: 'クリックイベントが発生した際の処理',
       table: {
         type: { summary: 'Function' },
@@ -43,9 +41,11 @@ export default {
       action: 'clicked',
     },
   },
-} as Meta
+} as ComponentMeta<typeof PageSelectBtn>
 
-const Template: Story<Props> = (args) => <PageSelectBtn {...args} />
+const Template: ComponentStory<typeof PageSelectBtn> = (args) => (
+  <PageSelectBtn {...args} />
+)
 
 export const Active = Template.bind({})
 

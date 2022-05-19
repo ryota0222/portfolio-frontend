@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Props } from '.'
 import ArchiveItem from '.'
 
 export default {
@@ -40,7 +39,6 @@ export default {
       controls: { expanded: true },
     },
     onClick: {
-      type: { name: 'Function', required: true },
       description: 'クリックイベントが発生した際の処理',
       table: {
         type: { summary: 'Function' },
@@ -48,9 +46,9 @@ export default {
       action: 'clicked',
     },
   },
-} as Meta
+} as ComponentMeta<typeof ArchiveItem>
 
-const Template: Story<Props> = (args) => (
+const Template: ComponentStory<typeof ArchiveItem> = (args) => (
   <ArchiveItem {...args}>テスト</ArchiveItem>
 )
 

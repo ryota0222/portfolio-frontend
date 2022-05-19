@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Btn, Props } from '.'
+import { Btn } from '.'
 
 export default {
   title: 'Design System/Atoms/Button',
@@ -11,9 +11,8 @@ export default {
   ],
   argTypes: {
     scheme: {
-      type: { name: 'ButtonScheme', required: false },
-      defaultValue: 'primary',
       description: 'カラースキーマ',
+      defaultValue: 'primary',
       table: {
         type: { summary: 'ButtonScheme' },
         defaultValue: { summary: 'primary' },
@@ -22,7 +21,6 @@ export default {
       control: { type: 'radio' },
     },
     onClick: {
-      type: { name: 'Function', required: true },
       description: 'クリックイベントが発生した際の処理',
       table: {
         type: { summary: 'Function' },
@@ -30,7 +28,6 @@ export default {
       action: 'clicked',
     },
     variant: {
-      type: { name: 'ButtonVariant', required: false },
       defaultValue: 'solid',
       description: 'ボタンのタイプ',
       table: {
@@ -74,9 +71,11 @@ export default {
       controls: { expanded: true },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Btn>
 
-const Template: Story<Props> = (args) => <Btn {...args}>sample</Btn>
+const Template: ComponentStory<typeof Btn> = (args) => (
+  <Btn {...args}>sample</Btn>
+)
 
 export const Primary = Template.bind({})
 Primary.args = {

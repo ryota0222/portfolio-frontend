@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { Intro, Props } from '.'
 
@@ -11,7 +11,6 @@ export default {
   ],
   argTypes: {
     imageData: {
-      type: { name: 'string | null', required: true },
       defaultValue: null,
       description: '画像データ',
       table: {
@@ -23,7 +22,6 @@ export default {
       },
     },
     name: {
-      type: { name: 'string | null', required: true },
       defaultValue: 'RyoTa.',
       description: '名前',
       table: {
@@ -35,7 +33,6 @@ export default {
       },
     },
     intro: {
-      type: { name: 'string | null', required: false },
       defaultValue: '',
       description: '説明文',
       table: {
@@ -47,9 +44,9 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Intro>
 
-const Template: Story<Props> = (args) => <Intro {...args} />
+const Template: ComponentStory<typeof Intro> = (args) => <Intro {...args} />
 
 export const Default = Template.bind({})
 

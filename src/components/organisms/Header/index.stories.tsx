@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { HeaderComponent } from '.'
 
@@ -10,9 +10,11 @@ export default {
     withDesign,
   ],
   argTypes: {},
-} as Meta
+} as ComponentMeta<typeof HeaderComponent>
 
-const Template: Story = () => <HeaderComponent />
+const Template: ComponentStory<typeof HeaderComponent> = () => (
+  <HeaderComponent />
+)
 
 export const Default = Template.bind({})
 

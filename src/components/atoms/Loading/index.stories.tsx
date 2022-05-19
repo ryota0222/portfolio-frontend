@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { Loading } from '.'
 
@@ -10,6 +10,6 @@ export default {
     withDesign,
   ],
   argTypes: {},
-} as Meta
+} as ComponentMeta<typeof Loading>
 
-export const Template: Story<{}> = () => <Loading />
+export const Template: ComponentStory<typeof Loading> = () => <Loading />

@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { UserIcon, Props } from '.'
+import { UserIcon } from '.'
 
 export default {
   title: 'Design System/Atoms/UserIcon',
@@ -11,7 +11,6 @@ export default {
   ],
   argTypes: {
     imageData: {
-      type: { name: 'string | null', required: true },
       defaultValue: 'imageData',
       description: '画像データ',
       table: {
@@ -23,7 +22,6 @@ export default {
       },
     },
     size: {
-      type: { name: 'Size', required: false },
       defaultValue: 'md',
       description: 'サイズ',
       table: {
@@ -34,9 +32,11 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as Meta
+} as ComponentMeta<typeof UserIcon>
 
-const Template: Story<Props> = (args) => <UserIcon {...args} />
+const Template: ComponentStory<typeof UserIcon> = (args) => (
+  <UserIcon {...args} />
+)
 
 export const Default = Template.bind({})
 Default.args = {

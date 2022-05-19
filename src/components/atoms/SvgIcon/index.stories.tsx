@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SVG_ICON_NAME_LIST } from '@/consts/config'
-import { SvgIcon, Props } from '.'
+import { SvgIcon } from '.'
 
 export default {
   title: 'Design System/Atoms/SvgIcon',
@@ -10,7 +10,6 @@ export default {
   ],
   argTypes: {
     name: {
-      type: { name: 'SvgIconName[]', required: true },
       defaultValue: 'circle-check',
       options: SVG_ICON_NAME_LIST,
       description: 'アイコンの名前',
@@ -55,9 +54,11 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof SvgIcon>
 
-const Template: Story<Props> = (args) => <SvgIcon {...args}></SvgIcon>
+const Template: ComponentStory<typeof SvgIcon> = (args) => (
+  <SvgIcon {...args}></SvgIcon>
+)
 
 export const Default = Template.bind({})
 

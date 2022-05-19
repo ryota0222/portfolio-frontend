@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BlogIndexItem } from '@/types/interface'
 import { BlogIndex, Props } from '.'
@@ -70,9 +70,11 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof BlogIndex>
 
-const Template: Story<Props> = (args) => <BlogIndex {...args} />
+const Template: ComponentStory<typeof BlogIndex> = (args) => (
+  <BlogIndex {...args} />
+)
 
 export const Default = Template.bind({})
 

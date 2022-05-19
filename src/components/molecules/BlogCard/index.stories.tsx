@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { BlogCard, Props } from '.'
+import { BlogCard } from '.'
 
 export default {
   title: 'Design System/Atoms/BlogCard',
@@ -11,7 +11,6 @@ export default {
   ],
   argTypes: {
     imageData: {
-      type: { name: 'string | null', required: true },
       defaultValue: 'imageData',
       description: '画像データ',
       table: {
@@ -53,9 +52,11 @@ export default {
       control: 'color',
     },
   },
-} as Meta
+} as ComponentMeta<typeof BlogCard>
 
-const Template: Story<Props> = (args) => <BlogCard {...args} />
+const Template: ComponentStory<typeof BlogCard> = (args) => (
+  <BlogCard {...args} />
+)
 
 export const Default = Template.bind({})
 Default.args = {

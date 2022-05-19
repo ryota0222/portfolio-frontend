@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { SpHeaderComponent } from '.'
 
@@ -10,9 +10,11 @@ export default {
     withDesign,
   ],
   argTypes: {},
-} as Meta
+} as ComponentMeta<typeof SpHeaderComponent>
 
-const Template: Story = () => <SpHeaderComponent />
+const Template: ComponentStory<typeof SpHeaderComponent> = () => (
+  <SpHeaderComponent />
+)
 
 export const Default = Template.bind({})
 

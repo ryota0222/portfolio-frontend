@@ -1,7 +1,7 @@
 import { useDisclosure, Button, Text } from '@chakra-ui/react'
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ModalComponent, Props } from '.'
+import { ModalComponent } from '.'
 
 const DUMMY_TEXT = `私は当時じっとどんな持人に対する訳の日に見せるあるう。
 
@@ -16,7 +16,6 @@ export default {
   ],
   argTypes: {
     contents: {
-      type: { name: 'string | ReactNode', required: true },
       defaultValue: DUMMY_TEXT,
       description: '中身',
       table: {
@@ -28,7 +27,6 @@ export default {
       },
     },
     header: {
-      type: { name: 'string | ReactNode', required: false },
       defaultValue: 'タイトル',
       description: 'ヘッダー',
       table: {
@@ -40,7 +38,6 @@ export default {
       },
     },
     footer: {
-      type: { name: 'string | ReactNode', required: false },
       defaultValue: undefined,
       description: 'フッター',
       table: {
@@ -67,7 +64,6 @@ export default {
       },
     },
     onClose: {
-      type: { name: 'UseModalProps["onClose"]', required: true },
       description: '閉じるアクション',
       table: {
         type: {
@@ -79,7 +75,7 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof ModalComponent>
 
 const ModalWrapper = (args) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -97,7 +93,9 @@ const ModalWrapper = (args) => {
   )
 }
 
-const Template: Story<Props> = (args) => <ModalWrapper {...args} />
+const Template: ComponentStory<typeof ModalComponent> = (args) => (
+  <ModalWrapper {...args} />
+)
 
 const Title = () => <Text color="red">タイトル</Text>
 

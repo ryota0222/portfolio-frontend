@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SettingPanel } from '.'
 
 export default {
@@ -8,9 +8,9 @@ export default {
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
   ],
   argTypes: {},
-} as Meta
+} as ComponentMeta<typeof SettingPanel>
 
-const Template: Story = () => <SettingPanel />
+const Template: ComponentStory<typeof SettingPanel> = () => <SettingPanel />
 
 export const Default = Template.bind({})
 

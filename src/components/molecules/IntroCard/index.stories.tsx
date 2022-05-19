@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { IntroCard, Props } from '.'
+import { IntroCard } from '.'
 
 export default {
   title: 'Design System/Molecules/IntroCard',
@@ -71,9 +71,11 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof IntroCard>
 
-const Template: Story<Props> = (args) => <IntroCard {...args} />
+const Template: ComponentStory<typeof IntroCard> = (args) => (
+  <IntroCard {...args} />
+)
 
 export const Default = Template.bind({})
 

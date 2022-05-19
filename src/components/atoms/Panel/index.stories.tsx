@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Panel, Props } from '.'
+import { Panel } from '.'
 
 export default {
   title: 'Design System/Atoms/Panel',
@@ -35,9 +35,11 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Panel>
 
-const Template: Story<Props> = (args) => <Panel {...args}>sample</Panel>
+const Template: ComponentStory<typeof Panel> = (args) => (
+  <Panel {...args}>sample</Panel>
+)
 
 export const Default = Template.bind({})
 

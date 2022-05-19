@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { ROADMAP_TYPE } from '@/consts/config'
 import { RoadmapMenu, Props } from '.'
@@ -12,7 +12,6 @@ export default {
   ],
   argTypes: {
     roadmapType: {
-      type: { name: 'RoadmapType[]', required: true },
       defaultValue: 'schedule',
       options: ROADMAP_TYPE,
       description: 'ロードマップのタイプ',
@@ -23,9 +22,11 @@ export default {
       control: { type: 'select' },
     },
   },
-} as Meta
+} as ComponentMeta<typeof RoadmapMenu>
 
-const Template: Story<Props> = (args) => <RoadmapMenu {...args} />
+const Template: ComponentStory<typeof RoadmapMenu> = (args) => (
+  <RoadmapMenu {...args} />
+)
 
 export const Schedule = Template.bind({})
 
