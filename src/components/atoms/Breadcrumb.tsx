@@ -14,7 +14,6 @@ interface Props {
 }
 
 const BreadcrumbComponent: React.FC<Props> = ({ tag, series }) => {
-  console.log(series)
   const fontColor = useColorModeValue('#25282A', 'white')
   const fontSize = useBreakpointValue({ base: '12px', md: 'small' })
   return (

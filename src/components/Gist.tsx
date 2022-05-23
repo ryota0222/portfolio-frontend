@@ -8,7 +8,6 @@ interface Props {
 
 const Gist: React.FC<Props> = ({ id, file }) => {
   const ref = useRef<HTMLIFrameElement | null>(null)
-  console.log(id, file)
   const [isSp] = useSp()
   useEffect(() => {
     updateIframeContent()

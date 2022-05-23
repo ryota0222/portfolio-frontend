@@ -23,7 +23,6 @@ const useBlogContentScroll = (): [number, Dispatch<SetStateAction<number>>] => {
       wrapper.offsetTop + scrollTop + document.documentElement.clientHeight
     toc.forEach((item, i) => {
       const { startPosition, endPosition } = positions[i]
-      // console.log(`start: ${startPosition}, end: ${endPosition}`)
       if (scroll > wrapper.scrollHeight) {
         setIndex(toc.length - 1)
       } else if (scrollTop >= startPosition && scrollTop < endPosition) {
