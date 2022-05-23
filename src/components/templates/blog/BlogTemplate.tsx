@@ -5,18 +5,12 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
-  Center,
 } from '@chakra-ui/react'
-import NextImage from 'next/image'
 import tocbot from 'tocbot'
 import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
-import ImageComponent from '@/components/atoms/Image'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
-// import Ads from '@/components/organisms/Ads'
 import BlogSideMenu from '@/components/organisms/BlogSideMenu'
-import { BLOG_IMAGE_MAX_WIDTH } from '@/consts/config'
-import useAdsense from '@/hooks/useAdsense'
-import useBlogContentWidth from '@/hooks/useBlogContentWidth'
+import useBlogContentWidth from '@/hooks/blogs/useBlogContentWidth'
 import useSp from '@/hooks/useSp'
 import useWindowHeight from '@/hooks/useWindowHeight'
 import { PageWrapper } from '@/styles/global.css'
