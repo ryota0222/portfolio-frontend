@@ -31,9 +31,10 @@ import { BlogCard } from '@/components/molecules/BlogCard/index'
 import { PageNation } from '@/components/organisms/PageNation/index'
 import { BLOG_SERIES_MAX_CONTENTS } from '@/consts/config'
 import { FULL_HEIGHT } from '@/consts/style'
-import useBlogPath from '@/hooks/useBlogPath'
+import useBlogPath from '@/hooks/blogs/useBlogPath'
+import useDesignSystem from '@/hooks/useDesignSystem'
+import usePageNation from '@/hooks/usePageNation'
 import useSp from '@/hooks/useSp'
-import usePageNation from '@/middleware/blog'
 import { BlogContents, BlogSetting } from '@/types/interface'
 import { formatDate } from '@/utils/dayjs'
 
@@ -55,6 +56,7 @@ const BlogsContents: React.FC<Props> = ({
   const [isSpSearch, setIsSpSearch] = useState(false)
   const [isSpArchive, setIsSpArchive] = useState(false)
   const [isSpTag, setIsSpTag] = useState(false)
+  const { NO_DATA_COLOR } = useDesignSystem()
   const isSpMenuClicked = useMemo(() => {
     return isSpSearch || isSpArchive || isSpTag
   }, [isSpArchive, isSpSearch, isSpTag])
@@ -63,7 +65,6 @@ const BlogsContents: React.FC<Props> = ({
   const router = useRouter()
   const { query } = router
   const { contents, page } = data
-  const noDataColor = useColorModeValue('#999', '#ccc')
   const inputColor = useColorModeValue('#B9B9B9', 'white')
   const spMenuBgColor = useColorModeValue('#F1F4F4', '#252829')
   const textColor = useColorModeValue('#1A202C', 'white')
@@ -309,7 +310,7 @@ const BlogsContents: React.FC<Props> = ({
                       textAlign="center"
                       fontSize="sm"
                       my={8}
-                      color={noDataColor}
+                      color={NO_DATA_COLOR}
                     >
                       アーカイブがありません
                     </Text>
@@ -407,7 +408,7 @@ const BlogsContents: React.FC<Props> = ({
                       textAlign="center"
                       fontSize="sm"
                       my={8}
-                      color={noDataColor}
+                      color={NO_DATA_COLOR}
                     >
                       アーカイブがありません
                     </Text>
@@ -582,7 +583,7 @@ const BlogsContents: React.FC<Props> = ({
                           textAlign="center"
                           fontSize="sm"
                           my={16}
-                          color={noDataColor}
+                          color={NO_DATA_COLOR}
                         >
                           記事がありません
                         </Text>
@@ -600,7 +601,7 @@ const BlogsContents: React.FC<Props> = ({
                 fontSize="sm"
                 my={8}
                 mt={16}
-                color={noDataColor}
+                color={NO_DATA_COLOR}
               >
                 記事がありません
               </Text>
