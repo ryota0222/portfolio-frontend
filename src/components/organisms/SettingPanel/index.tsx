@@ -16,7 +16,12 @@ import { FiSun, FiMoon } from 'react-icons/fi'
 import { Btn } from '@/components/atoms/Button'
 import { Panel } from '@/components/atoms/Panel'
 import { Theme } from '@/types/interface'
-import util from '@/utils/fontSize'
+import {
+  getFontSizeFromPercentage,
+  setFontSize,
+  getFontSize,
+  calculateFontSizePercentage,
+} from '@/utils/fontSize'
 
 export const SettingPanel = () => {
   const panelSectionBg = useColorModeValue('#F5F5F5', '#484848')
@@ -38,14 +43,14 @@ export const SettingPanel = () => {
   // 文字サイズの変更
   const handleChangeFontSize = (e) => {
     // 文字サイズの取得
-    const fontSize = util.getFontSizeFromPercentage(e)
+    const fontSize = getFontSizeFromPercentage(e)
     // 保存
-    util.setFontSize(fontSize)
+    setFontSize(fontSize)
   }
   // 初期値のパーセントの取得
   const getDefaultValue = () => {
-    const fontSize = util.getFontSize()
-    return util.calculateFontSizePercentage(fontSize)
+    const fontSize = getFontSize()
+    return calculateFontSizePercentage(fontSize)
   }
   // カラーモード変更
   const handleColorMode = (type: Theme) => {

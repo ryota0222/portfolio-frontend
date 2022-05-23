@@ -1,4 +1,7 @@
 import { ROOT_FONT_SIZE } from '@/consts/config'
+
+const LOCAL_STORAGE_KEY = 'custom_font_size'
+
 /**
  * フォントサイズの変更
  * @param {number} size
@@ -7,7 +10,7 @@ const setFontSize = (size: number) => {
   // htmlの保存
   document.documentElement.style.fontSize = `${size > 0 ? size : 16}px`
   // localStorageに保存
-  localStorage.setItem('ryoTaPortfolioFontSize', String(size))
+  localStorage.setItem(LOCAL_STORAGE_KEY, String(size))
 }
 
 /**
@@ -18,7 +21,7 @@ const getFontSize = () => {
   let fontSize = Number(document.documentElement.style.fontSize)
   // フォントが設定されていなければlocalStorageから取得
   if (!fontSize) {
-    fontSize = Number(localStorage.getItem('ryoTaPortfolioFontSize'))
+    fontSize = Number(localStorage.getItem(LOCAL_STORAGE_KEY))
     // localStorageにfontSizeがなければ初期値を保存
     if (!fontSize) {
       fontSize = ROOT_FONT_SIZE
@@ -47,7 +50,7 @@ const getFontSizeFromPercentage = (percentage: number) => {
   return Math.round((percentage * 8) / 50 + 8)
 }
 
-export default {
+export {
   setFontSize,
   getFontSize,
   calculateFontSizePercentage,
