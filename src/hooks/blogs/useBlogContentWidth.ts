@@ -18,7 +18,8 @@ const useBlogContentWidth = (): [
   const [w, setImageW] = useState(0)
   const [h, setImageH] = useState(0)
   const [clientW, setClientW] = useState(0)
-  const _onResize = useCallback((e: Event) => {
+  // 変更検知時の処理
+  const _onResize = useCallback(() => {
     const ele = document.getElementById('blog-content')
     if (ele) {
       setClientW(ele.clientWidth)
