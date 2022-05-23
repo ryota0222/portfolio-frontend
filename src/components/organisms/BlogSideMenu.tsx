@@ -16,6 +16,7 @@ import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { Counter } from '@/components/molecules/Counter'
 import { Intro } from '@/components/molecules/Intro'
+import useDesignSystem from '@/hooks/useDesignSystem'
 import useSp from '@/hooks/useSp'
 import useWindowHeight from '@/hooks/useWindowHeight'
 import { BlogSideMenuTitle } from '@/styles/global.css'
@@ -47,6 +48,7 @@ interface Props {
 const BlogSideMenu: React.FC<Props> = memo(
   ({ tag, lgtm, title, author, series }) => {
     const [isSp] = useSp()
+    const { BLOG_SIDE_MENU_BG } = useDesignSystem()
     const { scrollHeight } = useWindowHeight()
     // const [good, setGood] = useState()
     // const [bad, setBad] = useState()
@@ -60,10 +62,7 @@ const BlogSideMenu: React.FC<Props> = memo(
       500,
       { trailing: false },
     )
-    const bg = useColorModeValue('#F0F0F0', '#252829')
-    const iconColor = useColorModeValue('#919AC2', '#CCCCCC')
-    const borderBottomColor = useColorModeValue('#D7D7D7', '#666')
-    const sidemenuContentsWrapper = useColorModeValue('#FFFFFF', '#353839')
+    const sideMenuContentsWrapper = useColorModeValue('#FFFFFF', '#353839')
     const width = useBreakpointValue({
       base: '100%',
       md: 'calc(100% - 32px)',
@@ -86,7 +85,7 @@ const BlogSideMenu: React.FC<Props> = memo(
     return (
       <Box
         w={width}
-        bgColor={bg}
+        bgColor={BLOG_SIDE_MENU_BG}
         h="full"
         boxSizing="border-box"
         p={3}
@@ -105,7 +104,7 @@ const BlogSideMenu: React.FC<Props> = memo(
             <Box
               pb={2}
               mb={8}
-              backgroundColor={sidemenuContentsWrapper}
+              backgroundColor={sideMenuContentsWrapper}
               borderRadius={8}
               p={2}
               pl={4}
@@ -119,7 +118,7 @@ const BlogSideMenu: React.FC<Props> = memo(
             py={tocPb}
             visibility={tocVisibility as 'visible' | 'hidden'}
             height={tocHeight}
-            backgroundColor={sidemenuContentsWrapper}
+            backgroundColor={sideMenuContentsWrapper}
             borderRadius={8}
           >
             <Box pl={4}>
@@ -154,7 +153,7 @@ const BlogSideMenu: React.FC<Props> = memo(
             </Text>
             <Center
               mb={4}
-              backgroundColor={sidemenuContentsWrapper}
+              backgroundColor={sideMenuContentsWrapper}
               py={4}
               borderRadius={8}
             >
@@ -191,7 +190,7 @@ const BlogSideMenu: React.FC<Props> = memo(
             </Text>
             <Flex
               mt={6}
-              backgroundColor={sidemenuContentsWrapper}
+              backgroundColor={sideMenuContentsWrapper}
               pt={4}
               px={8}
               borderRadius={8}

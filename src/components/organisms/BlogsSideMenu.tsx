@@ -1,10 +1,10 @@
 import { memo, useCallback, useMemo } from 'react'
-import { Box, Flex, Text, Center, useColorModeValue } from '@chakra-ui/react'
+import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
 import throttle from 'just-throttle'
 import router, { useRouter } from 'next/router'
-import { Counter } from '@/components/atoms/Counter'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
+import useDesignSystem from '@/hooks/useDesignSystem'
 import { BlogSetting } from '@/types/interface'
 import { formatDate } from '@/utils/dayjs'
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
-  const bg = useColorModeValue('#F0F0F0', '#252829')
+  const { BLOG_SIDE_MENU_BG } = useDesignSystem()
   const { query } = useRouter()
   // 月別アーカイブがアクティブかどうか
   const isArchiveActive = useCallback(
@@ -31,7 +31,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
   return (
     <Box
       w="full"
-      backgroundColor={bg}
+      backgroundColor={BLOG_SIDE_MENU_BG}
       h="full"
       boxSizing="border-box"
       p={8}

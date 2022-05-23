@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { memo } from 'react'
 import {
   Box,
   Flex,
@@ -12,6 +12,7 @@ import { Loading } from '@/components/atoms/Loading'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
 import { FULL_HEIGHT } from '@/consts/style'
+import useDesignSystem from '@/hooks/useDesignSystem'
 import useSp from '@/hooks/useSp'
 import useWindowHeight from '@/hooks/useWindowHeight'
 import Error from '@/pages/_error'
@@ -26,50 +27,43 @@ interface Props {
   isError: any
 }
 
-const BlogsTemplate: React.FC<Props> = ({
-  settings,
-  contents,
-  title,
-  searchWord,
-  isLoading,
-  isError,
-}) => {
-  const [isSp] = useSp()
-  const { scrollHeight } = useWindowHeight()
-  const minHeight = useBreakpointValue({
-    base: 'auto',
-    md: scrollHeight,
-  })
-  const sideMenuDisplay = useBreakpointValue({
-    base: 'none',
-    md: 'inherit',
-  })
-  const flexFlow = useBreakpointValue({
-    base: 'column-reverse',
-    md: 'row',
-  })
-  const sideMenuW = useBreakpointValue({
-    base: '100%',
-    md: '30%',
-  })
-  const sideMenuMaxW = useBreakpointValue({
-    base: '100%',
-    md: '320px',
-  })
-  const contentW = useBreakpointValue({
-    base: '100%',
-    md: '50%',
-  })
-  const bg = useColorModeValue('#F0F0F0', '#252829')
-  const colorTheme = useColorModeValue('light', 'dark')
-  const isContentsArray = useMemo(() => {
-    return Array.isArray(contents)
-  }, [contents])
-  if ((!settings.success && !contents?.success) || isError) {
-    return (
-      <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
-    )
-  } else {
+const BlogsTemplate: React.FC<Props> = memo(
+  ({ settings, contents, title, searchWord, isLoading, isError }) => {
+    const [isSp] = useSp()
+    const { BLOG_SIDE_MENU_BG } = useDesignSystem()
+    const { scrollHeight } = useWindowHeight()
+    const minHeight = useBreakpointValue({
+      base: 'auto',
+      md: scrollHeight,
+    })
+    const sideMenuDisplay = useBreakpointValue({
+      base: 'none',
+      md: 'inherit',
+    })
+    const flexFlow = useBreakpointValue({
+      base: 'column-reverse',
+      md: 'row',
+    })
+    const sideMenuW = useBreakpointValue({
+      base: '100%',
+      md: '30%',
+    })
+    const sideMenuMaxW = useBreakpointValue({
+      base: '100%',
+      md: '320px',
+    })
+    const contentW = useBreakpointValue({
+      base: '100%',
+      md: '50%',
+    })
+    const colorTheme = useColorModeValue('light', 'dark')
+    // エラー時
+    if ((!settings.success && !contents?.success) || isError) {
+      return (
+        <Error statusCode={500} message={'データの取得に失敗しました'}></Error>
+      )
+    }
+    // 正常時
     return (
       <PageWrapper id="blog-container">
         <Flex flexFlow={flexFlow} justifyContent="space-between">
@@ -81,7 +75,7 @@ const BlogsTemplate: React.FC<Props> = ({
               w={sideMenuW}
               minH={minHeight}
               position="relative"
-              bgColor={bg}
+              bgColor={BLOG_SIDE_MENU_BG}
             >
               <Box
                 minH={FULL_HEIGHT}
@@ -127,7 +121,7 @@ const BlogsTemplate: React.FC<Props> = ({
         </Flex>
       </PageWrapper>
     )
-  }
-}
+  },
+)
 
 export default BlogsTemplate
