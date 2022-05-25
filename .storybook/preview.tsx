@@ -15,6 +15,7 @@ import { withPerformance } from 'storybook-addon-performance'
 import { mode } from '@chakra-ui/theme-tools'
 import * as nextImage from 'next/image'
 import { RouterContext } from 'next/dist/next-server/lib/router-context'
+import { getThemeColor } from '../src/utils/themeColor'
 
 const addParameters = require('@storybook/react').addParameters
 
@@ -92,20 +93,25 @@ export const parameters = {
 
 const withChakra = (StoryFn: Function, context: StoryContext) => {
   const { direction } = context.globals
+  const themeColor = getThemeColor()
   const dir = direction.toLowerCase()
   const styles = {
     global: (props) => ({
       body: {
-        bg: mode('#FBFBFB', '#404040')(props),
+        bg: mode(
+          themeColor['app-gray'][50],
+          themeColor['app-gray'][700],
+        )(props),
       },
     }),
   }
+  const colors = themeColor
   return (
     <ChakraProvider
       theme={extendTheme({
         direction: dir,
         styles,
-        colors: { black: '#404040', white: '#FBFBFB' },
+        colors,
       })}
     >
       <Box dir={dir} id="story-wrapper">
