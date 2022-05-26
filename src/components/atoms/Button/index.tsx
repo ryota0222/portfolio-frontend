@@ -31,22 +31,21 @@ export interface Props extends ButtonProps {
 
 export const Btn: React.FC<Props> = memo(
   ({ icon, scheme, variant, round, onClick, processing, children }) => {
+    // color
     const hoverBgOutlineDanger = useColorModeValue('red.50', 'red.900')
-    const hoverBgNotDanger = useColorModeValue('app-gray.100', 'app-gray.800')
     const hoverBgPrimary = useColorModeValue('app-gray.600', 'app-gray.800')
     const hoverBgOutlinePrimary = useColorModeValue(
       'app-gray.100',
       'app-gray.600',
     )
+    // variant
     const _variant = useMemo(() => {
       if (variant) {
         return variant === 'fill' ? 'solid' : 'outline'
       }
       return 'solid'
     }, [variant])
-    const _borderRadius = useMemo(() => {
-      return round ? 'full' : 'md'
-    }, [round])
+    // scheme
     const _colorScheme = useMemo(() => {
       switch (scheme) {
         case 'danger':
@@ -58,6 +57,11 @@ export const Btn: React.FC<Props> = memo(
           return 'app-gray'
       }
     }, [scheme])
+    // style: Border Radius
+    const _borderRadius = useMemo(() => {
+      return round ? 'full' : 'md'
+    }, [round])
+    // style: Background Color
     const _bgColor = useMemo(() => {
       // scheme: outline
       if (variant === 'outline') {
@@ -71,6 +75,7 @@ export const Btn: React.FC<Props> = memo(
       }
       return 'app-gray.900'
     }, [scheme, variant])
+    // style: Hover Background Color
     const _hoverBgColor = useMemo(() => {
       // scheme: outline
       if (variant === 'outline') {
@@ -90,10 +95,10 @@ export const Btn: React.FC<Props> = memo(
       scheme,
       variant,
       hoverBgOutlineDanger,
-      hoverBgNotDanger,
       hoverBgPrimary,
       hoverBgOutlinePrimary,
     ])
+    // style: Text Color
     const _textColor = useMemo(() => {
       // scheme: outline
       if (variant === 'outline') {
@@ -111,9 +116,11 @@ export const Btn: React.FC<Props> = memo(
       }
       return 'white'
     }, [scheme, variant])
+    // style: Border Width
     const _borderWidth = useMemo(() => {
       return variant === 'outline' ? '1px' : 'none'
     }, [variant])
+    // style: Border Color
     const _borderColor = useMemo(() => {
       if (scheme === 'danger') {
         return 'red.500'
