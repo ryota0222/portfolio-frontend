@@ -1,8 +1,6 @@
 import { memo } from 'react'
-import { useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
-import darkImageData from '@/assets/commons/title/dark.png'
-import lightImageData from '@/assets/commons/title/light.png'
+import useDesignSystem from '@/hooks/useDesignSystem'
 
 export interface Props {
   /**
@@ -16,20 +14,22 @@ export interface Props {
 }
 
 export const Logo = memo(({ width, height }: Props) => {
-  const isDark = useColorModeValue(false, true)
+  const { isDark } = useDesignSystem()
   if (isDark) {
+    // ダークモードの場合
     return (
       <Image
-        src={darkImageData}
+        src="/images/dark/logo.png"
         alt="ロゴ"
         width={width ?? '75px'}
         height={height ?? '48px'}
       />
     )
   } else {
+    // ライトテーマの場合
     return (
       <Image
-        src={lightImageData}
+        src="/images/light/logo.png"
         alt="ロゴ"
         width={width ?? '75px'}
         height={height ?? '48px'}
