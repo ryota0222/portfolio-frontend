@@ -1,11 +1,7 @@
-import { ReactNode, memo } from 'react'
+import { memo } from 'react'
 import { Box, BoxProps, useColorModeValue } from '@chakra-ui/react'
 
 export interface Props extends BoxProps {
-  /**
-   * ラベル
-   */
-  children: ReactNode
   /**
    * 幅
    */
@@ -16,22 +12,20 @@ export interface Props extends BoxProps {
   height?: string
 }
 
-export const Panel = memo((props: Props) => {
+export const Panel: React.FC<Props> = memo((props) => {
   const bg = useColorModeValue(
-    'rgba(255, 255, 255, 0.72)',
-    'rgba(53, 53, 53, 0.72)',
+    'rgba(245, 245, 245, 0.88)',
+    'rgba(40, 43, 44, 0.88)',
   )
-  const _props = Object.assign({}, props)
-  delete _props.children
   return (
     <Box
       bg={bg}
-      border="1px solid #DDDDDD"
-      boxSizing="border-box"
       backdropFilter="blur(4px)"
-      p={2}
-      borderRadius="1.5rem"
-      {..._props}
+      boxSizing="border-box"
+      px={4}
+      py={2}
+      borderRadius="lg"
+      {...props}
     >
       {props.children}
     </Box>
