@@ -6,6 +6,9 @@ export * from '@/consts/blog'
 export * from '@/consts/roadmap'
 export * from '@/consts/news'
 
+export const THROTTLE_TIME = 1000
+export const THROTTLE_OPTION = { trailing: false }
+
 export const PAGE_NAME: PageName[] = ['portfolio', 'blog', 'roadmap']
 
 export const SHOP_TYPE: ShopType[] = ['stamp', 'product', 'wallpaper']
