@@ -1,5 +1,5 @@
 import { DeepPartial, Colors } from '@chakra-ui/react'
-import * as COLOR_DATA from '@/consts/color.json'
+import COLOR_DATA from '@/consts/color.json'
 
 interface Color {
   value: string
@@ -36,7 +36,9 @@ export const getThemeColor = () => {
     } else {
       for (const colorIndex in colorList) {
         const colorObj = colorList[colorIndex] as Color
-        obj[colorName] = {}
+        if (!obj[colorName]) {
+          obj[colorName] = {}
+        }
         obj[colorName][colorIndex] = colorObj.value
       }
     }
