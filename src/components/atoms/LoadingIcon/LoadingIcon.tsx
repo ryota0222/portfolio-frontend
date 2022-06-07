@@ -1,9 +1,9 @@
-import { memo, useMemo } from 'react'
+import { memo } from 'react'
 import Image from 'next/image'
 import LoadingIcon from '@/assets/commons/loading.png'
-import { Animation } from '@/components/atoms/Loading/index.css'
+import { Animation } from '@/components/atoms/LoadingIcon/module.style'
 
-export const Loading = memo(() => {
+export const LoadingIconComponent = memo(() => {
   return (
     <Animation width="40px" height="40px">
       <Image

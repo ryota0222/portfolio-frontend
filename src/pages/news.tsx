@@ -3,7 +3,7 @@ import { Text, Spacer, Flex } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import useSWR from 'swr'
 import * as apis from '@/apis/api'
-import { Loading } from '@/components/atoms/Loading'
+import { LoadingIconComponent } from '@/components/atoms/LoadingIcon/LoadingIcon'
 import NewsTemplate from '@/components/templates/News'
 import { NEWS_NUMBER_PER_PAGE } from '@/consts/config'
 import { news as DAMMY_NEWS } from '@/consts/dammy/news'
@@ -47,7 +47,7 @@ const NewsPage: NextPage<Props> = ({ fallback }) => {
       {isLoadingWhileNoData && (
         <Flex minH={scrollHeight} flexDir="column" alignItems="center">
           <Spacer />
-          <Loading />
+          <LoadingIconComponent />
           <Spacer />
         </Flex>
       )}

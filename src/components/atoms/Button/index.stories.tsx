@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { AiFillBell } from 'react-icons/ai'
 import { withDesign } from 'storybook-addon-designs'
-import { Btn } from '.'
+import { AppButton } from './Button'
 
 const Bell = <AiFillBell />
 const None = undefined
@@ -10,7 +10,7 @@ const icons = { None, Bell }
 
 export default {
   title: 'Design System/Atoms/Button',
-  component: Btn,
+  component: AppButton,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
@@ -81,10 +81,10 @@ export default {
       action: 'clicked',
     },
   },
-} as ComponentMeta<typeof Btn>
+} as ComponentMeta<typeof AppButton>
 
-const Template: ComponentStory<typeof Btn> = (args) => (
-  <Btn {...args}>sample</Btn>
+const Template: ComponentStory<typeof AppButton> = (args) => (
+  <AppButton {...args}>sample</AppButton>
 )
 
 export const Primary = Template.bind({})

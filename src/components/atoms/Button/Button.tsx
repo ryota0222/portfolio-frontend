@@ -3,7 +3,7 @@ import { Button, useColorModeValue } from '@chakra-ui/react'
 import throttle from '@/utils/throttle'
 import { Props } from './type'
 
-export const Btn: React.FC<Props> = memo(
+export const AppButton: React.FC<Props> = memo(
   ({ icon, scheme, variant, round, onClick, processing, children }) => {
     // color
     const hoverBgOutlineDanger = useColorModeValue('red.50', 'red.900')

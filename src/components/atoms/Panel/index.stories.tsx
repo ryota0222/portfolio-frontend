@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Panel } from '.'
+import { Panel } from './Panel'
 
 export default {
   title: 'Design System/Atoms/Panel',

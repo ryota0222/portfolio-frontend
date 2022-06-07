@@ -1,16 +1,6 @@
 import { memo } from 'react'
-import { Box, BoxProps, useColorModeValue } from '@chakra-ui/react'
-
-export interface Props extends BoxProps {
-  /**
-   * 幅
-   */
-  width?: string
-  /**
-   * 幅
-   */
-  height?: string
-}
+import { Box, useColorModeValue } from '@chakra-ui/react'
+import { Props } from './type'
 
 export const Panel: React.FC<Props> = memo((props) => {
   const bg = useColorModeValue(
@@ -31,5 +21,3 @@ export const Panel: React.FC<Props> = memo((props) => {
     </Box>
   )
 })
-
-Panel.displayName = 'Panel'

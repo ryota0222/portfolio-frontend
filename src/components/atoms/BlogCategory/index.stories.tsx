@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { BlogCategory } from '.'
+import { BlogCategory } from './BlogCategory'
 
 const icons = {
   rabbit: '🐰',

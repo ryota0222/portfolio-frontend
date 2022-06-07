@@ -1,6 +1,12 @@
 import React, { memo, useMemo } from 'react'
 import { Box, Text } from '@chakra-ui/react'
 import useDesignSystem from '@/hooks/useDesignSystem'
+import {
+  UNDERLINE_STYLE_LARGE_WIDTH,
+  UNDERLINE_STYLE_LARGE_HEIGHT,
+  UNDERLINE_STYLE_DEFAULT_WIDTH,
+  UNDERLINE_STYLE_DEFAULT_HEIGHT,
+} from './const'
 import { Props } from './type'
 
 export const SubSectionTitle: React.FC<Props> = memo(
@@ -17,13 +23,13 @@ export const SubSectionTitle: React.FC<Props> = memo(
     const UnderlineStyle = useMemo(() => {
       if (size === 'lg') {
         return {
-          w: '64px',
-          h: '4px',
+          w: UNDERLINE_STYLE_LARGE_WIDTH,
+          h: UNDERLINE_STYLE_LARGE_HEIGHT,
         }
       } else {
         return {
-          w: '40px',
-          h: '3px',
+          w: UNDERLINE_STYLE_DEFAULT_WIDTH,
+          h: UNDERLINE_STYLE_DEFAULT_HEIGHT,
         }
       }
     }, [size])

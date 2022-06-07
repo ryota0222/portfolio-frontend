@@ -1,10 +1,11 @@
 import React, { memo, useMemo } from 'react'
 import { Flex, Text } from '@chakra-ui/react'
 import useDesignSystem from '@/hooks/useDesignSystem'
+import { DEFAULT_SIZE } from './const'
 import { Props } from './type'
 
 export const BlogCategory: React.FC<Props> = memo(
-  ({ size = 'lg', icon, label }) => {
+  ({ size = DEFAULT_SIZE, icon, label }) => {
     const { TEXT_COLOR } = useDesignSystem()
     // style: Font Weight
     const fontWeight = useMemo(() => {
