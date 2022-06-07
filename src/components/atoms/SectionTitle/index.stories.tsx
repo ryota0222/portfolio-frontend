@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { SectionTitle } from '.'
+import { SectionTitle } from './SectionTitle'
 
 export default {
   title: 'Design System/Atoms/SectionTitle',

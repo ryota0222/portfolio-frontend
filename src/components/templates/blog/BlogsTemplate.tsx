@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { InlineResponse400, InlineResponse2002 } from '@/apis/models'
 // import Ads from '@/components/organisms/Ads'
-import { Loading } from '@/components/atoms/Loading'
+import { LoadingIconComponent } from '@/components/atoms/LoadingIcon/LoadingIcon'
 import BlogsContents from '@/components/organisms/BlogsContents'
 import BlogsSideMenu from '@/components/organisms/BlogsSideMenu'
 import { FULL_HEIGHT } from '@/consts/style'
@@ -94,7 +94,7 @@ const BlogsTemplate: React.FC<Props> = memo(
             {isLoading && (
               <Center w="full" h="full">
                 <div className={`loader ${colorTheme}`}>
-                  <Loading />
+                  <LoadingIconComponent />
                 </div>
               </Center>
             )}
