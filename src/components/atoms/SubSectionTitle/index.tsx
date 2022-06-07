@@ -1,11 +1,7 @@
 import React, { memo, useMemo } from 'react'
-import { Box, Text, TextProps } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import useDesignSystem from '@/hooks/useDesignSystem'
-import { Size } from './type'
-
-interface Props extends TextProps {
-  size: Size
-}
+import { Props } from './type'
 
 export const SubSectionTitle: React.FC<Props> = memo(
   ({ size, children, ...props }) => {

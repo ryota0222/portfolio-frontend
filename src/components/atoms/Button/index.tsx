@@ -1,33 +1,7 @@
-import { useMemo, memo, ReactElement, JSXElementConstructor } from 'react'
-import { Button, ButtonProps, useColorModeValue } from '@chakra-ui/react'
+import { useMemo, memo } from 'react'
+import { Button, useColorModeValue } from '@chakra-ui/react'
 import throttle from '@/utils/throttle'
-import { ButtonVariant, ButtonScheme } from './type'
-export interface Props extends ButtonProps {
-  /**
-   * アイコン
-   */
-  icon?: ReactElement<any, string | JSXElementConstructor<any>>
-  /**
-   * スキーマ
-   */
-  scheme?: ButtonScheme
-  /**
-   * タイプ
-   */
-  variant?: ButtonVariant
-  /**
-   * trueなら角丸
-   */
-  round?: boolean
-  /**
-   * 処理中のフラグ
-   */
-  processing: boolean
-  /**
-   * クリックイベントの処理
-   */
-  onClick: (args?: unknown) => void
-}
+import { Props } from './type'
 
 export const Btn: React.FC<Props> = memo(
   ({ icon, scheme, variant, round, onClick, processing, children }) => {

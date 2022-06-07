@@ -1,13 +1,7 @@
 import React, { memo, useMemo } from 'react'
 import { Flex, Text } from '@chakra-ui/react'
 import useDesignSystem from '@/hooks/useDesignSystem'
-import { Size } from './type'
-
-interface Props {
-  size?: Size
-  icon: string
-  label: string
-}
+import { Props } from './type'
 
 export const BlogCategory: React.FC<Props> = memo(
   ({ size = 'lg', icon, label }) => {

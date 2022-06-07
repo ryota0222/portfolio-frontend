@@ -1,12 +1,8 @@
 import React, { memo, useMemo } from 'react'
-import { Box, Text, TextProps } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import { GRADIENT } from '@/consts/style'
 import useDesignSystem from '@/hooks/useDesignSystem'
-import { Size } from './type'
-
-interface Props extends TextProps {
-  size: Size
-}
+import { Props } from './type'
 
 export const SectionTitle: React.FC<Props> = memo(
   ({ size, children, ...props }) => {

@@ -15,11 +15,7 @@ import WcmLightImage from '@/assets/icons/wcm-light.png'
 import ZennImage from '@/assets/icons/zenn.svg'
 import useDesignSystem from '@/hooks/useDesignSystem'
 import { SERVICE_LINK_MAP, SERVICE_NAME_MAP } from './const'
-import { ServiceType } from './type'
-
-interface Props {
-  type: ServiceType
-}
+import { Props } from './type'
 
 export const ExternalServiceLink: React.FC<Props> = memo(({ type }) => {
   const { isDark, TEXT_COLOR } = useDesignSystem()

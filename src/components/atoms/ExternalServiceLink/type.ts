@@ -7,3 +7,7 @@ export type ServiceType =
   | 'line-creators-market'
   | 'slide-share'
   | 'wcm'
+
+export interface Props {
+  type: ServiceType
+}

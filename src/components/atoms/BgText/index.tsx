@@ -1,11 +1,7 @@
 import React, { memo, useMemo } from 'react'
 import { Box } from '@chakra-ui/react'
 import useDesignSystem from '@/hooks/useDesignSystem'
-import { Size } from './type'
-
-interface Props {
-  size: Size
-}
+import { Props } from './type'
 
 export const BgText: React.FC<Props> = memo(({ size }) => {
   const { isDark, BG_COLOR: textColor } = useDesignSystem()
