@@ -11,6 +11,7 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "build:storybook": "build-storybook -o build/storybook",
     "generate:sitemap": "next-sitemap",
+    "create:ui": "hygen create ui",
     "chromatic": "npx chromatic --project-token=PROJECT_TOKEN --exit-once-uploaded",
     "test:format": "prettier --write .",
     "test:types": "tsc --noEmit",
