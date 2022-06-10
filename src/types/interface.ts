@@ -155,8 +155,6 @@ export interface BlogContents {
   }
 }
 
-export type CautionType = 'info' | 'error' | 'warning'
-
 export interface NewsProps {
   contents: apis.NewsItem[]
   total: number
