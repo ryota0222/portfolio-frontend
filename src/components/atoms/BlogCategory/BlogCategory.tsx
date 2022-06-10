@@ -14,9 +14,12 @@ export const BlogCategory: React.FC<Props> = memo(
     const labelSize = useMemo(() => {
       return size === 'lg' ? 'md' : 'xs'
     }, [size])
+    const marginRight = useMemo(() => {
+      return size === 'lg' ? 2 : 1
+    }, [size])
     return (
       <Flex alignItems="center">
-        <Text fontSize={size} mr={2}>
+        <Text fontSize={size} mr={marginRight}>
           {icon}
         </Text>
         <Text fontSize={labelSize} fontWeight={fontWeight} color={TEXT_COLOR}>
