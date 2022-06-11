@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
 import { BlogIndexItem } from '@/types/interface'
-import { BlogIndex, Props } from '.'
+import { BlogIndex } from './BlogIndex'
 
 const SAMPLE: BlogIndexItem[] = [
   {
@@ -47,7 +47,7 @@ const SAMPLE: BlogIndexItem[] = [
 ]
 
 export default {
-  title: 'Design System/Organisms/BlogIndex',
+  title: 'Design System/Molecules/BlogIndex',
   component: BlogIndex,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
@@ -86,6 +86,6 @@ Default.args = {
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A1197',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=4%3A420',
   },
 }
