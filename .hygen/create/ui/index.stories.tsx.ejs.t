@@ -6,7 +6,7 @@ import { withDesign } from "storybook-addon-designs"
 import { <%= component_name %> } from "./"
 
 export default {
-  title: "Design System/Atoms/<%= component_name %>",
+  title: "Design System/<%= atomic_title %>/<%= component_name %>",
   component: <%= component_name %>,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,

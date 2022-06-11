@@ -52,7 +52,11 @@ module.exports = {
       const abs_path = `src/components/${path}`
       const type_annotate = have_type ? 'React.FC<Props>' : 'React.FC'
       const props = have_type ? '(props)' : '()'
-      return { ...answers, path, abs_path, type_annotate, props }
+      const atomic_title = capitalize(category)
+      return { ...answers, path, abs_path, type_annotate, props, atomic_title }
     })
   },
 }
+
+const capitalize = (str) =>
+  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
