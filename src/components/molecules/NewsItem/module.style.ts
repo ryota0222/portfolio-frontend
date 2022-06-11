@@ -51,7 +51,6 @@ export const NewsItemComponent = styled<{
 `
 
 export const NewsItemText = styled(Text)`
-  font-size: 1rem;
   background: ${GRADIENT};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
