@@ -1,17 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { FooterComponent } from './Footer'
+import { AppFooter } from './Footer'
 
 export default {
   title: 'Design System/Organisms/Footer',
-  component: FooterComponent,
+  component: AppFooter,
   decorators: [(story: any) => <div>{story()}</div>, withDesign],
   argTypes: {},
-} as ComponentMeta<typeof FooterComponent>
+} as ComponentMeta<typeof AppFooter>
 
-const Template: ComponentStory<typeof FooterComponent> = () => (
-  <FooterComponent />
-)
+const Template: ComponentStory<typeof AppFooter> = () => <AppFooter />
 
 export const Default = Template.bind({})
 

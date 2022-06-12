@@ -1,11 +1,9 @@
 import { memo } from 'react'
 import { Spacer, Text, Flex, Link } from '@chakra-ui/react'
-import { useRouter } from 'next/router'
 import { FaTwitter, FaGithub } from 'react-icons/fa'
 import { useFooter } from './useFooter'
 
-export const FooterComponent = memo(() => {
-  const router = useRouter()
+export const AppFooter = memo(() => {
   const { color, position } = useFooter()
 
   return (

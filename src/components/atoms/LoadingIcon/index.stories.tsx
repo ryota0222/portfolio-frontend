@@ -1,17 +1,17 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { LoadingIconComponent } from './LoadingIcon'
+import { LoadingIcon } from './LoadingIcon'
 
 export default {
   title: 'Design System/Atoms/LoadingIcon',
-  component: LoadingIconComponent,
+  component: LoadingIcon,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
   ],
   argTypes: {},
-} as ComponentMeta<typeof LoadingIconComponent>
+} as ComponentMeta<typeof LoadingIcon>
 
-export const Template: ComponentStory<typeof LoadingIconComponent> = () => (
-  <LoadingIconComponent />
+export const Template: ComponentStory<typeof LoadingIcon> = () => (
+  <LoadingIcon />
 )

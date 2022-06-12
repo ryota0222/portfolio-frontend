@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { Props } from './type'
 
-export const ModalComponent: React.FC<Props> = memo(
+export const AppModal: React.FC<Props> = memo(
   ({ contents, header, footer, isOpen, onClose }) => {
     const size = useBreakpointValue({ base: 'full', sm: 'md' })
     const bg = useColorModeValue('white', 'app-gray.700')
