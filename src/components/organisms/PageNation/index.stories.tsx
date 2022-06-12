@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { PageNation } from '.'
+import { PageNation } from './PageNation'
 
 export default {
   title: 'Design System/Organisms/PageNation',
@@ -47,6 +47,6 @@ Default.args = {
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A2166',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=4%3A491',
   },
 }
