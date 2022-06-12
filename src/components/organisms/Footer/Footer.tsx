@@ -1,29 +1,18 @@
 import { memo } from 'react'
-import {
-  useColorModeValue,
-  Spacer,
-  Text,
-  Flex,
-  useBreakpointValue,
-  Link,
-} from '@chakra-ui/react'
+import { Spacer, Text, Flex, Link } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { FaTwitter, FaGithub } from 'react-icons/fa'
+import { useFooter } from './useFooter'
 
 export const FooterComponent = memo(() => {
   const router = useRouter()
-  const isBlog = router.pathname === '/blog/[id]'
-  const color = useColorModeValue('dark', 'white')
-  const blogBg = useColorModeValue('#F0F0F0', '#252829')
-  const bgColor = isBlog ? blogBg : 'transparent'
-  const position = isBlog ? 'absolute' : 'initial'
-  const footerBg = useBreakpointValue({ base: bgColor, sm: 'transparent' })
-  const iconColor = useColorModeValue('rgb(24,43,77)', '#FFFFFF')
+  const { color, position } = useFooter()
+
   return (
     <Flex
       as="footer"
       w="full"
-      bgColor={footerBg}
+      bgColor={'transparent'}
       zIndex={1}
       bottom={0}
       position={position}
@@ -37,14 +26,12 @@ export const FooterComponent = memo(() => {
       <Spacer />
       {/* github */}
       <Link href={'https://github.com/RyoTa0222'} isExternal mr="4">
-        <FaGithub color={iconColor} size="20px" />
+        <FaGithub color={color} size="20px" />
       </Link>
       {/* twitter */}
       <Link href={'https://twitter.com/RyoTa___0222'} isExternal>
-        <FaTwitter color={iconColor} size="20px" />
+        <FaTwitter color={color} size="20px" />
       </Link>
     </Flex>
   )
 })
-
-FooterComponent.displayName = 'FooterComponent'
