@@ -8,7 +8,6 @@ export const PageNation: React.FC<Props> = memo((props) => {
   const {
     fontSize,
     circleSize,
-    displayNumber,
     prevIconColor,
     nextIconColor,
     displayList,

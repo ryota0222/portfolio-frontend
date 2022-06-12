@@ -1,5 +1,9 @@
 import { useCallback, useMemo } from 'react'
-import { useColorModeValue, useBreakpointValue } from '@chakra-ui/react'
+import {
+  useColorModeValue,
+  useBreakpointValue,
+  useToken,
+} from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { Props } from './type'
 
@@ -13,10 +17,15 @@ export const usePageNation = ({
   const router = useRouter()
   const { query } = router
   // style
-  const iconActiveColor = useColorModeValue('app-gray.700', 'white')
-  const iconNotActiveColor = useColorModeValue('app-gray.50', 'app-gray.700')
-  const activeTextColor = useColorModeValue('white', 'app-gray.900')
-  const notActiveTextColor = useColorModeValue('app-gray.900', 'white')
+  const [appGray900Color, appGray700Color, appGray50Color]: string[] = useToken(
+    // the key within the theme, in this case `theme.colors`
+    'colors',
+    ['app-gray.900', 'app-gray.700', 'app-gray.50'],
+  )
+  const iconActiveColor = useColorModeValue(appGray700Color, 'white')
+  const iconNotActiveColor = useColorModeValue(appGray50Color, appGray700Color)
+  const activeTextColor = useColorModeValue('white', appGray900Color)
+  const notActiveTextColor = useColorModeValue(appGray900Color, 'white')
   const fontSize = useBreakpointValue({ base: 'xs', sm: 'md' })
   const circleSize = useBreakpointValue({ base: '24px', sm: '32px' })
   const displayNumber = useBreakpointValue({ base: 4, sm: 6 })
@@ -35,12 +44,12 @@ export const usePageNation = ({
   const currentBgColor = useCallback(
     (page: number) => {
       if (currentPage === page) {
-        return notActiveTextColor
+        return iconActiveColor
       } else {
-        return activeTextColor
+        return iconNotActiveColor
       }
     },
-    [currentPage, notActiveTextColor, activeTextColor],
+    [currentPage, iconNotActiveColor, iconActiveColor],
   )
   // 現在のパス
   const currentPath = useMemo(() => {
@@ -147,7 +156,6 @@ export const usePageNation = ({
   return {
     fontSize,
     circleSize,
-    displayNumber,
     prevIconColor,
     nextIconColor,
     displayList,
