@@ -1,7 +1,7 @@
 import { useDisclosure, Button, Text } from '@chakra-ui/react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ModalComponent } from '.'
+import { ModalComponent } from './Modal'
 
 const DUMMY_TEXT = `私は当時じっとどんな持人に対する訳の日に見せるあるう。
 
@@ -119,7 +119,7 @@ PlaneText.args = {
 PlaneText.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A1270',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=4%3A539',
   },
 }
 
