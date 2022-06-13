@@ -69,6 +69,7 @@ export const Menu = () => {
             w="50%"
             onClick={() => handleColorMode('light')}
             cursor="pointer"
+            role="button"
           >
             <NeumorphicButton onClick={() => {}}>{sunIcon}</NeumorphicButton>
             <Text
@@ -87,6 +88,7 @@ export const Menu = () => {
             w="50%"
             onClick={() => handleColorMode('dark')}
             cursor="pointer"
+            role="button"
           >
             <NeumorphicButton onClick={() => {}}>{moonIcon}</NeumorphicButton>
             <Text
