@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState, useRef, useEffect } from 'react'
+import { PageNation } from '@/components/organisms/PageNation/PageNationation'
 import {
   Box,
   Flex,
@@ -27,8 +28,7 @@ import { IoSearch } from 'react-icons/io5'
 import { Btn } from '@/components/atoms/Button/index'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import ArchiveItem from '@/components/molecules/ArchiveItem'
-import { BlogCard } from '@/components/molecules/BlogCard/index'
-import { PageNation } from '@/components/organisms/PageNation/index'
+import { BlogCard } from '@/components/molecules/BlogCard'
 import { BLOG_SERIES_MAX_CONTENTS } from '@/consts/config'
 import { FULL_HEIGHT } from '@/consts/style'
 import useBlogPath from '@/hooks/blogs/useBlogPath'
