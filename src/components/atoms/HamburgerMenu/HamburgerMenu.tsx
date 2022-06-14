@@ -9,8 +9,8 @@ export const HamburgerMenu: React.FC<Props> = memo(({ isOpen }) => {
   const { TEXT_COLOR } = useDesignSystem()
   return (
     <HamburgerIcon
-      w="24px"
-      h="24px"
+      w="20px"
+      h="20px"
       className={clsx(isOpen && 'active')}
       cursor="pointer"
     >

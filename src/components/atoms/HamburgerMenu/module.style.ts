@@ -11,17 +11,17 @@ export const HamburgerIcon = styled(Box)<{ width: string; height: string }>`
     transition: all 0.4s;
     position: absolute;
     left: 0;
-    height: 3px;
+    height: 2px;
     border-radius: 2px;
     width: 100%;
     &:nth-of-type(1) {
       top: 2px;
     }
     &:nth-of-type(2) {
-      top: 11px;
+      top: 9px;
     }
     &:nth-of-type(3) {
-      top: 19px;
+      top: 16px;
     }
   }
   &.active {
@@ -29,7 +29,7 @@ export const HamburgerIcon = styled(Box)<{ width: string; height: string }>`
       &:nth-of-type(1) {
         top: 0px;
         left: 0px;
-        transform: translateY(9.5px) rotate(-45deg);
+        transform: translateY(8px) rotate(-45deg);
         width: 100%;
       }
       &:nth-of-type(2) {
@@ -38,7 +38,7 @@ export const HamburgerIcon = styled(Box)<{ width: string; height: string }>`
       &:nth-of-type(3) {
         bottom: 0px;
         right: 0px;
-        transform: translateY(-9.5px) rotate(45deg);
+        transform: translateY(-8px) rotate(45deg);
         width: 100%;
       }
     }
