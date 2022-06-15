@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { GRADIENT } from '@/consts/style'
 
 export const PageItemWrapper = styled(Box)<{ isActive: boolean }>`
-  transition: all 0.5s;
   &::after {
     content: '';
     position: absolute;
@@ -14,6 +13,7 @@ export const PageItemWrapper = styled(Box)<{ isActive: boolean }>`
     background: ${GRADIENT};
     top: 0;
     left: 50%;
+    transition: all 0.4s;
     transform: ${(props) =>
       props.isActive ? 'translate(-50%, -10px)' : 'translate(-50%, 0px)'};
     opacity: ${(props) => (props.isActive ? 1 : 0)};
