@@ -9,7 +9,7 @@ const options = {
   ltr: { key: 'css-en' },
 }
 
-export function RtlProvider({ children }) {
+export const RtlProvider: React.FC = ({ children }) => {
   const { locale } = useRouter()
   const dir = locale == 'ar' ? 'rtl' : 'ltr'
   const cache = createCache(options[dir])
