@@ -1,7 +1,8 @@
+import { Box } from '@chakra-ui/react'
 import styled from 'styled-components'
 import { SCROLL_HEIGHT, FULL_HEIGHT } from '@/consts/style'
 
-export const Container = styled.div`
+export const Container = styled(Box)`
   width: 100vw;
   min-height: ${FULL_HEIGHT};
   box-sizing: border-box;
@@ -11,7 +12,7 @@ export const Container = styled.div`
   align-items: center;
 `
 
-export const PageWrapper = styled.div`
+export const PageWrapper = styled(Box)`
   width: 100%;
   min-height: ${SCROLL_HEIGHT};
 `
@@ -27,7 +28,7 @@ export const GradationText = styled.p`
   -webkit-text-fill-color: transparent;
 `
 
-export const BlogCardWrapper = styled.div`
+export const BlogCardWrapper = styled(Box)`
   display: inline-block;
   width: ${(props) => (props.width ? props.width : '100%')};
   max-width: ${(props) => (props.maxWidth ? props.maxWidth : '100%')};
@@ -60,7 +61,7 @@ export const BlogSideMenuTitle = styled.span`
   }
 `
 
-export const UnVisibleScrollBar = styled.div`
+export const UnVisibleScrollBar = styled(Box)`
   height: ${({ height }) => (height ? height : '100%')};
   display: block;
   overflow: scroll;

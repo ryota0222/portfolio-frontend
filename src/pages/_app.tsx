@@ -1,12 +1,11 @@
-import { memo } from 'react'
-import { Box, useBreakpointValue } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
 import { AppProps } from 'next/app'
-import { FooterComponent } from '@/components/organisms/Footer'
-import { HeaderComponent } from '@/components/organisms/Header'
-import { SpHeaderComponent } from '@/components/organisms/SpHeader'
-import Provider from '@/components/templates/Provider'
+import { useRouter } from 'next/router'
+import { AppFooter } from '@/components/organisms/Footer'
+import { AppHeader } from '@/components/organisms/Header'
+import Provider from '@/containers/Provider'
 import useFillHeightEffect from '@/hooks/useFillHeightEffect'
 import useFontSizeEffect from '@/hooks/useFontSizeEffect'
 import usePageView from '@/hooks/usePageView'
@@ -23,16 +22,6 @@ Sentry.init({
   tracesSampleRate: 1.0,
 })
 
-const Header = memo(() => {
-  const bp = useBreakpointValue({ base: 'base', md: 'md' })
-  return (
-    <>
-      {bp === 'base' && <SpHeaderComponent />}
-      {bp === 'md' && <HeaderComponent />}
-    </>
-  )
-})
-
 function MyApp({ Component, pageProps }: AppProps) {
   // フォントサイズの大きさの取得 / 設定
   useFontSizeEffect()
@@ -40,18 +29,20 @@ function MyApp({ Component, pageProps }: AppProps) {
   useFillHeightEffect()
   // PVをカウントするイベント
   usePageView()
+  const router = useRouter()
+  const pathname = router.pathname
   return (
     <Provider>
       <Container>
         {/* ヘッダー */}
-        <Header />
+        <AppHeader pathname={pathname} />
         {/* メインコンテンツ */}
         <Box w="full" as="main" h="100%">
           <Component {...pageProps} />
         </Box>
         {/* フッター */}
         <Box position={'absolute'} bottom={0} left={0} w="100vw">
-          <FooterComponent />
+          <AppFooter />
         </Box>
       </Container>
     </Provider>

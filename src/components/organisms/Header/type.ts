@@ -7,5 +7,5 @@ export interface Props {
 }
 
 export interface PageItemProps extends BoxProps {
-  isActive: boolean
+  isactive: boolean
 }

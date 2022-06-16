@@ -1,16 +1,21 @@
+import { useEffect } from 'react'
+import ScrollHint from 'scroll-hint'
 import HomeTemplate from '@/components/templates/Home'
-import { INTRODUCTION } from '@/consts/config'
 import { HeadComponent } from '@/utils/head'
 
-export default function Home({ introduction }) {
+export default function Home() {
+  useEffect(() => {
+    new ScrollHint('.js-scrollable', {
+      suggestiveShadow: true,
+      i18n: {
+        scrollable: 'スクロールできます',
+      },
+    })
+  }, [])
   return (
     <>
       <HeadComponent />
-      <HomeTemplate introduction={introduction} />
+      <HomeTemplate />
     </>
   )
-}
-
-export const getStaticProps = async () => {
-  return { props: { introduction: INTRODUCTION } }
 }

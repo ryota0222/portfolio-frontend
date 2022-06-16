@@ -1,6 +1,5 @@
 import { memo, useMemo } from 'react'
 import {
-  Box,
   Flex,
   Text,
   Modal,
@@ -40,23 +39,32 @@ export const AppHeader: React.FC<Props> = memo(({ pathname }) => {
     >
       {/* ロゴ部分 */}
       <Link href="/">
-        {isSp ? (
-          <Image src="/images/logo.svg" alt="ロゴ" width="20px" height="40px" />
-        ) : (
-          <Logo width="104px" height="40px" />
-        )}
+        <>
+          {isSp ? (
+            <Image
+              src="/images/logo.svg"
+              alt="ロゴ"
+              width="20px"
+              height="40px"
+            />
+          ) : (
+            <Logo width="104px" height="40px" />
+          )}
+        </>
       </Link>
       <Spacer />
       <Flex alignItems="center">
         {/* ページ名 */}
         <HStack spacing={menuSpacing} mr={menuSpacing}>
           {['top', 'blog', 'news'].map((page: PageName, idx) => {
-            const isActive = pathname === PAGE_PATH_MAP[page]
+            const isactive = pathname === PAGE_PATH_MAP[page]
             return (
               <Link href={PAGE_PATH_MAP[page]} key={idx}>
-                <PageItem isActive={isActive} cursor="pointer">
-                  {PAGE_LABEL_MAP[page]}
-                </PageItem>
+                <>
+                  <PageItem isactive={isactive} cursor="pointer">
+                    {PAGE_LABEL_MAP[page]}
+                  </PageItem>
+                </>
               </Link>
             )
           })}
@@ -92,11 +100,15 @@ const PageItem: React.FC<PageItemProps> = memo(({ children, ...props }) => {
     return isSp ? 'xs' : 'sm'
   }, [isSp])
   return (
-    <PageItemWrapper {...props} position="relative">
+    <PageItemWrapper
+      {...props}
+      position="relative"
+      isactive={Number(props.isactive)}
+    >
       <Text
         fontSize={fontSize}
         fontWeight="bold"
-        opacity={props.isActive ? 1 : 0.48}
+        opacity={props.isactive ? 1 : 0.48}
         transition="all 0.2s"
         _hover={{ opacity: 1 }}
       >

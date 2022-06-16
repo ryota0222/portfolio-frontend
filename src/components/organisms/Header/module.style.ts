@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react'
 import styled from 'styled-components'
 import { GRADIENT } from '@/consts/style'
 
-export const PageItemWrapper = styled(Box)<{ isActive: boolean }>`
+export const PageItemWrapper = styled(Box)<{ isactive: number }>`
   &::after {
     content: '';
     position: absolute;
@@ -15,7 +15,7 @@ export const PageItemWrapper = styled(Box)<{ isActive: boolean }>`
     left: 50%;
     transition: all 0.4s;
     transform: ${(props) =>
-      props.isActive ? 'translate(-50%, -10px)' : 'translate(-50%, 0px)'};
-    opacity: ${(props) => (props.isActive ? 1 : 0)};
+      props.isactive ? 'translate(-50%, -10px)' : 'translate(-50%, 0px)'};
+    opacity: ${(props) => props.isactive};
   }
 `
