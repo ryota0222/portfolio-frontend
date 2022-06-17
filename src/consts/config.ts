@@ -1,4 +1,5 @@
-import { PageName, ShopType } from '@/types/interface'
+import { PageName } from '@/components/organisms/Header'
+import { ShopType } from '@/types/interface'
 
 export * from '@/consts/meta'
 export * from '@/consts/style'
@@ -9,9 +10,7 @@ export * from '@/consts/news'
 export const THROTTLE_TIME = 1000
 export const THROTTLE_OPTION = { trailing: false }
 
-export const PAGE_NAME: PageName[] = ['portfolio', 'blog', 'roadmap']
-
-export const SHOP_TYPE: ShopType[] = ['stamp', 'product', 'wallpaper']
+export const PAGE_NAME: PageName[] = ['top', 'blog', 'news']
 
 export const INTRODUCTION = {
   name: 'RyoTa.',
