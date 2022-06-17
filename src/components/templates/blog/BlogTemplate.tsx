@@ -1,6 +1,4 @@
 import { useEffect } from 'react'
-import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
-import BlogSideMenu from '@/components/features/blogs/BlogSideMenueMenu'
 import {
   Box,
   Flex,
@@ -10,6 +8,8 @@ import {
 } from '@chakra-ui/react'
 import tocbot from 'tocbot'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
+import BlogSideMenu from '@/components/features/blogs/BlogSideMenu'
+import { Breadcrumb } from '@/components/molecules/Breadcrumb'
 import useBlogContentWidth from '@/hooks/blogs/useBlogContentWidth'
 import useSp from '@/hooks/useSp'
 import useWindowHeight from '@/hooks/useWindowHeight'
@@ -124,7 +124,7 @@ const BlogDetailTemplate: React.FC<Props> = ({ data }) => {
                 px={contentsPadding}
                 py={1}
               >
-                <BreadcrumbComponent tag={data.tag} series={data.series} />
+                <Breadcrumb tag={data.tag} series={data.series} />
               </Box>
             )}
             <Box px={contentsPadding}>

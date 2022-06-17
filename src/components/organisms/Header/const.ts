@@ -6,6 +6,12 @@ export const PAGE_LABEL_MAP: Record<PageName, string> = {
   news: 'ニュース',
 }
 
+export const PAGE_PATHNAME_MAP: Record<PageName, string | string[]> = {
+  top: '/',
+  blog: ['/blog', '/blog/[id]'],
+  news: '/news',
+}
+
 export const PAGE_PATH_MAP: Record<PageName, string> = {
   top: '/',
   blog: '/blog',

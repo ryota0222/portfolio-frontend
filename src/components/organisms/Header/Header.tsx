@@ -16,7 +16,7 @@ import { HamburgerMenu } from '@/components/atoms/HamburgerMenu'
 import { Logo } from '@/components/atoms/Logo'
 import { Menu } from '@/components/organisms/Menu'
 import useSp from '@/hooks/useSp'
-import { PAGE_LABEL_MAP, PAGE_PATH_MAP } from './const'
+import { PAGE_LABEL_MAP, PAGE_PATH_MAP, PAGE_PATHNAME_MAP } from './const'
 import { PageItemWrapper } from './module.style'
 import { PageItemProps, Props, PageName } from './type'
 
@@ -57,7 +57,10 @@ export const AppHeader: React.FC<Props> = memo(({ pathname }) => {
         {/* ページ名 */}
         <HStack spacing={menuSpacing} mr={menuSpacing}>
           {['top', 'blog', 'news'].map((page: PageName, idx) => {
-            const isactive = pathname === PAGE_PATH_MAP[page]
+            const isactive =
+              typeof PAGE_PATHNAME_MAP[page] === 'string'
+                ? pathname === PAGE_PATHNAME_MAP[page]
+                : PAGE_PATHNAME_MAP[page].includes(pathname)
             return (
               <Link href={PAGE_PATH_MAP[page]} key={idx}>
                 <PageItem isactive={isactive} cursor="pointer">

@@ -62,6 +62,7 @@ const ContentsList: React.FC<Props> = ({ contents, path }) => {
                 m={blogContentMargin}
                 position="relative"
                 w={blogContentWidth}
+                cursor="pointer"
               >
                 <BlogCard
                   image={`https:${content.image}`}
@@ -123,6 +124,7 @@ const ContentsList: React.FC<Props> = ({ contents, path }) => {
                           m={blogContentMargin}
                           position="relative"
                           w={blogContentWidth}
+                          cursor="pointer"
                         >
                           <BlogCard
                             image={`https:${c.image}`}
