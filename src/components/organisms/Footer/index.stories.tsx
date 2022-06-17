@@ -1,18 +1,15 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { FooterComponent } from '.'
+import { AppFooter } from './Footer'
 
 export default {
   title: 'Design System/Organisms/Footer',
-  component: FooterComponent,
-  decorators: [
-    (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
-    withDesign,
-  ],
+  component: AppFooter,
+  decorators: [(story: any) => <div>{story()}</div>, withDesign],
   argTypes: {},
-} as Meta
+} as ComponentMeta<typeof AppFooter>
 
-const Template: Story = () => <FooterComponent />
+const Template: ComponentStory<typeof AppFooter> = () => <AppFooter />
 
 export const Default = Template.bind({})
 
@@ -21,7 +18,7 @@ Default.args = {}
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A1350',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=4%3A667',
   },
   nextRouter: {
     route: '/',

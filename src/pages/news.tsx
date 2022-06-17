@@ -1,12 +1,14 @@
-import { useState, useEffect, useMemo } from 'react'
-import { Text, Spacer, Flex, useColorModeValue } from '@chakra-ui/react'
+import { useState, useMemo } from 'react'
+import { Text, Spacer, Flex } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import useSWR from 'swr'
 import * as apis from '@/apis/api'
-import { Loading } from '@/components/atoms/Loading'
+import { LoadingIcon } from '@/components/atoms/LoadingIcon/LoadingIcon'
 import NewsTemplate from '@/components/templates/News'
 import { NEWS_NUMBER_PER_PAGE } from '@/consts/config'
 import { news as DAMMY_NEWS } from '@/consts/dammy/news'
+import useNewsPage from '@/hooks/news/useNewsPage'
+import useDesignSystem from '@/hooks/useDesignSystem'
 import useWindowHeight from '@/hooks/useWindowHeight'
 import { HeadComponent } from '@/utils/head'
 
@@ -21,54 +23,19 @@ interface Props {
 }
 
 const NewsPage: NextPage<Props> = ({ fallback }) => {
-  const [offset, setOffset] = useState(0)
   const { scrollHeight } = useWindowHeight()
-  const noDataColor = useColorModeValue('#999', '#ccc')
-  const [contents, setContents] = useState<apis.NewsItem[] | undefined>(
-    undefined,
-  )
+  const [offset, setOffset] = useState(0)
+  const { NO_DATA_COLOR } = useDesignSystem()
   const { data, error } = useSWR<apis.InlineResponse2005>(
     ['api/v2/news', offset, NEWS_NUMBER_PER_PAGE],
     fetcher,
     { fallbackData: fallback },
   )
-  useEffect(() => {
-    if (data && data.success) {
-      setContents((prev) => {
-        // typeチェック
-        if (typeof prev === 'object') {
-          // 同じIDがあれば無視
-          const findSameContents = data.data.contents.filter((c) => {
-            let flg = false
-            if (contents.find((content) => content.id === c.id)) {
-              flg = true
-            }
-            return flg
-          })
-          if (findSameContents.length) return prev
-          return prev.concat(data.data.contents)
-        } else {
-          return data.data.contents
-        }
-      })
-    }
-  }, [data])
-  // データなしの状態でのローディング中フラグ
-  const isLoadingWhileNoData = useMemo(() => {
-    return !data && !contents
-  }, [data, contents])
+  const { contents, isLoadingWhileNoData, totalNumber } = useNewsPage(data)
   // templateを表示するフラグ
   const isVisibleTemplate = useMemo(() => {
     return data && contents?.length && !error
   }, [data, contents, error])
-  // totalの数
-  const totalNumber = useMemo(() => {
-    console.log(data)
-    if (data) {
-      return data.data?.total || 0
-    }
-    return 0
-  }, [data])
   return (
     <>
       <HeadComponent
@@ -76,12 +43,11 @@ const NewsPage: NextPage<Props> = ({ fallback }) => {
         url={`${process.env.NEXT_PUBLIC_SITE_URL}/news`}
         ogType="blog"
       />
-      {error && <p>{JSON.stringify(error)}</p>}
       {/* ローディング中 */}
       {isLoadingWhileNoData && (
         <Flex minH={scrollHeight} flexDir="column" alignItems="center">
           <Spacer />
-          <Loading />
+          <LoadingIcon />
           <Spacer />
         </Flex>
       )}
@@ -89,7 +55,7 @@ const NewsPage: NextPage<Props> = ({ fallback }) => {
       {!contents?.length && (
         <Flex minH={scrollHeight} flexDir="column" alignItems="center">
           <Spacer />
-          <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>
+          <Text textAlign="center" fontSize="sm" my={8} color={NO_DATA_COLOR}>
             現在、お知らせがありません
           </Text>
           <Spacer />

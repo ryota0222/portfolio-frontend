@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { CautionCard, Props } from '.'
+import { CautionCard } from '.'
 
 export default {
   title: 'Design System/Molecules/CautionCard',
@@ -24,9 +24,9 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof CautionCard>
 
-const Template: Story<Props> = (args) => (
+const Template: ComponentStory<typeof CautionCard> = (args) => (
   <CautionCard {...args}>TestTestTestTestTestTestTestTestTest</CautionCard>
 )
 

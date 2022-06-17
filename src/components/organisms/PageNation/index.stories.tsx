@@ -1,7 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { PAGE_NAME } from '@/consts/config'
-import { PageNation, Props } from '.'
+import { PageNation } from './PageNation'
 
 export default {
   title: 'Design System/Organisms/PageNation',
@@ -32,9 +31,11 @@ export default {
       control: { type: 'number' },
     },
   },
-} as Meta
+} as ComponentMeta<typeof PageNation>
 
-const Template: Story<Props> = (args) => <PageNation {...args} />
+const Template: ComponentStory<typeof PageNation> = (args) => (
+  <PageNation {...args} />
+)
 
 export const Default = Template.bind({})
 
@@ -46,6 +47,6 @@ Default.args = {
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A2166',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=4%3A491',
   },
 }

@@ -28,13 +28,15 @@ const Blog = ({ settings, contents }) => {
   const { data, error } = useSWR(
     ['api/v2/blog', offset, limit, searchWord, tag, time, series],
     fetcher,
-    { fallbackData: null },
+    { fallbackData: contents },
   )
+  // データの変更を検知したら更新
   useEffect(() => {
     if (data) {
       setContentsData(data)
     }
   }, [data])
+  // ページタイトル
   const title = useMemo(() => {
     if (time) {
       return formatDate(time as string, 'YYYY/M')
@@ -43,7 +45,7 @@ const Blog = ({ settings, contents }) => {
       return tagData.label
     }
     return ''
-  }, [time, tag])
+  }, [time, tag, settings.data.tags])
   // データ取得成功時 / ローディング時 / 失敗時
   return (
     <>

@@ -72,6 +72,13 @@ class MyDocument extends Document<{ prefix: string | null }> {
             href="/favicons/safari-pinned-tab.svg"
             color="#444444"
           />
+          <link
+            rel="preload"
+            href="/fonts/bananaslipplus.otf"
+            as="font"
+            type="font/otf"
+            crossOrigin=""
+          />
           <meta name="msapplication-TileColor" content="#444444" />
           <meta
             name="msapplication-config"

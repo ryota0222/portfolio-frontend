@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Panel, Props } from '.'
+import { Panel } from './Panel'
 
 export default {
   title: 'Design System/Atoms/Panel',
@@ -35,9 +35,11 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Panel>
 
-const Template: Story<Props> = (args) => <Panel {...args}>sample</Panel>
+const Template: ComponentStory<typeof Panel> = (args) => (
+  <Panel {...args}>sample</Panel>
+)
 
 export const Default = Template.bind({})
 
@@ -49,6 +51,6 @@ Default.args = {
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A725',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=1%3A308',
   },
 }

@@ -1,0 +1,4 @@
+export const UNDERLINE_STYLE_LARGE_WIDTH = '48px'
+export const UNDERLINE_STYLE_LARGE_HEIGHT = '4px'
+export const UNDERLINE_STYLE_DEFAULT_WIDTH = '32px'
+export const UNDERLINE_STYLE_DEFAULT_HEIGHT = '3px'

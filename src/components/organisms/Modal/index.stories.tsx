@@ -1,7 +1,7 @@
 import { useDisclosure, Button, Text } from '@chakra-ui/react'
-import { Story, Meta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ModalComponent, Props } from '.'
+import { AppModal } from './Modal'
 
 const DUMMY_TEXT = `私は当時じっとどんな持人に対する訳の日に見せるあるう。
 
@@ -9,14 +9,13 @@ const DUMMY_TEXT = `私は当時じっとどんな持人に対する訳の日に
 
 export default {
   title: 'Design System/Organisms/Modal',
-  component: ModalComponent,
+  component: AppModal,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
   ],
   argTypes: {
     contents: {
-      type: { name: 'string | ReactNode', required: true },
       defaultValue: DUMMY_TEXT,
       description: '中身',
       table: {
@@ -28,7 +27,6 @@ export default {
       },
     },
     header: {
-      type: { name: 'string | ReactNode', required: false },
       defaultValue: 'タイトル',
       description: 'ヘッダー',
       table: {
@@ -40,7 +38,6 @@ export default {
       },
     },
     footer: {
-      type: { name: 'string | ReactNode', required: false },
       defaultValue: undefined,
       description: 'フッター',
       table: {
@@ -67,7 +64,6 @@ export default {
       },
     },
     onClose: {
-      type: { name: 'UseModalProps["onClose"]', required: true },
       description: '閉じるアクション',
       table: {
         type: {
@@ -79,14 +75,14 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof AppModal>
 
 const ModalWrapper = (args) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Button onClick={onOpen}>Open Modal</Button>
-      <ModalComponent
+      <AppModal
         contents={args.contents}
         header={args?.header}
         footer={args?.footer}
@@ -97,7 +93,9 @@ const ModalWrapper = (args) => {
   )
 }
 
-const Template: Story<Props> = (args) => <ModalWrapper {...args} />
+const Template: ComponentStory<typeof AppModal> = (args) => (
+  <ModalWrapper {...args} />
+)
 
 const Title = () => <Text color="red">タイトル</Text>
 
@@ -121,7 +119,7 @@ PlaneText.args = {
 PlaneText.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A1270',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=4%3A539',
   },
 }
 

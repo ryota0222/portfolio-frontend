@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { TITLE, DESCRIPTION, KEYWORD, IMAGE, URL } from '@/consts/config'
+import { TITLE, DESCRIPTION, KEYWORD, IMAGE } from '@/consts/config'
 import { OgType } from '@/types/interface'
 
 interface Props {
@@ -59,6 +59,10 @@ export const HeadComponent: React.FC<Props> = ({
         sizes="180x180"
         href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicons/apple-touch-icon.png`}
       />
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/scroll-hint@1.1.2/css/scroll-hint.css"
+      ></link>
       {/* Google Adsense */}
       {isAdsensePage && (
         <script

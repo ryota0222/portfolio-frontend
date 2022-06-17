@@ -1,0 +1,52 @@
+{
+  "white": {
+    "value": "#fff",
+    "type": "color"
+  },
+  "black": {
+    "value": "#000",
+    "type": "color"
+  },
+  "app-gray": {
+    "50": {
+      "value": "#FBFBFB",
+      "type": "color"
+    },
+    "100": {
+      "value": "#F5F5F5",
+      "type": "color"
+    },
+    "200": {
+      "value": "#F0F1F0",
+      "type": "color"
+    },
+    "300": {
+      "value": "#E6E6E6",
+      "type": "color"
+    },
+    "400": {
+      "value": "#DDDDDD",
+      "type": "color"
+    },
+    "500": {
+      "value": "#B8B9B9",
+      "type": "color"
+    },
+    "600": {
+      "value": "#666666",
+      "type": "color"
+    },
+    "700": {
+      "value": "#404040",
+      "type": "color"
+    },
+    "800": {
+      "value": "#282B2C",
+      "type": "color"
+    },
+    "900": {
+      "value": "#222222",
+      "type": "color"
+    }
+  }
+}
