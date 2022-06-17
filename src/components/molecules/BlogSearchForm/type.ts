@@ -1,5 +1,5 @@
 export interface Props {
-  clear: () => void
+  clear: (event?: any) => void
   value: string
   onChange: (event?: any) => void
   onKeyPress: (event?: any) => void

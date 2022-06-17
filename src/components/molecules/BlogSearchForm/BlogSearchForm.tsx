@@ -12,7 +12,6 @@ import {
 import { FiSearch } from 'react-icons/fi'
 import { IoIosClose } from 'react-icons/io'
 import useDesignSystem from '@/hooks/useDesignSystem'
-import useSp from '@/hooks/useSp'
 import { Props } from './type'
 
 export const BlogSearchForm: React.FC<Props> = memo(
