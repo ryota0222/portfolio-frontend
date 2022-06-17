@@ -8,6 +8,6 @@ export const PAGE_LABEL_MAP: Record<PageName, string> = {
 
 export const PAGE_PATH_MAP: Record<PageName, string> = {
   top: '/',
-  blog: '/blogs',
+  blog: '/blog',
   news: '/news',
 }
