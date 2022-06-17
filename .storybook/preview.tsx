@@ -14,7 +14,7 @@ import { FiSun } from 'react-icons/fi'
 import { withPerformance } from 'storybook-addon-performance'
 import { mode } from '@chakra-ui/theme-tools'
 import * as nextImage from 'next/image'
-import { RouterContext } from 'next/dist/next-server/lib/router-context'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
 import { getThemeColor } from '../src/utils/themeColor'
 
 const addParameters = require('@storybook/react').addParameters

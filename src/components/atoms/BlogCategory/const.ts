@@ -1,1 +1,1 @@
-export const DEFAULT_SIZE = '50px'
+export const DEFAULT_SIZE = 'lg'

@@ -1,4 +1,7 @@
 import { memo } from 'react'
+import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
+import { Counter } from '@/components/molecules/Counter'
+import { Intro } from '@/components/molecules/Intro'
 import {
   Box,
   Center,
@@ -12,10 +15,7 @@ import throttle from 'just-throttle'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import coffeeImage from '@/assets/blogs/coffee.png'
-import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
-import { Counter } from '@/components/molecules/Counter'
-import { Intro } from '@/components/molecules/Intro'
 import useDesignSystem from '@/hooks/useDesignSystem'
 import useSp from '@/hooks/useSp'
 import useWindowHeight from '@/hooks/useWindowHeight'
@@ -50,18 +50,8 @@ const BlogSideMenu: React.FC<Props> = memo(
     const [isSp] = useSp()
     const { BLOG_SIDE_MENU_BG } = useDesignSystem()
     const { scrollHeight } = useWindowHeight()
-    // const [good, setGood] = useState()
-    // const [bad, setBad] = useState()
     const router = useRouter()
     const id = router.query.id
-    // 評価する
-    const setReview = throttle(
-      (type: CounterType) => {
-        console.log(type)
-      },
-      500,
-      { trailing: false },
-    )
     const sideMenuContentsWrapper = useColorModeValue('#FFFFFF', '#353839')
     const width = useBreakpointValue({
       base: '100%',

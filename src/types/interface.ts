@@ -132,21 +132,23 @@ export interface BlogSetting {
   }[]
 }
 
-export interface BlogContents {
-  contents: {
-    created_at: string
-    updated_at: string | null
+export interface BlogContent {
+  created_at: string
+  updated_at: string | null
+  id: string
+  image: string
+  tag: {
+    color: string
     id: string
-    image: string
-    tag: {
-      color: string
-      id: string
-      label: string
-      tag_id: string
-      icon: string
-    }
-    title: string
-  }[]
+    label: string
+    tag_id: string
+    icon: string
+  }
+  title: string
+}
+
+export interface BlogContents {
+  contents: BlogContent[]
   page: {
     current: number
     total_count: number

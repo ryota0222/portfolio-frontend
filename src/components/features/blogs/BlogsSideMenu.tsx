@@ -1,17 +1,20 @@
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useCallback } from 'react'
 import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
-import throttle from 'just-throttle'
 import router, { useRouter } from 'next/router'
+import { BlogCategory } from '@/components/atoms/BlogCategory'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
-import ArchiveItem from '@/components/molecules/ArchiveItem'
+import { BlogMenuItem } from '@/components/molecules/BlogMenuItem'
 import useDesignSystem from '@/hooks/useDesignSystem'
 import { BlogSetting } from '@/types/interface'
 import { formatDate } from '@/utils/dayjs'
+import throttle from '@/utils/throttle'
+
 interface Props {
   data: BlogSetting
+  loading: boolean
 }
 
-const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
+const BlogsSideMenu: React.FC<Props> = memo(({ data, loading }) => {
   const { BLOG_SIDE_MENU_BG } = useDesignSystem()
   const { query } = useRouter()
   // 月別アーカイブがアクティブかどうか
@@ -31,12 +34,22 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
   return (
     <Box
       w="full"
-      backgroundColor={BLOG_SIDE_MENU_BG}
       h="full"
       boxSizing="border-box"
       p={8}
       pt="80px"
       maxW="320px"
+      position={'relative'}
+      _before={{
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        minHeight: '100vh',
+        backgroundColor: BLOG_SIDE_MENU_BG,
+        zIndex: -9999,
+      }}
     >
       {/* 月別アーカイブ */}
       {data.monthly_archives?.length > 0 && (
@@ -48,28 +61,48 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
             <Title>月別アーカイブ</Title>
           </Flex>
           <Box>
-            {data.monthly_archives.map((item, idx) => {
-              const date = Object.keys(item)[0]
-              const count = Object.values(item)[0]?.count ?? 0
-              return (
-                <Box key={idx} my={2}>
-                  <ArchiveItem
-                    isActive={isArchiveActive(date)}
-                    count={count}
-                    onClick={throttle(
-                      () =>
+            {loading ? (
+              <>
+                {[1, 2, 3, 4].map((item) => {
+                  return (
+                    <Box key={item} my={2}>
+                      <BlogMenuItem
+                        selected={false}
+                        file={0}
+                        loading={true}
+                      ></BlogMenuItem>
+                    </Box>
+                  )
+                })}
+              </>
+            ) : (
+              <>
+                {data.monthly_archives.map((item, idx) => {
+                  const date = Object.keys(item)[0]
+                  const count = Object.values(item)[0]?.count ?? 0
+                  return (
+                    <Box
+                      key={idx}
+                      my={2}
+                      onClick={throttle(() =>
                         router.push(
                           `/blog?time=${formatDate(date, 'YYYY-MM')}`,
                         ),
-                      1000,
-                      { trailing: false },
-                    )}
-                  >
-                    {formatDate(date, 'YYYY/M')}
-                  </ArchiveItem>
-                </Box>
-              )
-            })}
+                      )}
+                      cursor="pointer"
+                    >
+                      <BlogMenuItem
+                        selected={date === query?.time}
+                        file={count}
+                        loading={false}
+                      >
+                        {formatDate(date, 'YYYY/M')}
+                      </BlogMenuItem>
+                    </Box>
+                  )
+                })}
+              </>
+            )}
           </Box>
         </Box>
       )}
@@ -83,43 +116,52 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
             <Title>カテゴリ別アーカイブ</Title>
           </Flex>
           <Box>
-            {data.tag_archives.map((item, index) => {
-              const tagName = Object.keys(item)[0]
-              const tagValue = Object.values(item)[0]
-              const tagData = data.tags.find((tag) => tag.tag_id === tagName)
-              const label = tagData.label
-              const icon = tagData.icon
-              return (
-                <Box key={index} my={2}>
-                  <ArchiveItem
-                    isActive={isTagActive(tagData.id)}
-                    file={tagValue.count}
-                    folder={tagValue?.series?.length}
-                    onClick={throttle(
-                      () => router.push(`/blog?tag=${tagData.id}`),
-                      1000,
-                      {
-                        trailing: false,
-                      },
-                    )}
-                  >
-                    <Flex alignItems="center">
-                      <Text fontSize="sm" mr={2}>
-                        {icon}
-                      </Text>
-                      <Text
-                        fontSize="small"
-                        p={1}
-                        colorScheme="dark"
-                        fontWeight="bold"
+            {loading ? (
+              <>
+                {[1, 2, 3, 4].map((item) => {
+                  return (
+                    <Box key={item} my={2}>
+                      <BlogMenuItem
+                        selected={false}
+                        file={0}
+                        loading={true}
+                      ></BlogMenuItem>
+                    </Box>
+                  )
+                })}
+              </>
+            ) : (
+              <>
+                {data.tag_archives.map((item, index) => {
+                  const tagName = Object.keys(item)[0]
+                  const tagValue = Object.values(item)[0]
+                  const tagData = data.tags.find(
+                    (tag) => tag.tag_id === tagName,
+                  )
+                  const label = tagData.label
+                  const icon = tagData.icon
+                  return (
+                    <Box
+                      key={index}
+                      my={2}
+                      onClick={throttle(() =>
+                        router.push(`/blog?tag=${tagData.id}`),
+                      )}
+                      cursor="pointer"
+                    >
+                      <BlogMenuItem
+                        selected={isTagActive(tagData.id)}
+                        file={tagValue.count}
+                        folder={tagValue?.series?.length}
+                        loading={false}
                       >
-                        {label}
-                      </Text>
-                    </Flex>
-                  </ArchiveItem>
-                </Box>
-              )
-            })}
+                        <BlogCategory icon={icon} label={label} />
+                      </BlogMenuItem>
+                    </Box>
+                  )
+                })}
+              </>
+            )}
           </Box>
         </Box>
       )}
@@ -128,15 +170,12 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data }) => {
 })
 
 const Title = memo(({ children }) => {
-  const textColor = useColorModeValue('dark', '#AFAFAF')
+  const { TEXT_COLOR } = useDesignSystem()
   return (
-    <Text as="h2" color={textColor} fontWeight="bold" fontSize="sm">
+    <Text as="h2" color={TEXT_COLOR} fontWeight="bold" fontSize="sm">
       {children}
     </Text>
   )
 })
-
-Title.displayName = 'Title'
-BlogsSideMenu.displayName = 'BlogsSideMenu'
 
 export default BlogsSideMenu

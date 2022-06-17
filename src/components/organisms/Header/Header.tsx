@@ -58,7 +58,6 @@ export const AppHeader: React.FC<Props> = memo(({ pathname }) => {
         <HStack spacing={menuSpacing} mr={menuSpacing}>
           {['top', 'blog', 'news'].map((page: PageName, idx) => {
             const isactive = pathname === PAGE_PATH_MAP[page]
-            console.log(PAGE_PATH_MAP[page])
             return (
               <Link href={PAGE_PATH_MAP[page]} key={idx}>
                 <PageItem isactive={isactive} cursor="pointer">

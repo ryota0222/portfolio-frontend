@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
+import BlogSideMenu from '@/components/features/blogs/BlogSideMenueMenu'
 import {
   Box,
   Flex,
@@ -7,9 +9,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import tocbot from 'tocbot'
-import BreadcrumbComponent from '@/components/atoms/Breadcrumb'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
-import BlogSideMenu from '@/components/organisms/BlogSideMenu'
 import useBlogContentWidth from '@/hooks/blogs/useBlogContentWidth'
 import useSp from '@/hooks/useSp'
 import useWindowHeight from '@/hooks/useWindowHeight'
