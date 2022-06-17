@@ -1,7 +1,7 @@
 import { useDisclosure, Button, Text } from '@chakra-ui/react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { ModalComponent } from '.'
+import { AppModal } from './Modal'
 
 const DUMMY_TEXT = `私は当時じっとどんな持人に対する訳の日に見せるあるう。
 
@@ -9,7 +9,7 @@ const DUMMY_TEXT = `私は当時じっとどんな持人に対する訳の日に
 
 export default {
   title: 'Design System/Organisms/Modal',
-  component: ModalComponent,
+  component: AppModal,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
@@ -75,14 +75,14 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ModalComponent>
+} as ComponentMeta<typeof AppModal>
 
 const ModalWrapper = (args) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Button onClick={onOpen}>Open Modal</Button>
-      <ModalComponent
+      <AppModal
         contents={args.contents}
         header={args?.header}
         footer={args?.footer}
@@ -93,7 +93,7 @@ const ModalWrapper = (args) => {
   )
 }
 
-const Template: ComponentStory<typeof ModalComponent> = (args) => (
+const Template: ComponentStory<typeof AppModal> = (args) => (
   <ModalWrapper {...args} />
 )
 
@@ -119,7 +119,7 @@ PlaneText.args = {
 PlaneText.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A1270',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=4%3A539',
   },
 }
 

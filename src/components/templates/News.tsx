@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react'
 import { useUpdateEffect } from 'react-use'
 import { NewsItem } from '@/apis/api'
+import useDesignSystem from '@/hooks/useDesignSystem'
 import useDetectBottom from '@/hooks/useDetectBottom'
 import useWindowHeight from '@/hooks/useWindowHeight'
 import {
@@ -33,7 +34,7 @@ interface Props {
 }
 
 const NewsTemplate: React.FC<Props> = ({ contents, total, setOffset }) => {
-  const noDataColor = useColorModeValue('#999', '#ccc')
+  const { NO_DATA_COLOR } = useDesignSystem()
   const lineColor = useColorModeValue('#A0AEC0', 'white')
   const bgColor = useColorModeValue('#FBFBFB', '#404040')
   const textColor = useColorModeValue('#000000', '#FFFFFF')
@@ -42,8 +43,6 @@ const NewsTemplate: React.FC<Props> = ({ contents, total, setOffset }) => {
   const [timeRef, setTimeRef] = useState<NodeJS.Timeout | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
-  console.log(`total: ${total}`)
-  console.log(`contents: ${contents.length}`)
   // 取得したコンテンツがtotalより大きいかどうか
   const isMaxContents = useMemo(() => {
     return total <= contents.length
@@ -74,7 +73,7 @@ const NewsTemplate: React.FC<Props> = ({ contents, total, setOffset }) => {
     return (
       <Flex minH={scrollHeight} flexDir="column" alignItems="center">
         <Spacer />
-        <Text textAlign="center" fontSize="sm" my={8} color={noDataColor}>
+        <Text textAlign="center" fontSize="sm" my={8} color={NO_DATA_COLOR}>
           新しいお知らせがありません
         </Text>
         <Spacer />

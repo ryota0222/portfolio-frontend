@@ -12,11 +12,11 @@ export default {
   argTypes: {
     width: {
       type: { name: 'string', required: false },
-      defaultValue: '50px',
+      defaultValue: '160px',
       description: '幅',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '50px' },
+        defaultValue: { summary: '160px' },
       },
       control: {
         type: 'text',
@@ -24,11 +24,11 @@ export default {
     },
     height: {
       type: { name: 'string', required: false },
-      defaultValue: '50px',
+      defaultValue: '60px',
       description: '高さ',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '50px' },
+        defaultValue: { summary: '60px' },
       },
       control: {
         type: 'text',
@@ -46,6 +46,6 @@ Default.args = {}
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A993',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=1%3A320',
   },
 }

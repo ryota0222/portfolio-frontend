@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { withDesign } from 'storybook-addon-designs'
-import { Panel } from '.'
+import { Panel } from './Panel'
 
 export default {
   title: 'Design System/Atoms/Panel',
@@ -51,6 +51,6 @@ Default.args = {
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=160%3A725',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=1%3A308',
   },
 }

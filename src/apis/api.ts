@@ -844,6 +844,12 @@ export interface Tag {
    * @memberof Tag
    */
   id: string
+  /**
+   * アイコン
+   * @type {string}
+   * @memberof Tag
+   */
+  icon: string
 }
 /**
  *

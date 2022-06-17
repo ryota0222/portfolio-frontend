@@ -7,12 +7,11 @@ import {
   INLINES,
   TopLevelBlock,
 } from '@contentful/rich-text-types'
-import { Code } from '@/components/atoms/blog/Code'
-import { ContentImage } from '@/components/atoms/blog/ContentImage'
-import { EmbeddedEntry } from '@/components/atoms/blog/EmbeddedEntry'
-import { InlineEmbeddedEntry } from '@/components/atoms/blog/InlineEmbeddedEntry'
-import { LinkEntry } from '@/components/atoms/blog/LinkEntry'
-import Gist from '@/components/Gist'
+import { Code } from '@/components/features/blogs/Code'
+import { EmbeddedEntry } from '@/components/features/blogs/EmbeddedEntry'
+import Gist from '@/components/features/blogs/Gist'
+import { InlineEmbeddedEntry } from '@/components/features/blogs/InlineEmbeddedEntry'
+import { LinkEntry } from '@/components/features/blogs/LinkEntry'
 import { CautionCard } from '@/components/molecules/CautionCard'
 import BlogStyle from '@/styles/blog.css'
 

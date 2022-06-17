@@ -16,4 +16,5 @@ module.exports = withPlugins([withBundleAnalyzer, withVideos], {
       'portfolio-frontend-7a0k38iau-ryota.vercel.app',
     ],
   },
+  experimental: { esmExternals: true },
 })

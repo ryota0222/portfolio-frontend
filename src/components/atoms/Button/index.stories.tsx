@@ -1,15 +1,35 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { AiFillBell } from 'react-icons/ai'
 import { withDesign } from 'storybook-addon-designs'
-import { Btn } from '.'
+import { AppButton } from './Button'
+
+const Bell = <AiFillBell />
+const None = undefined
+
+const icons = { None, Bell }
 
 export default {
   title: 'Design System/Atoms/Button',
-  component: Btn,
+  component: AppButton,
   decorators: [
     (story: any) => <div style={{ padding: '0 2rem' }}>{story()}</div>,
     withDesign,
   ],
   argTypes: {
+    icon: {
+      description: 'ボタンのラベルの左に表示するアイコン',
+      defaultValue: undefined,
+      summary: 'React.ReactNode',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: undefined },
+      },
+      options: Object.keys(icons),
+      mapping: icons,
+      control: {
+        type: 'select',
+      },
+    },
     scheme: {
       description: 'カラースキーマ',
       defaultValue: 'primary',
@@ -17,8 +37,41 @@ export default {
         type: { summary: 'ButtonScheme' },
         defaultValue: { summary: 'primary' },
       },
-      options: ['primary', 'secondary', 'danger', 'info'],
+      options: ['primary', 'secondary', 'danger'],
       control: { type: 'radio' },
+    },
+    variant: {
+      defaultValue: 'fill',
+      description: 'ボタンのタイプ',
+      table: {
+        type: { summary: 'ButtonVariant' },
+        defaultValue: { summary: 'fill' },
+      },
+      options: ['fill', 'outline'],
+      control: { type: 'radio' },
+    },
+    round: {
+      type: { name: 'boolean', required: false },
+      defaultValue: false,
+      description: 'ボタン丸くするかのフラグ',
+      table: {
+        type: { summary: 'boolean', detail: 'trueの時、角丸のボタンにする' },
+        defaultValue: { summary: false },
+      },
+      controls: { expanded: true },
+    },
+    processing: {
+      type: { name: 'boolean', required: false },
+      defaultValue: false,
+      description: '処理中かどうかのフラグ',
+      table: {
+        type: {
+          summary: 'boolean',
+          detail: 'trueの時、処理中のUIにする',
+        },
+        defaultValue: { summary: false },
+      },
+      controls: { expanded: true },
     },
     onClick: {
       description: 'クリックイベントが発生した際の処理',
@@ -27,64 +80,23 @@ export default {
       },
       action: 'clicked',
     },
-    variant: {
-      defaultValue: 'solid',
-      description: 'ボタンのタイプ',
-      table: {
-        type: { summary: 'ButtonVariant' },
-        defaultValue: { summary: 'solid' },
-      },
-      options: ['solid', 'outline'],
-      control: { type: 'radio' },
-    },
-    round: {
-      type: { name: 'boolean', required: false },
-      defaultValue: false,
-      description: 'ボタンの両サイドの丸くするかのフラグ',
-      table: {
-        type: { summary: 'boolean', detail: 'trueの時、角丸のボタンにする' },
-        defaultValue: { summary: false },
-      },
-      controls: { expanded: true },
-    },
-    floating: {
-      type: { name: 'boolean', required: false },
-      defaultValue: false,
-      description: 'ボタンに影をつける',
-      table: {
-        type: { summary: 'boolean', detail: 'trueの時、影をつける' },
-        defaultValue: { summary: false },
-      },
-      controls: { expanded: true },
-    },
-    neumorphic: {
-      type: { name: 'boolean', required: false },
-      defaultValue: false,
-      description: 'ニューモーフィズムにする',
-      table: {
-        type: {
-          summary: 'boolean',
-          detail: 'trueの時、ニューモーフィズムにする',
-        },
-        defaultValue: { summary: false },
-      },
-      controls: { expanded: true },
-    },
   },
-} as ComponentMeta<typeof Btn>
+} as ComponentMeta<typeof AppButton>
 
-const Template: ComponentStory<typeof Btn> = (args) => (
-  <Btn {...args}>sample</Btn>
+const Template: ComponentStory<typeof AppButton> = (args) => (
+  <AppButton {...args}>sample</AppButton>
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
   scheme: 'primary',
+  onClick: () => console.log('call'),
+  processing: false,
 }
 Primary.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/uGEYjP7DYjxgOKjGiYbP5P/portfolio?node-id=2%3A16',
+    url: 'https://www.figma.com/file/Rs5TFRzZk9sjGkNuRSld9H/portfolio(v4)?node-id=1%3A99',
   },
 }
 
@@ -106,15 +118,6 @@ Danger.parameters = {
   ...Primary.parameters,
 }
 
-export const Info = Template.bind({})
-Info.args = {
-  ...Primary.args,
-  scheme: 'info',
-}
-Info.parameters = {
-  ...Primary.parameters,
-}
-
 export const Outline = Template.bind({})
 Outline.args = {
   ...Primary.args,
@@ -133,20 +136,20 @@ Round.parameters = {
   ...Primary.parameters,
 }
 
-export const Floating = Template.bind({})
-Floating.args = {
+export const Processing = Template.bind({})
+Processing.args = {
   ...Primary.args,
-  floating: true,
+  processing: true,
 }
-Floating.parameters = {
+Processing.parameters = {
   ...Primary.parameters,
 }
 
-export const Neumorphic = Template.bind({})
-Neumorphic.args = {
+export const Icon = Template.bind({})
+Icon.args = {
   ...Primary.args,
-  neumorphic: true,
+  icon: <AiFillBell />,
 }
-Neumorphic.parameters = {
+Icon.parameters = {
   ...Primary.parameters,
 }
