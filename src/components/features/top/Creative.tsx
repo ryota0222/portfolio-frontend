@@ -1,6 +1,8 @@
-import React, { memo, useMemo } from 'react'
-import { Box, BoxProps, Flex, HStack } from '@chakra-ui/react'
+import React, { memo, useMemo, useEffect } from 'react'
+import { Box, BoxProps, HStack } from '@chakra-ui/react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import ScrollHint from 'scroll-hint'
 import styled from 'styled-components'
 import { SectionTitle } from '@/components/atoms/SectionTitle'
 import { SubSectionTitle } from '@/components/atoms/SubSectionTitle'
@@ -9,11 +11,24 @@ import { CreativeItem } from '@/components/molecules/CreativeItem'
 import { LINE_STAMP_LIST, APPLICATION_LIST } from '@/consts/top'
 import useSp from '@/hooks/useSp'
 
+const ScrollRevealContainer = dynamic(
+  import('@/components/features/top/ScrollRevealContainer'),
+  { ssr: false },
+)
+
 const Creative = memo(() => {
+  useEffect(() => {
+    new ScrollHint('.js-scrollable', {
+      suggestiveShadow: true,
+      i18n: {
+        scrollable: 'スクロールできます',
+      },
+    })
+  }, [])
   const [isSp] = useSp()
   const size = useMemo(() => (isSp ? 'sm' : 'lg'), [isSp])
   return (
-    <Flex w="100vw" minH={'80vh'} m="auto" flexDir="column" mb={32}>
+    <ScrollRevealContainer mb={32}>
       <UnScrollableWrapper mb={20}>
         <SectionTitle size={size}>Creative</SectionTitle>
       </UnScrollableWrapper>
@@ -74,7 +89,7 @@ const Creative = memo(() => {
         <SubSectionTitle size={size}>Recent Slide</SubSectionTitle>
         <Slides />
       </UnScrollableWrapper>
-    </Flex>
+    </ScrollRevealContainer>
   )
 })
 

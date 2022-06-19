@@ -1,21 +1,20 @@
 import React, { memo, useMemo } from 'react'
-import { VStack, Flex } from '@chakra-ui/react'
+import { VStack } from '@chakra-ui/react'
+import dynamic from 'next/dynamic'
 import { ExternalServiceLink } from '@/components/atoms/ExternalServiceLink'
 import { SectionTitle } from '@/components/atoms/SectionTitle'
 import useSp from '@/hooks/useSp'
+
+const ScrollRevealContainer = dynamic(
+  import('@/components/features/top/ScrollRevealContainer'),
+  { ssr: false },
+)
 
 const Links = memo(() => {
   const [isSp] = useSp()
   const size = useMemo(() => (isSp ? 'sm' : 'lg'), [isSp])
   return (
-    <Flex
-      w="100vw"
-      minH={'80vh'}
-      maxW="1000px"
-      m="auto"
-      flexDir="column"
-      px={4}
-    >
+    <ScrollRevealContainer maxW="1000px" px={4}>
       <SectionTitle size={size}>Creative</SectionTitle>
       <VStack spacing={8} alignItems="flex-start" maxW="20rem" m="auto">
         <ExternalServiceLink type="qiita" />
@@ -26,7 +25,7 @@ const Links = memo(() => {
         <ExternalServiceLink type="wcm" />
         <ExternalServiceLink type="line-creators-market" />
       </VStack>
-    </Flex>
+    </ScrollRevealContainer>
   )
 })
 
