@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'bananaslipplus';
+  src: url(/fonts/bananaslipplus.otf);
+}
+
 html,
 body {
   padding: 0;

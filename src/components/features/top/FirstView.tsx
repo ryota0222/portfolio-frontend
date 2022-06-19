@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { useMemo } from 'react'
 import { Box, Flex, useBreakpointValue, Text, Center } from '@chakra-ui/react'
 import Image from 'next/image'
 import useSp from '@/hooks/useSp'
 
-const FirstView: React.FC = () => {
+const FirstView: React.FC = memo(() => {
   const [isSp] = useSp()
   const width = useBreakpointValue({ base: '100%', md: '5xl' })
   const nameFontSize = useMemo(() => (isSp ? '3xl' : '5xl'), [isSp])
@@ -79,6 +79,6 @@ const FirstView: React.FC = () => {
       </Flex>
     </>
   )
-}
+})
 
 export default FirstView
