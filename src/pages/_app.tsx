@@ -11,6 +11,7 @@ import useFontSizeEffect from '@/hooks/useFontSizeEffect'
 import usePageView from '@/hooks/usePageView'
 import { Container } from '@/styles/global.css'
 import '@/styles/globals.css'
+import { useMemo } from 'react'
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
@@ -31,11 +32,20 @@ function MyApp({ Component, pageProps }: AppProps) {
   usePageView()
   const router = useRouter()
   const pathname = router.pathname
+  const headerPosition = useMemo(() => {
+    return pathname !== '/blog/[id]' ? 'sticky' : 'initial'
+  }, [pathname])
   return (
     <Provider>
       <Container>
         {/* ヘッダー */}
-        <AppHeader pathname={pathname} />
+        <AppHeader
+          pathname={pathname}
+          position={headerPosition}
+          top={0}
+          left={0}
+          backdropFilter="blur(4px)"
+        />
         {/* メインコンテンツ */}
         <Box w="full" as="main" h="100%">
           <Component {...pageProps} />

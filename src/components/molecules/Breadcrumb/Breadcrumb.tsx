@@ -34,7 +34,11 @@ export const Breadcrumb: React.FC<Props> = memo(({ tag, series }) => {
       <BreadcrumbItem>
         <BreadcrumbLink
           href={`/blog?tag=${tag.id}`}
-          style={{ color: TEXT_COLOR, fontSize: fontSize, lineHeight: '16px' }}
+          style={{
+            color: svgColor,
+            fontSize: fontSize,
+            lineHeight: '16px',
+          }}
           _hover={{
             textDecoration: 'none',
           }}
@@ -48,7 +52,7 @@ export const Breadcrumb: React.FC<Props> = memo(({ tag, series }) => {
           <BreadcrumbLink
             href={`/blog?tag=${tag.id}&series=${series.slug}&title=${series.name}`}
             style={{
-              color: TEXT_COLOR,
+              color: svgColor,
               fontSize: fontSize,
               lineHeight: '16px',
             }}

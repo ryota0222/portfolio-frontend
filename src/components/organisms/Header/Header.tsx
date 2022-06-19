@@ -20,7 +20,7 @@ import { PAGE_LABEL_MAP, PAGE_PATH_MAP, PAGE_PATHNAME_MAP } from './const'
 import { PageItemWrapper } from './module.style'
 import { PageItemProps, Props, PageName } from './type'
 
-export const AppHeader: React.FC<Props> = memo(({ pathname }) => {
+export const AppHeader: React.FC<Props> = memo(({ pathname, ...props }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isSp] = useSp()
   const menuSpacing = useMemo(() => {
@@ -36,6 +36,7 @@ export const AppHeader: React.FC<Props> = memo(({ pathname }) => {
       alignItems="center"
       w="full"
       zIndex={1}
+      {...props}
     >
       {/* ロゴ部分 */}
       <Link href="/">
