@@ -4,78 +4,16 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { SectionTitle } from '@/components/atoms/SectionTitle'
 import { SubSectionTitle } from '@/components/atoms/SubSectionTitle'
-import Slide from '@/components/features/top/Slide'
+import Slides from '@/components/features/top/Slides'
 import { CreativeItem } from '@/components/molecules/CreativeItem'
+import { LINE_STAMP_LIST, APPLICATION_LIST } from '@/consts/top'
 import useSp from '@/hooks/useSp'
 
-const APPLICATION_LIST = [
-  {
-    image: '/images/w-tetris.png',
-    title: 'W Tetris',
-    description: 'テトリスをWebの技術で作成しています。PWAにも対応済みです。',
-    github: 'https://github.com/RyoTa0222/w-tetris',
-  },
-  {
-    image: '/images/presentation-timer.png',
-    title: 'Presentation Watch',
-    description:
-      '勉強会で使用するために作成したタイムキーパーアプリです。WebSocketを用いて双方向通信を実現し複数台の端末で管理可能です。',
-    github: 'https://github.com/RyoTa0222/presentation-timer',
-  },
-]
-
-const LINE_STAMP_LIST = [
-  {
-    image: '/images/sticky/penpen-2.png',
-    link: 'https://line.me/S/sticker/19096682',
-  },
-  {
-    image: '/images/sticky/penpen-1.png',
-    link: 'https://line.me/S/sticker/18833443',
-  },
-  {
-    image: '/images/sticky/greeny-chick-enginner.png',
-    link: 'https://line.me/S/sticker/19096682',
-  },
-  {
-    image: '/images/sticky/otokonoko-pun.png',
-    link: 'https://line.me/S/sticker/16627181',
-  },
-  {
-    image: '/images/sticky/otokonoko-3.png',
-    link: 'https://line.me/S/sticker/16584411',
-  },
-  {
-    image: '/images/sticky/otokonoko-2.png',
-    link: 'https://line.me/S/sticker/16101783',
-  },
-  {
-    image: '/images/sticky/otokonoko-1.png',
-    link: 'https://line.me/S/sticker/15744468',
-  },
-  {
-    image: '/images/sticky/cubicun.png',
-    link: 'https://line.me/S/sticker/3859035',
-  },
-  {
-    image: '/images/sticky/yota.png',
-    link: 'https://line.me/S/sticker/3546558',
-  },
-  {
-    image: '/images/sticky/gebe.png',
-    link: 'https://line.me/S/sticker/1301367',
-  },
-  {
-    image: '/images/sticky/frogman.png',
-    link: 'https://line.me/S/sticker/1301351',
-  },
-]
-
-const Creative = () => {
+const Creative = memo(() => {
   const [isSp] = useSp()
   const size = useMemo(() => (isSp ? 'sm' : 'lg'), [isSp])
   return (
-    <Flex w="100vw" minH={'80vh'} m="auto" flexDir="column">
+    <Flex w="100vw" minH={'80vh'} m="auto" flexDir="column" mb={32}>
       <UnScrollableWrapper mb={20}>
         <SectionTitle size={size}>Creative</SectionTitle>
       </UnScrollableWrapper>
@@ -134,11 +72,11 @@ const Creative = () => {
       {/* 登壇資料 */}
       <UnScrollableWrapper mb={12} mt={20}>
         <SubSectionTitle size={size}>Recent Slide</SubSectionTitle>
-        <Slide />
+        <Slides />
       </UnScrollableWrapper>
     </Flex>
   )
-}
+})
 
 export default Creative
 

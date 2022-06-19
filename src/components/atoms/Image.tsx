@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useMemo } from 'react'
+import { useEffect } from 'react'
 import NextImage from 'next/image'
 import { BLOG_IMAGE_MAX_WIDTH } from '@/consts/config'
 import useBlogContentWidth from '@/hooks/blogs/useBlogContentWidth'

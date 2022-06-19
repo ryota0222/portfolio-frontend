@@ -4,13 +4,13 @@ import { ExternalServiceLink } from '@/components/atoms/ExternalServiceLink'
 import { SectionTitle } from '@/components/atoms/SectionTitle'
 import useSp from '@/hooks/useSp'
 
-const Links = () => {
+const Links = memo(() => {
   const [isSp] = useSp()
   const size = useMemo(() => (isSp ? 'sm' : 'lg'), [isSp])
   return (
     <Flex
       w="100vw"
-      height={'80vh'}
+      minH={'80vh'}
       maxW="1000px"
       m="auto"
       flexDir="column"
@@ -28,6 +28,6 @@ const Links = () => {
       </VStack>
     </Flex>
   )
-}
+})
 
 export default Links

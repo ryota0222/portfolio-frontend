@@ -4,6 +4,7 @@ import Carrier from '@/components/features/top/Carrier'
 import Creative from '@/components/features/top/Creative'
 import FirstView from '@/components/features/top/FirstView'
 import Links from '@/components/features/top/Links'
+import Skills from '@/components/features/top/Skills'
 import { PageWrapper } from '@/styles/global.css'
 
 const HomeTemplate: React.FC = () => {
@@ -25,6 +26,8 @@ const HomeTemplate: React.FC = () => {
       <Carrier />
       {/* 製作物 */}
       <Creative />
+      {/* 技術 */}
+      <Skills />
       {/* 外部リンク一覧 */}
       <Links />
     </PageWrapper>
