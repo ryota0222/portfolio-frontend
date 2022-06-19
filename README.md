@@ -1,12 +1,12 @@
 # Portfolio-frontend
 
-![portfolio](https://user-images.githubusercontent.com/45546517/125427325-a7ff897b-d485-4a6f-ae54-95d5dd17f3b3.png)
+![portfolio](https://user-images.githubusercontent.com/45546517/174467408-f04dba8c-49cb-4701-b466-87d64d75c2a9.png)
 
 RyoTa.のポートフォリオです。
 
 リンク：[https://www.ryotanny.com](https://www.ryotanny.com)
 
-ブログも書いていますのでぜひご一読ください！
+ブログも書いています！
 
 ## :page_facing_up: システム構成図
 
@@ -30,18 +30,6 @@ yarn dev
 
 1. develop ブランチから main ブランチに pull request を追加し、マージしたら vercel へのデプロイが実行されます。
 2. Contentful でコンテンツを更新した場合
-
-## :raised_hand: Author
-
-<h2 align="center">RyoTa.</h2>
-
-神戸大学卒業後、2020 年 4 月よりフロントエンドエンジニアとして SI 企業に新卒入社。
-
-デザインの分野にも興味があり、開発のみでなく、Web デザインやグラフィックデザイン、アニメーションなども手掛けています。
-
-主な開発言語（ライブラリ、フレームワーク ）: SaSS、JavaScript、TypeScript、Vue.js、React.js、React Native、Nuxt.js、Next.js、Python、Node.js
-
-Twitter : [https://twitter.com/RyoTa\_\_\_0222](https://twitter.com/RyoTa___0222)
 
 ## Deploy on Vercel
 
