@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Box } from '@chakra-ui/react'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
@@ -11,7 +12,6 @@ import useFontSizeEffect from '@/hooks/useFontSizeEffect'
 import usePageView from '@/hooks/usePageView'
 import { Container } from '@/styles/global.css'
 import '@/styles/globals.css'
-import { useMemo } from 'react'
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
