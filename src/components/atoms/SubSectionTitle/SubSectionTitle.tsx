@@ -41,6 +41,7 @@ export const SubSectionTitle: React.FC<Props> = memo(
           fontSize={fontSize}
           fontWeight="bold"
           fontFamily="'Josefin Sans'"
+          {...props}
         >
           {children}
         </Text>
