@@ -57,6 +57,7 @@ const Gist: React.FC<Props> = ({ id, file }) => {
   return (
     <iframe
       ref={ref}
+      title="gist"
       width="100%"
       frameBorder={0}
       id={file ? `gist-${id}-${file}` : `gist-${id}`}
