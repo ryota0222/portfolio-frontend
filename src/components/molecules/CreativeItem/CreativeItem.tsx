@@ -19,7 +19,13 @@ export const CreativeItem: React.FC<Props> = memo((props) => {
     githubIconSize,
   } = useCreativeItem(props)
   return (
-    <Flex bgColor={bgColor} borderRadius="xl" padding={2} d="inline-flex">
+    <Flex
+      bgColor={bgColor}
+      borderRadius="xl"
+      padding={2}
+      d="inline-flex"
+      aria-label={title || ''}
+    >
       <Box
         width={imageSize}
         height={imageSize}
@@ -28,7 +34,7 @@ export const CreativeItem: React.FC<Props> = memo((props) => {
       >
         <img
           src={image}
-          alt={title}
+          alt={title || ''}
           width={imageSize || 0}
           height={imageSize || 0}
         />
@@ -36,7 +42,7 @@ export const CreativeItem: React.FC<Props> = memo((props) => {
       {!isImageOnly && (
         <Flex flexDirection={'column'} ml={2} width={'120px'}>
           <Text fontWeight={'bold'} fontSize={titleFontSize}>
-            {title}
+            {title || ''}
           </Text>
           <Text
             noOfLines={descriptionNoOfLines}

@@ -33,7 +33,7 @@ export const SLIDE_LIST: Slide[] = [
   },
   {
     page: 6,
-    link: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FYMVaY2koGrP1fugOirBLe3%2F%25E3%2581%25A4%25E3%2581%25AA%25E3%2581%258C%25E3%2582%258B%25E5%258B%2589%25E5%25BC%25B7%25E4%25BC%259A%3Fpage-id%3D201%253A1102%26node-id%3D201%253A1103%26viewport%3D2473%252C74%252C0.26%26scaling%3Dmin-zoom%26starting-point-node-id%3D201%253A1103',
+    link: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FYMVaY2koGrP1fugOirBLe3%2F%25E3%2581%25A4%25E3%2581%25AA%25E3%2581%258C%25E3%2582%258B%25E5%258B%2589%25E5%25BC%25B7%25E4%25BC%259A%3Fpage-id%3D201%253A1102%26node-id%3D201%253A1103%26viewport%3D2473%252C74%252C0.26%26scaling%3Dscale-down%26starting-point-node-id%3D201%253A1103',
     title: 'Figmaがエンジニアに最適だと思う話',
     date: '2022-11-27',
   },

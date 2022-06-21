@@ -24,11 +24,11 @@ export const AppFooter = memo(() => {
       <Spacer />
       {/* github */}
       <Link href={'https://github.com/RyoTa0222'} isExternal mr="4">
-        <FaGithub color={color} size="20px" />
+        <FaGithub color={color} size="20px" aria-label="github" />
       </Link>
       {/* twitter */}
       <Link href={'https://twitter.com/RyoTa___0222'} isExternal>
-        <FaTwitter color={color} size="20px" />
+        <FaTwitter color={color} size="20px" aria-label="twitter" />
       </Link>
     </Flex>
   )
