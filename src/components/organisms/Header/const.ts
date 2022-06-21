@@ -7,7 +7,7 @@ export const PAGE_LABEL_MAP: Record<PageName, string> = {
 }
 
 export const PAGE_PATHNAME_MAP: Record<PageName, string | string[]> = {
-  top: '/',
+  top: ['/', '/slides'],
   blog: ['/blog', '/blog/[id]'],
   news: '/news',
 }

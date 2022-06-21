@@ -13,3 +13,27 @@ export type SkillLabel =
   | typeof SKILL_LIST['Backend'][number]['label']
   | typeof SKILL_LIST['Design'][number]['label']
   | typeof SKILL_LIST['Others'][number]['label']
+
+export interface Slide {
+  page: number
+  link: string
+  title: string
+  date: string
+}
+
+export interface Application {
+  image: string
+  title: string
+  description: string
+  github: string
+}
+
+export interface LineStamp {
+  image: string
+  link: string
+}
+
+export interface Carrier {
+  date: string
+  detail: string
+}

@@ -1,4 +1,6 @@
-export const SLIDE_LIST = [
+import { Slide, Application, LineStamp, Carrier } from '@/types/top'
+
+export const SLIDE_LIST: Slide[] = [
   {
     page: 1,
     link: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FcSvUahcxaXv6ljPa0GnRVK%2FWCM%3Fpage-id%3D38%253A2%26node-id%3D38%253A3%26viewport%3D465%252C559%252C0.09%26scaling%3Dcontain%26starting-point-node-id%3D38%253A3',
@@ -37,7 +39,7 @@ export const SLIDE_LIST = [
   },
 ]
 
-export const APPLICATION_LIST = [
+export const APPLICATION_LIST: Application[] = [
   {
     image: '/images/w-tetris.png',
     title: 'W Tetris',
@@ -53,7 +55,7 @@ export const APPLICATION_LIST = [
   },
 ]
 
-export const LINE_STAMP_LIST = [
+export const LINE_STAMP_LIST: LineStamp[] = [
   {
     image: '/images/sticky/penpen-2.png',
     link: 'https://line.me/S/sticker/19096682',
@@ -100,7 +102,7 @@ export const LINE_STAMP_LIST = [
   },
 ]
 
-export const CARRIER_LIST = [
+export const CARRIER_LIST: Carrier[] = [
   {
     date: '2020.03',
     detail: '神戸大学  工学部  機械工学科卒業',
