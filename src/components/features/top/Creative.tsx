@@ -1,12 +1,14 @@
 import React, { memo, useMemo, useEffect } from 'react'
-import { Box, BoxProps, HStack } from '@chakra-ui/react'
+import { Box, BoxProps, HStack, Flex } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import ScrollHint from 'scroll-hint'
 import styled from 'styled-components'
+import { AppButton } from '@/components/atoms/Button'
 import { SectionTitle } from '@/components/atoms/SectionTitle'
 import { SubSectionTitle } from '@/components/atoms/SubSectionTitle'
-import Slides from '@/components/features/top/Slides'
+import Slide from '@/components/features/top/Slide'
 import { CreativeItem } from '@/components/molecules/CreativeItem'
 import { LINE_STAMP_LIST, APPLICATION_LIST } from '@/consts/top'
 import useSp from '@/hooks/useSp'
@@ -17,6 +19,7 @@ const ScrollRevealContainer = dynamic(
 )
 
 const Creative = memo(() => {
+  const router = useRouter()
   useEffect(() => {
     new ScrollHint('.js-scrollable', {
       suggestiveShadow: true,
@@ -86,8 +89,18 @@ const Creative = memo(() => {
       </ScrollableWrapper>
       {/* 登壇資料 */}
       <UnScrollableWrapper mb={12} mt={20}>
-        <SubSectionTitle size={size}>Recent Slide</SubSectionTitle>
-        <Slides />
+        <Flex justifyContent={'space-between'}>
+          <SubSectionTitle size={size}>Recent Slide</SubSectionTitle>
+          <AppButton
+            onClick={() => router.push('/slides')}
+            processing={false}
+            fontSize="sm"
+            round
+          >
+            全て見る
+          </AppButton>
+        </Flex>
+        <Slide />
       </UnScrollableWrapper>
     </ScrollRevealContainer>
   )

@@ -69,7 +69,7 @@ const BlogsTemplate: React.FC<Props> = memo(
               position="relative"
             >
               <Box
-                minH={FULL_HEIGHT}
+                minH={'calc(100% + 48px)'}
                 position="absolute"
                 top="-48px"
                 left={0}
@@ -78,6 +78,7 @@ const BlogsTemplate: React.FC<Props> = memo(
                 <BlogsSideMenu
                   data={(settings as InlineResponse2002).data}
                   loading={isLoading}
+                  width={sideMenuW}
                 />
               </Box>
             </Box>

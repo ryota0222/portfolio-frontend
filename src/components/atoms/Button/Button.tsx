@@ -4,7 +4,16 @@ import throttle from '@/utils/throttle'
 import { Props } from './type'
 
 export const AppButton: React.FC<Props> = memo(
-  ({ icon, scheme, variant, round, onClick, processing, children }) => {
+  ({
+    icon,
+    scheme,
+    variant,
+    round,
+    onClick,
+    processing,
+    children,
+    ...props
+  }) => {
     // color
     const hoverBgOutlineDanger = useColorModeValue('red.50', 'red.900')
     const hoverBgPrimary = useColorModeValue('app-gray.600', 'app-gray.800')
@@ -116,6 +125,7 @@ export const AppButton: React.FC<Props> = memo(
         borderRadius={_borderRadius}
         borderColor={_borderColor}
         _hover={{ bg: _hoverBgColor }}
+        {...props}
       >
         {children}
       </Button>
