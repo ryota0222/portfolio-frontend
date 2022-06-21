@@ -81,7 +81,10 @@ const Creative = memo(() => {
                 transition={'all 0.2s'}
                 _hover={{ transform: 'scale(1.1)' }}
               >
-                <CreativeItem image={line_stamp.image} />
+                <CreativeItem
+                  image={line_stamp.image}
+                  title={line_stamp.link}
+                />
               </Box>
             </Link>
           </React.Fragment>

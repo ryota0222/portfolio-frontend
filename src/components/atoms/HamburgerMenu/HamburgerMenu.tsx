@@ -13,6 +13,7 @@ export const HamburgerMenu: React.FC<Props> = memo(({ isOpen }) => {
       h="20px"
       className={clsx(isOpen && 'active')}
       cursor="pointer"
+      role="button"
     >
       <Box as="span" bgColor={TEXT_COLOR}></Box>
       <Box as="span" bgColor={TEXT_COLOR}></Box>

@@ -11,6 +11,7 @@ const Slide = memo(() => {
         }}
         width={'100%'}
         height={400}
+        title={'slide'}
         src={SLIDE_LIST[0].link}
         allowFullScreen
       ></iframe>
