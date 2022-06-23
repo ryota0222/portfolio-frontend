@@ -1,13 +1,15 @@
 import { useMemo } from 'react'
 import { Box } from '@chakra-ui/react'
+import dynamic from 'next/dynamic'
 import { BgText } from '@/components/atoms/BgText'
 import Carrier from '@/components/features/top/Carrier'
-import Creative from '@/components/features/top/Creative'
 import FirstView from '@/components/features/top/FirstView'
-import Links from '@/components/features/top/Links'
-import Skills from '@/components/features/top/Skills'
 import useSp from '@/hooks/useSp'
 import { PageWrapper } from '@/styles/global.css'
+
+const Creatives = dynamic(() => import('@/components/features/top/Creative'))
+const Skills = dynamic(() => import('@/components/features/top/Skills'))
+const Links = dynamic(() => import('@/components/features/top/Links'))
 
 const HomeTemplate: React.FC = () => {
   const [isSp] = useSp()
@@ -31,7 +33,7 @@ const HomeTemplate: React.FC = () => {
       {/* キャリア */}
       <Carrier />
       {/* 製作物 */}
-      <Creative />
+      <Creatives />
       {/* 技術 */}
       <Skills />
       {/* 外部リンク一覧 */}
