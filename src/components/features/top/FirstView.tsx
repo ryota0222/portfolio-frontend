@@ -8,6 +8,8 @@ const FirstView: React.FC = memo(() => {
   const [isSp] = useSp()
   const width = useBreakpointValue({ base: '100%', md: '5xl' })
   const nameFontSize = useMemo(() => (isSp ? '3xl' : '5xl'), [isSp])
+  const minH = useMemo(() => (isSp ? '80vh' : 'auto'), [isSp])
+  const height = useMemo(() => (isSp ? 'auto' : '80vh'), [isSp])
   const descriptionStyle = useMemo(() => {
     return isSp
       ? {
@@ -36,7 +38,8 @@ const FirstView: React.FC = memo(() => {
       {/* 自己紹介 */}
       <Flex
         w="100vw"
-        height={'80vh'}
+        minH={minH}
+        height={height}
         flexDirection={flexDirection}
         maxW="1000px"
         m="auto"

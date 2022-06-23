@@ -5,6 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
+import Script from 'next/script'
 import { existsGaId, GA_ID } from '@/plugins/gtag'
 
 const htmlPrefix = 'og: http://ogp.me/ns#'
@@ -14,10 +15,10 @@ class MyDocument extends Document<{ prefix: string | null }> {
     const initialProps = await Document.getInitialProps(ctx)
     // 404 ページには prefix を設定しない
     const prefix = ctx.pathname.startsWith('/404') ? null : htmlPrefix
-    return { ...initialProps, prefix }
+    return { ...initialProps, prefix, locale: ctx?.locale || 'ja' }
   }
   render() {
-    const { locale } = this.props.__NEXT_DATA__
+    const locale = this.props.locale
     const dir = locale === 'ar' ? 'rtl' : 'ltr'
     const prefix = this.props.prefix
     return (
@@ -26,11 +27,11 @@ class MyDocument extends Document<{ prefix: string | null }> {
           {/* Google Analytics */}
           {existsGaId && (
             <>
-              <script
+              <Script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               />
-              <script
+              <Script
                 dangerouslySetInnerHTML={{
                   __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -78,14 +79,14 @@ class MyDocument extends Document<{ prefix: string | null }> {
             content="/favicons/browserconfig.xml"
           />
           <meta name="theme-color" content="#444444" />
-          <script
+          {/* <Script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7852298720384342"
             crossOrigin="anonymous"
-          ></script>
+          ></Script> */}
         </Head>
         <body>
-          <script> </script>
+          <Script />
           <Main />
           <NextScript />
         </body>

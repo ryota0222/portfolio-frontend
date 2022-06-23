@@ -8,6 +8,7 @@ const Carrier = memo(() => {
   const [isSp] = useSp()
   const size = useMemo(() => (isSp ? 'sm' : 'lg'), [isSp])
   const fontSize = useMemo(() => (isSp ? 'sm' : 'md'), [isSp])
+  const pt = useMemo(() => (isSp ? 12 : 4), [isSp])
   return (
     <Flex
       w="100vw"
@@ -15,7 +16,8 @@ const Carrier = memo(() => {
       maxW="1000px"
       m="auto"
       flexDir="column"
-      px={4}
+      p={4}
+      pt={pt}
     >
       <SectionTitle size={size}>Carrier</SectionTitle>
       <Spacer />

@@ -1,5 +1,5 @@
-import { memo, useCallback } from 'react'
-import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react'
+import { memo, useCallback, useRef, useMemo } from 'react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import router, { useRouter } from 'next/router'
 import { BlogCategory } from '@/components/atoms/BlogCategory'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
@@ -12,11 +12,13 @@ import throttle from '@/utils/throttle'
 interface Props {
   data: BlogSetting
   loading: boolean
+  width: string
 }
 
 const BlogsSideMenu: React.FC<Props> = memo(({ data, loading }) => {
   const { BLOG_SIDE_MENU_BG } = useDesignSystem()
   const { query } = useRouter()
+
   // 月別アーカイブがアクティブかどうか
   const isArchiveActive = useCallback(
     (date) => {
@@ -42,10 +44,11 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data, loading }) => {
       position={'relative'}
       _before={{
         content: '""',
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
-        width: '100%',
+        width: '30%',
+        maxWidth: '320px',
         minHeight: '100vh',
         backgroundColor: BLOG_SIDE_MENU_BG,
         zIndex: -9999,
@@ -60,7 +63,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data, loading }) => {
             </Box>
             <Title>月別アーカイブ</Title>
           </Flex>
-          <Box>
+          <Box maxHeight={'calc(50px * 7.4)'} overflow="scroll">
             {loading ? (
               <>
                 {[1, 2, 3, 4].map((item) => {
@@ -115,7 +118,7 @@ const BlogsSideMenu: React.FC<Props> = memo(({ data, loading }) => {
             </Box>
             <Title>カテゴリ別アーカイブ</Title>
           </Flex>
-          <Box>
+          <Box maxHeight={'calc(50px * 7.4)'} overflow="scroll">
             {loading ? (
               <>
                 {[1, 2, 3, 4].map((item) => {

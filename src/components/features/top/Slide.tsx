@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Flex } from '@chakra-ui/react'
 import { SLIDE_LIST } from '@/consts/top'
 
-const Slides = memo(() => {
+const Slide = memo(() => {
   return (
     <Flex justifyContent={'space-between'} flexWrap="wrap" my={16}>
       <iframe
@@ -11,6 +11,7 @@ const Slides = memo(() => {
         }}
         width={'100%'}
         height={400}
+        title={'slide'}
         src={SLIDE_LIST[0].link}
         allowFullScreen
       ></iframe>
@@ -18,4 +19,4 @@ const Slides = memo(() => {
   )
 })
 
-export default Slides
+export default Slide

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'bananaslipplus';
-  src: url(/fonts/bananaslipplus.otf);
+  src: url('/fonts/bananaslipplus.otf') format('opentype');
 }
 
 html,
