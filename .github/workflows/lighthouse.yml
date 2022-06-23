@@ -20,7 +20,7 @@ jobs:
             --chrome-flags="--headless" \
             --output html --output-path /tmp/report.html \
             'https://www.ryotanny.com/'
-          mkdir ./public
+          mkdir -p ./public
           cp /tmp/report.html ./public/report.html
 
       - name: Deploy
