@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.ryotanny.com
+
+# Sitemaps
+Sitemap: https://www.ryotanny.com/sitemap.xml
