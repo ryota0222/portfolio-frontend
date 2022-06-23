@@ -1,0 +1,31 @@
+name: lighthouse
+
+# Event for the workflow
+on:
+  pull_request:
+    branches: [lighthouse]
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install lighthouse
+        run: sudo npm i -g lighthouse
+
+      - name: Run lighthouse
+        run: |
+          lighthouse \
+            --chrome-flags="--headless" \
+            --output html --output-path /tmp/report.html \
+            'https://www.ryotanny.com/'
+          mkdir ./public
+          cp /tmp/report.html ./public/report.html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          keep_files: true
