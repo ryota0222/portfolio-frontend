@@ -40,8 +40,8 @@ const Slides: React.FC<Props> = memo(({ data }) => {
         flexDir="column"
         px={4}
       >
-        {data.map((slide) => (
-          <SlideWrapper key={slide.page} w="100%">
+        {data.map((slide, idx) => (
+          <SlideWrapper key={`slide-${idx}`} w="100%">
             <SubSectionTitle size={titleSize} fontFamily="inherit" mb={1}>
               {slide.title}
             </SubSectionTitle>
