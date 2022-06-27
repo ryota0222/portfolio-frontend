@@ -2,7 +2,7 @@ import { Slide, Application, LineStamp, Carrier } from '@/types/top'
 
 export const SLIDE_LIST: Slide[] = [
   {
-    link: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FcSvUahcxaXv6ljPa0GnRVK%2FWCM%3Fpage-id%3D304%253A106%26node-id%3D304%253A126%26viewport%3D791%252C166%252C0.16%26scaling%3Dmin-zoom%26starting-point-node-id%3D304%253A126%26hotspot-hints%3D0',
+    link: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FcSvUahcxaXv6ljPa0GnRVK%2FWCM%3Fpage-id%3D304%253A106%26node-id%3D304%253A126%26viewport%3D791%252C166%252C0.16%26scaling%3Dscale-down%26starting-point-node-id%3D304%253A126%26hotspot-hints%3D0',
     title: 'デザインエンジニアってなんやねん??',
     date: '2022-06-25',
   },
