@@ -15,7 +15,6 @@ export type SkillLabel =
   | typeof SKILL_LIST['Others'][number]['label']
 
 export interface Slide {
-  page: number
   link: string
   title: string
   date: string
