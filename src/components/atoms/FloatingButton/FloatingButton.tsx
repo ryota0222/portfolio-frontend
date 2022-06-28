@@ -4,7 +4,7 @@ import throttle from '@/utils/throttle'
 import { Props } from './type'
 
 export const FloatingButton: React.FC<Props> = memo(
-  ({ children, onClick, processing }) => {
+  ({ children, onClick, processing, width = 'auto' }) => {
     const bgColor = useColorModeValue('app-gray.100', 'app-gray.900')
     const shadowColor = useColorModeValue('app-gray.300', 'app-gray.800')
     /**
@@ -14,7 +14,7 @@ export const FloatingButton: React.FC<Props> = memo(
       if (!processing) onClick()
     }, [processing, onClick])
     return (
-      <Box position="relative" d="inline-block">
+      <Box position="relative" d="inline-block" w={width}>
         <Box
           aria-hidden={true}
           filter="blur(8px)"
@@ -33,6 +33,7 @@ export const FloatingButton: React.FC<Props> = memo(
           isDisabled={processing}
           onClick={throttle(handleClick)}
           borderRadius={'md'}
+          w="full"
           px={4}
           py={2}
           _hover={{ bg: bgColor }}
