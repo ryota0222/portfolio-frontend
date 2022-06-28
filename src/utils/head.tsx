@@ -48,15 +48,6 @@ export const HeadComponent: React.FC<Props> = ({
       <meta name="twitter:site" content="@RyoTa___0222" />
       <link rel="canonical" href={_url} />
       <link
-        rel="shortcut icon"
-        href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicons/favicon.ico`}
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicons/apple-touch-icon.png`}
-      />
-      <link
         rel="stylesheet"
         href="https://unpkg.com/scroll-hint@1.1.2/css/scroll-hint.css"
       ></link>
