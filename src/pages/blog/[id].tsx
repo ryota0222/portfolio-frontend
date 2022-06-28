@@ -23,7 +23,18 @@ const BlogDetail = ({ data }) => {
     setMounted(true)
     setTimeout(() => Prism.highlightAll(), 0)
   }, [])
-  if (!data || !mounted) return <></>
+  if (!data) return <></>
+  else if (!mounted) {
+    return (
+      <HeadComponent
+        title={data.data.title}
+        description={data.data.description}
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`}
+        ogType="article"
+        image={`https:${data.data.image}?w=1200&h=630`}
+      />
+    )
+  }
   return (
     <>
       <Script
@@ -43,7 +54,7 @@ const BlogDetail = ({ data }) => {
         title={data.data.title}
         description={data.data.description}
         url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`}
-        // ogType="article"
+        ogType="article"
         image={`https:${data.data.image}?w=1200&h=630`}
       />
       <BlogDetailTemplate data={data.data} />
