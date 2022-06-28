@@ -22,6 +22,7 @@ import {
   Button,
   InputRightElement,
   Fade,
+  useToken,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { AiOutlineTag } from 'react-icons/ai'
@@ -72,8 +73,15 @@ const SpBlogsContents: React.FC<Props> = ({
   const [isSpArchive, setIsSpArchive] = useState(false)
   const [isSpTag, setIsSpTag] = useState(false)
   // スタイル
-  const { NO_DATA_COLOR, TEXT_COLOR } = useDesignSystem()
-  const inputColor = useColorModeValue('app-gray.500', 'white')
+  const { NO_DATA_COLOR, TEXT_COLOR, isDark } = useDesignSystem()
+  const [appGray500Color, appWhiteColor]: string[] = useToken(
+    // the key within the theme, in this case `theme.colors`
+    'colors',
+    ['app-gray.500', 'white'],
+  )
+  const inputColor = useMemo(() => {
+    return isDark ? appWhiteColor : appGray500Color
+  }, [appGray500Color, appWhiteColor, isDark])
   const spMenuBgColor = useColorModeValue('#F1F4F4', '#252829')
   const contentsFlex = useBreakpointValue({ base: 'space-between', md: 'auto' })
   // メニューをクリックしたかどうかのフラグ
