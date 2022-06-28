@@ -32,6 +32,7 @@ export const HeadComponent: React.FC<Props> = ({
   const isAdsensePage = useMemo(() => {
     return pathname.indexOf('blog') !== -1
   }, [pathname])
+  const twitterCard = ogType === 'article' ? 'summary_large_image' : 'summary'
   return (
     <Head>
       <title>{_title}</title>
@@ -43,12 +44,8 @@ export const HeadComponent: React.FC<Props> = ({
       <meta property="og:url" content={_url} />
       <meta property="og:image" content={_image} />
       <meta property="og:site_name" content={_title} />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:site" content="@RyoTa___0222" />
-      <meta name="twitter:url" content={_image} />
-      <meta name="twitter:title" content={_title} />
-      <meta name="twitter:description" content={_description} />
-      <meta name="twitter:image" content={_image} />
       <link rel="canonical" href={_url} />
       <link
         rel="shortcut icon"
