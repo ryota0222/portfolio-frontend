@@ -33,6 +33,7 @@ import { BlogCategory } from '@/components/atoms/BlogCategory'
 import { FloatingButton } from '@/components/atoms/FloatingButton'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
 import { BlogMenuItem } from '@/components/molecules/BlogMenuItem'
+import { BlogSearchForm } from '@/components/molecules/BlogSearchForm'
 import { FULL_HEIGHT } from '@/consts/style'
 import useBlogPath from '@/hooks/blogs/useBlogPath'
 import useDesignSystem from '@/hooks/useDesignSystem'
@@ -123,61 +124,20 @@ const SpBlogsContents: React.FC<Props> = ({
   return (
     <>
       {/* 検索フォーム */}
+      <BlogSearchForm
+        value={search}
+        onChange={(e: any) => setSearchWord(e.target.value)}
+        clear={clearSearch}
+        onKeyPress={handleKeyPress}
+      />
       <Flex
         m="auto"
-        mt={4}
+        mt={6}
         mb={10}
         justifyContent={contentsFlex}
         position="relative"
         flex={1}
       >
-        {/* 検索 */}
-        <SpMenuItem
-          onClick={() => setIsSpSearch(!isSpSearch)}
-          isVisible={isSpSearch}
-        >
-          <IoSearch color={inputColor} size="16px" />
-          {/* 検索文字がない場合 */}
-          {search.length === 0 && (
-            <Text fontSize="sm" ml={1} color="app-gray.600" lineHeight="14px">
-              search
-            </Text>
-          )}
-          {/* ある場合 */}
-          {search.length > 0 && (
-            <>
-              <Text
-                fontSize="sm"
-                ml={1}
-                color={inputColor}
-                mr={1}
-                lineHeight="14px"
-                isTruncated
-                maxW="12vw"
-              >
-                {search}
-              </Text>
-              <Button
-                backgroundColor="transparent"
-                height="24px"
-                width="24px"
-                p={0}
-                minW={0}
-                onClick={clearSearch}
-              >
-                <IoIosClose color={inputColor} size="24px" />
-              </Button>
-            </>
-          )}
-        </SpMenuItem>
-        {/* 検索フォーム */}
-        <SpSearchForm
-          value={search}
-          setValue={setSearchWord}
-          onKeyPress={handleKeyPress}
-          isVisible={isSpSearch}
-          toggleVisible={() => setIsSpSearch(!isSpSearch)}
-        />
         {/* 月別アーカイブ */}
         <SpMenuItem
           onClick={() => setIsSpArchive(!isSpArchive)}
@@ -237,9 +197,9 @@ const SpBlogsContents: React.FC<Props> = ({
             bg={spMenuBgColor}
             width="80%"
             maxW="240px"
-            // position="absolute"
-            top="140px"
-            // top="50px"
+            position="absolute"
+            top="180px"
+            left={4}
             m={0}
           >
             <Box p={2} maxH="50vh" overflowY="scroll">
@@ -339,7 +299,7 @@ const SpBlogsContents: React.FC<Props> = ({
             width="80%"
             maxW="240px"
             position="absolute"
-            top="140px"
+            top="180px"
             right={4}
             m={0}
           >
@@ -420,6 +380,7 @@ const SpMenuItem = ({ children, onClick, isVisible }) => {
       zIndex={isVisible ? 999999999 : 'auto'}
       onClick={onClick}
       processing={isVisible}
+      width="45%"
     >
       {children}
     </FloatingButton>
