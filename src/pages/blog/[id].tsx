@@ -11,7 +11,6 @@ import { HeadComponent } from '@/utils/head'
 const BlogDetail = ({ data }) => {
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
-  console.log(router.pathname)
   const id = router.query.id
   const INLINE_CODE_COLOR = useColorModeValue('red', '#ff9eb6')
   useEffect(() => {
