@@ -44,8 +44,8 @@ export const HeadComponent: React.FC<Props> = ({
       <meta property="og:url" content={_url} />
       <meta property="og:image" content={_image} />
       <meta property="og:site_name" content={_title} />
-      <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:site" content="@RyoTa___0222" />
+      <meta name="twitter:card" content={twitterCard} />
       <link rel="canonical" href={_url} />
       <link
         rel="stylesheet"
