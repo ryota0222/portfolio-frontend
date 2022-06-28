@@ -11,7 +11,6 @@ import { HeadComponent } from '@/utils/head'
 const BlogDetail = ({ data }) => {
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
-  console.log(router.pathname)
   const id = router.query.id
   const INLINE_CODE_COLOR = useColorModeValue('red', '#ff9eb6')
   useEffect(() => {
@@ -45,7 +44,7 @@ const BlogDetail = ({ data }) => {
         description={data.data.description}
         url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${id}`}
         ogType="article"
-        image={`https:${data.data.image}`}
+        image={`https:${data.data.image}?w=1200&h=630`}
       />
       <BlogDetailTemplate data={data.data} />
     </>

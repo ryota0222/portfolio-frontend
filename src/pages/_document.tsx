@@ -5,8 +5,6 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
-import Script from 'next/script'
-import { existsGaId, GA_ID } from '@/plugins/gtag'
 
 const htmlPrefix = 'og: http://ogp.me/ns#'
 
@@ -24,26 +22,6 @@ class MyDocument extends Document<{ prefix: string | null }> {
     return (
       <Html dir={dir} lang={locale} prefix={prefix}>
         <Head>
-          {/* Google Analytics */}
-          {existsGaId && (
-            <>
-              <Script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              />
-              <Script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${GA_ID}', {
-                    page_path: window.location.pathname,
-                  });`,
-                }}
-              />
-            </>
-          )}
           <link
             href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;700&family=Noto+Sans+JP:wght@300;400;700&family=Roboto:wght@300;400;700;900&display=swap"
             rel="stylesheet"
@@ -79,14 +57,8 @@ class MyDocument extends Document<{ prefix: string | null }> {
             content="/favicons/browserconfig.xml"
           />
           <meta name="theme-color" content="#444444" />
-          {/* <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7852298720384342"
-            crossOrigin="anonymous"
-          ></Script> */}
         </Head>
         <body>
-          <Script />
           <Main />
           <NextScript />
         </body>

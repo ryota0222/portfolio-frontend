@@ -27,7 +27,6 @@ interface Props {
 
 const BlogsTemplate: React.FC<Props> = memo(
   ({ settings, contents, title, searchWord, isLoading, isError }) => {
-    const { BLOG_SIDE_MENU_BG } = useDesignSystem()
     const { scrollHeight } = useWindowHeight()
     const minHeight = useBreakpointValue({
       base: 'auto',
@@ -49,7 +48,6 @@ const BlogsTemplate: React.FC<Props> = memo(
       base: '100%',
       md: '50%',
     })
-    const colorTheme = useColorModeValue('light', 'dark')
     // エラー時
     if ((!settings.success && !contents?.success) || isError) {
       return (
