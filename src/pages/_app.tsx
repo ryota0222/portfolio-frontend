@@ -11,6 +11,7 @@ import useFillHeightEffect from '@/hooks/useFillHeightEffect'
 import useFontSizeEffect from '@/hooks/useFontSizeEffect'
 import usePageView from '@/hooks/usePageView'
 import { Container } from '@/styles/global.css'
+import GoogleAnalytics from '@/utils/googleAnalytics'
 import '@/styles/globals.css'
 
 Sentry.init({
@@ -36,26 +37,29 @@ function MyApp({ Component, pageProps }: AppProps) {
     return pathname !== '/blog/[id]' ? 'sticky' : 'initial'
   }, [pathname])
   return (
-    <Provider>
-      <Container>
-        {/* ヘッダー */}
-        <AppHeader
-          pathname={pathname}
-          position={headerPosition}
-          top={0}
-          left={0}
-          backdropFilter="blur(4px)"
-        />
-        {/* メインコンテンツ */}
-        <Box w="full" as="main" h="100%">
-          <Component {...pageProps} />
-        </Box>
-        {/* フッター */}
-        <Box position={'absolute'} bottom={0} left={0} w="100vw">
-          <AppFooter />
-        </Box>
-      </Container>
-    </Provider>
+    <>
+      <GoogleAnalytics />
+      <Provider>
+        <Container>
+          {/* ヘッダー */}
+          <AppHeader
+            pathname={pathname}
+            position={headerPosition}
+            top={0}
+            left={0}
+            backdropFilter="blur(4px)"
+          />
+          {/* メインコンテンツ */}
+          <Box w="full" as="main" h="100%">
+            <Component {...pageProps} />
+          </Box>
+          {/* フッター */}
+          <Box position={'absolute'} bottom={0} left={0} w="100vw">
+            <AppFooter />
+          </Box>
+        </Container>
+      </Provider>
+    </>
   )
 }
 
