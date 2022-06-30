@@ -23,12 +23,12 @@ import {
   InputRightElement,
   Fade,
   useToken,
+  Spacer,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { AiOutlineTag } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
 import { IoIosClose } from 'react-icons/io'
-import { IoSearch } from 'react-icons/io5'
 import { BlogCategory } from '@/components/atoms/BlogCategory'
 import { FloatingButton } from '@/components/atoms/FloatingButton'
 import { SvgIcon } from '@/components/atoms/SvgIcon'
@@ -143,48 +143,53 @@ const SpBlogsContents: React.FC<Props> = ({
           onClick={() => setIsSpArchive(!isSpArchive)}
           isVisible={isSpArchive}
         >
-          <SvgIcon
-            color={inputColor}
-            width={18}
-            height={18}
-            name="archive-solid"
-          />
-          {/* デフォルト */}
-          {!query?.time && (
-            <Text
-              fontSize="small"
-              ml={1}
-              color="app-gray.600"
-              lineHeight="14px"
-            >
-              月別アーカイブ
-            </Text>
-          )}
-          {/* 絞り込まれている場合 */}
-          {query?.time && (
-            <>
+          <Flex w="full" alignItems="center">
+            {!query?.time && <Spacer />}
+            <SvgIcon
+              color={inputColor}
+              width={18}
+              height={18}
+              name="archive-solid"
+            />
+            {/* デフォルト */}
+            {!query?.time && (
               <Text
                 fontSize="small"
                 ml={1}
                 color="app-gray.600"
                 lineHeight="14px"
-                isTruncated
-                maxW="12vw"
               >
-                {formatDate(query.time as string, 'YYYY/MM')}
+                月別アーカイブ
               </Text>
-              <Button
-                backgroundColor="transparent"
-                height="24px"
-                width="24px"
-                p={0}
-                minW={0}
-                onClick={clearTime}
-              >
-                <IoIosClose color={inputColor} size="24px" />
-              </Button>
-            </>
-          )}
+            )}
+            {/* 絞り込まれている場合 */}
+            {query?.time && (
+              <>
+                <Text
+                  fontSize="small"
+                  ml={1}
+                  color="app-gray.600"
+                  lineHeight="14px"
+                  isTruncated
+                  maxW="12vw"
+                >
+                  {formatDate(query.time as string, 'YYYY/MM')}
+                </Text>
+                <Spacer />
+                <Button
+                  backgroundColor="transparent"
+                  height="24px"
+                  width="24px"
+                  p={0}
+                  minW={0}
+                  onClick={clearTime}
+                >
+                  <IoIosClose color={inputColor} size="24px" />
+                </Button>
+              </>
+            )}
+            {!query?.time && <Spacer />}
+          </Flex>
         </SpMenuItem>
         {/* 月別アーカイブモーダル */}
         <Modal
@@ -249,43 +254,48 @@ const SpBlogsContents: React.FC<Props> = ({
         </Modal>
         {/* カテゴリ別アーカイブ */}
         <SpMenuItem onClick={() => setIsSpTag(!isSpTag)} isVisible={isSpTag}>
-          <AiOutlineTag color={inputColor} size="16px" />
-          {/* デフォルト */}
-          {!query?.tag && (
-            <Text
-              fontSize="small"
-              ml={1}
-              color="app-gray.600"
-              lineHeight="14px"
-            >
-              タグ
-            </Text>
-          )}
-          {/* 絞り込まれている場合 */}
-          {query?.tag && (
-            <>
+          <Flex w="full" alignItems="center">
+            {!query?.tag && <Spacer />}
+            <AiOutlineTag color={inputColor} size="16px" />
+            {/* デフォルト */}
+            {!query?.tag && (
               <Text
                 fontSize="small"
                 ml={1}
                 color="app-gray.600"
                 lineHeight="14px"
-                isTruncated
-                maxW="12vw"
               >
-                {tagLabel(query.tag)}
+                タグ
               </Text>
-              <Button
-                backgroundColor="transparent"
-                height="24px"
-                width="24px"
-                p={0}
-                minW={0}
-                onClick={clearTag}
-              >
-                <IoIosClose color={inputColor} size="24px" />
-              </Button>
-            </>
-          )}
+            )}
+            {/* 絞り込まれている場合 */}
+            {query?.tag && (
+              <>
+                <Text
+                  fontSize="small"
+                  ml={1}
+                  color="app-gray.600"
+                  lineHeight="14px"
+                  isTruncated
+                  maxW="12vw"
+                >
+                  {tagLabel(query.tag)}
+                </Text>
+                <Spacer />
+                <Button
+                  backgroundColor="transparent"
+                  height="24px"
+                  width="24px"
+                  p={0}
+                  minW={0}
+                  onClick={clearTag}
+                >
+                  <IoIosClose color={inputColor} size="24px" />
+                </Button>
+              </>
+            )}
+            {!query?.tag && <Spacer />}
+          </Flex>
         </SpMenuItem>
         {/* カテゴリ別アーカイブモーダル */}
         <Modal
