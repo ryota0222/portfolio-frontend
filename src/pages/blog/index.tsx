@@ -28,7 +28,6 @@ interface Props {
 }
 
 const Blog: NextPage<Props> = ({ fallback }) => {
-  console.log(process.env.NODE_ENV)
   const router = useRouter()
   // パラメータ情報
   const { query } = router
