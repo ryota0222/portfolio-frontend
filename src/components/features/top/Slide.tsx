@@ -13,6 +13,7 @@ const Slide = memo(() => {
         height={400}
         title={'slide'}
         src={SLIDE_LIST[0].link}
+        loading="lazy"
         allowFullScreen
       ></iframe>
     </Flex>
