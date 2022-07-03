@@ -14,6 +14,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { HamburgerMenu } from '@/components/atoms/HamburgerMenu'
 import { Logo } from '@/components/atoms/Logo'
+import { SpLogo } from '@/components/atoms/SpLogo'
 import { Menu } from '@/components/organisms/Menu'
 import useSp from '@/hooks/useSp'
 import { PAGE_LABEL_MAP, PAGE_PATH_MAP, PAGE_PATHNAME_MAP } from './const'
@@ -42,12 +43,7 @@ export const AppHeader: React.FC<Props> = memo(({ pathname, ...props }) => {
       <Link href="/">
         <>
           {isSp ? (
-            <Image
-              src="/images/logo.svg"
-              alt="ロゴ"
-              width="20px"
-              height="40px"
-            />
+            <SpLogo width="34px" height="40px" />
           ) : (
             <Logo width="104px" height="40px" />
           )}
@@ -110,7 +106,7 @@ const PageItem: React.FC<PageItemProps> = memo(({ children, ...props }) => {
       <Text
         fontSize={fontSize}
         fontWeight="bold"
-        opacity={props.isactive ? 1 : 0.48}
+        opacity={props.isactive ? 1 : 0.6}
         transition="all 0.2s"
         _hover={{ opacity: 1 }}
       >
