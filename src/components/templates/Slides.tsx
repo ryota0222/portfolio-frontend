@@ -39,6 +39,7 @@ const Slides: React.FC<Props> = memo(({ data }) => {
         m="auto"
         flexDir="column"
         px={4}
+        py={8}
       >
         {data.map((slide, idx) => (
           <SlideWrapper key={`slide-${idx}`} w="100%">
@@ -48,7 +49,7 @@ const Slides: React.FC<Props> = memo(({ data }) => {
             <Text fontFamily="bananaslipplus" mt={4} mb={8}>
               {slide.date}
             </Text>
-            <Box width={'100%'} height={400} position="relative">
+            <Box width={'100%'} height={400} position="relative" mb={12}>
               <SlideIframe
                 bg={iframeBgColor}
                 width={'100%'}
@@ -56,6 +57,7 @@ const Slides: React.FC<Props> = memo(({ data }) => {
                 src={slide.link}
                 title={slide.title}
                 allowFullScreen
+                loading={idx > 0 ? 'lazy' : 'eager'}
               ></SlideIframe>
             </Box>
           </SlideWrapper>
