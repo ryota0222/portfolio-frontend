@@ -352,6 +352,51 @@ export const blog = {
         nodeType: 'embedded-entry-block',
       },
       {
+        nodeType: 'embedded-entry-block',
+        content: [],
+        data: {
+          target: {
+            metadata: {
+              tags: [],
+            },
+            sys: {
+              space: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'Space',
+                  id: '6c3h1vzo5ct6',
+                },
+              },
+              id: '39ZW4U2N4zDh3lopwpvLyk',
+              type: 'Entry',
+              createdAt: '2022-02-03T16:39:08.402Z',
+              updatedAt: '2022-02-03T16:39:08.402Z',
+              environment: {
+                sys: {
+                  id: 'master',
+                  type: 'Link',
+                  linkType: 'Environment',
+                },
+              },
+              revision: 1,
+              contentType: {
+                sys: {
+                  type: 'Link',
+                  linkType: 'ContentType',
+                  id: 'embedded',
+                },
+              },
+              locale: 'en-US',
+            },
+            fields: {
+              title: 'sample',
+              twitterEmbeddedContent: '1514449867682332678',
+              type: 'twitter',
+            },
+          },
+        },
+      },
+      {
         data: {},
         content: [
           {
