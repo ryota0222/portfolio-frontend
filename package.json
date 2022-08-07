@@ -50,6 +50,7 @@
     "react-lottie": "^1.2.3",
     "react-remark": "^2.0.3",
     "react-transition-group": "^4.4.2",
+    "react-twitter-embed": "^4.0.4",
     "react-use": "^17.3.2",
     "remark-html": "^13.0.2",
     "scroll-hint": "^1.2.5",

@@ -7,6 +7,7 @@ import {
   INLINES,
   TopLevelBlock,
 } from '@contentful/rich-text-types'
+import { TwitterTweetEmbed } from 'react-twitter-embed'
 import { Code } from '@/components/features/blogs/Code'
 import { EmbeddedEntry } from '@/components/features/blogs/EmbeddedEntry'
 import Gist from '@/components/features/blogs/Gist'
@@ -34,6 +35,7 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           thumbnail,
           id,
           embeddedUrl,
+          twitterEmbeddedContent,
           codepenId,
           type,
           code,
@@ -103,6 +105,8 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
                 embeddedUrl.length,
               )
               return <Gist id={targetId} />
+            case 'twitter':
+              return <TwitterTweetEmbed tweetId={twitterEmbeddedContent} />
           }
         }
         // そうではない場合
