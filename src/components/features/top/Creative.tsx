@@ -122,7 +122,6 @@ const UnScrollableWrapper: React.FC<UnScrollableWrapperProps> = memo(
 )
 
 const ScrollableWrapper = styled(HStack)`
-  overflow: scroll;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE, Edge 対応 */
   scrollbar-width: none; /* Firefox 対応 */
