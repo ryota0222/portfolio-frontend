@@ -16,7 +16,7 @@ const Links = memo(() => {
   return (
     <ScrollRevealContainer maxW="1000px" px={4} mb={12}>
       <SectionTitle size={size}>Link</SectionTitle>
-      <VStack spacing={8} alignItems="flex-start" maxW="20rem" m="auto">
+      <VStack spacing={8} alignItems="flex-start" maxW="24rem" m="auto">
         <ExternalServiceLink type="qiita" />
         <ExternalServiceLink type="twitter" />
         <ExternalServiceLink type="zenn" />
@@ -24,6 +24,8 @@ const Links = memo(() => {
         <ExternalServiceLink type="tsunagaru" />
         <ExternalServiceLink type="wcm" />
         <ExternalServiceLink type="line-creators-market" />
+        <ExternalServiceLink type="instagram" />
+        <ExternalServiceLink type="utme" />
       </VStack>
     </ScrollRevealContainer>
   )
