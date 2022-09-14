@@ -11,6 +11,7 @@ export const SERVICE_NAME_MAP: Record<ServiceType, string> = {
   wcm: 'Web Creators Meetup in KANSAI',
   instagram: 'Instagram',
   utme: 'UTme!（オリジナルデザインのアイテム販売）',
+  suzuri: 'SUZURI（オリジナルデザインのアイテム販売）',
 }
 
 export const SERVICE_LINK_MAP: Record<ServiceType, string> = {
@@ -25,4 +26,5 @@ export const SERVICE_LINK_MAP: Record<ServiceType, string> = {
   wcm: 'https://web-creator-meetup-in-kansai.connpass.com/',
   instagram: 'https://www.instagram.com/ryotanny/',
   utme: 'https://utme.uniqlo.com/jp/front/mkt/show?id=851881&locale=ja',
+  suzuri: 'https://suzuri.jp/ryotanny',
 }
