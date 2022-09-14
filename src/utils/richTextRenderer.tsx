@@ -15,6 +15,10 @@ import { InlineEmbeddedEntry } from '@/components/features/blogs/InlineEmbeddedE
 import { LinkEntry } from '@/components/features/blogs/LinkEntry'
 import { CautionCard } from '@/components/molecules/CautionCard'
 import BlogStyle from '@/styles/blog.css'
+import { useCallback, useRef } from 'react'
+import { IoIosClose } from 'react-icons/io'
+import { IconButton } from '@chakra-ui/react'
+import useSp from '@/hooks/useSp'
 
 const getRichTextRenderer = (data: TopLevelBlock[]) => {
   const document: Document = {
@@ -127,20 +131,71 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const target = node.data.target
         const { fields } = target
+        const [isSp] = useSp()
         const {
           file: { url },
           title,
         } = fields
-        // TODO
-        // return <ContentImage url={`https:${url}`} title={title} />
+        const ref = useRef<HTMLDialogElement | null>(null)
+        const handleOpenDialog = useCallback(() => {
+          if (ref.current) {
+            ref.current.showModal()
+          }
+        }, [ref])
+        const handleCloseDialog = useCallback(() => {
+          if (ref.current) {
+            ref.current.close()
+          }
+        }, [ref])
+        if (isSp) {
+          return (
+            <Image
+              src={url}
+              alt={title || ''}
+              margin="auto"
+              maxH="500px"
+              boxShadow={'0 6px 24px 4px #00000010'}
+            />
+          )
+        }
         return (
-          <Image
-            src={url}
-            alt={title || ''}
-            margin="auto"
-            maxH="500px"
-            boxShadow={'0 6px 24px 4px #00000010'}
-          />
+          <>
+            <Image
+              src={url}
+              alt={title || ''}
+              margin="auto"
+              maxH="500px"
+              boxShadow={'0 6px 24px 4px #00000010'}
+              style={{ cursor: 'zoom-in' }}
+              onClick={handleOpenDialog}
+            />
+            <BlogStyle.ImageDialog ref={ref}>
+              <Box position="relative">
+                <IconButton
+                  aria-label="閉じる"
+                  icon={<IoIosClose color="white" size="32px" />}
+                  position="absolute"
+                  right={'3px'}
+                  top={'3px'}
+                  background="transparent"
+                  onClick={handleCloseDialog}
+                  _active={{}}
+                  _hover={{}}
+                  mixBlendMode="difference"
+                />
+                <Image
+                  src={url}
+                  alt={title || ''}
+                  margin="auto"
+                  maxH="80vh"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                  }}
+                />
+              </Box>
+            </BlogStyle.ImageDialog>
+          </>
         )
       },
       [INLINES.EMBEDDED_ENTRY]: (node) => {

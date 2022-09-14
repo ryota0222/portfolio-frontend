@@ -9,6 +9,7 @@ export type ServiceType =
   | 'wcm'
   | 'instagram'
   | 'utme'
+  | 'suzuri'
 
 export interface Props {
   type: ServiceType

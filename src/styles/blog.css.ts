@@ -239,6 +239,25 @@ const CodeWrapper = styled.div`
   }
 `
 
+const ImageDialog = styled.dialog`
+  padding: 8px;
+  background: transparent;
+  &:modal {
+    background-color: none;
+    border-radius: 8px;
+    border: none;
+    padding: 0;
+  }
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari 用 */
+  }
+  img {
+    object-fit: contain;
+  }
+`
+
 export default {
   H1,
   H2,
@@ -253,4 +272,5 @@ export default {
   OrderList,
   BlockQuote,
   CodeWrapper,
+  ImageDialog,
 }

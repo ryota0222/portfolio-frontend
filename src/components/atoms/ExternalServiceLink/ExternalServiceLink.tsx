@@ -13,6 +13,7 @@ import TwitterLightImage from '@/assets/icons/twitter-light.svg'
 import WcmDarkImage from '@/assets/icons/wcm-dark.png'
 import WcmLightImage from '@/assets/icons/wcm-light.png'
 import UtmeImage from '@/assets/icons/utme.png'
+import SuzuriImage from '@/assets/icons/suzuri.png'
 import ZennImage from '@/assets/icons/zenn.svg'
 import ÎnstagramImage from '@/assets/icons/instagram.svg'
 import useDesignSystem from '@/hooks/useDesignSystem'
@@ -44,6 +45,8 @@ export const ExternalServiceLink: React.FC<Props> = memo(({ type }) => {
         return isDark ? WcmDarkImage : WcmLightImage
       case 'utme':
         return UtmeImage
+      case 'suzuri':
+        return SuzuriImage
       default:
         return null
     }

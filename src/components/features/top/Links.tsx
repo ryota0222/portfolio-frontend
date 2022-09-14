@@ -26,6 +26,7 @@ const Links = memo(() => {
         <ExternalServiceLink type="line-creators-market" />
         <ExternalServiceLink type="instagram" />
         <ExternalServiceLink type="utme" />
+        <ExternalServiceLink type="suzuri" />
       </VStack>
     </ScrollRevealContainer>
   )
