@@ -249,6 +249,7 @@ const ImageDialog = styled.dialog`
     padding: 0;
   }
   &::backdrop {
+    cursor: zoom-out;
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px); /* Safari 用 */

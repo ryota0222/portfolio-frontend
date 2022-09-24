@@ -180,6 +180,7 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
                   _active={{}}
                   _hover={{}}
                   mixBlendMode="difference"
+                  cursor="zoom-out"
                 />
                 <Image
                   src={url}
