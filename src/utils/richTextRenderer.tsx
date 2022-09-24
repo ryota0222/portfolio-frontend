@@ -137,15 +137,13 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
           title,
         } = fields
         const ref = useRef<HTMLDialogElement | null>(null)
+        // ダイアローグを開く処理
         const handleOpenDialog = useCallback(() => {
-          if (ref.current) {
-            ref.current.showModal()
-          }
+          if (ref.current) ref.current.showModal()
         }, [ref])
+        // ダイアローグを閉じる処理
         const handleCloseDialog = useCallback(() => {
-          if (ref.current) {
-            ref.current.close()
-          }
+          if (ref.current) ref.current.close()
         }, [ref])
         if (isSp) {
           return (
@@ -169,7 +167,7 @@ const getRichTextRenderer = (data: TopLevelBlock[]) => {
               style={{ cursor: 'zoom-in' }}
               onClick={handleOpenDialog}
             />
-            <BlogStyle.ImageDialog ref={ref}>
+            <BlogStyle.ImageDialog ref={ref} onClick={handleCloseDialog}>
               <Box position="relative">
                 <IconButton
                   aria-label="閉じる"
