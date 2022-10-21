@@ -57,6 +57,10 @@ class MyDocument extends Document<{ prefix: string | null }> {
             content="/favicons/browserconfig.xml"
           />
           <meta name="theme-color" content="#444444" />
+          <meta
+            name="google-site-verification"
+            content="dISNCW-iJsczw9x-T401OF8rnvji-kWWYOOmLcNab_A"
+          />
         </Head>
         <body>
           <Main />
