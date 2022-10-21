@@ -1,28 +1,13 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
-import {
-  Text,
-  Flex,
-  Box,
-  BoxProps,
-  useToken,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/react'
+import React, { memo, useCallback, useMemo } from 'react'
+import { Text, Flex, Box, BoxProps } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
-import styled from 'styled-components'
 import { SubSectionTitle } from '@/components/atoms/SubSectionTitle'
-import useDesignSystem from '@/hooks/useDesignSystem'
 import useSp from '@/hooks/useSp'
 import { PageWrapper } from '@/styles/global.css'
 import { Slide } from '@/types/top'
 import NextImage from 'next/image'
 import { AppButton } from '@/components/atoms/Button'
+import { useRouter } from 'next/router'
 
 const ScrollRevealContainer = dynamic(
   import('@/components/features/top/ScrollRevealContainer'),
@@ -35,27 +20,11 @@ interface Props {
 
 const Slides: React.FC<Props> = memo(({ data }) => {
   const [isSp] = useSp()
-  const { isDark } = useDesignSystem()
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [targetSlide, setTargetSlide] = useState<Slide | null>(null)
-  const [appGray200Color, appGray800Color]: string[] = useToken(
-    // the key within the theme, in this case `theme.colors`
-    'colors',
-    ['app-gray.200', 'app-gray.800'],
-  )
-  const iframeBgColor = useMemo(
-    () => (isDark ? appGray800Color : appGray200Color),
-    [isDark, appGray200Color, appGray800Color],
-  )
+  const router = useRouter()
   const titleSize = useMemo(() => (isSp ? 'sm' : 'lg'), [isSp])
   // モーダルを開く処理
   const handleOpenModal = useCallback((slide: Slide) => {
-    setTargetSlide(slide)
-    onOpen()
-  }, [])
-  // isOpenがfalseの時targetSlideはnull
-  useEffect(() => {
-    if (!isOpen) setTargetSlide(null)
+    router.push(`/slides/${slide.slug}`, undefined, { scroll: false })
   }, [])
   return (
     <>
@@ -108,7 +77,6 @@ const Slides: React.FC<Props> = memo(({ data }) => {
                 <NextImage
                   src={`/images/slides/${slide.date}.png`}
                   alt={slide.title}
-                  width="100%"
                   layout="fill"
                   objectFit="contain"
                 />
@@ -117,26 +85,6 @@ const Slides: React.FC<Props> = memo(({ data }) => {
           ))}
         </Flex>
       </PageWrapper>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay />
-        <ModalContent width="90vw" maxWidth="90vw">
-          <ModalHeader>{targetSlide?.title || ''}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            {targetSlide && (
-              <SlideIframe
-                bg={iframeBgColor}
-                width={'100%'}
-                height={400}
-                src={targetSlide.link}
-                title={targetSlide.title}
-                allowFullScreen
-                loading="eager"
-              />
-            )}
-          </ModalBody>
-        </ModalContent>
-      </Modal>
     </>
   )
 })
@@ -150,8 +98,3 @@ const SlideWrapper: React.FC<SlideWrapperProps> = memo(
     return <ScrollRevealContainer {...props}>{children}</ScrollRevealContainer>
   },
 )
-
-const SlideIframe = styled.iframe<{ bg: string }>`
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: ${(props) => props.bg};
-`
