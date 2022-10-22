@@ -2,6 +2,12 @@ import { Slide, Application, LineStamp, Carrier } from '@/types/top'
 
 export const SLIDE_LIST: Slide[] = [
   {
+    link: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F6MD1YxdH6FFAAGRHBd2x3L%2F%25E5%258B%2589%25E5%25BC%25B7%25E4%25BC%259A%3Fpage-id%3D28%253A35%26node-id%3D28%253A36%26viewport%3D505%252C59%252C0.06%26scaling%3Dcontain%26starting-point-node-id%3D28%253A36',
+    title: '転職活動が終わった話',
+    date: '2022-10-22',
+    slug: 'story-about-job-search-that-ended',
+  },
+  {
     link: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FcSvUahcxaXv6ljPa0GnRVK%2FWCM%3Fpage-id%3D304%253A106%26node-id%3D304%253A126%26viewport%3D791%252C166%252C0.16%26scaling%3Dscale-down%26starting-point-node-id%3D304%253A126%26hotspot-hints%3D0',
     title: 'デザインエンジニアってなんやねん??',
     date: '2022-06-25',
