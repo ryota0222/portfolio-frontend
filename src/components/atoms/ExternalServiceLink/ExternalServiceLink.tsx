@@ -12,7 +12,10 @@ import TwitterDarkImage from '@/assets/icons/twitter-dark.svg'
 import TwitterLightImage from '@/assets/icons/twitter-light.svg'
 import WcmDarkImage from '@/assets/icons/wcm-dark.png'
 import WcmLightImage from '@/assets/icons/wcm-light.png'
+import UtmeImage from '@/assets/icons/utme.png'
+import SuzuriImage from '@/assets/icons/suzuri.png'
 import ZennImage from '@/assets/icons/zenn.svg'
+import ÎnstagramImage from '@/assets/icons/instagram.svg'
 import useDesignSystem from '@/hooks/useDesignSystem'
 import { SERVICE_LINK_MAP, SERVICE_NAME_MAP } from './const'
 import { Props } from './type'
@@ -36,8 +39,14 @@ export const ExternalServiceLink: React.FC<Props> = memo(({ type }) => {
         return LineImage
       case 'slide-share':
         return SlideShareImage
+      case 'instagram':
+        return ÎnstagramImage
       case 'wcm':
         return isDark ? WcmDarkImage : WcmLightImage
+      case 'utme':
+        return UtmeImage
+      case 'suzuri':
+        return SuzuriImage
       default:
         return null
     }
@@ -53,7 +62,13 @@ export const ExternalServiceLink: React.FC<Props> = memo(({ type }) => {
   return (
     <Link href={serviceLink} isExternal>
       <Flex d="inline-flex">
-        <Image src={icon} alt={serviceName} width="24px" height="24px" />
+        <Image
+          src={icon}
+          alt={serviceName}
+          width="24px"
+          height="24px"
+          objectFit="contain"
+        />
         <Box
           d="inline-block"
           textDecoration={'underline'}

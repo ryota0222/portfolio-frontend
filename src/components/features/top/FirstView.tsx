@@ -1,8 +1,19 @@
 import React, { memo } from 'react'
 import { useMemo } from 'react'
-import { Box, Flex, useBreakpointValue, Text, Center } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  useBreakpointValue,
+  Text,
+  Center,
+  useColorModeValue,
+  useToken,
+  Link,
+} from '@chakra-ui/react'
 import Image from 'next/image'
 import useSp from '@/hooks/useSp'
+import { FaTwitter, FaGithub } from 'react-icons/fa'
+import ÎnstagramImage from '@/assets/icons/instagram.svg'
 
 const FirstView: React.FC = memo(() => {
   const [isSp] = useSp()
@@ -21,6 +32,13 @@ const FirstView: React.FC = memo(() => {
           lineHeight: '3rem',
         }
   }, [isSp])
+  const [appGray900Color, appGray100Color]: string[] = useToken(
+    // the key within the theme, in this case `theme.colors`
+    'colors',
+    ['app-gray.900', 'app-gray.100'],
+  )
+  // style
+  const color = useColorModeValue(appGray900Color, appGray100Color)
   const nameMb = useBreakpointValue({ base: 4, md: 8 })
   const flexDirection: 'column' | 'row' = useBreakpointValue({
     base: 'column',
@@ -77,6 +95,25 @@ const FirstView: React.FC = memo(() => {
               <br />
               デザインに興味があり、デザインエンジニアを目指して活動中
             </Text>
+            <Flex mt={6}>
+              {/* github */}
+              <Link href={'https://github.com/RyoTa0222'} isExternal mr={5}>
+                <FaGithub color={color} size="24px" aria-label="github" />
+              </Link>
+              {/* twitter */}
+              <Link href={'https://twitter.com/RyoTa___0222'} isExternal mr={5}>
+                <FaTwitter color={color} size="24px" aria-label="twitter" />
+              </Link>
+              {/* instagram */}
+              <Link href={'https://www.instagram.com/ryotanny/'} isExternal>
+                <Image
+                  src={ÎnstagramImage}
+                  width="24px"
+                  height="24px"
+                  aria-label="instagram"
+                />
+              </Link>
+            </Flex>
           </Box>
         </Center>
       </Flex>

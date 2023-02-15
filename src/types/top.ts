@@ -18,6 +18,7 @@ export interface Slide {
   link: string
   title: string
   date: string
+  slug: string
 }
 
 export interface Application {
